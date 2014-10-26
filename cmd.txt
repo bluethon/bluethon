@@ -48,3 +48,9 @@ git push origin [v1.0]
 
 #一次推送全部标签
 git push origin --tags
+
+#配置命令别名
+# --global为全局(整个git)  存储在用户目录下[.gitconfig]
+git config --global alist.st status
+#普通在.git/config中
+git config alist.st status
