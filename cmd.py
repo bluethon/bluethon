@@ -4,7 +4,6 @@
 #创建SSH key
 ssh-keygen -t rsa -C "youremail@example.com"
 #默认存在User目录下.ssh\
-
 #GitHub->Account Setting->SSH Keys->id_rsa.pub
 
 #本地库关联到GitHub  origin为远程仓库名称,可以修改
@@ -17,6 +16,8 @@ git push origin branch1:branch2
 #删除远程分支
 git push origin :[branch2]
 
+#更新origin url
+git remote set-url origin [new-url]
 #----------------------
 
 #Git本地新建repository
