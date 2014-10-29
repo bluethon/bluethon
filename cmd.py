@@ -49,17 +49,17 @@ git checkout [name]
 #查看当前分支
 git branch
 
-#合并分支  如果可能, Git优先使用"Fast forward"模式 快速但是删除后 分支信息丢失
+#合并[name]分支到当前分支  如果可能, Git优先使用"Fast forward"模式 快速但是删除后 分支信息丢失
 git merge [name]
+
+#合并分支 --no-ff模式 可以保留分支信息
+git merge --no-ff -m "dev message" [dev_name]
 
 #删除分支
 git branch -d [name]
 
 #查看分支合并情况 --图 --单行 --简化commit
 git log --graph --pretty=oneline --abbrev-commit
-
-#合并分支 --no-ff模式 可以保留分支信息
-git merge --no-ff -m "dev message" [dev_name]
 
 #查看远程库信息
 git remote -v
