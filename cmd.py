@@ -57,6 +57,8 @@ git merge --no-ff -m "dev message" [dev_name]
 
 #删除分支
 git branch -d [name]
+#强制删除未合并分支
+git branch -D [name]
 
 #查看分支合并情况 --图 --单行 --简化commit
 git log --graph --pretty=oneline --abbrev-commit
@@ -82,6 +84,16 @@ git fetch origin/[branch-name]
 #查看远程库的分支
 git branch -a
 
+#给当前分支的最新commit打标签
+git tag [name]
+#查看所有标签
+git tag
+#给历史commit打标签
+git tag v1.0 [commitID]
+#给历史commit打标签(带备注)
+git tag -a v1.1 -m "version 1.1 released" [commitID]
+#查看单个标签详细信息
+git show [tagname]
 #删除标签
 git tag -d [v0.1]
 
@@ -90,6 +102,37 @@ git push origin [v1.0]
 
 #一次推送全部标签
 git push origin --tags
+#删除远程标签
+git tag -d v0.9
+git push origin :refs/tags/v0.9
 
 #修改远程主机名称
 git remote rename [原主机名] [新主机名]
+
+#缓存当前工作区
+git stash
+#查看
+git stash list
+#恢复缓存区(不删除stash)
+git stash apply
+#删除缓存区
+git stash drop
+#恢复缓存区(删除stash)
+git stash pop
+
+#给命令配置别名(配置global则针对整个git 存在用户目录下.gitconfig)
+git config --global alias.st status
+git config --global alias.ci commit
+git config --global alias.co checkout
+git config --global alias.br branch
+#别名 当前仓库.git/config中
+
+
+
+#有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次git status都会显示“Untracked files ...”，有强迫症的童鞋心里肯定不爽。
+
+#好在Git考虑到了大家的感受，这个问题解决起来也很简单，在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
+
+#不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+
+#使用Windows的童鞋注意了，如果你在资源管理器里新建一个.gitignore文件，它会非常弱智地提示你必须输入文件名，但是在文本编辑器里“保存”或者“另存为”就可以把文件保存为.gitignore了
