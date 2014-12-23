@@ -1,5 +1,8 @@
 #常用
 #---------------------------
+#查看远程库的分支
+git branch -a
+
 #合并分支 --no-ff模式 可以保留分支信息
 git merge --no-ff -m "dev message" [dev_name]
 
@@ -59,6 +62,8 @@ git checkout [name]
 
 #查看当前分支
 git branch
+#查看远程库的分支
+git branch -a
 
 #合并[name]分支到当前分支  如果可能, Git优先使用"Fast forward"模式 快速但是合并后 分支信息丢失
 git merge [name]
@@ -91,9 +96,6 @@ git pull
 
 #本地添加远程分支
 git fetch origin/[branch-name]
-
-#查看远程库的分支
-git branch -a
 
 #给当前分支的最新commit打标签
 git tag [name]
