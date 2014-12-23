@@ -1,5 +1,16 @@
+#常用
+#---------------------------
+#合并分支 --no-ff模式 可以保留分支信息
+git merge --no-ff -m "dev message" [dev_name]
+
+#删除分支
+git branch -d [name]
+
+
+
+#------------------------
 #GitHub部分
-#--------------------
+#------------------------
 
 #创建SSH key
 ssh-keygen -t rsa -C "youremail@example.com"
@@ -13,7 +24,7 @@ git remote add origin git@github.com:Bluethon/bluegit.git
 git push -u origin master
 #提交[branch1]为远程的[branch2]
 git push origin branch1:branch2
-#删除远程分支
+#删除远程分支+
 git push origin :[branch2]
 
 #更新origin url
