@@ -32,6 +32,10 @@ git push origin :[branch2]
 
 #更新origin url
 git remote set-url origin [new-url]
+
+#ubuntu 默认中文转为英文 想恢复中文 用#注释掉
+echo "alias git='LANG=en_GB git'" >> ~/.bashrc
+
 #----------------------
 
 #Git本地新建repository
