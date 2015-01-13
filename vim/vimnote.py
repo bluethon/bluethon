@@ -1,5 +1,7 @@
 #配置文件在VIM目录下
 _vimrc
+#显示中文
+set fileencodings=utf-8,gbk,big5
 
 #syntax 语法高亮
 :sy on
