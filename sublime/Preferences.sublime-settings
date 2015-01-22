@@ -1,4 +1,5 @@
 {
+	"auto_indent": true,
 	"auto_complete_commit_on_tab": true,
 	"auto_match_enabled": false,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
@@ -16,6 +17,7 @@
 
 	"ignored_packages":
 	[
+		"Vintage"
 	],
 
 	"rulers":[72, 79],
@@ -26,5 +28,6 @@
 	"translate_tabs_to_spaces": true,
 	"ensure_newline_at_eof_on_save": true,
 	// 保存时自动去除行末空白
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"trim_automatic_white_space": true
 }

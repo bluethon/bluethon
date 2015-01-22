@@ -1,0 +1,11 @@
+{
+
+    "codeintel_language_settings": {
+        "Python": {
+            "PATH": "usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH",
+            "pythonExtraPaths": ["/usr/local/lib/python2.7/site-packages"],
+            "python":"/usr/bin/python2.7",
+            "PYTHONPATH": "/usr/local/lib/python2.7/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.7/:/Users/ce/workspace:$PYTHONPATH"
+        }
+    }
+}

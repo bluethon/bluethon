@@ -1,0 +1,5 @@
+{
+    "sublimelinter": false, //on-demand, Use Ctrl+Alt+L to check
+    "sublimelinter_popup_errors_on_save": true, //show popup list of all errors when file is saved
+    "pep8_ignore": ["E201","E202","E203","E221","E225","E231","E251","E303","E501","W291","W292","W293","W391"]
+}

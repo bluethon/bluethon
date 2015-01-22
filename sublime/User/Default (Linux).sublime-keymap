@@ -1,0 +1,3 @@
+[
+     { "keys": ["shift+f1"], "command": "py_help" }
+]
