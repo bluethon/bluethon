@@ -1,3 +1,10 @@
+#设置sublimeREPL
+#1.
+~/.config/sublime-text-2/Packages/SublimeREPL/config/Python/Main.sublime-menu
+"id": "repl_python"中cmd行改为:
+"cmd": ["python", "-i", "-u", "$file_basename"],
+#2.增加快捷键
+
 修改Sublime 新建和保存文件时的默认格式
 ======================================
 常见的Markdown文件有 .md、.mdown、.markdown 等多种形式，sublime默认是使用 .mdown为后缀，而 octopress new_post时默认是使用 .markdown 为后缀，为了保持简洁统一的风格可以将他们默认设置为 .md 后缀。
