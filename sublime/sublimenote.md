@@ -1,4 +1,5 @@
-#设置sublimeREPL
+Windows设置sublimeREPL
+=====================================
 #1.
 ~/.config/sublime-text-2/Packages/SublimeREPL/config/Python/Main.sublime-menu
 "id": "repl_python"中cmd行改为:

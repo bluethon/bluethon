@@ -1,5 +1,7 @@
 {
-	"auto_indent": true,
+	//代码自动补全
+	"auto_complete": false,
+	// 使用tab(默认是enter)完成提示
 	"auto_complete_commit_on_tab": true,
 	"auto_match_enabled": false,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
@@ -7,8 +9,8 @@
 	// 显示空白字符
 	"draw_white_space": "all",
 
-	"font_face": "Ubuntu Mono",
-	"font_size": 12.0,
+	//"font_face": "Ubuntu Mono",
+	"font_size": 11.0,
 	"highlight_line": true,
 	// 使光标闪动更加柔和
 	"caret_style": "phase",
@@ -28,6 +30,5 @@
 	"translate_tabs_to_spaces": true,
 	"ensure_newline_at_eof_on_save": true,
 	// 保存时自动去除行末空白
-	"trim_trailing_white_space_on_save": true,
-	"trim_automatic_white_space": true
+	"trim_trailing_white_space_on_save": true
 }
