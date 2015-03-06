@@ -3,6 +3,9 @@
 #查看远程库的分支
 git branch -a
 
+#创建分支
+git checkout -b [name]
+
 #合并分支 --no-ff模式 可以保留分支信息
 git merge --no-ff -m "dev message" [dev_name]
 
