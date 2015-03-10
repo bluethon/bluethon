@@ -1,6 +1,6 @@
 {
-"Python" : {
-"python": "/usr/local/bin/python",
-"pythonExtraPaths": ["/usr/local/lib/python2.7/site-packages"]
-}
+    "Python" : {
+        "python": "/usr/local/bin/python",
+        "pythonExtraPaths": ["/usr/local/lib/python2.7/site-packages"]
+    }
 }
