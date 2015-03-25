@@ -96,9 +96,15 @@ git push origin [branch-name]
 git checkout -b origin/[branch-name] [branch-name]
 
 #建立本地分支和远程分支的关联
-git branch --set-upstream origin/[branch-name] [branch-name]
+git branch --set-upstream origin/<remote-branch> <local-branch>
 
 #从远程抓去分支信息
+git pull <远程主机名> <远程分支>:<本地分支>
+# 若为当前分支 可省略:<本地分支>
+git pull origin master
+# 若当前分支建立upsteam联系 可省略<远程分支>
+git pull origin
+# 若只track了一个追踪分支 <远程主机名>可省略
 git pull
 
 #本地添加远程分支
