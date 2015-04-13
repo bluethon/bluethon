@@ -1,5 +1,15 @@
+## Linux下输入中文
+`InputHelper`
+使用方法：
+按 Ctrl + Shift + z，调出输入框，然后就可以输入中文，之后按 Enter 即可。
+调出的快捷键 可以在 Default (Linux).sublime-keymap 文件修改，如下，我已经改为 Ctrl+空格 了（因为我Linux下 Ctrl+空格  是切换输入法，所以，想在 Sublime Text 下输入中文，按两下Ctrl+空格 即可）
+>[
+  // { "keys": ["ctrl+shift+z"], "command": "input_helper" }
+  { "keys": ["ctrl+space"], "command": "input_helper" }
+]
+
 ## Windows设置sublimeREPL
-1. 
+1.
 ~/.config/sublime-text-2/Packages/SublimeREPL/config/Python/Main.sublime-menu
 "id": "repl_python"中cmd行改为:
 "cmd": ["python", "-i", "-u", "$file_basename"],

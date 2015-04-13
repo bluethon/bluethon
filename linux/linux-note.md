@@ -15,3 +15,21 @@
 >fi
 
 然后重启bash
+
+## Ubuntu 获取最快的源
+- 备份源列表:
+
+> sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+
+- 刷新列表:
+
+> sudo apt-get update
+
+- 安装 apt-spy
+
+> wget http://ftp.us.debian.org/debian/pool/main/a/apt-spy/apt-spy_3.2.2-1_amd64.deb
+> dpkg -i apt-spy_3.2.2-1_amd64.deb
+
+- 使用 apt-spy 获取最快的源
+
+> apt-spy -d stable -s CN -t 5
