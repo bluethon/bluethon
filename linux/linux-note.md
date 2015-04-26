@@ -1,3 +1,9 @@
+## 搜索定位
+`which xx`
+
+## python pip 库 路径
+> /usr/local/lib/python2.7/dist-packages
+
 ## 显示桌面
 **ctrl+super+d**
 
