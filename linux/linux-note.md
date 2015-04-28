@@ -1,3 +1,13 @@
+## [ubuntu修改屏幕默认亮度](http://blog.csdn.net/hustrains/article/details/8469633)
+- 查询亮度
+`cat /sys/class/backlight/acpi_video0/max_brightness`
+`sudo vim /etc/rc.local`
+- 在“exit 0”前面一行添加一行文字
+`echo 4 > /sys/class/backlight/acpi_video0/brightness`
+
+## 看版本号
+`cat /etc/os-release` 
+
 ## 搜索定位
 `which xx`
 
