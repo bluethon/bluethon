@@ -12,7 +12,8 @@ git merge --no-ff -m "dev message" [dev_name]
 #删除分支
 git branch -d [name]
 
-
+# [git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
+git config --global core.quotepath false
 
 #------------------------
 #GitHub部分
