@@ -63,78 +63,78 @@ git reset --hard 3628164(commit ID)
 `git checkout -- [file]`
 
 删除stage区域的文件
-git rm [file]
+`git rm [file]`
 
 创建分支 -b参数表示创建并切换
-git checkout -b [name]
+`git checkout -b [name]`
 
 切换分支
-git checkout [name]
+`git checkout [name]`
 
 查看当前分支
-git branch
+`git branch`
 查看远程库的分支
-git branch -a
+`git branch -a`
 
 合并[name]分支到当前分支  如果可能, Git优先使用"Fast forward"模式 快速但是合并后 分支信息丢失
-git merge [name]
+`git merge [name]`
 
 合并分支 --no-ff模式 可以保留分支信息
-git merge --no-ff -m "dev message" [dev_name]
+`git merge --no-ff -m "dev message" [dev_name]`
 
 删除分支
-git branch -d [name]
+`git branch -d [name]`
 强制删除未合并分支
-git branch -D [name]
+`git branch -D [name]`
 
 查看分支合并情况 --图 --单行 --简化commit
-git log --graph --pretty=oneline --abbrev-commit
+`git log --graph --pretty=oneline --abbrev-commit`
 
 查看远程库信息
-git remote -v
+`git remote -v`
 
 推送本地分支
-git push origin [branch-name]
+`git push origin [branch-name]`
 
 本地创建远程分支的对应分支(本地分支和远程分支名称最好一致)
-git checkout -b origin/[branch-name] [branch-name]
+`git checkout -b origin/[branch-name] [branch-name]`
 
 建立本地分支和远程分支的关联
-git branch --set-upstream origin/<remote-branch> <local-branch>
+`git branch --set-upstream origin/<remote-branch> <local-branch>`
 
 从远程抓去分支信息
-git pull <远程主机名> <远程分支>:<本地分支>
+`git pull <远程主机名> <远程分支>:<本地分支>`
  若为当前分支 可省略:<本地分支>
-git pull origin master
+`git pull origin master`
  若当前分支建立upsteam联系 可省略<远程分支>
-git pull origin
+`git pull origin`
  若只track了一个追踪分支 <远程主机名>可省略
-git pull
+`git pull`
 
 本地添加远程分支
-git fetch origin/[branch-name]
+`git fetch origin/[branch-name]`
 
 给当前分支的最新commit打标签
-git tag [name]
+`git tag [name]`
 查看所有标签
-git tag
+`git tag`
 给历史commit打标签
-git tag v1.0 [commitID]
+`git tag v1.0 [commitID]`
 给历史commit打标签(带备注)
-git tag -a v1.1 -m "version 1.1 released" [commitID]
+`git tag -a v1.1 -m "version 1.1 released" [commitID]`
 查看单个标签详细信息
-git show [tagname]
+`git show [tagname]`
 删除标签
-git tag -d [v0.1]
+`git tag -d [v0.1]`
 
 标签默认本地 推送远程
-git push origin [v1.0]
+`git push origin [v1.0]`
 
 一次推送全部标签
-git push origin --tags
+`git push origin --tags`
 删除远程标签
-git tag -d v0.9
-git push origin :refs/tags/v0.9
+`git tag -d v0.9`
+`git push origin :refs/tags/v0.9`
 
 修改远程主机名称
 `git remote rename [原主机名] [新主机名]`
