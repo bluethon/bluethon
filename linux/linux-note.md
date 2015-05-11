@@ -9,6 +9,9 @@
 `ctrl+r`自动在命令历史缓存中增量搜索后面的字符(先按快捷键)
 `ctrl+super+d`显示桌面
 
+## shell
+`ls-ah`查看隐藏文件
+
 ## [ubuntu修改屏幕默认亮度](http://blog.csdn.net/hustrains/article/details/8469633)
 - 查询亮度
 `cat /sys/class/backlight/acpi_video0/max_brightness`
