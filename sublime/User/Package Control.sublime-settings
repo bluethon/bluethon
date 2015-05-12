@@ -2,22 +2,23 @@
 	"in_process_packages":
 	[
 	],
-	"installed_dependencies":
-	[
-		"0_package_control_loader",
-		"bz2",
-		"ssl-linux"
-	],
 	"installed_packages":
 	[
-		"AndyPython",
-		"AutoPEP8",
 		"BracketHighlighter",
+		"ConvertToUTF8",
+		"Default File Type",
+		"Emmet",
 		"GitGutter",
-		"InputHelper",
-		"Jedi - Python autocompletion",
+		"IMESupport",
+		"Markdown Extended",
+		"Markdown Preview",
+		"MarkdownBuild",
+		"Monokai Extended",
 		"Package Control",
+		"Python PEP8 Autoformat",
 		"SublimeCodeIntel",
-		"SublimeLinter"
+		"sublimelint",
+		"SublimeREPL",
+		"SyncedSideBar"
 	]
 }

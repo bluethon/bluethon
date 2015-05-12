@@ -1,2 +1,16 @@
 [
+    {"keys": [
+            "alt+r"
+        ],
+        "command": "markdown_preview",
+        "args": {
+            "target": "browser"
+        }
+    },
+    {
+        "keys": [
+            "ctrl+n"
+        ],
+        "command": "default_file_type"
+    }
 ]
