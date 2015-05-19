@@ -1,6 +1,11 @@
 常用
 =====
 
+ubuntu 默认中文转为英文 想恢复中文 用#注释掉
+`echo "alias git='LANG=en_GB git'" >> ~/.bashrc`
+更新origin url
+`git remote set-url origin [new-url]`
+
 查看远程库的分支
 `git branch -a`
 
@@ -36,9 +41,6 @@ GitHub部分
 
 更新origin url
 `git remote set-url origin [new-url]`
-
-ubuntu 默认中文转为英文 想恢复中文 用#注释掉
-`echo "alias git='LANG=en_GB git'" >> ~/.bashrc`
 
 Git
 ===
