@@ -6,10 +6,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 ```
+
 **web调试**
+
 `__main__`中`app.run(debug=True)`开启调试
 
 **查看帮助文档**
+
 `pydoc function_or_module`
 
 **类执行顺序**
@@ -36,6 +39,15 @@ if __name__ == '__main__':
 isinstance(s, string)
 ```
 
+**print格式化输出**
+``` python
+nHex = 0x20
+#%x --- hex 十六进制
+#%d --- dec 十进制
+#%o --- oct 八进制
+%015   长度15 不足前导0补齐
+```
+    
 回车换行
 ` \n 10 \x0a` newline 换行
 ` \r 13 \x0d` return 回车
