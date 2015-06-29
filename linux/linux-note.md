@@ -63,3 +63,10 @@
 - 使用 apt-spy 获取最快的源
 
 > apt-spy -d stable -s CN -t 5
+
+# home下文件夹中文改为英文
+```
+export LANG=en_US    #改变支持的语言为英语
+xdg-user-dirs-gtk-update   #更新系统语言，按照中文对应的英语进行翻译
+export LANG=zh_CN.UTF-8    #重新支持中文
+```

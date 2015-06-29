@@ -18,6 +18,9 @@ ubuntu 默认中文转为英文 想恢复中文 用#注释掉
 删除分支
 `git branch -d [name]`
 
+将stash的内容新建为tesstchange分支
+`git stash branch testchanges`
+
 [git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
 `git config --global core.quotepath false`
 
