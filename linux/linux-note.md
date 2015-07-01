@@ -1,4 +1,9 @@
-## hotkey
+#### ls
+a all
+l long
+h human 文件大小带k m
+
+#### hotkey
 `ctrl+d`键盘输入结束,用来关闭shell
 `ctrl+a`光标移动到命令行开始
 `ctrl+e`光标移动到命令行末尾
@@ -9,32 +14,32 @@
 `ctrl+r`自动在命令历史缓存中增量搜索后面的字符(先按快捷键)
 `ctrl+super+d`显示桌面
 
-## shell
+#### shell
 `ls-ah`查看隐藏文件
 
-## [ubuntu修改屏幕默认亮度](http://blog.csdn.net/hustrains/article/details/8469633)
+#### [ubuntu修改屏幕默认亮度](http://blog.csdn.net/hustrains/article/details/8469633)
 - 查询亮度
 `cat /sys/class/backlight/acpi_video0/max_brightness`
 `sudo vim /etc/rc.local`
 - 在“exit 0”前面一行添加一行文字
 `echo 4 > /sys/class/backlight/acpi_video0/brightness`
 
-## top
+#### top
 任务管理器
 
-## 看版本号
-`cat /etc/os-release` 
+#### 看版本号
+`cat /etc/os-release`
 
-## 搜索定位
+#### 搜索定位
 `which xx`
 
-## python pip 库 路径
+#### python pip 库 路径
 > /usr/local/lib/python2.7/dist-packages
 
-## 删除文件夹及内所有
+#### 删除文件夹及内所有
 **rm -rf name**
 
-## bash git不能自动补全
+#### bash git不能自动补全
 修改/etc/bash.bashrc
 
 把下面内容的注释符去掉
@@ -46,7 +51,7 @@
 
 然后重启bash
 
-## Ubuntu 获取最快的源
+#### Ubuntu 获取最快的源
 - 备份源列表:
 
 > sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
@@ -64,7 +69,7 @@
 
 > apt-spy -d stable -s CN -t 5
 
-# home下文件夹中文改为英文
+#### home下文件夹中文改为英文
 ```
 export LANG=en_US    #改变支持的语言为英语
 xdg-user-dirs-gtk-update   #更新系统语言，按照中文对应的英语进行翻译
