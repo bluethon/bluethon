@@ -1,18 +1,29 @@
+#### hotkey
+`ctrl+d` 键盘输入结束,用来关闭shell
+`ctrl+a` 光标移动到命令行开始
+`ctrl+e` 光标移动到命令行末尾
+`ctrl+u` 清除光标位置前的所有字符
+`ctrl+w` 清除左边的字段
+`ctrl+k` 清除提示符到命令行末尾的字符
+`ctrl+y` 粘贴u/w/k清除的字符
+`ctrl+r` 自动在命令历史缓存中增量搜索后面的字符(先按快捷键)
+`ctrl+super+d` 显示桌面
+`Ctrl+L` 清屏
+
 #### ls
 a all
 l long
 h human 文件大小带k m
+`ll` == `ls -l`
 
-#### hotkey
-`ctrl+d`键盘输入结束,用来关闭shell
-`ctrl+a`光标移动到命令行开始
-`ctrl+e`光标移动到命令行末尾
-`ctrl+u`清除光标位置前的所有字符
-`ctrl+w`清除左边的字段
-`ctrl+k`清除提示符到命令行末尾的字符
-`ctrl+y`粘贴u/w/k清除的字符
-`ctrl+r`自动在命令历史缓存中增量搜索后面的字符(先按快捷键)
-`ctrl+super+d`显示桌面
+#### `rm` remove
+-r recursive 递归 可删除目录
+-f force 强制删除 不提示
+
+#### `cp` copy & rename
+-a == -pdr 完全复制, 包括创建时间等
+
+#### pwd == print working directory
 
 #### shell
 `ls-ah`查看隐藏文件
