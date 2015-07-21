@@ -1,0 +1,6 @@
+{
+    "Python3": {
+        "python": "D:/Python34/python.exe",
+        "pythonExtraPaths": ["D:/Python34/Lib", "D:/Python34/Lib/site-packages"]
+    }
+}
