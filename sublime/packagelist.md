@@ -37,3 +37,6 @@ SublimeTmpl
 
 #### 高亮显示多余的空格和Tab
 TrailingSpaces
+
+#### JSON格式化(C+A+j)
+Pretty JSON
