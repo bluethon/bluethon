@@ -35,6 +35,9 @@ SublimeTmpl
 - Markdown Extended
 - Monokai Extended
 
+#### HTML 格式化
+Tag
+
 #### 高亮显示多余的空格和Tab
 TrailingSpaces
 
