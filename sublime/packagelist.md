@@ -1,11 +1,17 @@
 #### 查看标准库帮助
 AndyPython
 
+#### 自动补全文件路径
+AutoFileName
+
 #### 自动格式化为PEP8标准格式
 AutoPEP8
 
 #### 括号高亮
 BracketHighlighter
+
+#### 高亮变量
+Colorcoder
 
 #### 类似于git diff查看方式
 GitGutter
