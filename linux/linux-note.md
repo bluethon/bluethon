@@ -10,6 +10,9 @@
 `ctrl+super+d` 显示桌面
 `Ctrl+L` 清屏
 
+`shift+PageUp` 向上滚屏
+`shift+PageDown` 向下滚屏
+
 #### ls
 a all
 l long

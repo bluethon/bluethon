@@ -17,6 +17,10 @@
 `select * from t1 where id <10 into outfile "D:\\xxx.txt"`
 
 ----
+## 操作
+
+#### update
+`update links set name='simaopig' where name='xiaoxiaozi'`
 
 ## 权限
 

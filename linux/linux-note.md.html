@@ -1,0 +1,155 @@
+<h4>hotkey</h4>
+
+<p><code>ctrl+d</code> 键盘输入结束,用来关闭shell
+<code>ctrl+a</code> 光标移动到命令行开始
+<code>ctrl+e</code> 光标移动到命令行末尾
+<code>ctrl+u</code> 清除光标位置前的所有字符
+<code>ctrl+w</code> 清除左边的字段
+<code>ctrl+k</code> 清除提示符到命令行末尾的字符
+<code>ctrl+y</code> 粘贴u/w/k清除的字符
+<code>ctrl+r</code> 自动在命令历史缓存中增量搜索后面的字符(先按快捷键)
+<code>ctrl+super+d</code> 显示桌面
+<code>Ctrl+L</code> 清屏</p>
+
+<h4><code>ls</code></h4>
+
+<p>a all
+l long
+h human 文件大小带k m
+<code>ll</code> == <code>ls -l</code></p>
+
+<h4><code>mkdir</code></h4>
+
+<p>-p 依次创建路径 如果没有文件夹</p>
+
+<h4><code>ln</code> link 链接命令</h4>
+
+<p><code>ln -s [原文件] [目标文件]</code> -s 软链接 类似windows快捷方式 能跨分区
+不加-s 是硬链接 类似于指针 指向原文件i节点(同存储点) 不能跨分区</p>
+
+<h4>查找</h4>
+
+<p><strong><code>locate</code></strong> 文件搜索命令
+1. 数据库中查找 速度快 不实时
+2. updatedb更新数据库
+3. /etc/updatedb.conf 配置文件</p>
+
+<p><code>shell
+  PRUNE_BIND_MOUNTS = "yes" # 开启搜索限制
+  PRUNEFS =  # 搜索时, 不搜索的文件系统
+  PRUNENAMES =  # 搜索时, 不搜索的文件类型
+  PRUNEPATHS =  # 搜索时, 不搜索的路径
+</code></p>
+
+<p><strong><code>whereis</code> <code>which</code></strong> 命令搜索命令
+<code>whereis</code> 搜索命令及帮助文档
+-b 只查找可执行文件
+-m 只查找帮助文档
+<code>which</code> 搜索命令所在路径及别名</p>
+
+<p><strong><code>find</code></strong>
+<code>find 查找位置</code></p>
+
+<h4><code>rm</code> remove</h4>
+
+<p>-r recursive 递归 可删除目录
+-f force 强制删除 不提示</p>
+
+<h4><code>cp</code> copy &amp; rename</h4>
+
+<p>-a == -pdr 完全复制, 包括创建时间等</p>
+
+<h4>pwd == print working directory</h4>
+
+<h4>shell</h4>
+
+<p><code>ls-ah</code>查看隐藏文件</p>
+
+<h4><a href="http://blog.csdn.net/hustrains/article/details/8469633">ubuntu修改屏幕默认亮度</a></h4>
+
+<p><strong>查询亮度</strong>
+<code>cat /sys/class/backlight/acpi_video0/max_brightness</code>
+<code>sudo vim /etc/rc.local</code>
+- 在“exit 0”前面一行添加一行文字
+<code>echo 4 &gt; /sys/class/backlight/acpi_video0/brightness</code></p>
+
+<h4>top</h4>
+
+<p>任务管理器</p>
+
+<h4>看版本号</h4>
+
+<p><code>cat /etc/os-release</code></p>
+
+<h4>搜索定位</h4>
+
+<p><code>which xx</code></p>
+
+<h4>python pip 库 路径</h4>
+
+<blockquote>
+  <p>/usr/local/lib/python2.7/dist-packages</p>
+</blockquote>
+
+<h4>删除文件夹及内所有</h4>
+
+<p><strong>rm -rf name</strong></p>
+
+<h4>bash git不能自动补全</h4>
+
+<p>修改/etc/bash.bashrc</p>
+
+<p>把下面内容的注释符去掉</p>
+
+<blockquote>
+  <p>if [ -f /etc/bash_completion ] &amp;&amp;! shopt -oq posix; then</p>
+
+<p>. /etc/bash_completion</p>
+
+<p>fi</p>
+</blockquote>
+
+<p>然后重启bash</p>
+
+<h4>Ubuntu 获取最快的源</h4>
+
+<ul>
+<li>备份源列表:</li>
+</ul>
+
+<blockquote>
+  <p>sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup</p>
+</blockquote>
+
+<ul>
+<li>刷新列表:</li>
+</ul>
+
+<blockquote>
+  <p>sudo apt-get update</p>
+</blockquote>
+
+<ul>
+<li>安装 apt-spy</li>
+</ul>
+
+<blockquote>
+  <p>wget http://ftp.us.debian.org/debian/pool/main/a/apt-spy/apt-spy<em>3.2.2-1</em>amd64.deb
+dpkg -i apt-spy<em>3.2.2-1</em>amd64.deb</p>
+</blockquote>
+
+<ul>
+<li>使用 apt-spy 获取最快的源</li>
+</ul>
+
+<blockquote>
+  <p>apt-spy -d stable -s CN -t 5</p>
+</blockquote>
+
+<h4>home下文件夹中文改为英文</h4>
+
+<p><code>
+export LANG=en_US    #改变支持的语言为英语
+xdg-user-dirs-gtk-update   #更新系统语言，按照中文对应的英语进行翻译
+export LANG=zh_CN.UTF-8    #重新支持中文
+</code></p>
