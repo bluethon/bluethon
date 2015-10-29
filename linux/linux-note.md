@@ -89,3 +89,38 @@ export LANG=en_US    #改变支持的语言为英语
 xdg-user-dirs-gtk-update   #更新系统语言，按照中文对应的英语进行翻译
 export LANG=zh_CN.UTF-8    #重新支持中文
 ```
+
+#### find
+完全匹配
+
+`iname`
+不区分大小写
+find /root -iname install.log
+
+`user`
+按照所有者搜索
+
+`nouser`
+查找没有所有者的文件
+find /root -nouser
+
+`find /var/log/ -mtime +10`
+查找10天前修改的文件
+
+-10 10天内修改文件
+10  10天当天修改的文件
++10 10天前修改的文件
+
+`find . -size 25k`
+`find . -size 25M`
+查找文件大小是25KB的文件/25MB
+
+-25k  小于25KB的文件
+25k   等于25KB的文件
++25k  大于25KB的文件
+
+`find /etc -size +20k -a -size -50k -exec ls -lh {} \;`
+查找/etc/目录下 大于20kb小于50kb 的文件, 并显示详细信息
+`-a` and 与
+`-o` or  或
+`-exec/-ok 命令 {} \;` 对搜索结果执行操作,`{} \;`是固定结尾格式
