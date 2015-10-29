@@ -13,6 +13,17 @@
 `shift+PageUp` 向上滚屏
 `shift+PageDown` 向下滚屏
 
+#### diff
+`diff [options] files`
+`-B` 忽略空行
+`-w` 忽略空格
+`-I RE` 匹配正则, 则忽略该行
+`-u` 对比 上下文(合并)
+`-c` 对比 上下文
+`-y` 对比 左右并排
+`-q` 只显示是否相同
+`-r` 递归比较子目录的文件
+
 #### ls
 a all
 l long
