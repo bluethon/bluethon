@@ -24,6 +24,9 @@
 `-q` 只显示是否相同
 `-r` 递归比较子目录的文件
 
+**eg**
+`diff -B -u -w -I 'author|FileSystemEvent' www/ ../liao/awesome-python3-webapp/www/ >diff.log`
+
 #### ls
 a all
 l long
