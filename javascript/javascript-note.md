@@ -73,4 +73,74 @@ js的数组可以包括任意数据类型
 上为字符串, 不支持strict的浏览器讲视为一个字符串语句执行
 
 ### 字符串
+var s =
+s.length;
+可以使用下标操作 s[5];
+**字符串是不可变的**, 索引赋值不报错 但也修改不了值
 
+以下方法不会改变原字符串, 而是返回新的
+`toUpperCase()` 大写
+`toLowerCase()` 小写
+`indexOf()` 搜索指定字符串出现的位置 **值找索引**
+未找到返回-1
+`substring()` 返回指定索引区间的字符串
+``` js
+s.substring(2, 5); //2开始到5 不包括5
+s.substring(7); //索引7到结尾
+```
+
+### 数组
+js的`Array`可以包含任意数据类型 在同一个数组里
+
+给`Array`的`length`直接赋值会导致数组大小变化, 大小变为新值
+
+可通过对某个索引值赋值修改数组
+
+越界赋值会引起`Array`变大 但是**不会报错**
+
+**indexOf**
+
+**slice**
+同String的`substring`类似
+不给`slice()`传参 它会从头截到尾, 此原理可用来复制`Array`
+直接赋值会引用同一个`Array`
+``` js
+var arr;
+var aCopy = arr.slice();
+```
+**push&pop**
+`push()` 向末尾添加若干元素
+`pop` 删除最后一个 空数组pop不报错 返回undefined
+
+**unshift&shift**
+`unshift()` 向`Array`头部加若干元素
+`shift()` 删除第一个元素
+
+**sort**
+修改当前`Array`元素位置, 直接调用, 默认顺序重排
+
+**reverse**
+逆序排列当前`Array`
+
+**splice**
+从指定索引开始删除若干元素, 在从**该**位置添加若干元素
+``` js
+var arr = ['Microsoft', 'Apple', 'Yahoo', 'AOL', 'Excite', 'Oracle'];
+// 从索引2开始删除3个元素,然后再添加两个元素:
+arr.splice(2, 3, 'Google', 'Facebook'); // 返回删除的元素 ['Yahoo', 'AOL', 'Excite']
+arr; // ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']
+```
+
+**concat**
+将当前`Array`和其他拼接 返回一个**新**的`Array`
+此方法可接受任意多个元素和`Array`, 可混合写在一起
+
+**join**
+将当前`Array`每个元素用指定字符链接
+``` js
+arr.join('-');
+
+**多维数组**
+``` js
+arr[2][3]; //此方法引用
+```
