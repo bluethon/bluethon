@@ -203,7 +203,7 @@ Dim rn As Integer
         .Range("D2") = "是"
         .Range("E2") = "是"
         .Range("A2", .Cells(rn, "A")).FillDown
-        .Range("D2", .Cells(rn, "F")).FillDown
+        .Range("D2", .Cells(rn, "E")).FillDown
     End With
 
     '保存
