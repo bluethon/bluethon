@@ -7,20 +7,11 @@ Public UpldSheet As Worksheet, LoadRange As Range
 Public raw_last As Integer, col_last As Integer
 Public wkBook As Object, ws As Object
 
-Public SaveName As String   '生成文件保存的文件名
+'Public fileName As String   '生成文件保存的文件名
 Public PlmOutputName As String
 Public PlmBomAddFile As String
 Public PlmImGroupName As String
-Sub SaveAs()
 
-    Application.DisplayAlerts = False
-    With ActiveWorkbook
-        .SaveAs (SaveName)
-        .Close (False)
-    End With
-    Application.DisplayAlerts = True
-
-End Sub
 Sub Data_Copy()
 
 Dim Point As Long
@@ -53,13 +44,13 @@ If Worksheets.Count < 3 Then
 End If
 
 For Each ws In wkBook.Worksheets
-    If UCase(ws.Name) = "TEMPLATE" Then
+    If UCase(ws.name) = "TEMPLATE" Then
         shtcount = shtcount + 1
     End If
-    If UCase(ws.Name) = "RAWDATA" Then
+    If UCase(ws.name) = "RAWDATA" Then
         shtcount = shtcount + 1
     End If
-     If UCase(ws.Name) = "UPLOAD" Then
+     If UCase(ws.name) = "UPLOAD" Then
         shtcount = shtcount + 1
     End If
 Next ws
@@ -99,7 +90,7 @@ ActiveSheet.Cells(1, 1).CurrentRegion.Select
 End With
 
 '将当前文档路径+txt文件赋值
-Rootdatafile = ActiveWorkbook.Path + "\bdc_recording.txt"
+Rootdatafile = awbPath + "\bdc_recording.txt"
 '如果txt文件存在,删除之,防止弹出覆盖对话框
 If Dir(Rootdatafile) <> "" Then
     '显示输出txt文件路径
@@ -108,7 +99,7 @@ If Dir(Rootdatafile) <> "" Then
 Else: MsgBox "文件不存在"
 End If
 
-ActiveWorkbook.SaveAs filename:=(Rootdatafile), FileFormat:=xlText
+ActiveWorkbook.saveAs fileName:=(Rootdatafile), FileFormat:=xlText
 ActiveWorkbook.Close SaveChanges:=False
 
 End Sub
@@ -116,7 +107,7 @@ Sub Template_plm()
 
 Dim firstrng As Range
 
-SaveName = ActiveWorkbook.Path + PlmOutputName
+fileName = awbPath + PlmOutputName
 
 With ActiveSheet
 raw_last = .Cells(.Rows.Count, "A").End(xlUp).Row
@@ -137,12 +128,7 @@ If raw_last > firstrng.Row Then
     Range(firstrng, Cells(raw_last, col_last)).FillDown
 End If
 
-Application.DisplayAlerts = False
-With ActiveWorkbook
-    .SaveAs (SaveName)
-    .Close (False)
-End With
-Application.DisplayAlerts = True
+Call SaveFile(fileName)
 
 End Sub
 Sub E_26()
@@ -165,28 +151,16 @@ Dim arr As Variant
     [A1].CurrentRegion.Columns.AutoFit
     arr = [A1].CurrentRegion
 
-    Workbooks.Open (ActiveWorkbook.Path + PlmBomAddFile)
+    Workbooks.Open (awbPath + PlmBomAddFile)
     With ActiveWorkbook.Worksheets(1)
         .Cells(7, 1).Resize(UBound(arr), 3) = arr
     End With
 
 End Sub
-Sub ZPP78()
-
-    SaveName = "D:\批量创建工艺路线工序"
-
-    Application.DisplayAlerts = False
-    With ActiveWorkbook
-    .SaveAs (SaveName)
-    .Close (False)
-    End With
-    Application.DisplayAlerts = True
-
-End Sub
 Sub plm_imgroup()
 Dim rn As Integer
 
-    SaveName = ActiveWorkbook.Path + PlmImGroupName
+    fileName = awbPath + PlmImGroupName
 
     '调整列顺序
     [K:K].Cut
@@ -207,12 +181,25 @@ Dim rn As Integer
     End With
 
     '保存
-    Call SaveAs
+    Call SaveFile(fileName)
+
+End Sub
+Sub SaveFile(name As String)
+
+    Application.DisplayAlerts = False
+    With ActiveWorkbook
+        .saveAs (name)
+        .Close (False)
+    End With
+    Application.DisplayAlerts = True
 
 End Sub
 Sub main()
+Dim fileName As String
 Dim PlmImOptionSet As String
 Dim PlmImBomExpression As String
+Dim awbName As String
+Dim awbPath As String
 
 'init
 PlmOutputName = "\000_import_plm"
@@ -220,32 +207,42 @@ PlmImGroupName = "\005_import_Group"
 PlmImOptionSet = "\006_import_OptionSet"
 PlmImBomExpression = "\007_import_BomExpression"
 PlmBomAddFile = "\021_BOM_import-add.xlsx"
+ZPP78_Name = "D:\批量创建工艺路线工序"
 
+awbName = ActiveWorkbook.name
+awbPath = awbPath
 
 Application.ScreenUpdating = False
 
 'PLM模板
 If ActiveSheet.Cells(1, 1) Like "*ImportSheetType*" Then
     Call Template_plm
+
 'E-26BOM转换
-ElseIf ActiveWorkbook.Name Like "*E-26*" Then
+ElseIf awbName Like "*E-26*" Then
     Call E_26
     Call Template_plm
     ActiveWorkbook.Close SaveChanges:=False
+
 'ZPP78 工艺路线
-ElseIf ActiveWorkbook.Name Like "*ZPP78*" Then
-    Call ZPP78
+ElseIf awbName Like "*ZPP78*" Then
+    fileName = ZPP78_Name
+    Call SaveFile(fileName)
+
 '导入选项组
-ElseIf ActiveWorkbook.Name Like "*import_Group*" Then
+ElseIf awbName Like "*import_Group*" Then
     Call plm_imgroup
+
 '导入选项集
-ElseIf ActiveWorkbook.Name Like "*import_OptionSet*" Then
-    SaveName = ActiveWorkbook.Path + PlmImOptionSet
-    Call SaveAs
+ElseIf awbName Like "*import_OptionSet*" Then
+    fileName = awbPath + PlmImOptionSet
+    Call SaveFile(fileName)
+
 '导入表达式
-ElseIf ActiveWorkbook.Name Like "*import_BomExpression*" Then
-    SaveName = ActiveWorkbook.Path + PlmImBomExpression
-    Call SaveAs
+ElseIf awbName Like "*import_BomExpression*" Then
+    fileName = awbPath + PlmImBomExpression
+    Call SaveFile(fileName)
+
 Else
     Call Template_sap
 End If
