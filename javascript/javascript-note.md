@@ -139,6 +139,7 @@ arr; // ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']
 将当前`Array`每个元素用指定字符链接
 ``` js
 arr.join('-');
+```
 
 **多维数组**
 ``` js
