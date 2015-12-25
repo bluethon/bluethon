@@ -1,4 +1,4 @@
-## Linux下输入中文
+#### Linux下输入中文
 `InputHelper`
 使用方法：
 按 Ctrl + Shift + z，调出输入框，然后就可以输入中文，之后按 Enter 即可。
@@ -8,7 +8,7 @@
   { "keys": ["ctrl+space"], "command": "input_helper" }
 ]
 
-## Windows设置sublimeREPL
+#### Windows设置sublimeREPL
 1.
 ~/.config/sublime-text-2/Packages/SublimeREPL/config/Python/Main.sublime-menu
 "id": "repl_python"中cmd行改为:
@@ -16,7 +16,7 @@
 
 2. 增加快捷键
 
-## 修改保存文件时的默认后缀形式
+#### 修改保存文件时的默认后缀形式
 
 1. 新建一个空白文件，设置 Syntax - Markdown
 
@@ -28,7 +28,7 @@
 
 试验下新建 markdown 文件，保存时的后缀是否为 .md
 
-## 设置新建文件的默认格式和语法高亮 （`cmd+n`）
+#### 设置新建文件的默认格式和语法高亮 （`cmd+n`）
 
 1. 使用`package control`安装`Default File Type`
 
@@ -42,3 +42,14 @@
 ```
 
 3. 重启 Sublime text 2，试验下新建文件，看下右下角指示是否为 Markdown
+
+#### SublimeGit User设置
+``` json
+{
+    "git_executables": {
+        "git": ["D:/Program Files/Git/bin/git.exe"],
+        "git_flow": ["D:/Program Files (x86)/Git/bin/git.exe", "flow"],
+        "legit": ["legit"]
+    }
+}
+```

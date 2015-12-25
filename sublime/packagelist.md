@@ -49,3 +49,6 @@ TrailingSpaces
 
 #### JSON格式化(C+A+j)
 Pretty JSON
+
+#### Git
+SublimeGit
