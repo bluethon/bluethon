@@ -248,3 +248,34 @@ or
 
 `tar -ztvf 文件名`
 -t: =test 仅查看压缩包
+
+
+#### 关机和重启
+
+**shutdown**
+`shutdown [选项] 时间`
+关机, 关机前会保存数据, 安全, 推荐
+-c: 取消前一个关机命令
+-h: 关机
+-r: 重启
+
+其他关机命令, 不推荐
+``` shell
+halt
+poweroff
+init0
+```
+
+其他重启命令
+``` shell
+reboot # 较安全, 可用
+init 6
+```
+
+**init**
+系统运行级别, 0-6
+详查`cat /etc/inittab`
+
+`runlevel` 查询系统运行级别, 第一个N表示none 即前一个级别为空
+
+#### 挂载
