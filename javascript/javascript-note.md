@@ -5,6 +5,7 @@ JavaScript 学习笔记
 
 **Number**
 JavaScript不区分整数和浮点, 统一用`Number`表示
+
 ``` js
 NaN; // NaN表示Not a Number, 当无法计算结果是用此表示
 2/0;
@@ -20,6 +21,7 @@ Unicode字符 `\u####`
 换行`\n`
 
 ES6新增多行字符串表示方法
+
 ``` js
 `A
 B
@@ -29,6 +31,7 @@ C`;
 **比较运算符**
 `==` 自动转换数据类型 不推荐
 `===` 不自动转换类型 推荐
+
 ``` js
 false == 0; // true
 false === 0; // false
@@ -41,6 +44,7 @@ isNaN(NaN); //  true
 ```
 
 浮点数比较 计算差值的绝对值小于某阈值
+
 ``` js
 Math.abs(1 / 3 - (1 - (2 / 3)) < 0.00000001; // true
 ```
@@ -52,6 +56,7 @@ undefined仅仅在判断函数参数是否传递的情况下有用
 **数组**
 js的数组可以包括任意数据类型
 使用`[]`直接创建, 另可通过`new Array()`, 不推荐
+
 ``` js
 [1, 2, 'hello', null];
 ```
@@ -84,6 +89,7 @@ s.length;
 `indexOf()` 搜索指定字符串出现的位置 **值找索引**
 未找到返回-1
 `substring()` 返回指定索引区间的字符串
+
 ``` js
 s.substring(2, 5); //2开始到5 不包括5
 s.substring(7); //索引7到结尾
@@ -104,6 +110,7 @@ js的`Array`可以包含任意数据类型 在同一个数组里
 同String的`substring`类似
 不给`slice()`传参 它会从头截到尾, 此原理可用来复制`Array`
 直接赋值会引用同一个`Array`
+
 ``` js
 var arr;
 var aCopy = arr.slice();
@@ -124,6 +131,7 @@ var aCopy = arr.slice();
 
 **splice**
 从指定索引开始删除若干元素, 在从**该**位置添加若干元素
+
 ``` js
 var arr = ['Microsoft', 'Apple', 'Yahoo', 'AOL', 'Excite', 'Oracle'];
 // 从索引2开始删除3个元素,然后再添加两个元素:
@@ -137,11 +145,13 @@ arr; // ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']
 
 **join**
 将当前`Array`每个元素用指定字符链接
+
 ``` js
 arr.join('-');
 ```
 
 **多维数组**
+
 ``` js
 arr[2][3]; //此方法引用
 ```
@@ -166,3 +176,44 @@ delete s.age; //删除
 'age' in s; //检测
 s.hasOwnProperty('age'); //only own
 ```
+
+#### 条件判断
+JavaScript把`null`、`undefined`、`0`、`NaN`和空字符串`''`视为`false`, 其他值一概视为`true`
+
+#### 循环
+`for (var key in Array)`
+
+`for ... in`对`Array`循环得到的是`String`不是`Number`
+
+``` js
+var a = ['A', 'B', 'C'];
+for (var i in a) {
+    alert(i); // '0', '1', '2'
+    alert(a[i]); // 'A', 'B', 'C'
+}
+```
+
+#### Map&Set
+
+**Map**
+原版js不能使用`String`外的值做`{}`索引
+新版引入`Map`可以
+具有以下方法
+
+``` js
+var m = new Map(); // 空Map
+m.set('Adam', 67); // 添加新的key-value
+m.set('Bob', 59);
+m.has('Adam'); // 是否存在key 'Adam': true
+m.get('Adam'); // 67
+m.delete('Adam'); // 删除key 'Adam'
+m.get('Adam'); // undefined
+```
+同一索引多次赋值会覆盖
+
+**Set**
+`Set`和`Map`类似, 也是key的集合, 但不储存value, 且key不会重复
+通过`add(key)`添加
+通过`delete(key)`删除
+
+#### iterable
