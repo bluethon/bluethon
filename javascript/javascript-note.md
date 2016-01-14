@@ -217,3 +217,119 @@ m.get('Adam'); // undefined
 通过`delete(key)`删除
 
 #### iterable
+`Array`、`Map`和`Set`都属于`iterable`类
+`iterable`类型的集合可以使用`for ... of`循环遍历
+
+``` js
+var a = ['A', 'B', 'C'];
+var s = new Set(['A', 'B', 'C']);
+var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+for (var x of a) { // 遍历Array
+    alert(x);
+}
+for (var x of s) { // 遍历Set
+    alert(x);
+}
+for (var x of m) { // 遍历Map
+    alert(x[0] + '=' + x[1]);
+}
+```
+
+**`for ... of`循环和`for ... in`循环区别**
+`for ... in`循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个`Array`数组实际上也是一个对象，它的每个元素的索引被视为一个属性
+
+`for ... in`循环将把`name`包括在内，但`Array`的`length`属性却不包括在内
+`for ... of`循环则只循环集合本身的元素
+
+``` js
+var a = ['A', 'B', 'C'];
+a.name = 'Hello'; //手动添加属性
+for (var x in a) {
+    alert(x); // '0', '1', '2', 'name'
+}
+```
+
+更好的方式为使用`iterable`内置的`forEach`方法, 它接受一个函数, 每次迭代就自动会调该函数
+**参数命名不固定, 但位置固定**
+ES5.1标准引入
+
+``` js
+//Array
+var a = ['A', 'B', 'C'];
+a.forEach(function (element, index, array) {
+    // element: 指向当前元素的值
+    // index: 指向当前索引
+    // array: 指向Array对象本身
+    alert(element);
+    console.log(element);
+    console.log(index);
+    console.log(array);
+});
+
+//Set
+var s = new Set(['A', 'B', 'C']);
+s.forEach(function (element, sameElement, set) {
+    alert(element);
+});
+
+//Map
+var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+m.forEach(function (value, key, map) {
+    alert(value);
+});
+
+//如对个别参数不感兴趣 可省略, 但是必须在它之前的位置的不可省略
+var a = ['A', 'B', 'C'];
+a.forEach(function (element) {
+    alert(element);
+});
+```
+
+#### 函数
+
+**两种等价定义方式**
+第二种方式`function (x) { ... }`是一个匿名函数，它没有函数名。但是，这个匿名函数赋值给了变量`abs`，所以，通过变量`abs`就可以调用该函数, 但要按语法末尾加`;`
+
+``` js
+function abs(x) {
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+}
+```
+``` js
+var abs = function (x) {
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+};
+```
+
+调用函数时可以传入任意个参数
+额外的不会起作用
+少的也可以, 此时函数收到`undefined`
+
+``` js
+abs(10, 'blablabla'); // 返回10
+abs(-9, 'haha', 'hehe', null); // 返回9
+abs(); // 返回NaN
+```
+
+避免此问题, 需检查参数
+
+``` js
+function abs(x) {
+    if (typeof x !== 'number') {
+        throw 'Not a number';
+    }
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+}
+```
