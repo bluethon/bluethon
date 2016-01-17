@@ -279,3 +279,19 @@ init 6
 `runlevel` 查询系统运行级别, 第一个N表示none 即前一个级别为空
 
 #### 挂载
+`mount` 查看已挂载的设备
+`mount -a` 依据/etcfstab的内容, 自动挂载
+
+`mount [-t 文件系统] [-o 特殊选项] 设备文件名 挂载点`
+
+挂载光盘
+dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
+`mount -t iso9660 /dev/cdrom /mnt/cdrom/`
+`mount /dev/sr0 /mnt/cdrom/`
+
+卸载
+`umount 设备文件名或者挂载点`
+
+挂载U盘
+`fdisk -l` 查看U盘设备文件名
+`mount -t vfat /dev/sdb1 /mnt/usb/` vfat已淘汰 sdb1不固定, 由上一步确定
