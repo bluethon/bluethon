@@ -335,3 +335,10 @@ last命令默认读取`/var/log/wtmp`下文件数据, 但数据为二进制, 只
 输出: 用户 终端 IP 最后一次登录时间
 显示内容内置很多系统不允许的账户, 所以都是从未登录
 
+#### Shell
+
+查询当前linux支持的Shell
+`/etc/shells`
+
+查看当前使用的Shell
+`echo $SHELL`
