@@ -103,11 +103,9 @@ ActiveWorkbook.saveAs fileName:=(Rootdatafile), FileFormat:=xlText
 ActiveWorkbook.Close SaveChanges:=False
 
 End Sub
-Sub Template_plm()
+Sub Template_plm(name As String)
 
 Dim firstrng As Range
-
-fileName = awbPath + PlmOutputName
 
 With ActiveSheet
 raw_last = .Cells(.Rows.Count, "A").End(xlUp).Row
@@ -124,14 +122,18 @@ End If
 
 End With
 
-If raw_last > firstrng.Row Then
-    Range(firstrng, Cells(raw_last, col_last)).FillDown
-End If
+With Range(firstrng, Cells(raw_last, col_last))
+    If raw_last > firstrng.Row Then
+        .FillDown
+    End If
+     '去公式
+    .Value = .Value
+End With
 
-Call SaveFile(fileName)
+Call SaveFile(name)
 
 End Sub
-Sub E_26()
+Sub E_26(name As String)
 'Auto transform E part and 26 part to BOM
 Dim rn, i As Integer
 Dim arr As Variant
@@ -151,16 +153,15 @@ Dim arr As Variant
     [A1].CurrentRegion.Columns.AutoFit
     arr = [A1].CurrentRegion
 
-    Workbooks.Open (awbPath + PlmBomAddFile)
+    Workbooks.Open (name)
     With ActiveWorkbook.Worksheets(1)
         .Cells(7, 1).Resize(UBound(arr), 3) = arr
     End With
 
 End Sub
-Sub plm_imgroup()
+Sub plm_imgroup(name As String)
 Dim rn As Integer
 
-    fileName = awbPath + PlmImGroupName
 
     '调整列顺序
     [K:K].Cut
@@ -181,7 +182,42 @@ Dim rn As Integer
     End With
 
     '保存
-    Call SaveFile(fileName)
+    Call SaveFile(name)
+
+End Sub
+Sub AddToWorkNote(WorkNote As String)
+
+Dim wb As Workbook
+Dim sht As Worksheet
+
+Dim tbl As Range
+Dim endRow As Range
+Dim arr As Variant
+
+Dim numRows As Integer
+Dim numColumns As Integer
+
+    If Len(Dir(WorkNote)) > 0 Then
+
+        With ActiveSheet
+            Set tbl = .Cells(1, 1).CurrentRegion
+
+            numRows = tbl.Rows.Count
+            numColumns = tbl.Columns.Count
+
+            arr = tbl.Offset(1, 0).Resize(numRows - 1, numColumns - 1).Value
+        End With
+
+        Set wb = GetObject(WorkNote)
+        Set sht = wb.Worksheets(1)
+        endRow = sht.Cells(.Rows.Count, "B").End(xlUp).Row
+        Cells(endRow + 1, 3).Resize(UBound(arr, 1), UBound(arr, 2)) = arr
+        wb.Close (True)
+        'TODO: 填充日期 序列
+
+    Else
+        MsgBox "工作记录不存在, 未添加成功"
+    End If
 
 End Sub
 Sub SaveFile(name As String)
@@ -198,6 +234,9 @@ Sub main()
 Dim fileName As String
 Dim PlmImOptionSet As String
 Dim PlmImBomExpression As String
+Dim PlmPart2CAD As String
+Dim ZPP78_Name As String
+Dim WorkNote As String
 Dim awbName As String
 Dim awbPath As String
 
@@ -206,32 +245,40 @@ PlmOutputName = "\000_import_plm"
 PlmImGroupName = "\005_import_Group"
 PlmImOptionSet = "\006_import_OptionSet"
 PlmImBomExpression = "\007_import_BomExpression"
+PlmPart2CAD = "\008_import_Parts2CAD"
+
 PlmBomAddFile = "\021_BOM_import-add.xlsx"
 ZPP78_Name = "D:\批量创建工艺路线工序"
+WorkNote = "D:\baiduyun\Dropbox\SF\SAP"
 
 awbName = ActiveWorkbook.name
-awbPath = awbPath
+awbPath = ActiveWorkbook.Path
 
 Application.ScreenUpdating = False
 
 'PLM模板
 If ActiveSheet.Cells(1, 1) Like "*ImportSheetType*" Then
-    Call Template_plm
+    fileName = awbPath + PlmOutputName
+    Call Template_plm(fileName)
 
 'E-26BOM转换
 ElseIf awbName Like "*E-26*" Then
-    Call E_26
-    Call Template_plm
+    fileName = awbPath + PlmBomAddFile
+    Call E_26(fileName)
+    fileName = awbPath + PlmOutputName
+    Call Template_plm(fileName)
     ActiveWorkbook.Close SaveChanges:=False
 
 'ZPP78 工艺路线
 ElseIf awbName Like "*ZPP78*" Then
     fileName = ZPP78_Name
+    Call AddToWorkNote(WorkNote)
     Call SaveFile(fileName)
 
 '导入选项组
 ElseIf awbName Like "*import_Group*" Then
-    Call plm_imgroup
+    fileName = awbPath + PlmImGroupName
+    Call plm_imgroup(fileName)
 
 '导入选项集
 ElseIf awbName Like "*import_OptionSet*" Then
@@ -243,6 +290,11 @@ ElseIf awbName Like "*import_BomExpression*" Then
     fileName = awbPath + PlmImBomExpression
     Call SaveFile(fileName)
 
+'B物料与图纸关联
+ElseIf awbName Like "*CAD*" Then
+    fileName = awbPath + PlmPart2CAD
+    Call SaveFile(fileName)
+
 Else
     Call Template_sap
 End If
@@ -250,3 +302,4 @@ End If
 Application.ScreenUpdating = True
 
 End Sub
+
