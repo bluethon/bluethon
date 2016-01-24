@@ -1,6 +1,15 @@
-常用
-=====
+#### 常用
 
+**安装**
+
+`--global`表示这台机器上所有仓库都使用此配置
+
+``` shell
+git config --global user.name "bluethon"
+git config --global user.email "j5088794@gmail.com"
+```
+
+----------------------------
 ubuntu 默认中文转为英文 想恢复中文 用#注释掉
 `echo "alias git='LANG=en_GB git'" >> ~/.bashrc`
 更新origin url
@@ -24,8 +33,7 @@ ubuntu 默认中文转为英文 想恢复中文 用#注释掉
 [git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
 `git config --global core.quotepath false`
 
-GitHub部分
-============
+#### GitHub部分
 
 创建SSH key
 `ssh-keygen -t rsa -C "youremail@example.com"`
@@ -45,8 +53,7 @@ GitHub部分
 更新origin url
 `git remote set-url origin [new-url]`
 
-Git
-===
+#### Git
 
 Git本地新建repository
 `git init`
