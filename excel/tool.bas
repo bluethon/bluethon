@@ -1,13 +1,6 @@
 Option Explicit
 Option Base 1
 
-' 在代码的ThisWorkbook中添加如下代码
-' 定义快捷键Ctrl+r
-'Private Sub Workbook_Open()
-'    Application.OnKey "^r", "main"
-'End Sub
-
-
 Public Rootdatafile As String, Value As String
 Public Template As Worksheet, TmplRange As Range
 Public UpldSheet As Worksheet, LoadRange As Range
@@ -218,21 +211,8 @@ Dim numColumns As Integer
         Workbooks.Open (WorkNote)
         Set wb = ActiveWorkbook
         Set sht = wb.Worksheets(1)
-        endRow = sht.Cells(sht.Rows.Count, "C").End(xlUp).Row
-
-        ' 重用tbl为工作记录当前最后一个单元格
-        Set tbl = sht.Cells(endRow + 1, "C")
-        tbl.Offset(0, -1).Value = Date
-        If tbl.Offset(-1, -2).Address = "$A$1" Then
-            tbl.Offset(0, -2).Value = 1
-        Else
-            tbl.Offset(0, -2).Value = tbl.Offset(-1, -2).Value + 1
-        End If
-
-        tbl.Resize(UBound(arr, 1), UBound(arr, 2)) = arr
-        tbl.Offset(0, -1).Resize(UBound(arr, 1), 1).FillDown
-        tbl.Offset(0, -2).AutoFill tbl.Offset(0, -2).Resize(UBound(arr, 1), 1), xlFillSeries
-
+        endRow = sht.Cells(sht.Rows.Count, "B").End(xlUp).Row
+        Cells(endRow + 1, 3).Resize(UBound(arr, 1), UBound(arr, 2)) = arr
         wb.Close (True)
         'TODO: 填充日期 序列
 
@@ -245,6 +225,7 @@ Sub SaveFile(name As String)
 
     Application.DisplayAlerts = False
     With ActiveWorkbook
+        .SaveCopyAs ("D:\baiduyun\Dropbox\SF\存档\导入数据\" + Format(Now, "YYYYMMDD-HHMMSS") + .name)
         .SaveAs (name)
         .Close (False)
     End With
@@ -270,7 +251,7 @@ PlmPart2CAD = "\008_import_Parts2CAD"
 
 PlmBomAddFile = "\021_BOM_import-add.xlsx"
 ZPP78_Name = "D:\批量创建工艺路线工序"
-WorkNote = "D:\baiduyun\Dropbox\SF\SAP\工作记录.xlsx"
+WorkNote = "D:\baiduyun\Dropbox\SF\工作记录.xlsx"
 
 awbName = ActiveWorkbook.name
 awbPath = ActiveWorkbook.Path
@@ -313,6 +294,17 @@ ElseIf awbName Like "*import_BomExpression*" Then
 
 'B物料与CAD图纸关联
 ElseIf awbName Like "*CAD*" Then
+
+    '填充所属组
+    With ActiveSheet
+        rn = .Cells(.Rows.Count, "B").End(xlUp).Row
+        .Range("A2") = Range("A2").Value
+        .Range("D2") = "是"
+        .Range("E2") = "是"
+        .Range("A2", .Cells(rn, "A")).FillDown
+        .Range("D2", .Cells(rn, "E")).FillDown
+    End With
+
     fileName = awbPath + PlmPart2CAD
     Call SaveFile(fileName)
 
