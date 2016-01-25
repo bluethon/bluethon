@@ -210,11 +210,22 @@ Dim numColumns As Integer
 
         Workbooks.Open (WorkNote)
         Set wb = ActiveWorkbook
-        Set sht = wb.Worksheets(1)
-        endRow = sht.Cells(sht.Rows.Count, "B").End(xlUp).Row
-        Cells(endRow + 1, 3).Resize(UBound(arr, 1), UBound(arr, 2)) = arr
+        Set sht = wb.Worksheets("工艺路线")
+        endRow = sht.Cells(sht.Rows.Count, "C").End(xlUp).Row
+
+        With sht.Cells(endRow + 1, 1)
+            If .Address = "$A$2" Then
+                .Value = 1
+            Else
+                .Value = .Offset(-1, 0) + 1
+            End If
+            .Offset(0, 1).Value = Date
+
+            .AutoFill .Resize(UBound(arr, 1), 1), xlFillSeries
+            .Offset(0, 1).AutoFill .Offset(0, 1).Resize(UBound(arr, 1), 1), xlFillCopy
+            .Offset(0, 2).Resize(UBound(arr, 1), UBound(arr, 2)) = arr
+        End With
         wb.Close (True)
-        'TODO: 填充日期 序列
 
     Else
         MsgBox "工作记录不存在, 未添加成功"
@@ -233,6 +244,7 @@ Sub SaveFile(name As String)
 
 End Sub
 Sub main()
+
 Dim fileName As String
 Dim PlmImOptionSet As String
 Dim PlmImBomExpression As String
@@ -248,8 +260,8 @@ PlmImGroupName = "\005_import_Group"
 PlmImOptionSet = "\006_import_OptionSet"
 PlmImBomExpression = "\007_import_BomExpression"
 PlmPart2CAD = "\008_import_Parts2CAD"
-
 PlmBomAddFile = "\021_BOM_import-add.xlsx"
+
 ZPP78_Name = "D:\批量创建工艺路线工序"
 WorkNote = "D:\baiduyun\Dropbox\SF\工作记录.xlsx"
 
@@ -296,13 +308,9 @@ ElseIf awbName Like "*import_BomExpression*" Then
 ElseIf awbName Like "*CAD*" Then
 
     '填充所属组
-    With ActiveSheet
-        rn = .Cells(.Rows.Count, "B").End(xlUp).Row
-        .Range("A2") = Range("A2").Value
-        .Range("D2") = "是"
-        .Range("E2") = "是"
-        .Range("A2", .Cells(rn, "A")).FillDown
-        .Range("D2", .Cells(rn, "E")).FillDown
+    With ActiveSheet.Range("C2")
+        .Value = "E"
+        .AutoFill .Resize(ActiveSheet.Cells(ActiveSheet.Rows.Count, "B").End(xlUp).Row - 1, 1), xlFillCopy
     End With
 
     fileName = awbPath + PlmPart2CAD
