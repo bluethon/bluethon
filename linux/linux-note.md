@@ -342,3 +342,31 @@ last命令默认读取`/var/log/wtmp`下文件数据, 但数据为二进制, 只
 
 查看当前使用的Shell
 `echo $SHELL`
+
+**echo**
+`echo [选项] [输出内容]`
+-e 支持反斜线控制的字符转换
+
+显示颜色
+`echo -e "\e[1;31m Hello World \e[0m"`
+`\e` 调用颜色
+`[1` 开启颜色选项
+`\e[0m` 关闭颜色
+`31m` 红色, 数字范围30-37 黑-白
+
+**脚本**
+新建文件为`xx.sh`
+
+文件头必须为
+`#!/bin/Bash`
+
+执行
+1. 赋予执行权限, 直接运行(相对路径)
+
+``` bash
+chmod 755 hello.sh
+./hello.sh
+```
+
+2. 通过Bash调用执行脚本
+`bash hello.sh`
