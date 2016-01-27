@@ -221,9 +221,13 @@ Dim numColumns As Integer
             End If
             .Offset(0, 1).Value = Date
 
-            .AutoFill .Resize(UBound(arr, 1), 1), xlFillSeries
-            .Offset(0, 1).AutoFill .Offset(0, 1).Resize(UBound(arr, 1), 1), xlFillCopy
+            If UBound(arr, 1) > 1 Then
+                .AutoFill .Resize(UBound(arr, 1), 1), xlFillSeries
+                .Offset(0, 1).AutoFill .Offset(0, 1).Resize(UBound(arr, 1), 1), xlFillCopy
+            End If
+
             .Offset(0, 2).Resize(UBound(arr, 1), UBound(arr, 2)) = arr
+
         End With
         wb.Close (True)
 
@@ -234,9 +238,21 @@ Dim numColumns As Integer
 End Sub
 Sub SaveFile(name As String)
 
+Dim savePath As String
+
+    savePath = "D:\baiduyun\Dropbox\SF\存档\导入数据\"
+
     Application.DisplayAlerts = False
     With ActiveWorkbook
-        .SaveCopyAs ("D:\baiduyun\Dropbox\SF\存档\导入数据\" + Format(Now, "YYYYMMDD-HHMM_") + .name)
+        If .name Like "*_Part_*" Then
+            .SaveCopyAs (savePath + "Part\" + Format(Now, "YYYYMMDD-HHMM_") + .name)
+        ElseIf .name Like "*_BOM_*" Then
+            .SaveCopyAs (savePath + "BOM\" + Format(Now, "YYYYMMDD-HHMM_") + .name)
+        ElseIf .name Like "*_CAD_*" Then
+            .SaveCopyAs (savePath + "CAD\" + Format(Now, "YYYYMMDD-HHMM_") + .name)
+        ElseIf Not .name Like "*ZPP78*" Then
+            .SaveCopyAs (savePath + Format(Now, "YYYYMMDD-HHMM_") + .name)
+        End If
         .SaveAs (name)
         .Close (False)
     End With
