@@ -90,7 +90,7 @@ ActiveSheet.Cells(1, 1).CurrentRegion.Select
 End With
 
 '将当前文档路径+txt文件赋值
-Rootdatafile = awbPath + "\bdc_recording.txt"
+Rootdatafile = wkBook.Path + "\bdc_recording.txt"
 '如果txt文件存在,删除之,防止弹出覆盖对话框
 If Dir(Rootdatafile) <> "" Then
     '显示输出txt文件路径
@@ -236,7 +236,7 @@ Sub SaveFile(name As String)
 
     Application.DisplayAlerts = False
     With ActiveWorkbook
-        .SaveCopyAs ("D:\baiduyun\Dropbox\SF\存档\导入数据\" + Format(Now, "YYYYMMDD-HHMMSS") + .name)
+        .SaveCopyAs ("D:\baiduyun\Dropbox\SF\存档\导入数据\" + Format(Now, "YYYYMMDD-HHMM_") + .name)
         .SaveAs (name)
         .Close (False)
     End With
