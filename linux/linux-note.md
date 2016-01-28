@@ -1,15 +1,17 @@
 #### hotkey
-`ctrl+d` 键盘输入结束,用来关闭shell
 `ctrl+a` 光标移动到命令行开始
+`ctrl+c` 强制终止当前命令
+`ctrl+d` 键盘输入结束,用来关闭shell
 `ctrl+e` 光标移动到命令行末尾
+`ctrl+k` 清除提示符到命令行末尾的字符
+`ctrl+l` 清屏
+`ctrl+r` 自动在命令历史缓存中增量搜索后面的字符(先按快捷键)
 `ctrl+u` 清除光标位置前的所有字符
 `ctrl+w` 清除左边的字段
-`ctrl+k` 清除提示符到命令行末尾的字符
 `ctrl+y` 粘贴u/w/k清除的字符
-`ctrl+r` 自动在命令历史缓存中增量搜索后面的字符(先按快捷键)
-`ctrl+super+d` 显示桌面
-`Ctrl+L` 清屏
+`ctrl+z` 把命令放入后台
 
+`ctrl+super+d` 显示桌面
 `shift+PageUp` 向上滚屏
 `shift+PageDown` 向下滚屏
 
@@ -370,3 +372,29 @@ chmod 755 hello.sh
 
 2. 通过Bash调用执行脚本
 `bash hello.sh`
+
+
+**别名&快捷键**
+
+查看别名
+`alias`
+
+设置别名(重启丢失)
+`alias 别名= '原命令'`
+
+别名永久生效, 写入(需重启)
+`~/.bashrc`
+不重启直接生效, 使用
+`source ./bashrc`
+
+删除别名(临时)
+`unalias 别名`
+
+**命令生效顺序**
+1. 用绝对路径或相对路径执行的命令
+2. 别名
+3. Bash的内部命令
+4. 按照$PATH环境变量定义的目录查找顺序找到的第一个命令
+
+查看$PATH(冒号分割)
+`echo $PATH`
