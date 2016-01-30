@@ -15,6 +15,11 @@
 `shift+PageUp` 向上滚屏
 `shift+PageDown` 向下滚屏
 
+#### 输入法短语自定义
+输入法设置->附加组件->快速输入->设置快捷键(暂定F2)->快速输入列表自定义
+
+参考https://fcitx-i m.org/wiki/QuickPhrase/zh-cn
+
 #### diff
 `diff [options] files`
 `-B` 忽略空行
@@ -27,7 +32,10 @@
 `-r` 递归比较子目录的文件
 
 **eg**
-`diff -B -u -w -I 'author|FileSystemEvent' www/ ../liao/awesome-python3-webapp/www/ >diff.log`
+
+``` shell
+diff -B -u -w -I 'author|FileSystemEvent' www/ ../liao/awesome-python3-webapp/www/ >diff.log
+```
 
 #### ls
 a all
@@ -398,3 +406,9 @@ chmod 755 hello.sh
 
 查看$PATH(冒号分割)
 `echo $PATH`
+
+
+**历史命令**
+`history [选项] [历史命令保存文件]`
+-c 清空历史命令
+-w 把缓存中的历史命令写入历史
