@@ -15,6 +15,10 @@
 `shift+PageUp` 向上滚屏
 `shift+PageDown` 向下滚屏
 
+#### 常用命令
+安装deb包
+`sudo dpkg -i XXXX.deb`
+
 #### 输入法短语自定义
 输入法设置->附加组件->快速输入->设置快捷键(暂定F2)->快速输入列表自定义
 
@@ -243,8 +247,10 @@ or
 
 `tar -zcvf 压缩包名.tar.gz 源文件`
 -z: 压缩为.tar.gz格式
+
+> 常用
 `tar -zxvf 压缩包名.tar.gz`
-解压
+**解压**
 
 `tar -jcvf 压缩包名.tar.bz2 源文件`
 -z: 压缩为.tar.bz2格式
