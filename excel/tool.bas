@@ -7,7 +7,7 @@ Public UpldSheet As Worksheet, LoadRange As Range
 Public raw_last As Integer, col_last As Integer
 Public wkBook As Object, ws As Object
 
-'Public fileName As String   'Éú³ÉÎÄ¼ş±£´æµÄÎÄ¼şÃû
+'Public fileName As String   'ç”Ÿæˆæ–‡ä»¶ä¿å­˜çš„æ–‡ä»¶å
 Public PlmOutputName As String
 Public PlmBomAddFile As String
 Public PlmImGroupName As String
@@ -34,7 +34,7 @@ Dim shtcount As Integer
 Dim currow As Integer, curcol As Integer
 
 On Error GoTo Endline
-'½«µ±Ç°»î¶¯¹¤×÷²¾Ö±½Ó¸³Öµ
+'å°†å½“å‰æ´»åŠ¨å·¥ä½œç°¿ç›´æ¥èµ‹å€¼
 Set wkBook = ActiveWorkbook
 Set Template = wkBook.Worksheets("template")
 
@@ -54,7 +54,7 @@ For Each ws In wkBook.Worksheets
         shtcount = shtcount + 1
     End If
 Next ws
-'ÑéÖ¤±í¸ñÍêÕûĞÔ
+'éªŒè¯è¡¨æ ¼å®Œæ•´æ€§
 If shtcount < 3 Then
 Endline:
     MsgBox "The data file must contain : " & Chr(13) & _
@@ -89,14 +89,14 @@ ActiveSheet.Cells(1, 1).CurrentRegion.Select
 
 End With
 
-'½«µ±Ç°ÎÄµµÂ·¾¶+txtÎÄ¼ş¸³Öµ
+'å°†å½“å‰æ–‡æ¡£è·¯å¾„+txtæ–‡ä»¶èµ‹å€¼
 Rootdatafile = wkBook.Path + "\bdc_recording.txt"
-'Èç¹ûtxtÎÄ¼ş´æÔÚ,É¾³ıÖ®,·ÀÖ¹µ¯³ö¸²¸Ç¶Ô»°¿ò
+'å¦‚æœtxtæ–‡ä»¶å­˜åœ¨,åˆ é™¤ä¹‹,é˜²æ­¢å¼¹å‡ºè¦†ç›–å¯¹è¯æ¡†
 If Dir(Rootdatafile) <> "" Then
-    'ÏÔÊ¾Êä³ötxtÎÄ¼şÂ·¾¶
+    'æ˜¾ç¤ºè¾“å‡ºtxtæ–‡ä»¶è·¯å¾„
     'MsgBox Rootdatafile
     Kill (Rootdatafile)
-Else: MsgBox "ÎÄ¼ş²»´æÔÚ"
+Else: MsgBox "æ–‡ä»¶ä¸å­˜åœ¨"
 End If
 
 ActiveWorkbook.SaveAs fileName:=(Rootdatafile), FileFormat:=xlText
@@ -116,7 +116,7 @@ If .Cells(1).Value = "ImportSheetType=PART" Then
 ElseIf .Cells(1).Value = "ImportSheetType=BOM" Then
     Set firstrng = .Cells.Find("Action", LookIn:=xlValues, lookat:=xlWhole, MatchCase:=False).Offset(1, 0)
 Else
-    MsgBox "TypeÀàĞÍ²»·û"
+    MsgBox "Typeç±»å‹ä¸ç¬¦"
     Exit Sub
 End If
 
@@ -126,7 +126,7 @@ With Range(firstrng, Cells(raw_last, col_last))
     If raw_last > firstrng.Row Then
         .FillDown
     End If
-     'È¥¹«Ê½
+     'å»å…¬å¼
     .Value = .Value
 End With
 
@@ -163,7 +163,7 @@ Sub plm_imgroup(name As String)
 Dim rn As Integer
 
 
-    'µ÷ÕûÁĞË³Ğò
+    'è°ƒæ•´åˆ—é¡ºåº
     [K:K].Cut
     [A:A].Insert Shift:=xlToRight
     [K:K].Cut
@@ -171,17 +171,17 @@ Dim rn As Integer
     [F:G].Cut
     [D:D].Insert Shift:=xlToRight
 
-    'Ìî³äËùÊô×é
+    'å¡«å……æ‰€å±ç»„
     With ActiveSheet
         rn = .Cells(.Rows.Count, "B").End(xlUp).Row
         .Range("A2") = Range("A2").Value
-        .Range("D2") = "ÊÇ"
-        .Range("E2") = "ÊÇ"
+        .Range("D2") = "æ˜¯"
+        .Range("E2") = "æ˜¯"
         .Range("A2", .Cells(rn, "A")).FillDown
         .Range("D2", .Cells(rn, "E")).FillDown
     End With
 
-    '±£´æ
+    'ä¿å­˜
     Call SaveFile(name)
 
 End Sub
@@ -210,7 +210,7 @@ Dim numColumns As Integer
 
         Workbooks.Open (WorkNote)
         Set wb = ActiveWorkbook
-        Set sht = wb.Worksheets("¹¤ÒÕÂ·Ïß")
+        Set sht = wb.Worksheets("å·¥è‰ºè·¯çº¿")
         endRow = sht.Cells(sht.Rows.Count, "C").End(xlUp).Row
 
         With sht.Cells(endRow + 1, 1)
@@ -232,7 +232,7 @@ Dim numColumns As Integer
         wb.Close (True)
 
     Else
-        MsgBox "¹¤×÷¼ÇÂ¼²»´æÔÚ, Î´Ìí¼Ó³É¹¦"
+        MsgBox "å·¥ä½œè®°å½•ä¸å­˜åœ¨, æœªæ·»åŠ æˆåŠŸ"
     End If
 
 End Sub
@@ -240,7 +240,7 @@ Sub SaveFile(name As String)
 
 Dim savePath As String
 
-    savePath = "D:\baiduyun\Dropbox\SF\´æµµ\µ¼ÈëÊı¾İ\"
+    savePath = "D:\baiduyun\Dropbox\SF\å­˜æ¡£\å¯¼å…¥æ•°æ®\"
 
     Application.DisplayAlerts = False
     With ActiveWorkbook
@@ -278,20 +278,20 @@ PlmImBomExpression = "\007_import_BomExpression"
 PlmPart2CAD = "\008_import_Parts2CAD"
 PlmBomAddFile = "\021_BOM_import-add.xlsx"
 
-ZPP78_Name = "D:\ÅúÁ¿´´½¨¹¤ÒÕÂ·Ïß¹¤Ğò"
-WorkNote = "D:\baiduyun\Dropbox\SF\¹¤×÷¼ÇÂ¼.xlsx"
+ZPP78_Name = "D:\æ‰¹é‡åˆ›å»ºå·¥è‰ºè·¯çº¿å·¥åº"
+WorkNote = "D:\baiduyun\Dropbox\SF\å·¥ä½œè®°å½•.xlsx"
 
 awbName = ActiveWorkbook.name
 awbPath = ActiveWorkbook.Path
 
 Application.ScreenUpdating = False
 
-'PLMÄ£°å
+'PLMæ¨¡æ¿
 If ActiveSheet.Cells(1, 1) Like "*ImportSheetType*" Then
     fileName = awbPath + PlmOutputName
     Call Template_plm(fileName)
 
-'E-26BOM×ª»»
+'E-26BOMè½¬æ¢
 ElseIf awbName Like "*E-26*" Then
     fileName = awbPath + PlmBomAddFile
     Call E_26(fileName)
@@ -299,31 +299,31 @@ ElseIf awbName Like "*E-26*" Then
     Call Template_plm(fileName)
     ActiveWorkbook.Close SaveChanges:=False
 
-'ZPP78 ¹¤ÒÕÂ·Ïß
+'ZPP78 å·¥è‰ºè·¯çº¿
 ElseIf awbName Like "*ZPP78*" Then
     fileName = ZPP78_Name
     Call AddToWorkNote(WorkNote)
     Call SaveFile(fileName)
 
-'µ¼ÈëÑ¡Ïî×é
-ElseIf awbName Like "*import_Group*" Then
+'å¯¼å…¥é€‰é¡¹ç»„
+ElseIf awbName Like "*Group*" Then
     fileName = awbPath + PlmImGroupName
     Call plm_imgroup(fileName)
 
-'µ¼ÈëÑ¡Ïî¼¯
-ElseIf awbName Like "*import_OptionSet*" Then
+'å¯¼å…¥é€‰é¡¹é›†
+ElseIf awbName Like "*OptionSet*" Then
     fileName = awbPath + PlmImOptionSet
     Call SaveFile(fileName)
 
-'µ¼Èë±í´ïÊ½
-ElseIf awbName Like "*import_BomExpression*" Then
+'å¯¼å…¥è¡¨è¾¾å¼
+ElseIf awbName Like "*BomExpression*" Then
     fileName = awbPath + PlmImBomExpression
     Call SaveFile(fileName)
 
-'BÎïÁÏÓëCADÍ¼Ö½¹ØÁª
+'Bç‰©æ–™ä¸CADå›¾çº¸å…³è”
 ElseIf awbName Like "*CAD*" Then
 
-    'Ìî³äËùÊô×é
+    'å¡«å……æ‰€å±ç»„
     With ActiveSheet.Range("C2")
         .Value = "E"
         .AutoFill .Resize(ActiveSheet.Cells(ActiveSheet.Rows.Count, "B").End(xlUp).Row - 1, 1), xlFillCopy
