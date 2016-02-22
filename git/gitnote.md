@@ -33,6 +33,12 @@ ubuntu 默认中文转为英文 想恢复中文 用#注释掉
 [git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
 `git config --global core.quotepath false`
 
+#### Git Bash
+MinTTY 不支持交互操作, 需使用`winpty + python`类似
+提示在安装时选择终端方式时有写
+[参考](https://www.zhihu.com/question/36142943/answer/81467036)
+
+
 #### GitHub部分
 
 创建SSH key
