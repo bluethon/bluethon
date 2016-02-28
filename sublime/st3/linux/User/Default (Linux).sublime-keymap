@@ -1,0 +1,13 @@
+[
+    { "keys": ["shift+f1"], "command": "py_help" },
+    { "keys": ["f5"],
+        "caption": "SublimeREPL: Python",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_python",
+            "file": "config/Python/Main.sublime-menu"
+        }
+    },
+    // { "keys": ["ctrl+shift+z"], "command": "input_helper" }
+    //{ "keys": ["ctrl+space"], "command": "input_helper" },
+]

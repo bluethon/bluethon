@@ -16,8 +16,14 @@
 `shift+PageDown` 向下滚屏
 
 #### 常用命令
+
 安装deb包
-`sudo dpkg -i XXXX.deb`
+
+    $ sudo dpkg -i XXXX.deb
+
+加权限 a:all user x:execute
+
+    $ chmod a+x [file]
 
 #### 输入法短语自定义
 输入法设置->附加组件->快速输入->设置快捷键(暂定F2)->快速输入列表自定义
