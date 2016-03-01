@@ -1,3 +1,16 @@
+Debug
+-----
+
+**Troubleshooting**
+
+do this by using the console:
+
+    $ view.settings().get('font_face')
+
+
+Settings
+--------
+
 #### snippet 自定义代码片段
 中文
 http://www.bluesdream.com/blog/sublime-text-snippets-function.html
@@ -6,14 +19,6 @@ http://docs.sublimetext.info/en/sublime-text-3/extensibility/snippets.html
 
 #### Linux下输入中文
 见sublime_imfix/
-
-#### Windows设置sublimeREPL
-1.
-~/.config/sublime-text-2/Packages/SublimeREPL/config/Python/Main.sublime-menu
-"id": "repl_python"中cmd行改为:
-"cmd": ["python", "-i", "-u", "$file_basename"],
-
-2. 增加快捷键
 
 #### 修改保存文件时的默认后缀形式
 

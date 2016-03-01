@@ -250,9 +250,10 @@ Dim savePath As String
             .SaveCopyAs (savePath + "BOM\" + Format(Now, "YYYYMMDD-HHMM_") + .name)
         ElseIf .name Like "*_CAD_*" Then
             .SaveCopyAs (savePath + "CAD\" + Format(Now, "YYYYMMDD-HHMM_") + .name)
-        ElseIf Not .name Like "*ZPP78*" Then
-            .SaveCopyAs (savePath + Format(Now, "YYYYMMDD-HHMM_") + .name)
+        ElseIf .name Like "_Option_" Then
+            .SaveCopyAs (savePath + "Option\" + Format(Now, "YYYYMMDD-HHMM_") + .name)
         End If
+
         .SaveAs (name)
         .Close (False)
     End With

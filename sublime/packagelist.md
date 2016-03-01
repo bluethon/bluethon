@@ -1,3 +1,6 @@
+#### python提示
+Anaconda
+
 #### 查看标准库帮助
 AndyPython
 
@@ -37,6 +40,9 @@ SublimeLinter
 #### 快速生成文件模板(python ctrl+alt+shift+p)
 SublimeTmpl
 
+#### Git
+SublimeGit
+
 #### Markdown支持
 - Markdown Extended
 - Monokai Extended
@@ -47,8 +53,8 @@ Tag
 #### 高亮显示多余的空格和Tab
 TrailingSpaces
 
+#### 主题
+Theme-Soda
+
 #### JSON格式化(C+A+j)
 Pretty JSON
-
-#### Git
-SublimeGit
