@@ -1,4 +1,5 @@
-#### 常用
+常用
+---
 
 **安装**
 
@@ -9,9 +10,13 @@ git config --global user.name "bluethon"
 git config --global user.email "j5088794@gmail.com"
 ```
 
-----------------------------
+误提交或者不再跟踪
+
+    $ git rm -r --cached [folder/]
+
 ubuntu 默认中文转为英文 想恢复中文 用#注释掉
 `echo "alias git='LANG=en_GB git'" >> ~/.bashrc`
+
 更新origin url
 `git remote set-url origin [new-url]`
 
