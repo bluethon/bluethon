@@ -57,3 +57,23 @@ http://docs.sublimetext.info/en/sublime-text-3/extensibility/snippets.html
     }
 }
 ```
+
+#### anacoda 
+
+**venv project设置**
+
+linux环境下可能为`$venv/bin/python` 具体视python执行文件而定
+`$venv`为自己创建virtualenv环境目录
+linux下测试`$venv`格式无需改动
+
+``` json
+{
+    "settings":
+    [
+        {
+            "python_interpreter": "$venv/bin/python3"
+        }
+    ]
+}
+
+```

@@ -333,15 +333,20 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 
 **执行**
 
-    1. 赋予执行权限, 直接运行(相对路径)
+1. 赋予执行权限, 直接运行(相对路径)
 
     ``` bash
     chmod 755 hello.sh
     ./hello.sh
     ```
 
-    2. 通过Bash调用执行脚本
-    `bash hello.sh`
+2. 通过Bash调用执行脚本(值不能传回父shell)
+
+    $ bash hello.sh
+
+3. source(不用修改执行权限)
+
+    $ source hello.sh
 
 
 ### 别名&快捷键
