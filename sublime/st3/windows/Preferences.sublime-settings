@@ -1,41 +1,36 @@
 {
-	// Colors
-	"color_scheme": "Packages/Colorcoder/Monokai Extended (Colorcoded).tmTheme",
-	"original_color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",
-	// Font
-	"font_size": 11.0,
-	"font_options": ["subpixel_antialias", "no_bold"],
-	"line_padding_bottom": 1,
-	"line_padding_top": 1,
-	// Editor view
-	"draw_white_space": "all",
-	"fold_buttons": false,
-	"highlight_line": true,
-	"auto_complete": false,
+    "auto_complete_with_fields": false,
+	"always_show_minimap_viewport": true,
 	"auto_complete_commit_on_tab": true,
-	"auto_match_enabled": true,
-	"show_minimap": false,
-	"show_full_path": true,
-	// Editor behavior
-	"highlight_modified_tabs": true,
-	// WhiteSpace
-	"tab_size": 4,
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
+	"auto_complete_cycle": true,
+	"auto_completion": false,
+	"bold_folder_labels": true,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Colorcoder/Monokai Extended (Colorcoded).tmTheme",
+	"default_line_ending": "unix",
+	"detect_slow_plugins": false,
+	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
-	// Sidebar
 	"file_exclude_patterns":
 	[
-	    ".DS_Store",
-	    "*.pid",
-	    "*.pyc"
+		"*.pid",
+		"*.pyc"
 	],
 	"folder_exclude_patterns":
 	[
-	    ".git",
-	    "__pycache__"
+		".idea",
+		".git",
+		"__pycache__"
 	],
-	// Package Control
+	"font_face": "consolas",
+	"font_options":
+	[
+		"subpixel_antialias",
+		"no_bold"
+	],
+	"font_size": 11.0,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"",
@@ -43,14 +38,18 @@
 		"MarkdownBuild",
 		"SublimeCodeIntel"
 	],
-	"caret_style": "phase",
-	"default_line_ending": "unix",
-	"detect_slow_plugins": false,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"original_color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",
 	"rulers":
 	[
 		72,
 		79
 	],
+	"show_full_path": true,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true,
-	"wrap_width": 80,
+	"wrap_width": 80
 }

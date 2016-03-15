@@ -1,0 +1,7 @@
+{
+    "git_executables": {
+        "git": ["D:/Program Files/Git/bin/git.exe"],
+        "git_flow": ["D:/Program Files (x86)/Git/bin/git.exe", "flow"],
+        "legit": ["legit"]
+    }
+}

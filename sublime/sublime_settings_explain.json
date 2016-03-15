@@ -1,9 +1,15 @@
 {
+    // snippet中是否显示补全
+    "auto_complete_with_fields": true,
+    // 小地图一直显示当前位置, 默认鼠标移上去显示
     "always_show_minimap_viewport": true,
     // tab提交, false时会出现tab上屏后继续补全而不是缩进
     "auto_complete_commit_on_tab": true,
+    // 补全到末尾循环到开头, 默认到末尾停止补全
     "auto_complete_cycle": true,
+    // 文件夹标签加粗
     "bold_folder_labels": true,
+    // 光标样式
     "caret_style": "phase",
     "color_scheme": "Packages/Colorcoder/Monokai Extended (Colorcoded).tmTheme",
     "default_line_ending": "unix",
@@ -22,6 +28,7 @@
         "__pycache__"
     ],
     "font_face": "consolas",
+    // ?
     "font_options":
     [
         "subpixel_antialias",
@@ -29,6 +36,7 @@
     ],
     "font_size": 11.0,
     "highlight_line": true,
+    // 高亮修改过的标签
     "highlight_modified_tabs": true,
     "ignored_packages":
     [
