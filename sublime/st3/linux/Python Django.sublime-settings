@@ -1,0 +1,10 @@
+{
+    "auto_complete_selector": "source, text",
+    "auto_complete_triggers":
+    [
+        {
+            "selector": "source.python - string - comment - constant.numeric",
+            "characters": "."
+        }
+    ]
+}

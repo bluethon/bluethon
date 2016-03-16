@@ -20,7 +20,7 @@ http://docs.sublimetext.info/en/sublime-text-3/extensibility/snippets.html
 #### Linux下输入中文
 见sublime_imfix/
 
-#### 修改保存文件时的默认后缀形式
+#### 修改保存文件时的默认后缀形式(有误)
 
 1. 新建一个空白文件，设置 Syntax - Markdown
 

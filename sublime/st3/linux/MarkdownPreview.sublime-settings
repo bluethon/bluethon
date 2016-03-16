@@ -1,0 +1,5 @@
+{
+    // "github_mode": "gfm",
+    "parser": "github",
+    "build_action": "browser"
+}
