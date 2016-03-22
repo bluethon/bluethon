@@ -20,6 +20,8 @@
 
 5. 不再跟踪文件(http://stackoverflow.com/questions/6104072/git-update-index-assume-unchanged-and-git-reset)
 
+    假定没有更改, status中不显示
     `git update-index --assume-unchaged [file_or_folder]`
     or
+    所有操作忽略该路径
     `git update-index --skip-worktree [file_or_folder]`
