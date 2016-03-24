@@ -177,8 +177,10 @@ Dim rn As Integer
         .Range("A2") = Range("A2").Value
         .Range("D2") = "是"
         .Range("E2") = "是"
-        .Range("A2", .Cells(rn, "A")).FillDown
-        .Range("D2", .Cells(rn, "E")).FillDown
+        If rn > 2 Then
+            .Range("A2", .Cells(rn, "A")).FillDown
+            .Range("D2", .Cells(rn, "E")).FillDown
+        End If
     End With
 
     '保存
