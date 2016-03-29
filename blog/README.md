@@ -20,3 +20,15 @@
 1. [批量修改文件夹名字](./shell/rename_folder.md)
 
 ---
+
+#### 搭博客
+
+1. http://www.jianshu.com/p/465830080ea9
+- http://wuchong.me/archives/
+
+---
+
+#### 梯子ss
+
+1. http://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html
+- http://wuchong.me/blog/2015/02/02/shadowsocks-install-and-optimize/

@@ -94,7 +94,17 @@ bootstrap = Bootstrap(app)
     content         用户定义的页面内容
     scripts         文档底部的JavaScript声明
 
-上表很多块都是Flask-Bootstrap自用的
+上表很多块都是Flask-Bootstrap自用的, 直接重定义会有问题  
+需要使用Jinja2提供的`super()`函数  
+
+**重定义scripts块**
+
+``` html
+{% block scripts %}
+    {{ super() }}
+    <script src="my-script.js"></script>
+{% endblock%}
+```
 
 ---
 
@@ -122,4 +132,25 @@ bootstrap = Bootstrap(app)
 {% macro render_comment(comment) %}
     <li>{{ comment }}</li>
 {% endmacro %}
+```
+
+#### 链接
+
+`url_for()` 使用程序URL映射中保存的信息生成URL
+
+``` html
+<!-- 使用视图函数做参数, 返回对应路由, 即 / -->
+url_for('index') 
+
+<!-- 返回绝对地址, 即http://localhost:5000/ -->
+<!-- 用户生成外链 -->
+url_for('index', _external=True)
+
+<!-- 生成动态地址 -->
+<!-- 返回http://localhost:5000/user/blue -->
+url_for('user', name='blue', _external=True)
+
+<!-- 其他参数 -->
+<!-- 返回/?page=2 -->
+url_for('index', page=2)
 ```

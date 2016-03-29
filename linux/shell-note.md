@@ -4,25 +4,35 @@ Shell Note
 常用命令
 ------
 
-### 安装deb包
+#### 安装deb包
 
     $ sudo dpkg -i XXXX.deb
 
-### 加权限
+#### 加权限
 
 a:all user x:execute
 
     $ chmod a+x [file]
 
-### 查看$PATH(冒号分割)
+#### 查看$PATH(冒号分割)
 
 `echo $PATH`
 
+#### 后台运行
+
+``` bash
+# 最后一个&不能缺少
+nohup [file] &>[log] &
+# 查看后台
+jobs
+# 关闭
+fg %n
+```
 
 Shell
 -----
 
-### diff
+#### diff
 
 `diff [options] files`
 `-B` 忽略空行
@@ -38,7 +48,7 @@ Shell
 
     $ diff -B -u -w -I 'author|FileSystemEvent' www/ ../liao/awesome-python3-webapp/www/ >diff.log
 
-### ls
+#### ls
 
     a all
     l long
@@ -46,18 +56,18 @@ Shell
     `ll` == `ls -l`
     `ls-ah`查看隐藏文件
 
-### `rm` remove
+#### `rm` remove
 
 -r recursive 递归 可删除目录
 -f force 强制删除 不提示
 
-### `cp` copy & rename
+#### `cp` copy & rename
 
 `-a` == `-pdr` 完全复制, 包括创建时间等
 
-### pwd == print working directory
+#### pwd == print working directory
 
-### find
+#### find
 
 完全匹配
 
@@ -94,7 +104,7 @@ Shell
     `-o` or  或
     `-exec/-ok 命令 {} \;` 对搜索结果执行操作,`{} \;`是固定结尾格式
 
-### grep
+#### grep
 
 `grep [选项] 字符串 文件名`
 在文件中搜索字符 包含匹配
@@ -102,7 +112,7 @@ Shell
     `-i` 忽略大小写
     `-v` 排除指定字符串
 
-### man
+#### man
 
 在帮助中打`/d`可以查找包含d的帮助文本, 类似VIM
 此时按n键向下查找, N向上查找
@@ -134,7 +144,7 @@ Shell
     - q      退出
 
 
-### 压缩和解压缩
+#### 压缩和解压缩
 
 * **.zip**
 
@@ -212,7 +222,7 @@ Shell
     -t: =test 仅查看压缩包
 
 
-### 关机和重启
+#### 关机和重启
 
 * **shutdown**
 
@@ -243,7 +253,7 @@ Shell
 
     `runlevel` 查询系统运行级别, 第一个N表示none 即前一个级别为空
 
-### 挂载
+#### 挂载
 
 `mount` 查看已挂载的设备
 `mount -a` 依据/etcfstab的内容, 自动挂载
@@ -263,7 +273,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 `mount -t vfat /dev/sdb1 /mnt/usb/` vfat已淘汰 sdb1不固定, 由上一步确定
 
 
-### 其他
+#### 其他
 
 * **查看登录用户信息**
 
@@ -324,7 +334,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
     `\e[0m` 关闭颜色
     `31m` 红色, 数字范围30-37 黑-白
 
-### 脚本
+#### 脚本
 
 新建文件为`xx.sh`
 
@@ -349,7 +359,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
     $ source hello.sh
 
 
-### 别名&快捷键
+#### 别名&快捷键
 
 查看别名
 `alias`
@@ -366,7 +376,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 `unalias 别名`
 
 
-### 命令生效顺序
+#### 命令生效顺序
 
 1. 用绝对路径或相对路径执行的命令
 2. 别名
@@ -375,7 +385,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 
 
 
-### 历史命令
+#### 历史命令
 
 `history [选项] [历史命令保存文件]`
 
@@ -396,7 +406,7 @@ HISTSIZE=1000
 `!字串` 执行最后一条以该字串开头的命令
 
 
-### 输出重定向
+#### 输出重定向
 
 带有错误输出的地方左右不能有*空格*
 
@@ -413,7 +423,7 @@ HISTSIZE=1000
 ```
 
 
-### 管道符
+#### 管道符
 
 **多命令顺序执行**
 
@@ -432,7 +442,7 @@ ls && echo yes || echo no  # 示例 正确执行显示yes, 错误时不执行ech
 ```
 
 
-### 通配符
+#### 通配符
 
 ``` bash
 ?   # 匹配单个字符
@@ -442,7 +452,7 @@ ls && echo yes || echo no  # 示例 正确执行显示yes, 错误时不执行ech
 [^] # 匹配不是括号中的字符
 ```
 
-### 其他特殊符号
+#### 其他特殊符号
 
 ``` bash
 ''  # 单引号, 其中的特殊字符无效
