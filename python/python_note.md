@@ -1,4 +1,16 @@
-[TOC]
+Python学习笔记
+=============
+
+### Python核心编程
+
+2.03    P022    文档字符串, 起在线文档功能
+
+2.05    P024    Python不支持自增, 会解释为+(+n)
+
+2.05    P024    Python不支持自增, 会解释为+(+n)
+
+
+---
 
 **文件头**
 
@@ -52,14 +64,14 @@ nHex = 0x20
 ` \n 10 \x0a` newline 换行
 ` \r 13 \x0d` return 回车
 
-## 字符串
+#### 字符串
 字符串长度
 
 ```
 len('string')
 ```
 字符串拼接 `+`
-## 数据类型和变量
+#### 数据类型和变量
 **多行转义**
 
 ```
@@ -101,7 +113,7 @@ u'\u4e2d\u6587'
 # -*- coding: utf-8 -*-
 ```
 
-## 使用list和tuple
+#### 使用list和tuple
 **列表**
 `list []`
 **最后一个元素的索引**
@@ -122,7 +134,7 @@ list[-1]
 **替换**
 `list[1] = 'test'`
 
-## 元组
+#### 元组
 tuple一旦初始化就不能修改
 也没有append()，insert()这样的方法。其他获取元素的方法和list是一样的
 因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple
@@ -134,7 +146,7 @@ tuple()
 Python显示只有1个元素的tuple时，也会加一个逗号,以免误解成数学计算意义上的括号
 `t = (1,)`
 
-## 条件判断和循环
+#### 条件判断和循环
 
 只要x是非零数值、非空字符串、非空list等，就判断为True，否则为False
 ``` python
@@ -143,7 +155,7 @@ if x:
 ```
 
 
-## 字典
+#### 字典
 请务必注意，dict内部存放的顺序和key放入的顺序是没有关系的。
 
 **init**
@@ -164,7 +176,7 @@ False
 `d.get('Thomas', -1)`
 -1
 
-## set
+#### set
 - 无序
 - set和dict的唯一区别仅在于没有存储对应的value
 
@@ -188,7 +200,7 @@ set([2, 3])
 >>> s1 | s2
 set([1, 2, 3, 4])
 ```
-## 函数参数
+#### 函数参数
 `def fn(a, b, c=0, *args, **kw):`
 必选参数, 默认参数, 可变参数, 关键字参数
 `*args`是可变参数，`args`接收的是一个`tuple`
@@ -222,7 +234,7 @@ print '\n==> fn(*(1, ))'
 fn(*(1, ))
 ```
 
-## 切片(Slice)
+#### 切片(Slice)
 *list和tuple均支持*
 
 `l = range(100)`
@@ -235,7 +247,7 @@ fn(*(1, ))
 `l[::-1]`
 
 
-## 迭代
+#### 迭代
 `d = {'a': 1, 'b': 2, 'c': 3}`
 
 `d.iterkeys()`-- `a, b, c`
@@ -252,13 +264,13 @@ for x in d.iteritems():
 True
 ```
 
-## 对list实现类似Java那样的下标循环
+#### 对list实现类似Java那样的下标循环
 ``` python
 for i, value in enumerate(['A', 'B', 'C']):
     print i, value
 ```
 
-##生成器(generator)
+####生成器(generator)
 保存的是算法
 - 方法一 由List生成
 ``` python
@@ -281,7 +293,7 @@ for x in fib(6):
     print x
 ```
 
-##高阶函数
+####高阶函数
 map/reduce
 
 **map 序列依次代入第一个函数**
@@ -295,18 +307,18 @@ def str2int(s):
     return reduce(lambda x,y: x*10+y, map(char2num, s))
 ```
 
-## 匿名函数
+#### 匿名函数
 `lambda`
 
 **参数x, y  返回x+y的值**
 `lambda x,y: x+y`
 
 
-## 闭包(closure)
+#### 闭包(closure)
 难点 仍未完全理解
 
 **sum可以直接使用args, 且返回函数本身**
-## 高阶函数
+#### 高阶函数
 map/reduce
 
 **map 序列依次代入第一个函数**
@@ -321,7 +333,7 @@ def lazy_sum(*args):
     return sum
 ```
 
-## 偏函数
+#### 偏函数
 给函数设定默认参数并生成新函数
 
 `import functools`
@@ -340,7 +352,7 @@ fun3 = functools.partial(fun, b=2, c=3)
 ```
 
 
-## 别名
+#### 别名
 
 **应用场景**
 ``` python
@@ -350,12 +362,12 @@ except ImportError: # 导入失败会捕获到ImportError
     import StringIO
 ```
 
-## 类(Class)和实例(Instance)
+#### 类(Class)和实例(Instance)
 类内函数(Method)第一个参数永远是实例变量self,
 并且,调用时,不用传递该参数
 成员不需要预定义,可以直接在实例中增加(不影响其他实例)
 
-## 获取对象信息
+#### 获取对象信息
 `type()`
 **判断对象的引用  的类型**
 ``` python
@@ -374,7 +386,7 @@ except ImportError: # 导入失败会捕获到ImportError
 `>>>dir('abc')`
 成员不需要预定义,可以直接在实例中增加(不影响其他实例)
 
-## 获取对象信息
+#### 获取对象信息
 `type()`
 **判断对象的引用  的类型**
 ``` python
@@ -390,7 +402,7 @@ getattr(obj, 'y') #获取属性
 getattr(obj, 'y', 404) #获取属性,若不存在,返回默认值404
 ```
 
-## `__slots__`
+#### `__slots__`
 限定可以绑定的方法和属性
 仅对当前类起作用, 子类需增加`__slots__`才能继承
 `type()`
@@ -400,7 +412,7 @@ class Sample(object):
     __slots__ = ('name', 'age') #用tuple定义允许绑定的属性
 ```
 
-## 定制类
+#### 定制类
 下列均为方法
 - `__str__()`
 **定义打印类时输出(用户)**
@@ -487,14 +499,14 @@ True
 False
 ```
 
-## 错误处理
+#### 错误处理
 错误捕获可以跨越多层调用, 即子函数错误可由父函数捕获
 
 
-## 常见的错误类型和继承关系
+#### 常见的错误类型和继承关系
 https://docs.python.org/2/library/exceptions.html#exception-hierarchy
 
-## `try`
+#### `try`
 **try运行,执行出错,跳转except**
 ``` python
 try:
@@ -509,7 +521,7 @@ else:
 finally:
     pass
 ```
-## logging
+#### logging
 记录错误, 捕获错误后程序会继续执行
 ``` python
 import logging
@@ -530,7 +542,7 @@ main()
 print 'END'
 ```
 
-## raise
+#### raise
 raise语句如果不带参数，就会把当前错误原样抛出
 此例中捕获错误后有raise错误,在于当前函数不知道怎么处理错误,继续向上抛出,让上层调用者处理
 raise还可以抛出其他类型错误(转换错误类型,但应做到逻辑合理)
@@ -552,7 +564,7 @@ def main():
 main()
 ```
 
-## 调试
+#### 调试
 
 **断言**
 如果表达式false, 输出后半句, 同时抛出AssertionError
@@ -594,7 +606,7 @@ pdb.set_trace() #运行到这里自动暂停
 ..........
 ```
 
-## 文件读写
+#### 文件读写
 
 with语句来自动帮我们调用close()方法
 ``` python
@@ -666,7 +678,7 @@ x for x in os.listdir('.') if os.path.isdir(x)
 x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py'
 ```
 
-## 序列化
+#### 序列化
 
 cPickle是C语言写的,速度快,pickle是纯Python写的
 **仅能用于Python**
@@ -684,20 +696,20 @@ pickle.dump(d, f)
 f.close()
 ```
 
-## 反序列化
+#### 反序列化
 ``` python
 f = open('dump.txt', 'rb')
 d = pickle.load(f)
 f.close()
 ```
 
-## JSON
+#### JSON
 ``` python
 import json
 d = dict(name='Bob', age=20, score=88)
 json.dumps(d) #dumps返回一个str,内容是标准JSON
 ```
-## 反序列化
+#### 反序列化
 ```
 >>> json_str = '{"age": 20, "score": 88, "name": "Bob"}'
 >>> json.loads(json_str)
@@ -707,11 +719,11 @@ dumps,loads 针对字符串, dump load 针对file-like Object
 反序列化得到的所有字符串对象默认都是unicode而不是str。由于JSON标准规定JSON编码是UTF-8，所以我们总是能正确地在Python的str或unicode与JSON的字符串之间转换。
 
 
-## 多进程
+#### 多进程
 `multiprocessing`
 
 
-## 进程池(Pool)
+#### 进程池(Pool)
 ``` python
 from multiprocessing import Pool
 import os, time, random
@@ -738,7 +750,7 @@ if __name__ == '__main__':
     print 'All subprocesses done.'
 ```
 
-## 进程间通信
+#### 进程间通信
 以Queue为例，父进程中创建两个子进程，一个往Queue里写数据，一个从Queue里读数据
 
 ``` python
@@ -746,7 +758,7 @@ from multiprocessing import Process, Queue
 import os, time, random
 ```
 
-## 写数据进程执行的代码:
+#### 写数据进程执行的代码:
 ``` python
 def write(q):
     for value in ['A', 'B', 'C']:
@@ -777,7 +789,7 @@ if __name__ == '__main__':
     pr.terminate()
 ```
 
-## 多线程
+#### 多线程
 
 Python的标准库提供了两个模块：thread和threading，thread是低级模块，threading是高级模块，对thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。
 `import threading`
@@ -804,7 +816,7 @@ def run_thread(n):
 Python解释器由于设计时有GIL全局锁，导致了多线程无法利用多核。
 但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。
 
-## ThreadLocal
+#### ThreadLocal
 常用于为每个线程绑定一个数据库连接,HTTP请求,用户身份信息等
 `import threading`
 
@@ -828,12 +840,12 @@ t1.join()
 t2.join()
 ```
 
-## 分布式进程
+#### 分布式进程
 
 见`distributed process`
 
 
-## 正则表达式
+#### 正则表达式
 
 
 应用 切分字符串
@@ -842,7 +854,7 @@ t2.join()
 >>>re.split(r'[\s\,\;]+', 'a,b;; c  d')
 ['a', 'b', 'c', 'd']
 ```
-## 分组
+#### 分组
 用()表示要提取的分组
 
 ```
@@ -857,7 +869,7 @@ t2.join()
 '12345'
 ```
 
-## 编译
+#### 编译
 如果一个正则表达式要重复使用, 出于效率考虑, 可以预编译
 `>>> import re`
 编译:
@@ -871,11 +883,11 @@ t2.join()
 ('010', '8086')
 ```
 
-## collections
+#### collections
 Python内建的一个集合模块，提供了许多有用的集合类
 
 
-## namedtuple
+#### namedtuple
 创建自定义的tuple对象，规定tuple元素的个数，可用属性来引用tuple的某个元素
 
 ``` python
@@ -888,7 +900,7 @@ Python内建的一个集合模块，提供了许多有用的集合类
 2
 ```
 
-## deque 双向队列
+#### deque 双向队列
 
 ``` python
 >>> from collections import deque
@@ -900,7 +912,7 @@ deque(['y', 'a', 'b', 'c', 'x'])
 q.popleft()
 ```
 
-## defaultdict
+#### defaultdict
 使用dict， key不存在， 抛出KeyError， 使用defaultdict, 返回一个默认值
 
 ``` python
@@ -913,7 +925,7 @@ q.popleft()
 'N/A'
 ```
 
-## OrderedDict
+#### OrderedDict
 dict, Key是无序的， OrderedDict保持Key的顺序
 OrderedDict的Key按照 插入顺序 排列
 可以实现FIFO
@@ -949,7 +961,7 @@ class LastUpdatedOrderedDict(OrderedDict):
         OrderedDict.__setitem__(self, key, value)
 ```
 
-## Counter
+#### Counter
 计数器
 
 ``` python
@@ -962,7 +974,7 @@ class LastUpdatedOrderedDict(OrderedDict):
 Counter({'g': 2, 'm': 2, 'r': 2, 'a': 1, 'i': 1, 'o': 1, 'n': 1, 'p': 1})
 ```
 
-## base64
+#### base64
 用64个字符来表示任意二进制数据的方法
 
 **原理**
@@ -1002,7 +1014,7 @@ b64de('YWJjZA=')
 b64de('YWJjZA==')
 ```
 
-## hashlib
+#### hashlib
 摘要算法
 
 对任意长度的数据data计算出固定长度的摘要digest,目的是为了发现原始数据是否被人篡改过
@@ -1039,7 +1051,7 @@ register(username, password)
 login(username, password)
 ```
 
-## GUI(图形界面)
+#### GUI(图形界面)
 
 **Tkinter**
 
@@ -1071,7 +1083,7 @@ app.master.title('Hello World')
 app.mainloop()
 ```
 
-## TCP编程
+#### TCP编程
 
 另见code/socket/
 
@@ -1113,7 +1125,7 @@ with open('sina.html', 'wb') as f:
     f.write(html)
 ```
 
-## SMTP发送邮件
+#### SMTP发送邮件
 见/email/
 
 参考https://docs.python.org/2/library/email.mime.html
@@ -1128,8 +1140,8 @@ Message
         +- MIMEImage
 ```
 
-## Http
-#### chrome F12
+#### Http
+######## chrome F12
 `Elements` 显示网页结构
 `Network`显示浏览器和服务器的通信
 - 选择`Network`
@@ -1145,7 +1157,7 @@ Message
 > Host: www.sina.com.cn
 - 请求的域名
 - 如果一个服务器有多个网站, 服务器需要通过Host来区分浏览器请求的是哪个网站
-####`Response Headers`
+########`Response Headers`
 - 点击`view source`
 
 > 200 OK
@@ -1158,13 +1170,13 @@ Message
 - `Content-Type`响应的内容
 - `text/html`HTML网页
 
-#### HTTP响应
+######## HTTP响应
 - `200`成功
 - `3XX`重定向
 - `4XX`客户端请求有误
 - `5XX`服务器端处理出错
 
-#### HTTP格式
+######## HTTP格式
 **HTTP GET请求的格式**
 > GET /path HTTP/1.1
 > Header1: Value1

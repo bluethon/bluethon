@@ -1,20 +1,44 @@
+VIM学习笔记
+==========
+
+``` bash
+vim + abc       # 打开定位最后一行
+vim +5 abc      # 定位到第5行, 若超出, 则到最后行
+vim +/imooc abc # 定位到imooc第一次出现的地方, n可切换其他匹配
+vim aa bb ccc   # 同时打开3个文件, :n->下一个, (:N or :prev)->上一个
+
+# 底行模式
+:ls             # 查看打开的文件列表
+:15             # 定位到15行
+/xxx            # 从光标位置向后搜索
+?xxx            # 光标向前
+
+# 命令模式
+Ctrl+f          # 向下翻页 front
+Ctrl+b          # 向上翻页 back
+Ctrl+d          # 下翻半页 down
+Ctrl+u          # 上翻半夜 up
+
+```
+
+---
+
 ## 配置文件在VIM目录下
+
 `_vimrc`
 
 ## 显示中文 依次使用序列中的编码方式, 最优的在左
-set fileencodings=utf-8,gbk,big5
+
+    set fileencodings=utf-8,gbk,big5
 
 ## 调整光标位置
+
 zz 屏幕中间
 zt 屏幕顶端
 zb 屏幕底端
-Ctrl+f            往前滚动一整屏
-Ctrl+b            往后滚动一整屏
-Ctrl+d            往前滚动半屏
-Ctrl+u            往后滚动半屏
 
-Ctrl+e            往后滚动一行
-Ctrl+y            往前滚动一行
+Ctrl+e          # 往后滚动一行
+Ctrl+y          # 往前滚动一行
 
 #插入
 i   #左插

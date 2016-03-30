@@ -154,3 +154,19 @@ url_for('user', name='blue', _external=True)
 <!-- 返回/?page=2 -->
 url_for('index', page=2)
 ```
+
+#### 静态文件
+
+调用`url_for('static', filename='css/style.css', _external=True)`
+生成(http://localhost:5000/static/css/style.css)
+
+``` html
+{% block head %}
+    <!-- 保留基模板的原始内容 -->
+    {{ super() }}
+
+    <!-- link:favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = 'favicon.ico') }}">
+{% endblock head %}
+```
