@@ -28,6 +28,7 @@ jobs
 # 关闭
 fg %n
 ```
+ps -ef|grep sslocal
 
 Shell
 -----
