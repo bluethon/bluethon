@@ -1,6 +1,14 @@
 Flask学习笔记
 ============
 
+## 《Flask Web开发》读书笔记
+
+#### 重点目录(页码使用pdf分页)
+
+1. P052    基模板引入moment.js
+
+---
+
 #### Flask上下文全局变量
 
 变量名       |上下文     | 说明
@@ -38,6 +46,7 @@ session     |请求上下文 |用户会话, 用户存储请求之间需要"记�
 ## Flask扩展
 
 专为Flask开发的扩展都在flask.ext命名空间下
+- `Flask-Moment`, 本地化日期和时间
 
 #### flask-script
 
@@ -46,22 +55,35 @@ session     |请求上下文 |用户会话, 用户存储请求之间需要"记�
 
 **安装**
 
-    `pip install flask-script`
+    pip install flask-script
 
 **使用**
 
 ``` python
-from flask.ext.script import Manager
+from flask.ext.script import Manager, Server
 manager = Manager(app)
+# 调试模式
+manager.add_command("runserver", Server(use_debugger=True))
 
 if __name__ == '__main__':
     manager.run()
 ```
 
-服务器监听公共网络接口上的连接, 允许同网络的其他计算机访问, 使用http://1.2.3.4:5000/访问, `1.2.3.4`为服务器外网IP地址
-> --host 设定监听哪个网络接口上的连接, 默认为localhost
+**参数**
 
-    `python hello.py runserver --host 0.0.0.0`
+``` bash
+# 两种调试模式
+python3 hello.py runserver -d
+manager.add_command("runserver", Server(use_debugger=True))
+
+
+# 服务器监听公共网络接口上的连接, 允许同网络的其他计算机访问, 使用http://1.2.3.4:5000/访问, `1.2.3.4`为服务器外网IP地址
+# --host 设定监听哪个网络接口上的连接, 默认为localhost
+python3 hello.py runserver --host 0.0.0.0
+
+# 多线程
+python3 hello.py runserver --threaded
+```
 
 #### Bootstrap
 
@@ -69,7 +91,7 @@ Twitter开发的一个开源框架, 提供用户界面组件, 且兼容所有现
 
 **安装**
 
-    `pip install flask-bootstrap`
+    pip install flask-bootstrap
 
 **使用**
 
@@ -105,6 +127,93 @@ bootstrap = Bootstrap(app)
     <script src="my-script.js"></script>
 {% endblock%}
 ```
+
+#### Flask-Moment
+
+依赖`moment.js`, `jquery.js`  
+[全部方法文档](http://momentjs.com/docs/#/displaying/)
+
+**安装**
+
+    pip install flask-moment
+
+**使用**
+
+``` python
+from flask.ext.moment import Moment
+from datetime import datetime
+
+moment = Moment(app)
+# 其假定服务器端程序处理的时间戳是标准datetime的UTC表示
+# 标准详见标准库中datetime包的文档
+# https://docs.python.org/3/library/datetime.html
+current_time = datetime.utcnow()
+```
+
+``` html
+<!-- 基模板 -->
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    <!-- 本地化 -->
+    {{ moment.lang('zh-cn') }}
+{% endblock scripts %}
+```
+
+#### Flask-WTF
+
+Web表单
+
+**安装**
+
+    pip install flask-wtf
+
+**使用**
+
+``` python
+from flask.ext.wtf import Form
+from wtforms import StringField, SubmitField
+from wtforms.validators import Required
+
+# 定义表单类
+class NameForm(Form):
+    name = StringField('What is your name?', validators=[Required()])
+    submit = SubmitField('Submit')
+```
+
+**WTForms支持的HTML标准字段**
+
+    StringField         文本字段
+    TextAreaField       多行文本字段
+    PasswordField       密码文本字段
+    HiddenField         隐藏文本字段
+    DateField           文本字段, 值为datetime.date格式
+    DateTimeField       文本字段,值为 datetime.datetime 格式
+    IntegerField        文本字段,值为整数
+    DecimalField        文本字段,值为 decimal.Decimal
+    FloatField          文本字段,值为浮点数
+    BooleanField        复选框,值为 True 和 False
+    RadioField          一组单选框
+    SelectField         下拉列表
+    SelectMultipleField 下拉列表,可选择多个值
+    FileField           文件上传字段
+    SubmitField         表单提交按钮
+    FormField           把表单作为字段嵌入另一个表单
+    FieldList           一组指定类型的字段
+
+**WTForms验证函数**
+
+    Email       验证电子邮件地址
+    EqualTo     比较两个字段的值;常用于要求输入两次密码进行确认的情况
+    IPAddress   验证 IPv4 网络地址
+    Length      验证输入字符串的长度
+    NumberRange 验证输入的值在数字范围内
+    Optional    无输入值时跳过其他验证函数
+    Required    确保字段中有数据
+    Regexp      使用正则表达式验证输入值
+    URL         验证 URL
+    AnyOf       确保输入值在可选值列表中
+    NoneOf      确保输入值不在可选值列表中
 
 ---
 

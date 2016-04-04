@@ -18,7 +18,6 @@ Ctrl+f          # 向下翻页 front
 Ctrl+b          # 向上翻页 back
 Ctrl+d          # 下翻半页 down
 Ctrl+u          # 上翻半夜 up
-
 ```
 
 ---

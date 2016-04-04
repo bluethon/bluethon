@@ -1,3 +1,9 @@
+Sublime Package List
+====================
+
+#### 扩展补全 可查找其他文件
+All Autocomplete
+
 #### python提示
 Anaconda
 

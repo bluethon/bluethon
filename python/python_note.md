@@ -2,12 +2,37 @@ Python学习笔记
 =============
 
 ### Python核心编程
-
+~~~
 2.03    P022    文档字符串, 起在线文档功能
 
 2.05    P024    Python不支持自增, 会解释为+(+n)
 
-2.05    P024    Python不支持自增, 会解释为+(+n)
+2.13    P029    
+~~~
+
+**`for`循环中`print`不换行**
+
+``` python
+# py2
+print x,
+# py3
+# print函数原型, 所以一句中输出多个中间会加空格, 末尾会加换行符
+print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+# 重载为不换行
+print(x, end='')
+# 输出换行符
+print()
+```
+
+**`enumerate` 同时循环索引和元素**
+
+``` python
+for i, ch in enumerate(list):
+    print(i, ch)
+```
+
+2.14    P030    列表解析, 将for if等放到list中, 一行实现
+
 
 
 ---
@@ -52,6 +77,7 @@ isinstance(s, string)
 ```
 
 **print格式化输出**
+
 ``` python
 nHex = 0x20
 #%x --- hex 十六进制
@@ -59,22 +85,23 @@ nHex = 0x20
 #%o --- oct 八进制
 %015   长度15 不足前导0补齐
 ```
-    
+
 回车换行
 ` \n 10 \x0a` newline 换行
 ` \r 13 \x0d` return 回车
 
 #### 字符串
+
 字符串长度
 
-```
-len('string')
-```
+    len('string')
+
 字符串拼接 `+`
+
 #### 数据类型和变量
 **多行转义**
 
-```
+``` python
 r'''
 '''
 ```
@@ -117,10 +144,12 @@ u'\u4e2d\u6587'
 **列表**
 `list []`
 **最后一个元素的索引**
-```
+
+``` python
 len(list)-1
 list[-1]
 ```
+
 **类推倒二**
 `list[-2]`
 **追加元素到末尾**

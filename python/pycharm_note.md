@@ -1,3 +1,15 @@
+Pycharm学习笔记
+=============
+
+#### 配置启动参数
+
+1. 右上角项目图标
+- "Edit Configurations"
+- Python
+    - "Script"  文件位置
+    - "Script Parameters"   参数设置
+    - "Python interpreter"  Python解释器
+
 #### 快捷方式
 **pycharm 创建图标和快捷方式**
 > Tools->Creat Desktop Entry

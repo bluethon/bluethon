@@ -1,4 +1,10 @@
 {
     "complete_all_parameters": true,
-    "display_signatures": false
+    "display_signatures": false,
+    // 防止干扰markdown中python代码
+    "pep8_ignore":
+    [
+        "E309",
+        "W293"
+    ]
 }

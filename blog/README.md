@@ -21,6 +21,11 @@
 
 ---
 
+#### Ubuntu
+1. [终端默认启动位置及大小自定义](./ubuntu/gnome_terminal.md)
+
+---
+
 #### 搭博客
 
 1. http://www.jianshu.com/p/465830080ea9
