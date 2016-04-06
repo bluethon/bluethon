@@ -7,7 +7,7 @@ Python学习笔记
 
 2.05    P024    Python不支持自增, 会解释为+(+n)
 
-2.13    P029    
+2.13    P029
 ~~~
 
 **`for`循环中`print`不换行**
@@ -187,23 +187,26 @@ if x:
 #### 字典
 请务必注意，dict内部存放的顺序和key放入的顺序是没有关系的。
 
-**init**
+
 ``` python
+# init
 d = {'Michael': 95, 'Tracy': 85}
+
+# 添加
+d['Adam'] = 67
+# 删除 2 ways
+d.pop('Adam')
+del mydic['key1']
+
+# 判断Key是否存在
+'Thomas' in d   # back 'False'
+
+# 判断Key是否存在2
+# 如果key不存在，可以返回None，或者自己指定的value：
+# 注意：返回None的时候Python的交互式命令行不显示结果。
+d.get('Thomas')
+d.get('Thomas', -1) # back '-1'
 ```
-**添加**
-`d['Adam'] = 67`
-
-**判断Key是否存在1**
-`'Thomas' in d`
-False
-
-**判断Key是否存在2**
-如果key不存在，可以返回None，或者自己指定的value：
-注意：返回None的时候Python的交互式命令行不显示结果。
-`d.get('Thomas')`
-`d.get('Thomas', -1)`
--1
 
 #### set
 - 无序
