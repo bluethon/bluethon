@@ -1,14 +1,18 @@
 Python学习笔记
 =============
 
-### Python核心编程
-~~~
-2.03    P022    文档字符串, 起在线文档功能
+## 缩写
 
-2.05    P024    Python不支持自增, 会解释为+(+n)
+    repr        representation
+    pprint      pretty printer
 
-2.13    P029
-~~~
+---
+
+## Python核心编程
+
+    2.03    P022    文档字符串, 起在线文档功能
+    2.05    P024    Python不支持自增, 会解释为+(+n)
+    2.13    P029
 
 **`for`循环中`print`不换行**
 
@@ -31,9 +35,8 @@ for i, ch in enumerate(list):
     print(i, ch)
 ```
 
-2.14    P030    列表解析, 将for if等放到list中, 一行实现
-
-
+    2.14    P030    列表解析, 将for if等放到list中, 一行实现
+    2.20    P036    实用内建函数
 
 ---
 
