@@ -1,4 +1,12 @@
 {
+    // 设置什么范围内点(dot)为trigger, 触发补全框
+    "auto_complete_triggers":
+    [{
+        "selector": "source.python - string - comment - constant.numeric",
+        "characters": "."
+    }],
+    //设置触发补全的范围
+    "auto_complete_selector": "source, text",
     // snippet中是否显示补全
     "auto_complete_with_fields": true,
     // 小地图一直显示当前位置, 默认鼠标移上去显示
