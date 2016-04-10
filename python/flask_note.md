@@ -328,3 +328,21 @@ url_for('index', page=2)
     index           如果设为 True ,为这列创建索引,提升查询效率
     nullable        如果设为 True ,这列允许使用空值;如果设为 False ,这列不允许使用空值
     default         为这列定义默认值
+
+**常用的SQLAlchemy关系选项**
+
+    backref                     在关系的另一个模型中添加反向引用
+    primaryjoin                 明确指定两个模型之间使用的联结条件。只在模棱两可的关系中需要指定
+    lazy                        指定如何加载相关记录。
+    uselist                     如果设为 Fales ,不使用列表,而使用标量值
+    order_by                    指定关系中记录的排序方式
+    secondary                   指定 多对多 关系中关系表的名字
+    secondaryjoin SQLAlchemy    无法自行决定时,指定多对多关系中的二级联结条件
+
+> lazy可选值 
+- select (首次访问时按需加载)
+- immediate (源对象加载后就加载)
+- joined (加载记录,但使用联结)
+- subquery (立即加载,但使用子查询)
+- noload (永不加载)
+- dynamic (不加载记录,但提供加载记录的查询)

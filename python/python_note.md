@@ -3,8 +3,10 @@ Python学习笔记
 
 ## 缩写
 
-    repr        representation
+    repr        representation                  给解释器的显示类型
     pprint      pretty printer
+    URI         Uniform Resource Identifier     统一资源标识符
+    URL         Uniform Resource Locator        统一资源定位器
 
 ---
 
