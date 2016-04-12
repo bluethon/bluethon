@@ -1,6 +1,9 @@
 Sublime Package List
 ====================
 
+#### 输入路径创建文件
+AdvancedNewFile
+
 #### 扩展补全 可查找其他文件
 All Autocomplete
 

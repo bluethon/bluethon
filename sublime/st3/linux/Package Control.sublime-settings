@@ -1,0 +1,31 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"All Autocomplete",
+		"Anaconda",
+		"Colorcoder",
+		"Djaneiro",
+		"Emmet",
+		"Gist",
+		"GitGutter",
+		"Markdown Extended",
+		"Markdown Preview",
+		"Monokai Extended",
+		"Package Control",
+		"requirementstxt",
+		"SideBarEnhancements",
+		"SublimeGit",
+		"SublimeTmpl",
+		"Theme - DC",
+		"Theme - Soda"
+	],
+	"repositories":
+	[
+		"https://github.com/yasuyuky/SublimeMozcInput"
+	]
+}

@@ -5,8 +5,12 @@ Debug
 
 do this by using the console:
 
-    $ view.settings().get('font_face')
-
+``` js
+// 获得设置的当前值
+view.settings().get('font_face')
+// 操作日志 开启 
+sublime.log_commands(True)
+```
 
 Settings
 --------
@@ -18,19 +22,8 @@ http://www.bluesdream.com/blog/sublime-text-snippets-function.html
 http://docs.sublimetext.info/en/sublime-text-3/extensibility/snippets.html
 
 #### Linux下输入中文
-见sublime_imfix/
 
-#### 修改保存文件时的默认后缀形式(有误)
-
-1. 新建一个空白文件，设置 Syntax - Markdown
-
-2. 然后 Preference > Setting - more > Syntax Specific - User 会打开 **Markdown**.sublime-settings，然后将下面的内容保存 （文件名应该是：Packages/User/Markdown.sublime-settings）
-
-    {
-      "extensions": [ "md" ]
-    }
-
-试验下新建 markdown 文件，保存时的后缀是否为 .md
+见`sublime_imfix/`
 
 #### 设置新建文件的默认格式和语法高亮 （`cmd+n`）
 

@@ -282,11 +282,9 @@ url_for('index', page=2)
 
 ---
 
-## 数据库
+## 数据库(Flask-SQLAlchemy)
 
-#### Flask-SQLAlchemy
-
-**数据库URL**
+#### 数据库URL
 
     数据库引擎       URL
     MySQL           mysql://username:password@hostname/database
@@ -294,12 +292,12 @@ url_for('index', page=2)
     SQLite(Unix)    sqlite:///absolute/path/to/database
     SQLite(Win)     sqlite:///c:/absolute/path/to/database
 
-**键**
+#### 键
 
     SQLALCHEMY_DATABASE_URL         数据库URL
     SQLALCHEMY_COMMIT_ON_TEARDOWN   请求结束后自动提交数据库中的变动
 
-**常用列类型**
+#### 常用列类型
 
     类型名           Python类型              说明
     Integer         int                     普通整数,一般是 32 位
@@ -320,7 +318,7 @@ url_for('index', page=2)
     PickleType      任何Python对象            自动使用 Pickle 序列化
     LargeBinary     str                     二进制文件
 
-**常用列选项**
+#### 常用列选项
 
     选项名           说明
     primary_key     如果设为 True ,这列就是表的主键
@@ -329,7 +327,7 @@ url_for('index', page=2)
     nullable        如果设为 True ,这列允许使用空值;如果设为 False ,这列不允许使用空值
     default         为这列定义默认值
 
-**常用的SQLAlchemy关系选项**
+#### 常用的SQLAlchemy关系选项
 
     backref                     在关系的另一个模型中添加反向引用
     primaryjoin                 明确指定两个模型之间使用的联结条件。只在模棱两可的关系中需要指定
@@ -346,3 +344,41 @@ url_for('index', page=2)
 - subquery (立即加载,但使用子查询)
 - noload (永不加载)
 - dynamic (不加载记录,但提供加载记录的查询)
+
+#### 操作
+
+``` python
+db.create_all()                         # 新建数据库
+db.drop_all()                           # 删除
+admin_role = Role(name='Admin')         # 插入行
+db.session.add(admin_role)              # 添加到会话
+db.session.add([admin_role, mod_role])  # 一次添加多个
+db.session.commit()                     # 提交会话
+db.session.rollback()                   # 回滚
+admin_role.name = 'Administrator'       # 修改行
+db.session.delete(mod_role)             # 删除行
+Role.query.all()                        # 查询行
+User.query.filter_by(role=user_role).all()  # 过滤器
+str(User.query.filter_by(role=user_role).all()) # 查看生成的原生SQL, 即转为string
+```
+
+#### 常用SQLAlchemy查询过滤器
+
+[完整的列表参见 SQLAlchemy 文档](http://docs.sqlalchemy.org)
+
+    filter()        把过滤器添加到原查询上,返回一个新查询
+    filter_by()     把等值过滤器添加到原查询上,返回一个新查询
+    limit()         使用指定的值限制原查询返回的结果数量,返回一个新查询
+    offset()        偏移原查询返回的结果,返回一个新查询
+    order_by()      根据指定条件对原查询结果进行排序,返回一个新查询
+    group_by()      根据指定条件对原查询结果进行分组,返回一个新查询
+
+#### 常用SQLAlchemy查询执行函数
+
+    all()           以列表形式返回查询的所有结果
+    first()         返回查询的第一个结果,如果没有结果,则返回 None
+    first_or_404()  返回查询的第一个结果,如果没有结果,则终止请求,返回 404 错误响应
+    get()           返回指定主键对应的行,如果没有对应的行,则返回 None
+    get_or_404()    返回指定主键对应的行,如果没找到指定的主键,则终止请求,返回 404 错误响应
+    count()         返回查询结果的数量
+    paginate()      返回一个 Paginate 对象,它包含指定范围内的结果
