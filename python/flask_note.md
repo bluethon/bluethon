@@ -215,6 +215,30 @@ class NameForm(Form):
     AnyOf       确保输入值在可选值列表中
     NoneOf      确保输入值不在可选值列表中
 
+#### Flask-Migrate
+
+数据库迁移
+
+**安装**
+
+    pip install flask-migrate
+
+**使用**
+
+``` python
+from flask.ext.migrate import Migrate, MigrateCommand
+
+# 为导出数据库迁移命令, 使用MigrateCommand类作为 db 命令的 (附加)参数
+migrate = Migrate(app=app, db=db, directory='migrations')
+manager.add_command('db', MigrateCommand)
+```
+``` bash
+# 使用init子命令创建迁移仓库, 生成migrations文件夹
+python3 hello.py db init
+# migrate子命令自动创建迁移脚本
+python3 hello.py db migrate -m 'initial migration'
+```
+
 ---
 
 ## 模板
