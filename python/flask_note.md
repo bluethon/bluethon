@@ -237,7 +237,37 @@ manager.add_command('db', MigrateCommand)
 python3 hello.py db init
 # migrate子命令自动创建迁移脚本
 python3 hello.py db migrate -m 'initial migration'
+# 更新数据库
+python3 hello.py db upgrade
 ```
+
+#### Flask-Mail
+
+数据库迁移
+
+**安装**
+
+    pip install flask-mail
+
+**使用**
+
+``` python
+from flask.ext.migrate import Migrate, MigrateCommand
+
+# 为导出数据库迁移命令, 使用MigrateCommand类作为 db 命令的 (附加)参数
+migrate = Migrate(app=app, db=db, directory='migrations')
+manager.add_command('db', MigrateCommand)
+```
+
+**SMTP服务器配置**
+
+    配置             默认值      说  明
+    MAIL_SERVER     localhost   电子邮件服务器的主机名或 IP 地址
+    MAIL_PORT       25          电子邮件服务器的端口
+    MAIL_USE_TLS    False       启用传输层安全(Transport Layer Security,TLS)协议
+    MAIL_USE_SSL    False       启用安全套接层(Secure Sockets Layer,SSL)协议
+    MAIL_USERNAME   None        邮件账户的用户名
+    MAIL_PASSWORD   None        邮件账户的密码
 
 ---
 
