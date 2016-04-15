@@ -1,12 +1,11 @@
 [
-    {"keys": [
-            "alt+r"
-        ],
+    {
+        "keys": ["alt+r"],
         "command": "markdown_preview",
-        "args": {
-            "target": "browser"
-        }
+        "args": {"target": "browser"}
     },
+    // 查看当前的scope, 设置自动完成用
+    { "keys": ["f7"], "command": "show_scope_name" },
     {
         "keys": ["ctrl+shift+alt+r"], "command": "sublime_tmpl",
         "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
@@ -17,6 +16,17 @@
             { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
             { "key": "auto_complete_visible", "operator": "equal", "operand": false },
             { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+        ]
+    },
+    // 向右移动一个character
+    {
+        "keys": ["tab"], "command": "move", "args": {"by": "characters", "forward": true},
+        "context":
+        [
+            // 后面 正则匹配 ), ], >, , ', ", ' %>', }, ;, ','
+            { "key": "following_text", "operator": "regex_contains", "operand": "^[)\\]\\>\\'\\\"\\ %>\\}\\;\\,]", "match_all": true },
+            // 前面 不能正则匹配 空格
+            { "key": "preceding_text", "operator": "not_regex_match", "operand": "^.*\\ $", "match_all": true  }
         ]
     }
 ]
