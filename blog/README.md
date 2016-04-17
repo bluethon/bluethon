@@ -21,6 +21,7 @@
 #### Shell
 
 1. [批量修改文件夹名字](./shell/rename_folder.md)
+- [永久设置环境变量](./shell/permanently_export _variables.md)
 
 ---
 

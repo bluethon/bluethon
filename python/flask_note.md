@@ -175,6 +175,9 @@ from flask.ext.wtf import Form
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required
 
+# 设置密匙, 环境变量获取, 设置到app.config中可通用
+SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+
 # 定义表单类
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required()])
@@ -252,18 +255,55 @@ python3 hello.py db upgrade
 **使用**
 
 ``` python
-from flask.ext.migrate import Migrate, MigrateCommand
+from threading import Thread
+from flask.ext.mail import Mail, Message
 
-# 为导出数据库迁移命令, 使用MigrateCommand类作为 db 命令的 (附加)参数
-migrate = Migrate(app=app, db=db, directory='migrations')
-manager.add_command('db', MigrateCommand)
+mail = Mail(app=app)
+
+# 异步程序
+def send_async_email(app, msg):
+    # mail.send()使用current_app, 此处为另一线程, 需要手动激活context
+    with app.app_context():
+        mail.send(msg)
+
+app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[Flasky]'
+app.config['FLASKY_MAIL_SENDER'] = 'Flasky Admin <flasky@example.com>'
+
+def send_email(to, subject, template, **kwargs):
+    msg = Message(app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + subject,
+    sender=app.config['FLASKY_MAIL_SENDER'], recipients=[to])
+    # template只写名称, 方便分别渲染
+    msg.body = render_template(template + '.txt', **kwargs)
+    msg.html = render_template(template + '.html', **kwargs)
+    # 直接发
+    # mail.send(msg)
+
+    # 异步发
+    thr = Thread(target=send_async_email, args=[app, msg])
+    thr.start()
+    return thr
+
+
+# 使用, 收件人在FLASKY_ADMIN中
+send_email(app.config['FLASKY_ADMIN'], 'New User',
+            'mail/new_user', user=user)
+```
+``` bash
+# 设置环境变量
+# Linux, 在.bashrc中, 否则为临时, 重启失效
+export MAIL_USERNAME=<you@example.com>
+export MAIL_PASSWORD=<password>
+# Win
+set MAIL_USERNAME=<you@example.com>
+# 设置管理员账号
+export FLASKY_ADMIN=<admin@example.com>
 ```
 
 **SMTP服务器配置**
 
     配置             默认值      说  明
     MAIL_SERVER     localhost   电子邮件服务器的主机名或 IP 地址
-    MAIL_PORT       25          电子邮件服务器的端口
+    MAIL_PORT       25          电子邮件服务器的端口(TLS=587, SSL=465)
     MAIL_USE_TLS    False       启用传输层安全(Transport Layer Security,TLS)协议
     MAIL_USE_SSL    False       启用安全套接层(Secure Sockets Layer,SSL)协议
     MAIL_USERNAME   None        邮件账户的用户名
@@ -348,7 +388,7 @@ url_for('index', page=2)
 
 #### 键
 
-    SQLALCHEMY_DATABASE_URL         数据库URL
+    SQLALCHEMY_DATABASE_URI         数据库URL
     SQLALCHEMY_COMMIT_ON_TEARDOWN   请求结束后自动提交数据库中的变动
 
 #### 常用列类型

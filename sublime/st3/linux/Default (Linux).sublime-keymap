@@ -1,5 +1,4 @@
 [
-    { "keys": ["shift+f1"], "command": "py_help" },
     {
         "keys": ["ctrl+shift+alt+h"], "command": "sublime_tmpl",
         "args": {"type": "html"}, "context": [{"key": "sublime_tmpl.html"}]
@@ -8,12 +7,56 @@
         "keys": ["ctrl+shift+alt+r"], "command": "sublime_tmpl",
         "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
     },
-        { "keys": ["alt+j"], "command": "auto_complete" },
+    { "keys": ["alt+j"], "command": "auto_complete" },
     { "keys": ["alt+j"], "command": "replace_completion_with_auto_complete", "context":
         [
             { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
             { "key": "auto_complete_visible", "operator": "equal", "operand": false },
             { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+        ]
+    },
+    {
+        "keys": ["alt+r"], "command": "markdown_preview",
+        "args": {
+            "target": "browser",
+            "parser": "github"
+        }
+    },
+    // 向右移动一个character
+    {
+        "keys": ["tab"], "command": "move", "args": {"by": "characters", "forward": true},
+        "context":
+        [
+            // 后面 正则匹配 ), ], >, , ', ", ' %>', }, ;, ','
+            { "key": "following_text", "operator": "regex_contains", "operand": "^[)\\]\\>\\'\\\"\\ %>\\}\\;\\,]", "match_all": true },
+            // 前面 不能正则匹配 空格
+            { "key": "preceding_text", "operator": "not_regex_match", "operand": "^.*\\ $", "match_all": true  },
+            // 自动完成列表关闭
+            { "key": "auto_complete_visible", "operator": "equal", "operand": false},
+            // 不在snippet中
+            { "key": "has_next_field", "operator": "equal", "operand": false}
+        ]
+    },
+    // Auto-pair brackets
+    { "keys": ["("], "command": "insert_snippet", "args": {"contents": "($0)"}, "context":
+        [
+            { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+            // match_all 所有选区都测试
+            { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+            // (?:exp) 匹配exp, 但不加入group, 也就是以后不用了
+            // 在原有基础上加入冒号, 单双引号
+            { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|'|:|\"|]|;|\\}|$)", "match_all": true }
+        ]
+    },
+    // Auto-pair brackets
+    { "keys": ["["], "command": "insert_snippet", "args": {"contents": "[$0]"}, "context":
+        [
+            { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+            // match_all 所有选区都测试
+            { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+            // (?:exp) 匹配exp, 但不加入group, 也就是以后不用了
+            // 在原有基础上加入冒号, 单双引号
+            { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|'|:|\"|]|;|\\}|$)", "match_all": true }
         ]
     }
 ]

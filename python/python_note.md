@@ -8,6 +8,8 @@ Python学习笔记
     URI         Uniform Resource Identifier     统一资源标识符
     URL         Uniform Resource Locator        统一资源定位器
     SMTP        Simple Mail Transfer Protocol   简单邮件传输协议
+    regex       Regular Expressions             正则表达式
+    CSRF        Cross-Site Request Forgery      跨站请求伪造
 
 ---
 

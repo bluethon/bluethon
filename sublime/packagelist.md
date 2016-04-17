@@ -22,6 +22,9 @@ AutoPEP8
 #### 括号高亮
 BracketHighlighter
 
+#### 快捷键合集(git,  sublime, shell)
+Cheat Sheets
+
 #### 高亮变量
 Colorcoder
 
