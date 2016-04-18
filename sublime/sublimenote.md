@@ -4,11 +4,12 @@ Debug
 **Troubleshooting**
 
 do this by using the console:
+[更多](https://www.sublimetext.com/docs/3/api_reference.html)
 
-``` js
-// 获得设置的当前值
+``` python
+# 获得设置的当前值
 view.settings().get('font_face')
-// 操作日志 开启 
+# 操作日志 开启
 sublime.log_commands(True)
 ```
 
@@ -51,7 +52,7 @@ http://docs.sublimetext.info/en/sublime-text-3/extensibility/snippets.html
 }
 ```
 
-#### anacoda 
+#### anacoda
 
 **venv project设置**
 
