@@ -9,6 +9,7 @@
 
 1. [sublime开启scope_name显示](./sublime/show_scope_name.md)
 - [emmet停止tab某些情况下起作用](./sublime/disable_emmet_tab.md)
+- [project设置相对路径参考](./sublime/project_path.md)
 
 ---
 
