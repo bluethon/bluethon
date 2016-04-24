@@ -5,7 +5,8 @@ Flask学习笔记
 
 #### 重点目录(页码使用pdf分页)
 
-1. P052    基模板引入moment.js
+    P052    基模板引入moment.js
+    P091    blueprint('name', __name__), 第一个为蓝本命名空间名称
 
 ---
 

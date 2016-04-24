@@ -45,7 +45,7 @@
             { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
             // (?:exp) 匹配exp, 但不加入group, 也就是以后不用了
             // 在原有基础上加入冒号, 单双引号
-            { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|'|:|\"|]|;|\\}|$)", "match_all": true }
+            { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|'|:|\"|]||,|;|\\}|$)", "match_all": true }
         ]
     },
     // Auto-pair brackets

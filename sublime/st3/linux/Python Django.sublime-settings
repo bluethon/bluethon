@@ -1,5 +1,5 @@
 {
-    "auto_complete_selector": "source, text",
+    "auto_complete_selector": "source.python, text",
     "auto_complete_triggers":
     [
         {
