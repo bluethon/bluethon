@@ -289,6 +289,7 @@ def send_email(to, subject, template, **kwargs):
 send_email(app.config['FLASKY_ADMIN'], 'New User',
             'mail/new_user', user=user)
 ```
+
 ``` bash
 # 设置环境变量
 # Linux, 在.bashrc中, 否则为临时, 重启失效
@@ -309,6 +310,23 @@ export FLASKY_ADMIN=<admin@example.com>
     MAIL_USE_SSL    False       启用安全套接层(Secure Sockets Layer,SSL)协议
     MAIL_USERNAME   None        邮件账户的用户名
     MAIL_PASSWORD   None        邮件账户的密码
+
+
+#### Flask-Login
+
+**使用**
+
+``` python
+# 设置登陆页面的端点
+login_manager.login_view = 'auth.login'
+
+```
+
+**LoginManager.session_protection属性**
+
+    None
+    basic
+    strong      记录客户端IP和浏览器的用户代理信息, 发现异常则登出
 
 ---
 
@@ -452,6 +470,8 @@ db.session.commit()                     # 提交会话
 db.session.rollback()                   # 回滚
 admin_role.name = 'Administrator'       # 修改行
 db.session.delete(mod_role)             # 删除行
+
+# [表类].query.[过滤器].[执行函数]
 Role.query.all()                        # 查询行
 User.query.filter_by(role=user_role).all()  # 过滤器
 str(User.query.filter_by(role=user_role).all()) # 查看生成的原生SQL, 即转为string
@@ -470,6 +490,7 @@ str(User.query.filter_by(role=user_role).all()) # 查看生成的原生SQL, 即�
 
 #### 常用SQLAlchemy查询执行函数
 
+
     all()           以列表形式返回查询的所有结果
     first()         返回查询的第一个结果,如果没有结果,则返回 None
     first_or_404()  返回查询的第一个结果,如果没有结果,则终止请求,返回 404 错误响应
@@ -477,3 +498,4 @@ str(User.query.filter_by(role=user_role).all()) # 查看生成的原生SQL, 即�
     get_or_404()    返回指定主键对应的行,如果没找到指定的主键,则终止请求,返回 404 错误响应
     count()         返回查询结果的数量
     paginate()      返回一个 Paginate 对象,它包含指定范围内的结果
+
