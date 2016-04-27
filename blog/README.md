@@ -5,6 +5,12 @@
 
 ---
 
+#### Python
+1. [函数的带星号形参和带双星号形参](http://www.math.pku.edu.cn/teachers/qiuzy/computing/basics/pb_file210.htm), [解压可迭代对象赋值给多个变量](http://python3-cookbook.readthedocs.org/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html)
+- [使用pyinstaller将python程序打包为exe](./python/pyinstaller.md)
+
+---
+
 #### Sublime
 
 1. [sublime开启scope_name显示](./sublime/show_scope_name.md)
@@ -37,9 +43,6 @@
 1. [URI vs URL](http://www.cnblogs.com/hust-ghtao/p/4724885.html#commentform)
 
 ---
-
-#### Python
-1. [函数的带星号形参和带双星号形参](http://www.math.pku.edu.cn/teachers/qiuzy/computing/basics/pb_file210.htm), [解压可迭代对象赋值给多个变量](http://python3-cookbook.readthedocs.org/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html)
 
 #### 搭博客
 
