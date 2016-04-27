@@ -7,14 +7,22 @@
         "keys": ["ctrl+shift+alt+r"], "command": "sublime_tmpl",
         "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
     },
-    { "keys": ["alt+j"], "command": "auto_complete" },
-    { "keys": ["alt+j"], "command": "replace_completion_with_auto_complete", "context":
+    // 自动完成列表
+    { "keys": ["ctrl+j"], "command": "auto_complete",
+        "context":
         [
-            { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
-            { "key": "auto_complete_visible", "operator": "equal", "operand": false },
-            { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+            { "key": "auto_complete_visible", "operator": "equal", "operand": false }
         ]
     },
+    // 选择下一个自动完成
+    { "keys": ["ctrl+j"], "command": "move", "args": {"by": "lines", "forward": true},
+        "context":
+        [
+            { "key": "auto_complete_visible", "operator": "equal", "operand": true }
+        ]
+    },
+    // 查看当前的scope, 设置自动完成用
+    { "keys": ["f7"], "command": "show_scope_name" },
     {
         "keys": ["alt+r"], "command": "markdown_preview",
         "args": {
