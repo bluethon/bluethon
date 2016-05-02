@@ -35,6 +35,7 @@
 #### Ubuntu
 
 1. [终端默认启动位置及大小自定义](./ubuntu/gnome_terminal.md)
+- [卸载ibus导致只有桌面壁纸](./ubuntu/uninstall_ibus_bug.md)
 
 ---
 

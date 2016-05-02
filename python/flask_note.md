@@ -328,6 +328,15 @@ login_manager.login_view = 'auth.login'
     basic
     strong      记录客户端IP和浏览器的用户代理信息, 发现异常则登出
 
+**Usermixin类实现的默认方法**
+
+    方法                  说  明
+    is_authenticated()  如果用户已经登录,必须返回 True ,否则返回 False
+    is_active()         如果允许用户登录,必须返回 True ,否则返回 False 。如果要禁用账户,
+                        可以返回 False
+    is_anonymous()      对普通用户必须返回 False
+    get_id()            必须返回用户的唯一标识符,使用 Unicode 编码字符串
+
 ---
 
 ## 模板

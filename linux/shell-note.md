@@ -38,6 +38,14 @@ fg %n
 - 在`exit 0`前加入要执行的命令
 - 需要`sudo`, 需要写绝对路径
 
+#### 软链接
+
+``` bash
+# -s soft
+# -f force
+ln -sf [target] [linkname]
+```
+
 
 ---
 
