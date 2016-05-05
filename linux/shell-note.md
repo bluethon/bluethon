@@ -4,6 +4,10 @@ Shell Note
 常用命令
 ------
 
+#### 查看文件夹大小
+
+    $ du --max-depth=0 [folder] -h
+
 #### 安装deb包
 
     $ sudo dpkg -i XXXX.deb

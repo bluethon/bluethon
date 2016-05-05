@@ -12,8 +12,9 @@ sudo apt-get install sqlite3 sqlite3-doc
 sqlite3 sample.db
 
 # 设置格式化查询结果
-.mode column;
-.header on;
+.mode column
+.header on
+.timer on
 
 # 获取所有表和视图
 .tables
