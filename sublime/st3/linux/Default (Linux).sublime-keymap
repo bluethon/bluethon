@@ -66,5 +66,15 @@
             // 在原有基础上加入冒号, 单双引号
             { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|'|:|\"|]|;|\\}|$)", "match_all": true }
         ]
+    },
+    // Auto-pair single quotes
+    { "keys": ["'"], "command": "insert_snippet", "args": {"contents": "'$0'"}, "context":
+        [
+            { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+            { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+            { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|:|]|\\}|>|$)", "match_all": true },
+            { "key": "preceding_text", "operator": "not_regex_contains", "operand": "['a-zA-Z0-9_]$", "match_all": true },
+            { "key": "eol_selector", "operator": "not_equal", "operand": "string.quoted.single - punctuation.definition.string.end", "match_all": true }
+        ]
     }
 ]

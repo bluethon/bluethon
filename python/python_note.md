@@ -11,17 +11,35 @@ Python学习笔记
     regex       Regular Expressions             正则表达式
     CSRF        Cross-Site Request Forgery      跨站请求伪造
 
+## 名词解释
+
+    metaclass       元类
+
 ---
 
 ## Python核心编程
 
     2.03    P022    文档字符串, 起在线文档功能
     2.05    P024    Python不支持自增, 会解释为+(+n)
-    2.13    P029
+    2.13    P030    [enumerate()同时循环索引和元素]
 
-**`for`循环中`print`不换行**
+
+    2.14    P030    列表解析, 将for if等放到list中, 一行实现
+    2.20    P036    实用内建函数
+    3.5.4   P051    对象被回收的时机
+    3.6     P053    使用局部变量替换模块变量加速原理
+    3.6     P054    [for循环中print不换行]
+    4.4.4   P060    切片操作d
+
 
 ``` python
+
+# P030
+for i, ch in enumerate(list):
+    print(i, ch)
+
+# P054
+#for循环中print不换行
 # py2
 print x,
 # py3
@@ -33,20 +51,9 @@ print(x, end='')
 print()
 ```
 
-**`enumerate` 同时循环索引和元素**
-
-``` python
-for i, ch in enumerate(list):
-    print(i, ch)
-```
-
-    2.14    P030    列表解析, 将for if等放到list中, 一行实现
-    2.20    P036    实用内建函数
-    3.5.4   P051    对象被回收的时机
-    3.6     P053    使用局部变量替换模块变量加速原理
-    3.6     P054    
-
 ---
+
+## 廖雪峰教程笔记
 
 **文件头**
 

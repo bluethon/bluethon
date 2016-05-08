@@ -6,5 +6,9 @@
             "selector": "source.html - string - comment - constant.numeric",
             "characters": "."
         }
-    ]
+    ],
+    "rulers":
+    [
+    ],
+    "wrap_width": 0
 }
