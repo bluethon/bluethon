@@ -11,6 +11,11 @@ Python学习笔记
     regex       Regular Expressions             正则表达式
     CSRF        Cross-Site Request Forgery      跨站请求伪造
 
+    <div>       division                        层, 分区
+    <ul>        Unordered List                  无序列表
+    <ol>        Ordered List                    有序列表
+    <li>        List Item                       列表项
+
 ## 名词解释
 
     metaclass       元类

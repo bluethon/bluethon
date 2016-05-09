@@ -73,3 +73,6 @@ Pretty JSON
 
 #### requirements.txt 文件提供自动补全，语法高亮以及版本管理功能
 requirementstxt
+
+#### Vim
+Vintageous

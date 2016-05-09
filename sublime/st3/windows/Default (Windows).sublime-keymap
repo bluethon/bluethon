@@ -10,8 +10,8 @@
         "keys": ["ctrl+shift+alt+r"], "command": "sublime_tmpl",
         "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
     },
-    { "keys": ["alt+j"], "command": "auto_complete" },
-    { "keys": ["alt+j"], "command": "replace_completion_with_auto_complete", "context":
+    { "keys": ["ctrl+j"], "command": "auto_complete" },
+    { "keys": ["ctrl+j"], "command": "replace_completion_with_auto_complete", "context":
         [
             { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
             { "key": "auto_complete_visible", "operator": "equal", "operand": false },
