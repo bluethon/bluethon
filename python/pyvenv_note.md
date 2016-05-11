@@ -5,12 +5,12 @@ Python3+自带, 可以替代virtualenv
 
 #### create
 
-$ pyvenv venv
+    $ pyvenv venv
 
 #### start
 
-$ source venv/bin/activate
+    $ source venv/bin/activate
 
 #### exit
 
-$ deactivate
+    $ deactivate

@@ -50,6 +50,9 @@ fg %n
 ln -sf [target] [linkname]
 ```
 
+#### 查看Linux系统版本
+
+    $ lsb_release -a
 
 ---
 

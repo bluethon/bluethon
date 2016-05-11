@@ -29,6 +29,7 @@
 
 1. [批量修改文件夹名字](./shell/rename_folder.md)
 - [永久设置环境变量](./shell/permanently_export _variables.md)
+- [SSH免密码登陆](./shell/ssh-keygen_login_no_password.md)
 
 ---
 
@@ -37,6 +38,7 @@
 1. [终端默认启动位置及大小自定义](./ubuntu/gnome_terminal.md)
 - [卸载ibus导致只有桌面壁纸](./ubuntu/uninstall_ibus_bug.md)
 - [手动编译Vim](./ubuntu/build_vim.md)
+- [手动安装python](./ubuntu/build_python.md)
 
 ---
 
