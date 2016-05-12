@@ -1,5 +1,8 @@
 # MarkDown学习笔记
 ==================
+
+[Markdown 语法说明 (简体中文版)](http://www.appinn.com/markdown/)
+
 ## 标题
  #代表标题级数
 # 一级标题
@@ -36,3 +39,10 @@ foo | foo  | foo
 bar | bar  | bar
 baz | baz  | baz
 
+## 链接
+
+#### 隐式链接
+
+[Google][]
+
+[Google]: http://google.com
