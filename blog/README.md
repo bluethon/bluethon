@@ -7,8 +7,7 @@
 
 #### Python
 1.  [函数的带星号形参和带双星号形参](http://www.math.pku.edu.cn/teachers/qiuzy/computing/basics/pb_file210.htm)
-    [解压可迭代对象赋值给多个变量](http://python3-cookbook.readthedocs.org/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html)
-
+-   [解压可迭代对象赋值给多个变量](http://python3-cookbook.readthedocs.org/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html)
 -   [使用pyinstaller将python程序打包为exe](/python/pyinstaller.md)
 -   [@staticmethod与@classmethod辨析](/python/diff_staticmethod_&_classmethod.md)
 

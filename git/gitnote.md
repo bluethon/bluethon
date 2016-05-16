@@ -1,7 +1,10 @@
-常用
----
+Git学习笔记
+===========
 
-**安装**
+常用
+----
+
+#### 安装
 
 `--global`表示这台机器上所有仓库都使用此配置
 
@@ -10,32 +13,39 @@ git config --global user.name "bluethon"
 git config --global user.email "j5088794@gmail.com"
 ```
 
-误提交或者不再跟踪
+#### 误提交或者不再跟踪
 
-    $ git rm -r --cached [folder/]
+``` bash
+# --cached  仅删除暂存区(index) -r recursive
+git rm -r --cached [folder/]
+```
 
-ubuntu 默认中文转为英文 想恢复中文 用#注释掉
+---
+
+#### Git cmd
+
+- ubuntu 默认中文转为英文 想恢复中文 用#注释掉
 `echo "alias git='LANG=en_GB git'" >> ~/.bashrc`
 
-更新origin url
+- 更新origin url
 `git remote set-url origin [new-url]`
 
-查看远程库的分支
+- 查看远程库的分支
 `git branch -a`
 
-创建分支
+- 创建分支
 `git checkout -b [name]`
 
-合并分支 --no-ff模式 可以保留分支信息
+- 合并分支 --no-ff模式 可以保留分支信息
 `git merge --no-ff -m "dev message" [dev_name]`
 
-删除分支
+- 删除分支
 `git branch -d [name]`
 
-将stash的内容新建为tesstchange分支
+- 将stash的内容新建为tesstchange分支
 `git stash branch testchanges`
 
-[git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
+- [git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
 `git config --global core.quotepath false`
 
 #### Git Bash
@@ -64,7 +74,7 @@ MinTTY 不支持交互操作, 需使用`winpty + python`类似
 更新origin url
 `git remote set-url origin [new-url]`
 
-#### Git
+#### Git Note
 
 Git本地新建repository
 `git init`
