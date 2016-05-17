@@ -2,7 +2,13 @@
     "extensions": [ "py" ],
     "auto_complete_triggers":
     [{
-        "selector": "source.python - string - comment - constant.numeric",
-        "characters": "."
-    }]
+        "characters": ".",
+        "selector": "source -string -comment -constant.numeric"
+    }],
+    // "auto_complete_triggers":
+    // [{
+    //     "characters": "0",
+    //     "selector": ""
+    // }]
+    "auto_complete_selector": "source.python - constant.numeric, text"
 }
