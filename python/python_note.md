@@ -35,6 +35,13 @@ Python学习笔记
     3.6     P053    使用局部变量替换模块变量加速原理
     3.6     P054    [for循环中print不换行]
     4.4.4   P060    切片操作d
+    4.5.2   P062    对象身份比较 is
+    4.6     P064    标准内建类型 repr() str() type() 等
+    4.6.3   P066    反引号操作符(``), obj == eval(repr(obj))
+    4.6.4   P067    type() & isinstance()
+    4.6.4   P069    对象身份比较 is
+    4.6.4   P070    判断对象类型 isinstance(), 可接受tuple作参数
+
 
 
 ``` python

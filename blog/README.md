@@ -52,6 +52,9 @@
 
 #### 搭博客
 
+1.  [Hexo+Ubuntu+GithubPages搭建个人博客](http://yanceywang.com/2015/07/30/Ubuntu+Hexo+GithubPages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/)
+
+> another todo
 1.  <http://www.jianshu.com/p/465830080ea9>
 -   <http://wuchong.me/archives/>
 
