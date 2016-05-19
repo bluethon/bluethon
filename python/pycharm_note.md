@@ -1,5 +1,8 @@
 Pycharm学习笔记
-=============
+===========
+
+#### 导入Python live template
+<http://peter-hoffmann.com/2010/python-live-templates-for-pycharm.html>
 
 #### 配置启动参数
 
