@@ -10,6 +10,7 @@ Python学习笔记
     SMTP        Simple Mail Transfer Protocol   简单邮件传输协议
     regex       Regular Expressions             正则表达式
     CSRF        Cross-Site Request Forgery      跨站请求伪造
+    eval        evaluate                         重新运算求出参数的内容
 
     <div>       division                        层, 分区
     <ul>        Unordered List                  无序列表
