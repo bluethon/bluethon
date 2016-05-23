@@ -16,6 +16,7 @@ Python学习笔记
     <ul>        Unordered List                  无序列表
     <ol>        Ordered List                    有序列表
     <li>        List Item                       列表项
+    <p>         paragraph                       段落
 
 ## 名词解释
 
@@ -42,7 +43,7 @@ Python学习笔记
     4.6.4   P067    type() & isinstance()
     4.6.4   P069    对象身份比较 is
     4.6.4   P070    判断对象类型 isinstance(), 可接受tuple作参数
-
+    4.10    P075    可以用内建函数dir()查看模块内成员
 
 
 ``` python
