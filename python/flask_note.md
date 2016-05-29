@@ -174,14 +174,14 @@ Web表单
 ``` python
 from flask.ext.wtf import Form
 from wtforms import StringField, SubmitField
-from wtforms.validators import Required
+from wtforms.validators import DataRequired
 
 # 设置密匙, 环境变量获取, 设置到app.config中可通用
 SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
 
 # 定义表单类
 class NameForm(Form):
-    name = StringField('What is your name?', validators=[Required()])
+    name = StringField('What is your name?', validators=[DataRequired()])
     submit = SubmitField('Submit')
 ```
 
@@ -213,7 +213,7 @@ class NameForm(Form):
     Length      验证输入字符串的长度
     NumberRange 验证输入的值在数字范围内
     Optional    无输入值时跳过其他验证函数
-    Required    确保字段中有数据
+    DataRequired    确保字段中有数据
     Regexp      使用正则表达式验证输入值
     URL         验证 URL
     AnyOf       确保输入值在可选值列表中

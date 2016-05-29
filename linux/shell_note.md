@@ -47,6 +47,8 @@ fg %n
 ``` bash
 # -s soft
 # -f force
+# 尽量使用绝对路径, 相对只使用`~`, 防止出错
+# 文件夹最后不能带`/`
 ln -sf [target] [linkname]
 ```
 
