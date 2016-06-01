@@ -32,6 +32,7 @@
 1.  [批量修改文件夹名字](./shell/rename_folder.md)
 -   [永久设置环境变量](./shell/permanently_export _variables.md)
 -   [SSH免密码登陆](./shell/ssh-keygen_login_no_password.md)
+-   [更改Caps Lock为Esc](./shell/change_caps-lock_to_esc.md)
 
 ---
 
