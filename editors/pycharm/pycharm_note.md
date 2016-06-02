@@ -1,6 +1,15 @@
 Pycharm学习笔记
 ===========
 
+Setting Help
+------------
+
+- **关闭**enter智能缩进, 否则导致不产生多行div的中间缩进
+
+> Smart Keys > Enter > Smart indent
+
+---
+
 #### 导入Python live template
 <http://peter-hoffmann.com/2010/python-live-templates-for-pycharm.html>
 

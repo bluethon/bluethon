@@ -43,6 +43,7 @@
 -   [手动编译Vim](./ubuntu/build_vim.md)
 -   [手动安装python](./ubuntu/build_python.md)
 -   [PPA源](./ubuntu/add_ppa.md)
+-   [自定义系统时间格式](./ubuntu/custom_date_format.md)
 
 ---
 

@@ -1,5 +1,5 @@
-Note For Linux
-==============
+Note For Ubuntu
+===============
 
 HotKey
 ------
@@ -32,8 +32,8 @@ win+c   # 搜索照片(?)
 ctrl+alt+shift #
 ```
 
-Linux Settings
---------------
+Settings
+--------
 
 #### 重启桌面
 
@@ -80,25 +80,11 @@ Linux Settings
     fi
     ```
 
-2. 然后重启bash
+2. 重启bash
 
-#### Ubuntu 获取最快的源
-- 备份源列表:
+#### 备份源列表:
 
     `sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup`
-
-- 刷新列表:
-
-    `sudo apt-get update`
-
-- 安装 apt-spy
-
-    `wget http://ftp.us.debian.org/debian/pool/main/a/apt-spy/apt-spy_3.2.2-1_amd64.deb`
-    `dpkg -i apt-spy_3.2.2-1_amd64.deb`
-
-- 使用 apt-spy 获取最快的源
-
-    `apt-spy -d stable -s CN -t 5`
 
 #### home下文件夹中文改为英文
 
