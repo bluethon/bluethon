@@ -8,6 +8,10 @@ Setting Help
 
 > Smart Keys > Enter > Smart indent
 
+- 设置Project忽略文件类型
+
+> File Types > Ignore files and folders
+
 ---
 
 #### 导入Python live template
