@@ -4,6 +4,10 @@ Shell Note
 常用命令
 ----
 
+#### 获取当前路径到变量
+
+    path=$(pwd)
+
 #### 组合命令(参考用)
 
     $ cd  /usr/local/bin && ls -l | grep "../lib/node_modules/" | awk '{print $9}'| xargs rm #删除全局 node 模块注册的软链

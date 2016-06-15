@@ -1,11 +1,22 @@
 将Caps Lock改为Esc键
 ===================
 
-- 编辑`.profile`文件, 增加
+- touch .Xmodmap
 
-    xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+- add
 
-- source重新载入文件生效
+``` bash
+# equal to
+# xmodmap -e 'clear Lock' -e 'keycode 66 = Escape'
+clear Lock
+keycode 66 = Escape
+```
+- source .Xmodmap
+
+> - [fcitx wiki](https://fcitx-im.org/wiki/FAQ#xmodmap_settings_being_overwritten)
+> - [xev 提供按键代码](http://askubuntu.com/a/23493/537695)
+> - [xmodmap设置参考](http://askubuntu.com/a/670033/537695)
+> - [参考(win & linux)](http://mingxinglai.com/cn/2013/05/change-capslock-to-esc/)
 
 
-> [参考(win & linux)](http://mingxinglai.com/cn/2013/05/change-capslock-to-esc/)
+

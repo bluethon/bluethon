@@ -20,6 +20,13 @@ git config --global user.email "j5088794@gmail.com"
 git rm -r --cached [folder/]
 ```
 
+#### 修改最后一次commit
+
+``` bash
+git add -A
+git commit --amend -m 'change the last commit'
+```
+
 ---
 
 #### Git cmd

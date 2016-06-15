@@ -26,6 +26,10 @@ MySQL笔记
 
     update tables set name='simaopig' where name='xiaoxiaozi'
 
+#### delete
+
+    delete from table where column_name = value
+
 权限
 ---
 
