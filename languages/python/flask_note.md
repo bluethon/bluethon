@@ -47,7 +47,12 @@ session     |请求上下文 |用户会话, 用户存储请求之间需要"记�
 ## Flask扩展
 
 专为Flask开发的扩展都在flask.ext命名空间下
-- `Flask-Moment`, 本地化日期和时间
+
+    Flask-Moment    本地化日期和时间
+    PageDown        使用js实现的客户端md到HTML的转换工具
+    Flask-PageDown  为Flask包装的PageDown, 把PageDown集成到Flask-WTF表单中
+    Markdown        使用Py实现的服务端Markdown到HTML转换工具
+    Bleach          使用Python实现的HTML清理器
 
 #### flask-script
 
