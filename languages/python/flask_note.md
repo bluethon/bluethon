@@ -7,6 +7,7 @@ Flask学习笔记
 
     P052    基模板引入moment.js
     P091    blueprint('name', __name__), 第一个为蓝本命名空间名称
+    P162    @property的意义
 
 ---
 

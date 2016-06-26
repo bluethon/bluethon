@@ -12,6 +12,7 @@ Python
 -   [解压可迭代对象赋值给多个变量](http://python3-cookbook.readthedocs.org/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html)
 -   [使用pyinstaller将python程序打包为exe](./python/pyinstaller.md)
 -   [@staticmethod与@classmethod辨析](./python/diff_staticmethod_&_classmethod.md)
+-   [Python常用函数清单](./python/python_method_list.md)
 
 ---
 

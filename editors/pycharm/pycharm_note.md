@@ -8,9 +8,13 @@ Setting Help
 
 > Smart Keys > Enter > Smart indent
 
-- 设置Project忽略文件类型
+- Project忽略文件类型
 
 > File Types > Ignore files and folders
+
+- 文件代码最后一行可以移动到顶部
+
+> General > Virtual Space > Show virtual space at file bottom
 
 ---
 

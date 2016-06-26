@@ -21,6 +21,8 @@ Python学习笔记
 ## 名词解释
 
     metaclass       元类
+    thumbnail       缩略图
+    hover           悬停
 
 ---
 
@@ -516,6 +518,7 @@ for n in Fib():
 动态返回属性或者方法, 区别为返回值, 见下面
 此方法默认返回None, 否则需要抛出AttributeError
 当调用不存在的属性或者方法时,会尝试调用`__getattr__`来获得
+
 ``` python
 def __getattr__(self, attr):
         if attr=='age':
@@ -526,10 +529,12 @@ def __getattr__(self, attr):
 s.name #attr return attr
 s.age() #method return lambda: attr
 ```
+
 这实际上可以把一个类的所有属性和方法调用全部动态化处理了，不需要任何特殊手段。
 这种完全动态调用的特性有什么实际作用呢？作用就是，可以针对完全动态的情况作调用。
 
 上述用例 SDK调用API时
+
 ``` python
 class Chain2(object):
 
@@ -548,6 +553,7 @@ class Chain2(object):
         print 'self._path:{0}\tuser:{1}'.format(self._path, user)
         return Chain2('%s/%s' % (self._path, user))
 ```
+
 /users/:user/repos
 `print Chain2().users('michael').repos`
 
@@ -557,7 +563,8 @@ s()状态下(即实例(instance)本身上调用)调用, 而不是调用s.method(
 没有`__call__`, 返回`TypeError`
 
 判断一个变量是否能被调用
-```
+
+``` bash
 >>>callable(Chain2())
 True
 >>>callable(max)
@@ -590,6 +597,7 @@ finally:
 ```
 #### logging
 记录错误, 捕获错误后程序会继续执行
+
 ``` python
 import logging
 
@@ -613,6 +621,7 @@ print 'END'
 raise语句如果不带参数，就会把当前错误原样抛出
 此例中捕获错误后有raise错误,在于当前函数不知道怎么处理错误,继续向上抛出,让上层调用者处理
 raise还可以抛出其他类型错误(转换错误类型,但应做到逻辑合理)
+
 ``` python
 def foo(s):
     n = int(s)
@@ -644,6 +653,7 @@ main()
 `import logging`
 指定level=INFO时,logging,debug就不起作用了,类推
 `logging.basicConfig(level=logging.INFO)`
+
 ``` python
 s = '0'
 n = int(s)
@@ -666,6 +676,7 @@ print 10 / n
 - p 查看变量
 - c 继续运行
 `err.py`
+
 ``` python
 import pdb
 ..........
@@ -676,16 +687,19 @@ pdb.set_trace() #运行到这里自动暂停
 #### 文件读写
 
 with语句来自动帮我们调用close()方法
+
 ``` python
 with open('/path/to/file', 'r') as f:
     print f.read()
 ```
 读取非ASCII编码的文本文件, 必须要二进制打开, 再解码
+
 ``` python
 import codecs
 with codecs.open('/usr/michael/gbk.txt', 'r', 'gbk') as f:
     f.read() #u'\u6d4b\u8bd5'
 ```
+
 **文件写入同读取 'w' 'wb'->二进制**
 
 
@@ -718,6 +732,7 @@ with codecs.open('/usr/michael/gbk.txt', 'r', 'gbk') as f:
 **路径拆分**
 `os.path.split()`
 **拆分路径, 后一部分总是最后级别的目录或文件名**
+
 ``` python
 >>>os.path.split('Users/testdir/file.txt')
 ('/Users/michael/testdir', 'file.txt')
@@ -749,13 +764,16 @@ x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py
 
 cPickle是C语言写的,速度快,pickle是纯Python写的
 **仅能用于Python**
+
 ``` python
 try:
     import cPickle as pickle
 except ImportError:
     import pickle
 ```
+
 把对象序列化为一个str
+
 ``` python
 d = dict()
 f = open('dump.txt', 'wb')
@@ -764,6 +782,7 @@ f.close()
 ```
 
 #### 反序列化
+
 ``` python
 f = open('dump.txt', 'rb')
 d = pickle.load(f)
@@ -771,17 +790,20 @@ f.close()
 ```
 
 #### JSON
+
 ``` python
 import json
 d = dict(name='Bob', age=20, score=88)
 json.dumps(d) #dumps返回一个str,内容是标准JSON
 ```
 #### 反序列化
-```
+
+``` python
 >>> json_str = '{"age": 20, "score": 88, "name": "Bob"}'
 >>> json.loads(json_str)
 {u'age': 20, u'score': 88, u'name': u'Bob'}
 ```
+
 dumps,loads 针对字符串, dump load 针对file-like Object
 反序列化得到的所有字符串对象默认都是unicode而不是str。由于JSON标准规定JSON编码是UTF-8，所以我们总是能正确地在Python的str或unicode与JSON的字符串之间转换。
 
@@ -791,6 +813,7 @@ dumps,loads 针对字符串, dump load 针对file-like Object
 
 
 #### 进程池(Pool)
+
 ``` python
 from multiprocessing import Pool
 import os, time, random
@@ -826,6 +849,7 @@ import os, time, random
 ```
 
 #### 写数据进程执行的代码:
+
 ``` python
 def write(q):
     for value in ['A', 'B', 'C']:
@@ -834,7 +858,8 @@ def write(q):
         time.sleep(random.random())
 ```
 
-# 读数据进程执行的代码
+#### 读数据进程执行的代码
+
 ``` python
 def read(q):
     while True:
@@ -884,6 +909,7 @@ Python解释器由于设计时有GIL全局锁，导致了多线程无法利用�
 但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。
 
 #### ThreadLocal
+
 常用于为每个线程绑定一个数据库连接,HTTP请求,用户身份信息等
 `import threading`
 
@@ -917,14 +943,16 @@ t2.join()
 
 应用 切分字符串
 
-```
+``` python
 >>>re.split(r'[\s\,\;]+', 'a,b;; c  d')
 ['a', 'b', 'c', 'd']
 ```
+
 #### 分组
+
 用()表示要提取的分组
 
-```
+``` python
 >>> m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
 >>> m
 <_sre.SRE_Match object at 0x1026fb3e8>
@@ -937,6 +965,7 @@ t2.join()
 ```
 
 #### 编译
+
 如果一个正则表达式要重复使用, 出于效率考虑, 可以预编译
 `>>> import re`
 编译:
@@ -951,10 +980,12 @@ t2.join()
 ```
 
 #### collections
+
 Python内建的一个集合模块，提供了许多有用的集合类
 
 
 #### namedtuple
+
 创建自定义的tuple对象，规定tuple元素的个数，可用属性来引用tuple的某个元素
 
 ``` python
@@ -980,6 +1011,7 @@ q.popleft()
 ```
 
 #### defaultdict
+
 使用dict， key不存在， 抛出KeyError， 使用defaultdict, 返回一个默认值
 
 ``` python
@@ -993,6 +1025,7 @@ q.popleft()
 ```
 
 #### OrderedDict
+
 dict, Key是无序的， OrderedDict保持Key的顺序
 OrderedDict的Key按照 插入顺序 排列
 可以实现FIFO
@@ -1029,6 +1062,7 @@ class LastUpdatedOrderedDict(OrderedDict):
 ```
 
 #### Counter
+
 计数器
 
 ``` python
@@ -1042,6 +1076,7 @@ Counter({'g': 2, 'm': 2, 'r': 2, 'a': 1, 'i': 1, 'o': 1, 'n': 1, 'p': 1})
 ```
 
 #### base64
+
 用64个字符来表示任意二进制数据的方法
 
 **原理**
@@ -1061,7 +1096,7 @@ n1      n2      n3      n4
 当要编码的二进制数据不是3的倍数，出现剩下1个或2个字节。Base64用\x00字节在末尾补足,再在编码的末尾加上1或2个=号,表示补了多少字节,解码时,自动去掉
 
 标准Base64编码后可能出现+和/, 在URL中就不能直接作为参数
-#url safe把 + 和 / 换为 - 和 _
+> url safe把 + 和 / 换为 - 和 _
 
 **=号**
 `=`在URL Cookie中会造成歧义, 很多Base64编码后会去掉=, 但Base64编码长度永远是4的倍数, 所以解码是补足缺少位数即可
@@ -1082,6 +1117,7 @@ b64de('YWJjZA==')
 ```
 
 #### hashlib
+
 摘要算法
 
 对任意长度的数据data计算出固定长度的摘要digest,目的是为了发现原始数据是否被人篡改过
@@ -1193,6 +1229,7 @@ with open('sina.html', 'wb') as f:
 ```
 
 #### SMTP发送邮件
+
 见/email/
 
 参考https://docs.python.org/2/library/email.mime.html
@@ -1208,7 +1245,9 @@ Message
 ```
 
 #### Http
-######## chrome F12
+
+chrome F12
+
 `Elements` 显示网页结构
 `Network`显示浏览器和服务器的通信
 - 选择`Network`
@@ -1237,13 +1276,13 @@ Message
 - `Content-Type`响应的内容
 - `text/html`HTML网页
 
-######## HTTP响应
+#### HTTP响应
 - `200`成功
 - `3XX`重定向
 - `4XX`客户端请求有误
 - `5XX`服务器端处理出错
 
-######## HTTP格式
+#### HTTP格式
 **HTTP GET请求的格式**
 > GET /path HTTP/1.1
 > Header1: Value1
