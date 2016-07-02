@@ -22,6 +22,8 @@
     "color_scheme": "Packages/Colorcoder/Monokai Extended (Colorcoded).tmTheme",
     "default_line_ending": "unix",
     "detect_slow_plugins": false,
+    // 设置缩进线的样式
+    "indent_guide_options": ["draw_active"],
     "draw_white_space": "all",
     "ensure_newline_at_eof_on_save": true,
     "file_exclude_patterns":
