@@ -6,15 +6,19 @@ Setting Help
 
 - **关闭**enter智能缩进, 否则导致不产生多行div的中间缩进(但开启python中冒号后才能缩进)
 
-> Smart Keys > Enter > Smart indent
+> Editor | General | Smart Keys | Enter | Smart indent
 
 - Project忽略文件类型
 
-> File Types > Ignore files and folders
+> Editor | File Types | Ignore files and folders
 
 - 文件代码最后一行可以移动到顶部
 
-> General > Virtual Space > Show virtual space at file bottom
+> Editor | GeneralGeneral | Virtual Space | Show virtual space at file bottom
+
+- 设置环境变量
+
+> Build, Execution, Deployment | Console | Python Console | Environment variable
 
 ---
 
