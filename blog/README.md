@@ -13,6 +13,7 @@ Python
 -   [使用pyinstaller将python程序打包为exe](./python/pyinstaller.md)
 -   [@staticmethod与@classmethod辨析](./python/diff_staticmethod_&_classmethod.md)
 -   [Python常用函数清单](./python/python_method_list.md)
+-   [Python格式化输出dict等集合对象](./python/python_print_format_dict.md)
 
 ---
 
@@ -24,6 +25,7 @@ Shell
 -   [SSH免密码登陆](./shell/ssh-keygen_login_no_password.md)
 -   [更改Caps Lock为Esc](./shell/change_caps-lock_to_esc.md)
 -   [多ssh-key管理](./shell/multi_ssh-key.md)
+-   [Linux Shell读书笔记](./shell/linux_shell_scripting_cookbook_note.md)
 
 ---
 
@@ -45,6 +47,7 @@ Ubuntu
 -   [手动安装python](./ubuntu/build_python.md)
 -   [PPA源](./ubuntu/add_ppa.md)
 -   [自定义系统时间格式](./ubuntu/custom_date_format.md)
+-   [Ubuntu快捷键](./ubuntu/ubuntu_hotkey.md)
 
 ---
 

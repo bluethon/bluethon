@@ -2,7 +2,15 @@ Git学习笔记
 ===========
 
 常用
-----
+---
+
+#### 重置修改到特定版本
+
+    git reset --hard [HEAD]
+    
+`--hard` 不加入则重置到`HEAD`版本修改后未提交状态, 加入则重置到`HEAD`版本未修改时
+
+> [所有修改方法](http://gitbook.liuhui998.com/4_9.html)
 
 #### 安装
 
@@ -27,9 +35,14 @@ git add -A
 git commit --amend -m 'change the last commit'
 ```
 
+#### 编辑config
+
+    git config -e
+
 ---
 
-#### Git cmd
+Git cmd
+-------
 
 - ubuntu 默认中文转为英文 想恢复中文 用#注释掉
 `echo "alias git='LANG=en_GB git'" >> ~/.bashrc`
@@ -55,42 +68,61 @@ git commit --amend -m 'change the last commit'
 - [git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
 `git config --global core.quotepath false`
 
-#### Git Bash
+Git Bash
+--------
+
 MinTTY 不支持交互操作, 需使用`winpty + python`类似
 提示在安装时选择终端方式时有写
 [参考](https://www.zhihu.com/question/36142943/answer/81467036)
 
 
-#### GitHub部分
+GitHub部分
+---------
 
-创建SSH key
+#### 比较功能
+
+url末尾加`/compare`
+
+带tag版
+
+    /compare/2a...2b
+
+
+#### 创建SSH key
+
 `ssh-keygen -t rsa -C "youremail@example.com"`
+
 默认存在User目录下.ssh\
 > GitHub->Account Setting->SSH Keys->id_rsa.pub
 
-本地库关联到GitHub  origin为远程仓库名称,可以修改
+#### 本地库关联到GitHub  origin为远程仓库名称,可以修改
 `git remote add origin git@github.com:Bluethon/bluegit.git`
 
-推送 显式建立本地master与远程master分支关联
+#### 推送 显式建立本地master与远程master分支关联
 `git push -u origin master`
-提交[branch1]为远程的[branch2]
+
+#### 提交[branch1]为远程的[branch2]
 `git push origin branch1:branch2`
-删除远程分支+
+
+#### 删除远程分支+
 `git push origin :[branch2]`
 
-更新origin url
+#### 更新origin url
 `git remote set-url origin [new-url]`
 
-#### Git Note
+Git Note
+--------
 
 Git本地新建repository
 `git init`
 
 退回之前(后)的文件版本
-```
+
+``` bash
 git reset --hard HEAD^
 git reset --hard HEAD~100
 git reset --hard 3628164(commit ID)
+git reset --hard origin/master
 ```
 
 查看命令记录

@@ -4,6 +4,18 @@ Shell Note
 常用命令
 ----
 
+#### 获取当前完整路径(无视soft link)
+
+    /bin/pwd
+
+#### 复制到系统剪贴板
+
+    cat ~/.ssh/id_rsa.pub | xclip -sel clip
+
+#### 添加环境变量
+
+    vim ~/.bashrc
+
 #### 获取当前路径到变量
 
     path=$(pwd)
@@ -33,7 +45,7 @@ a:all user x:execute
 #### 后台运行
 
 ``` bash
-# 最后一个&不能缺少
+# 最后一个&不能缺少(/dev/null丢弃log)
 nohup [file] &>[log] &
 
 # 查看后台

@@ -29,7 +29,7 @@
     {
         // anaconda configuration
         // 此处设值Python解释器路径
-        "python_interpreter": "./venv/bin/python3",
+        "python_interpreter": "venv/bin/python3",
 
         "test_command": "python -m unittest discover",
         "validate_imports": true

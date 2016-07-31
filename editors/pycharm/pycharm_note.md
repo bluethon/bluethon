@@ -36,7 +36,7 @@ Setting Help
 
 #### 快捷方式
 **pycharm 创建图标和快捷方式**
-> Tools->Creat Desktop Entry
+> Tools | Creat Desktop Entry
 
 #### 快捷键
 Ctrl+鼠标 查看内置函数

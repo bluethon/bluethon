@@ -71,6 +71,9 @@ Theme-Soda
 #### JSON格式化(C+A+j)
 Pretty JSON
 
+#### 查看package(s3中默认包是zip)
+PackageResourceViewer
+
 #### requirements.txt 文件提供自动补全，语法高亮以及版本管理功能
 requirementstxt
 

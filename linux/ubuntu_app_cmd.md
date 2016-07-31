@@ -8,6 +8,9 @@ Ubuntu apps bash cmd
 # 系统更新
 update-manager
 
+# 制作启动盘
+usb-creator-gtk
+
 ```
 
 ---
@@ -15,7 +18,11 @@ update-manager
 第三方
 -----
 
-``` bash
+``` shell
+
+# zsh & ohmyzsh
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # 取色器
 sudo apt-get install gpick
