@@ -6,6 +6,11 @@ VIM学习笔记
 
 ``` shell
 
+# 折行
+set textwidth=80
+set wrap
+set nowrap
+
 # ctrl-u转换当前单词为大写
 # 也可选中, U
 inoremap <C-u> <esc>gUiwea
@@ -34,9 +39,20 @@ set fileencodings=utf-8,gbk,big5
 cmd
 ---
 
+#### 执行shell命令
+
+    # 仅执行
+    :![cmd]
+    # 输入vim中
+    :r ![cmd]
+
+#### 关闭搜索高亮
+
+    nohl
+
 #### 全选复制
 
-ggyG
+    ggyG
 
 #### 复制提取系统剪贴板
 
@@ -98,13 +114,30 @@ Ctrl+y          # 往前滚动一行
 
 ---
 
-
 替换
 ---
 
-`%` 全文
-`s` 替换a为b
-`/gc` 一直替换 需要确认
+#### 简单替换表达式
+
+    :[range]s/from/to/[flags]
+
+#### range 搜索范围
+
+    none    当前行
+    %       全部
+    1,$     全部
+    1,10    1到10行
+    10      第10行
+    
+#### flags
+
+    c   confirm     每次替换前询问
+    e   error       不显示错误
+    g   global      整行替换, 不加只替换每行第一个
+    i   ignore      忽略大小写
+    
+支持正则, `\(\)`内部分可以在替换中使用`\1`提取, 使用时括号需要转义
+
 `:%s/a/b`
 `:10,100s/OLD/NEW/g` 10到100行替换
 

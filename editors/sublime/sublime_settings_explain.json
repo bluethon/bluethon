@@ -68,5 +68,8 @@
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
     "word_wrap": true,
-    "wrap_width": 80
+    "wrap_width": 80,
+    // vintageous 设置目前配置都写在user的settings里
+    // 切屏不重置模式
+    "vintageous_reset_mode_when_switching_tabs": false
 }
