@@ -15,6 +15,25 @@
     "auto_complete_commit_on_tab": true,
     // 补全到末尾循环到开头, 默认到末尾停止补全
     "auto_complete_cycle": true,
+    // exclude from Goto Anything (Ctrl+P)
+    "binary_file_patterns":
+    [
+        "*.dds",
+        "*.eot",
+        "*.gif",
+        "*.ico",
+        "*.jar",
+        "*.jpeg",
+        "*.jpg",
+        "*.pdf",
+        "*.png",
+        "*.sublime-project",
+        "*.swf",
+        "*.tga",
+        "*.ttf",
+        "*.zip",
+        "venv/**"
+    ],
     // 文件夹标签加粗
     "bold_folder_labels": true,
     // 光标样式

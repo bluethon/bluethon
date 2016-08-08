@@ -44,4 +44,7 @@ python3 manage.py startapp [app]
 # start project for others
 python3 manage.py runserver 0.0.0.0:8000
 
+# 创建database的tables
+python3 manage.py migrate
+
 ```
