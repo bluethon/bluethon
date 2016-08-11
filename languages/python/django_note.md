@@ -47,4 +47,7 @@ python3 manage.py runserver 0.0.0.0:8000
 # 创建database的tables
 python3 manage.py migrate
 
+# 创建模型迁移脚本
+python3 manage.py makemigrations [app]
+
 ```
