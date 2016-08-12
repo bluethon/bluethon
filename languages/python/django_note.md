@@ -44,10 +44,13 @@ python3 manage.py startapp [app]
 # start project for others
 python3 manage.py runserver 0.0.0.0:8000
 
-# 创建database的tables
-python3 manage.py migrate
-
 # 创建模型迁移脚本
 python3 manage.py makemigrations [app]
+
+# 执行迁移任务
+python3 manage.py migrate
+
+# 查看迁移的SQL
+python3 manage.py sqlmigrate [app] [0001]
 
 ```
