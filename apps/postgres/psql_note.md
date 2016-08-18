@@ -28,4 +28,6 @@ db版
 # 查看数据库角色
 \du
 
+# 删除表
+DROP TABLE IF EXISTS backup_tbl;
 ```

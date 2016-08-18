@@ -54,3 +54,8 @@ python3 manage.py migrate
 python3 manage.py sqlmigrate [app] [0001]
 
 ```
+
+reference
+---------
+
+[Django Signals Example](http://www.koopman.me/2015/01/django-signals-example/)
