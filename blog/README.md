@@ -15,6 +15,7 @@ Python
 -   [Python常用函数清单](./python/python_method_list.md)
 -   [Python格式化输出dict等集合对象](./python/python_print_format_dict.md)
 -   [Python Requests Post to Json](http://stackoverflow.com/questions/9733638/post-json-using-python-requests)
+-   [Python标准库代码示例](./python/python_library_examples.md)
 
 ---
 

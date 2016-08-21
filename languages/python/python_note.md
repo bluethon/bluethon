@@ -3,20 +3,21 @@ Python学习笔记
 
 ## 缩写
 
-    repr        representation                  给解释器的显示类型
-    pprint      pretty printer
-    URI         Uniform Resource Identifier     统一资源标识符
-    URL         Uniform Resource Locator        统一资源定位器
-    SMTP        Simple Mail Transfer Protocol   简单邮件传输协议
-    regex       Regular Expressions             正则表达式
-    CSRF        Cross-Site Request Forgery      跨站请求伪造
-    eval        evaluate                         重新运算求出参数的内容
+    repr        representation                          给解释器的显示类型
+    pprint      pretty printer                          打印整洁数据(module)
+    URI         Uniform Resource Identifier             统一资源标识符
+    URL         Uniform Resource Locator                统一资源定位器
+    SMTP        Simple Mail Transfer Protocol           简单邮件传输协议
+    regex       Regular Expressions                     正则表达式
+    CSRF        Cross-Site Request Forgery              跨站请求伪造
+    eval        evaluate                                重新运算求出参数的内容
 
-    <div>       division                        层, 分区
-    <ul>        Unordered List                  无序列表
-    <ol>        Ordered List                    有序列表
-    <li>        List Item                       列表项
-    <p>         paragraph                       段落
+    <div>       division                                层, 分区
+    <ul>        Unordered List                          无序列表
+    <ol>        Ordered List                            有序列表
+    <li>        List Item                               列表项
+    <p>         paragraph                               段落
+    MIME        Multipurpose Internet Mail Extension    多目标因特网邮件扩展
 
 ## 名词解释
 
@@ -410,6 +411,7 @@ def lazy_sum(*args):
 `import functools`
 
 **int 参数从base进制转换为10进制**
+
 ``` python
 4
 print int('100', base=2)
@@ -417,7 +419,9 @@ print int('100', base=2)
 int2 = functools.partial(int, base=2)
 print int2()
 ```
+
 **多参数固定**
+
 ``` python
 fun3 = functools.partial(fun, b=2, c=3)
 ```
