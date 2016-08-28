@@ -58,4 +58,5 @@ python3 manage.py sqlmigrate [app] [0001]
 reference
 ---------
 
-[Django Signals Example](http://www.koopman.me/2015/01/django-signals-example/)
+1 [Django Signals Example](http://www.koopman.me/2015/01/django-signals-example/)
+- [设置model的电话 使用正则Regex 校验](http://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-phone-number-in-django-models)

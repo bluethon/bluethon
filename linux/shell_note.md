@@ -4,6 +4,10 @@ Shell Note
 常用命令
 ------
 
+#### 删除当前及子文件夹某类文件
+
+    find . -name "*.py"  | xargs rm -f
+
 #### 获取当前完整路径(无视soft link)
 
     /bin/pwd
