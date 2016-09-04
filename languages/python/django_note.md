@@ -13,6 +13,41 @@ from django.views.decorators.csrf import csrf_exempt
 # http://foofish.net/blog/55/django-url
 url(r'^wx_activity$', wx_activity, name='wx_activity'),
 
+# 查找最近的一条数据库记录
+# http://stackoverflow.com/questions/15675672/django-get-the-latest-record-with-filter
+obj= Model.objects.filter(testfield=12).order_by('-id')[0]
+obj= Model.objects.filter(testfield=12).latest('testfield')
+
+# template for 渲染表单
+{% for field in form %}
+    {{ field }}
+{% endfor %}
+
+# nginx http https
+# http://stackoverflow.com/questions/8153875/how-to-deploy-an-https-only-site-with-django-nginx
+# django settings.py
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# nginx settings
+location / {
+    # ... 
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+
+# template获取当前url
+# http://stackoverflow.com/questions/2882490/how-to-get-the-current-url-within-a-django-template
+{{ request.path }}
+{{ request.get_full_path }}
+
+# logging
+# app.module
+# getLogger中为指定的名称或__name__ 动态
+logger = logging.getLogger('django')
+__name__  # weixin.views
+
+# 实例属性复制 模型继承
+new_invoice.__dict__.update(invoice_info.__dict__)
+
+
 ```
 
 ---

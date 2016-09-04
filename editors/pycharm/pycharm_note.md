@@ -22,10 +22,30 @@ Setting Help
 
 ---
 
-#### 导入Python live template
+中文输入
+----
+
+<https://segmentfault.com/q/1010000002641274/a-1020000006061111>
+
+在pycharm.sh中加入下面3个选项：
+
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+    export XMODIFIERS=@im=fcitx
+    
+    
+openjdk8
+--------
+
+详见bluethon/editors/pycharm/pycharm.sh
+
+导入Python live template
+----------------------
+
 <http://peter-hoffmann.com/2010/python-live-templates-for-pycharm.html>
 
-#### 配置启动参数
+配置启动参数
+------
 
 1. 右上角项目图标
 - "Edit Configurations"
@@ -34,11 +54,15 @@ Setting Help
     - "Script Parameters"   参数设置
     - "Python interpreter"  Python解释器
 
-#### 快捷方式
+快捷方式
+----
+
 **pycharm 创建图标和快捷方式**
 > Tools | Creat Desktop Entry
 
-#### 快捷键
+快捷键
+---
+
 Ctrl+鼠标 查看内置函数
 
 `Alt+Enter` 万能键 各种提示和自动功能
@@ -53,7 +77,9 @@ Ctrl+鼠标 查看内置函数
 
 双击`Shift` 搜索一切
 
-#### 美化字体
+美化字体
+----
+
 1. http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html
 2. http://www.webupd8.org/2013/06/install-openjdk-patched-with-font-fixes.html
 3. https://github.com/achaphiv/ppa-fonts/blob/master/openjdk-fontfix/README.md

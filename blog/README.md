@@ -50,6 +50,7 @@ Ubuntu
 -   [PPA源](./ubuntu/add_ppa.md)
 -   [自定义系统时间格式](./ubuntu/custom_date_format.md)
 -   [Ubuntu快捷键](./ubuntu/ubuntu_hotkey.md)
+-   [Ubuntu多屏卡顿解决方法](./ubuntu/ubuntu_dual_monitor_slow.md)
 
 ---
 

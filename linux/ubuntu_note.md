@@ -4,6 +4,11 @@ Note For Ubuntu
 Settings
 --------
 
+#### 显示硬件和显卡驱动信息
+
+    lspci
+    sudo lshw -C display
+
 #### 开机进入tty
 
 - `sudo vim /etc/default/grub`

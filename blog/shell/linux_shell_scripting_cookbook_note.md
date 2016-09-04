@@ -10,3 +10,10 @@ Linux Shell读书笔记
 
     echo $0
     echo $ SHELL
+
+#### 检查当前用户是否为root(==0)
+
+    $UID
+
+#### 参加
+~~~
