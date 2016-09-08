@@ -4,6 +4,13 @@ Note For Ubuntu
 Settings
 --------
 
+### [GPG error NO_PUBKEY](http://askubuntu.com/a/15272/537695)
+
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <PUBKEY>
+
+where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in error message)
+
+
 #### 重启X
 
     sudo /etc/init.d/lightdm restart
