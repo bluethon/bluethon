@@ -3,19 +3,19 @@
 
 ### 1. 生成ssh key时指定文件名
 
-    ssh-keygen -t rsa -f ~/.ssh/id_rsa.xxx -C "email"
+    ssh-keygen -t rsa -f ~/.ssh/id_rsa_xxx -C "email"
 
 ### 2. 设置config文件
 
 1. 编辑或者创建
 
-    touch   ~/.ssh/config
+    touch ~/.ssh/config
 
 2. 添加
 
 ``` bash
 Host *.xxx.com
-    IdentityFile ~/.ssh/id_rsa.xxx
+    IdentityFile ~/.ssh/id_rsa_xxx
     User [your username]
 ```
 
@@ -24,7 +24,7 @@ Host *.xxx.com
 ``` bash
 
 # add private key 
-ssh-add ~/.ssh/id_rsa.xxx
+ssh-add ~/.ssh/id_rsa_xxx
 
 # if need delete cache
 ssh-add -D
@@ -37,7 +37,7 @@ ssh-add -l
 
 ``` bash
 # 可能需要安装xsel
-cat ~/.ssh/id_rsa.xxx.pub | xsel -b
+cat ~/.ssh/id_rsa_xxx.pub | xsel -b
 ```
 
 ### 5. 粘贴到github或者目标服务器
