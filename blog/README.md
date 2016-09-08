@@ -49,8 +49,10 @@ Ubuntu
 -   [手动安装python](./ubuntu/build_python.md)
 -   [PPA源](./ubuntu/add_ppa.md)
 -   [自定义系统时间格式](./ubuntu/custom_date_format.md)
+-   [导入导出dconf的自定义设置(时间 custom keybindings)](./ubuntu/dconf_import_export.md)
 -   [Ubuntu快捷键](./ubuntu/ubuntu_hotkey.md)
 -   [Ubuntu多屏卡顿解决方法](./ubuntu/ubuntu_dual_monitor_slow.md)
+-   [Ubuntu字体美化](./ubuntu/ubuntu_fonts_render.md)
 
 ---
 

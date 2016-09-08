@@ -4,6 +4,14 @@ Note For Ubuntu
 Settings
 --------
 
+#### 重启X
+
+    sudo /etc/init.d/lightdm restart
+
+#### 升级发行版
+
+    sudo update-manager -d
+
 #### 显示硬件和显卡驱动信息
 
     lspci
@@ -27,14 +35,12 @@ Settings
 
 ref: (http://askubuntu.com/questions/814/how-to-run-scripts-on-start-up)
 
-#### 重启桌面
+#### 重启桌面 Xorg
 
-1. 重启Xorg
-    - `ctrl+alt+f1`
-    - `ps -t tty1`
-    - `sudo kill 9 PID`
-- 结束当前会话
-    - `sudo service lightdm restart`
+    `ctrl+alt+f1`
+    `ps -t tty1`
+    `sudo kill 9 PID`  # 结束当前会话
+    `sudo service lightdm restart`
 
 #### 输入法短语自定义
 

@@ -24,6 +24,7 @@ Python学习笔记
     metaclass       元类
     thumbnail       缩略图
     hover           悬停
+    DOM             文档对象模型
 
 ---
 

@@ -27,18 +27,6 @@
 
 `wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh`
 
-    a. 多窗口操作
-    :sp + 文件名水平分割窗口
-    :vs + 文件名垂直分割窗口
-    Ctrl+w快速切换窗口
-    b. Taglist和NerdTree
-    F3：快速打开或关闭树形目录
-    F9：查看当前代码结构及自动补全
-    c. 其他
-    F5：一键运行程序
-    F6：代码格式化
-    F8：调试C和C++
-    F2：去除代码中的空行(个人觉得不实用)
 
 ## 其他
 
