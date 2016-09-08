@@ -4,6 +4,10 @@ Note For Ubuntu
 Settings
 --------
 
+#### 升级发行版
+
+sudo update-manager -d
+
 #### 显示硬件和显卡驱动信息
 
     lspci

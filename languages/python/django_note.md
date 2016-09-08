@@ -57,6 +57,16 @@ manual
 
 ``` python
 
+# create superuser
+python manage.py createsuperuser
+
+# fix db tables
+# http://stackoverflow.com/a/38615879/4757521
+manage.py migrate --run-syncdb
+
+# loaddata fix.json
+python manage.py loaddata fixture.json
+
 # init
 pip install django
 
