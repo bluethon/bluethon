@@ -19,6 +19,8 @@ Git学习笔记
 ``` shell
 git config --global user.name "bluethon"
 git config --global user.email "j5088794@gmail.com"
+# 默认使用vim 编辑merge信息
+git config --global core.editor vim
 ```
 
 #### 误提交或者不再跟踪
