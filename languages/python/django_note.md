@@ -58,7 +58,7 @@ manual
 ``` python
 
 # create superuser
-python manage.py createsuperuser
+python3 manage.py createsuperuser
 
 # fix db tables
 # http://stackoverflow.com/a/38615879/4757521
@@ -66,6 +66,9 @@ manage.py migrate --run-syncdb
 
 # loaddata fix.json
 python manage.py loaddata fixture.json
+
+# 重置数据库
+python3 manage.py flush
 
 # init
 pip install django

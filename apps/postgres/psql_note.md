@@ -4,7 +4,11 @@ PostgreSQL Note
 shell版
 -------
 
+
 ``` shell
+
+# 启动管理数据库
+sudo -u postgres psql
 
 # 创建数据库
 createdb [DB_NAME]
@@ -13,7 +17,7 @@ createdb [DB_NAME]
 psql [DB_NAME]
 
 # 新建数据库用户并指定为超级用户
-sudo -u postgres createuser --superuser dbuser
+sudo -u postgres createuser --superuser [dbuser]
 
 ```
 

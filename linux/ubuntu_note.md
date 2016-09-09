@@ -4,6 +4,10 @@ Note For Ubuntu
 Settings
 --------
 
+### bash中运行显示加载字体相关
+
+    export FC_DEBUG=1
+
 ### [GPG error NO_PUBKEY](http://askubuntu.com/a/15272/537695)
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <PUBKEY>
