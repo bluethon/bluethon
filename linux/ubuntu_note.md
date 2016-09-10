@@ -4,6 +4,10 @@ Note For Ubuntu
 Settings
 --------
 
+### 开机运行
+
+    /etc/rc.local
+
 ### bash中运行显示加载字体相关
 
     export FC_DEBUG=1
