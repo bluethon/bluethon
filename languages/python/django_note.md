@@ -6,6 +6,21 @@ library
 
 ``` python
 
+# verbose_name
+# xxx.apps.py
+class XxxConfig(AppConfig):
+    verbose_name = 'xxx'
+# xxx.models.py
+class Xxx(models.Model):
+    class Meta:
+        verbose_name = '发票信息'
+        # 复数
+        verbose_name_plural = '发票信息'
+
+# 国际化
+from django.utils.translation import ugettext_lazy as _
+_('example')
+
 # 修饰器,关闭csrf exempt-免除
 from django.views.decorators.csrf import csrf_exempt
 
@@ -47,7 +62,8 @@ __name__  # weixin.views
 # 实例属性复制 模型继承
 new_invoice.__dict__.update(invoice_info.__dict__)
 
-
+# add user to group
+http://stackoverflow.com/questions/6288661/adding-a-user-to-a-group-in-django
 ```
 
 ---
@@ -61,6 +77,7 @@ manual
 python3 manage.py createsuperuser
 
 # fix db tables
+# django.db.utils.ProgrammingError: relation already exists
 # http://stackoverflow.com/a/38615879/4757521
 manage.py migrate --run-syncdb
 
