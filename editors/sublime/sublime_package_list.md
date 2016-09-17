@@ -1,6 +1,17 @@
 Sublime Package List
 ====================
 
+JS
+---
+
+#### JS格式化
+JsFormat
+
+#### 生成注释文档
+DocBlockr
+
+---
+
 #### 输入路径创建文件
 AdvancedNewFile
 

@@ -1,6 +1,37 @@
 JavaScript 学习笔记
 ==========
 
+代码片段
+-------
+
+``` js
+// 查看对象信息
+console.dir(info);
+
+// 显示某个节点的内容
+console.dirxml(info);
+
+// 判断变量值
+console.assert(info===true);
+
+// 追踪函数的调用轨迹(在body中加入下面代码)
+console.trace();
+
+// 计时
+console.time("计时器1");
+console.timeEnd("计时器1");
+
+// 性能分析(浏览器Profiles中查看)
+console.profile('性能分析器');
+All();
+console.profileEnd();
+```
+
+---
+
+读书笔记
+-------
+
 #### 数据类型
 
 **Number**
