@@ -4,6 +4,10 @@ Note For Ubuntu
 Settings
 --------
 
+### 重装package
+
+    sudo apt install --reinstall [package]
+
 ### 开机运行
 
     /etc/rc.local

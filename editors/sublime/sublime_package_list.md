@@ -8,7 +8,7 @@ JS
 JsFormat
 
 #### 生成注释文档
-DocBlockr
+DocBlockdr
 
 ---
 
