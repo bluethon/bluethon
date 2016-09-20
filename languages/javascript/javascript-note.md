@@ -29,8 +29,98 @@ console.profileEnd();
 
 ---
 
-读书笔记
--------
+JavaScript语言精粹读书笔记
+-----------------------
+
+### P021 对象字面量
+对象字面量属性中带连接符(-)是不合法的, 必须引号括住, 下划线则可选
+
+``` js
+var stooge = {
+    "first-name": "Jack",
+    last_name: "Hoard"
+}
+```
+
+### P021 检索
+
+``` js
+// ||运算符 填充默认值
+var status = flight.status || "default"
+// &&运算符避免 从undefined的成员属性中取值将导致TypeError异常
+flight.equipment                            // undefined
+flight.equipment.model                      // throw "TypeError"
+flight.equipment && flight.equipment.model  // undefined
+```
+
+### P023 反射 Reflection
+
+``` js
+// typeof 操作符确定对象属性
+typeof flight.number        // 'number'
+
+// 原型链中的任何属性都会产生值
+typeof flight.toString      // 'function'
+
+// hasOwnProperty 检查独有属性, 不检查原型链
+flight.hasOwnProperty('number')         // true
+flight.hasOwnProperty('constructor')    // false
+```
+
+### P025 减少全局变量污染
+
+``` js
+// 只创建一个唯一的全局变量
+var MYAPP = {};
+
+// 该变量变成应用容器
+MYAPP.stooge = {};
+```
+
+### P026 函数
+
+每个函数在创建时会附加两个隐藏属性: 函数的上下文和实现函数行为的代码
+
+> JavaScript创建一个函数对象时, 会给该对象设置一个"调用"属性, 当JS调用一个函数时, 可以理解
+为调用此函数的"调用"属性
+
+通过函数字面量创建的函数对象包含一个连接到外部上下文的连接, 这被称为闭包
+
+### P028 函数调用模式 The Function Invocation Pattern
+
+若函数非对象的属性, 则被当做一个函数调用, 此模式下, this被绑定到全局对象
+
+``` js
+var add = function (a, b) {
+    return a + b;
+};
+
+var myObject = {
+    value: 0,
+};
+
+myObject.double = function () {
+    var that = this;        // 解决方法
+
+    var helper = function () {
+        // 此处的this被绑定到全局对象, 是错误
+        // this === window
+        that.value = add(that.value, that.value);
+    };
+
+    helper();       // 以函数的形式调用 helper
+};
+
+// 以方法的形式调用double
+
+myObject.double();
+document.writeln(myObject.value);
+```
+
+---
+
+廖雪峰js读书笔记
+-------------
 
 #### 数据类型
 
@@ -70,15 +160,14 @@ false === 0; // false
 
 `NaN`不与任何值相等 包括自己
 判断方法
+
 ``` js
 isNaN(NaN); //  true
 ```
 
 浮点数比较 计算差值的绝对值小于某阈值
 
-``` js
-Math.abs(1 / 3 - (1 - (2 / 3)) < 0.00000001; // true
-```
+    Math.abs(1 / 3 - (1 - (2 / 3)) < 0.00000001; // true
 
 **null & undefined**
 用null 基本没区别
@@ -330,6 +419,7 @@ function abs(x) {
     }
 }
 ```
+
 ``` js
 var abs = function (x) {
     if (x >= 0) {
