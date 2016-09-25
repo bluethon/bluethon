@@ -11,7 +11,7 @@ shell版
 sudo -u postgres psql
 
 # 创建数据库
-createdb [DB_NAME]
+sudo -u postgres createdb [DB_NAME]
 
 # 启动特定数据库
 psql [DB_NAME]

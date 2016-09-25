@@ -21,6 +21,8 @@ git config --global user.name "bluethon"
 git config --global user.email "j5088794@gmail.com"
 # 默认使用vim 编辑merge信息
 git config --global core.editor vim
+# 只push当前分支
+git config --global push.default current
 ```
 
 #### 误提交或者不再跟踪
@@ -106,7 +108,7 @@ url末尾加`/compare`
 #### 提交[branch1]为远程的[branch2]
 `git push origin branch1:branch2`
 
-#### 删除远程分支+
+### 删除远程分支+
 `git push origin :[branch2]`
 
 #### 更新origin url

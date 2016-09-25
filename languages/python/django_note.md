@@ -4,12 +4,28 @@ Django Note
 library
 -------
 
-``` python
+### model blank & null difference
 
-# verbose_name
+<http://stackoverflow.com/questions/8609192/differentiate-null-true-blank-true-in-django>
+
+### 显示所有字段
+
+``` python
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    class Meta:
+        fields = '__all__'
+```
+
+### verbose_name
+
+``` python
 # xxx.apps.py
 class XxxConfig(AppConfig):
     verbose_name = 'xxx'
+```
+
+``` python
 # xxx.models.py
 class Xxx(models.Model):
     class Meta:
@@ -72,6 +88,10 @@ manual
 ------
 
 ``` python
+
+# 显示迁移信息并撤销迁移到0003
+python3 manage.py showmigrations [my_app]
+python3 manage.py migrate [my_app] [0003]
 
 # create superuser
 python3 manage.py createsuperuser

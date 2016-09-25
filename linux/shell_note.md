@@ -4,6 +4,10 @@ Shell Note
 常用命令
 ------
 
+### 查看端口占用
+
+    netstat -ano
+
 #### 删除当前及子文件夹某类文件
 
     find . -name "*.py"  | xargs rm -f

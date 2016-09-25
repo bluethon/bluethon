@@ -36,6 +36,15 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
     lspci
     sudo lshw -C display
 
+---
+其他设置
+-------
+
+### wps无法启动
+
+链接中有文件位置, 这次无法启动是路径文件夹没有权限, `chmod 755`后修复bug
+<http://www.cnblogs.com/bluestorm/p/3320920.html>
+
 #### 开机进入tty
 
 - `sudo vim /etc/default/grub`
