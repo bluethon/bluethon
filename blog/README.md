@@ -54,6 +54,7 @@ Ubuntu
 -   [Ubuntu快捷键](./ubuntu/ubuntu_hotkey.md)
 -   [Ubuntu多屏卡顿解决方法](./ubuntu/ubuntu_dual_monitor_slow.md)
 -   [Ubuntu字体美化](./ubuntu/ubuntu_fonts_render.md)
+-   [安卓模拟器genymotion](./ubuntu/genymotion.md)
 
 ---
 
