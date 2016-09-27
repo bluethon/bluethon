@@ -4,6 +4,41 @@ Shell Note
 常用命令
 ------
 
+### [更改默认shel](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)
+
+    chsh -s $(which <zsh>)
+
+### 显示当前用户
+
+    whoami
+
+### 删除用户(已登陆)
+
+``` bash
+# 显示进程id
+who -u
+kill [pid]
+# 不行的话使用
+sudo pkill -KILL -u <username>
+# which is same as
+sudo pkill -9 -u <username>
+# 删除包含home directory & email
+sudo userdel -r [user]
+```
+
+### 新建用户并到root组
+
+``` bash
+# -m create home directory
+sudo useradd -m [user]
+sudo passwd [user]
+# 增加到sudo组
+# -a add -G group
+sudo usermod -aG sudo [user]
+# 设置shell
+sudo usermod -s </bin/bash> <username>
+```
+
 ### 查看端口占用
 
     netstat -ano
@@ -83,6 +118,20 @@ ln -sf [target] [linkname]
 #### 查看Linux系统版本
 
     $ lsb_release -a
+
+---
+
+DEBUG
+------
+
+### sudo unable to resolve host
+
+    修改127.0.0.1 后面, 更正为当前名称
+    sudo vim /etc/hosts
+
+### chsh you may not change the shell for
+
+    sudo usermod -s </bin/bash> <username>
 
 ---
 
