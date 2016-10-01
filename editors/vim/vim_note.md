@@ -15,6 +15,9 @@ hotkey
     F8      调试C和C++
     F2      去除代码中的空行(个人觉得不实用)
 
+    S+j     拼接两行 join lines
+    =       格式化代码(format code)
+
 .vimrc
 ------
 

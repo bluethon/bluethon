@@ -40,6 +40,10 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 其他设置
 -------
 
+### virtualbox无法调整更大分辨率
+
+管理 | 全局设定 | 显示 | 最大屏幕尺寸 | 空
+
 ### wps无法启动
 
 链接中有文件位置, 这次无法启动是路径文件夹没有权限, `chmod 755`后修复bug

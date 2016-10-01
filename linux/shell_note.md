@@ -4,6 +4,14 @@ Shell Note
 常用命令
 ------
 
+### 重置tty
+
+    reset
+
+### 查看Linux系统版本
+
+    $ lsb_release -a
+
 ### [更改默认shel](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)
 
     chsh -s $(which <zsh>)
@@ -114,10 +122,6 @@ fg %n
 # 文件夹最后不能带`/`
 ln -sf [target] [linkname]
 ```
-
-#### 查看Linux系统版本
-
-    $ lsb_release -a
 
 ---
 
