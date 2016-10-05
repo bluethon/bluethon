@@ -56,6 +56,15 @@ set fileencodings=utf-8,gbk,big5
 cmd
 ---
 
+### 全部自动缩进
+
+    gg=G
+
+### 粘贴不自动缩进(进入粘贴模式)
+
+    set paste
+    Shift+Insert
+
 #### 执行shell命令
 
     # 仅执行

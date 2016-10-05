@@ -4,9 +4,18 @@ Shell Note
 常用命令
 ------
 
+### 获取上级目录(get the parent directory of current directory)
+
+    dir=/home/smith/Desktop/Test
+    parentdir="$(dirname "$dir")"
+
+### 显示当前真正路径(pwd without symlinks)
+
+    $ pwd -P
+
 ### 重置tty
 
-    reset
+    $ reset
 
 ### 查看Linux系统版本
 
