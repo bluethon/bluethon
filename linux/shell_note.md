@@ -4,6 +4,11 @@ Shell Note
 常用命令
 ------
 
+### 自定义zsh custom路径
+
+    $ vim ~/.zshrc
+    ZSH_CUSTOM='to you path'
+
 ### 获取上级目录(get the parent directory of current directory)
 
     dir=/home/smith/Desktop/Test
