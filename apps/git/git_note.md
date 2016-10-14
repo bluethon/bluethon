@@ -4,6 +4,10 @@ Git学习笔记
 常用
 ---
 
+### checkout最新commit
+
+    git checkout <branch>
+
 #### 重置修改到特定版本
 
     git reset --hard [HEAD]
@@ -42,6 +46,7 @@ git commit --amend -m 'change the last commit'
 #### 编辑config
 
     git config -e
+    git config --global -e
 
 ---
 

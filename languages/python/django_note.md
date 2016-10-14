@@ -4,6 +4,14 @@ Django Note
 library
 -------
 
+### template url
+
+<https://docs.djangoproject.com/en/1.9/ref/templates/builtins/#url>
+
+### template debug
+
+    {% debug %}
+
 ### model blank & null difference
 
 <http://stackoverflow.com/questions/8609192/differentiate-null-true-blank-true-in-django>

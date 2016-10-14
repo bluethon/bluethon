@@ -3,7 +3,10 @@
 
 ### 1. 生成ssh key时指定文件名
 
+`-t` 指定加密类型 默认rsa
+
     ssh-keygen -t rsa -f ~/.ssh/id_rsa_xxx -C "email"
+    ssh-keygen -f ~/.ssh/id_rsa_xxx -C "email"
 
 ### 2. 设置config文件
 
