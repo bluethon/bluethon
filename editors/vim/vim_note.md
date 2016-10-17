@@ -56,6 +56,10 @@ set fileencodings=utf-8,gbk,big5
 cmd
 ---
 
+### 使用系统剪贴板
+
+    sudo apt install vim-gnome
+
 ### 乱码
 
     set encoding=utf8

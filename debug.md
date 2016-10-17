@@ -23,6 +23,14 @@ ubuntu
 
     sudo apt-get install exfat-fuse exfat-utils
 
+### sudo: unable to resolve host abc
+
+    sudo vim /etc/hosts
+```
+127.0.0.1       localhost
+127.0.0.1       abc
+```
+
 postgres
 --------
 

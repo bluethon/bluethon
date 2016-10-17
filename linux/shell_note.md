@@ -4,6 +4,11 @@ Shell Note
 常用命令
 ------
 
+### 修改hosts 及 主机名称
+
+    sudo vim /etc/hosts
+    sudo vim /etc/hostname
+
 ### 自定义zsh custom路径
 
     $ vim ~/.zshrc

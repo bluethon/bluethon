@@ -4,6 +4,14 @@ Django Note
 library
 -------
 
+### dumpdata & loaddata
+
+<https://coderwall.com/p/mvsoyg/django-dumpdata-and-loaddata>
+
+### django SQL
+
+<https://gist.github.com/bluethon/9ec1118ec62acc16914b8e95292f907b>
+
 ### template url
 
 <https://docs.djangoproject.com/en/1.9/ref/templates/builtins/#url>

@@ -12,6 +12,8 @@ http://nullget.sourceforge.net/?q=node/873&lang=zh-hant
 参数说明
 https://toontong.github.io/blog/about-ngrok.html
 
+### wx
+
 ``` shell
 
 # 复制服务器编译客户端到本地
@@ -19,15 +21,34 @@ sudo scp -i "aws_herock.pem" ubuntu@ec2-52-198-154-215.ap-northeast-1.compute.am
 
 # 启动服务端
 sudo ./bin/ngrokd -tlsKey=server_yokeneng.key -tlsCrt=server_yokeneng.crt -domain="weixin.yokeneng.com" -httpAddr=":80" -httpsAddr=":443" -tunnelAddr=":44433"
-sudo ./bin/ngrokd -tlsKey=device.key -tlsCrt=device.crt -domain="weixin.yokeneng.com" -httpAddr=":80" -httpsAddr=":443" -tunnelAddr=":44433"
+sudo ./bin/ngrokd -domain="weixin.yokeneng.com" -httpAddr=":8081" -httpsAddr=":8082" -tunnelAddr=":44433"
 
 # 本地启动客户端 子域名youkeneng1
-sudo ./ngrok -config ~/ngrok.cfg -subdomain xcx 8000
+sudo ./ngrok -config ~/ngrok.cfg -subdomain j1 8000
 
 # ngrok.cfg
-eerver_addr: "weixin.lengqidong.com:44433"
+server_addr: "weixin.yokeneng.com:44433"
 trust_host_root_certs: false
 
+```
+
+### web
+
+``` shell
+# 复制服务器编译客户端到本地
+sudo scp -i "aws_herock.pem" ubuntu@ec2-52-198-154-215.ap-northeast-1.compute.amazonaws.com:/home/ubuntu/ngrok/bin/ngrok .
+
+# 启动服务端
+sudo ./bin/ngrokd -domain="weixin.lengqidong.com" -tunnelAddr=":44433"
+
+# 本地启动客户端 子域名j1
+sudo ./ngrok -config ngrok.cfg -subdomain j1 8000
+# 后台启动
+sudo ./ngrok -config ngrok.cfg -subdomain j1 -log=stdout 8000 > /dev/null &
+
+# ngrok.cfg
+server_addr: "weixin.lengqidong.com:44433"
+trust_host_root_certs: false
 ```
 
 记录
@@ -54,6 +75,9 @@ cp device.key ../assets/server/tls/snakeoil.key
 ### 编译ngrok
 
 ``` sh
+# 装必要的工具
+sudo apt-get install build-essential golang mercurial git
+
 # git clone https://github.com/inconshreveable/ngrok
 ### 请使用下面的地址，修复了无法访问的包地址
 git clone https://github.com/tutumcloud/ngrok.git ngrok
