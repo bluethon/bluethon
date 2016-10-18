@@ -4,13 +4,20 @@ Note For Ubuntu
 Settings
 --------
 
+### 自动挂载USB
+
+> <https://help.ubuntu.com/community/Mount/USB>
+
+    $ dconf-editor
+    org.gnome.desktop.media-handling.automount-open
+
 ### 重装package
 
-    sudo apt install --reinstall [package]
+    $ sudo apt install --reinstall [package]
 
 ### 开机运行
 
-    /etc/rc.local
+    $ /etc/rc.local
 
 ### bash中运行显示加载字体相关
 
