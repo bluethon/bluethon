@@ -8,6 +8,14 @@ library
 
 <https://coderwall.com/p/mvsoyg/django-dumpdata-and-loaddata>
 
+``` bash
+# 增加yaml支持
+pip install pyyaml
+
+# 指定 格式 缩进 导出
+./manage.py dumpdata [app[.model]] --format yaml --indent 4 -o db.yaml
+```
+
 ### django SQL
 
 <https://gist.github.com/bluethon/9ec1118ec62acc16914b8e95292f907b>
