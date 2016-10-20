@@ -4,6 +4,10 @@ Shell Note
 常用命令
 ------
 
+### 获取当前文件所在路径
+
+    dirname "$SCRIPT"
+
 ### 修改hosts 及 主机名称
 
     sudo vim /etc/hosts
