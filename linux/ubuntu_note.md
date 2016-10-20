@@ -4,6 +4,12 @@ Note For Ubuntu
 Settings
 --------
 
+### 启用fcitx并开机启动
+
+    alt+f2
+    im-config
+    fcitx
+
 ### 自动挂载USB
 
 > <https://help.ubuntu.com/community/Mount/USB>
