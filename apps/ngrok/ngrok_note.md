@@ -12,45 +12,6 @@ http://nullget.sourceforge.net/?q=node/873&lang=zh-hant
 参数说明
 https://toontong.github.io/blog/about-ngrok.html
 
-### wx
-
-``` shell
-
-# 复制服务器编译客户端到本地
-sudo scp -i "aws_herock.pem" ubuntu@ec2-52-198-154-215.ap-northeast-1.compute.amazonaws.com:/home/ubuntu/github/ngrok/bin/ngrok .
-
-# 启动服务端
-sudo ./bin/ngrokd -tlsKey=server_yokeneng.key -tlsCrt=server_yokeneng.crt -domain="weixin.yokeneng.com" -httpAddr=":80" -httpsAddr=":443" -tunnelAddr=":44433"
-sudo ./bin/ngrokd -domain="weixin.yokeneng.com" -httpAddr=":8081" -httpsAddr=":8082" -tunnelAddr=":44433"
-
-# 本地启动客户端 子域名youkeneng1
-sudo ./ngrok -config ~/ngrok.cfg -subdomain j1 8000
-
-# ngrok.cfg
-server_addr: "weixin.yokeneng.com:44433"
-trust_host_root_certs: false
-
-```
-
-### web
-
-``` shell
-# 复制服务器编译客户端到本地
-sudo scp -i "aws_herock.pem" ubuntu@ec2-52-198-154-215.ap-northeast-1.compute.amazonaws.com:/home/ubuntu/ngrok/bin/ngrok .
-
-# 启动服务端
-sudo ./bin/ngrokd -domain="weixin.lengqidong.com" -tunnelAddr=":44433"
-
-# 本地启动客户端 子域名j1
-sudo ./ngrok -config ngrok.cfg -subdomain j1 8000
-# 后台启动
-sudo ./ngrok -config ngrok.cfg -subdomain j1 -log=stdout 8000 > /dev/null &
-
-# ngrok.cfg
-server_addr: "weixin.lengqidong.com:44433"
-trust_host_root_certs: false
-```
-
 记录
 ----
 
@@ -84,4 +45,37 @@ git clone https://github.com/tutumcloud/ngrok.git ngrok
 cd ngrok
 
 make release-server release-client
+```
+
+### 使用(可以使用-h查看帮助)
+
+``` shell
+# 复制服务器编译客户端到本地
+sudo scp -P <port> <user>@<host>:[path to dirname] .
+
+# 启动服务端
+sudo ./bin/ngrokd -domain yourdomain.com [-httpAddr :86]
+
+# 本地启动客户端 子域名j1
+./ngrok -config cfg.yaml -subdomain test <local_port>
+# 主机方式
+./ngrok -config cfg.yaml -hostname yourdomain.com[:port] <local_port>
+# 后台启动
+./ngrok -config cfg.yaml -subdomain test -log=stdout <local_port> > /dev/null &
+```
+
+cfg.yaml 可自定义端到端通信端口, 默认4443, 可多配置写在同一设置文件里
+
+``` yaml
+server_addr: "yourdomain.com:4443"
+trust_host_root_certs: false
+
+tunnels:
+    <subdomain1>:
+        proto:
+            # 此处80对应服务端的httpAddr
+            http: 80
+    <subdomain2>:
+        proto:
+            http: 80
 ```
