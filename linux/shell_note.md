@@ -4,9 +4,9 @@ Shell Note
 常用命令
 ------
 
-### 获取当前文件所在路径
+### 获取当前文件所在绝对
 
-    dirname "$SCRIPT"
+    dirname $(readlink -f $0)
 
 ### 修改hosts 及 主机名称
 
