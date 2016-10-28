@@ -4,6 +4,20 @@ Git学习笔记
 常用
 ---
 
+### fork后增加原始库remote, 并同步代码
+
+    git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+    git fetch upstream
+    git checkout <branch>
+    git merge upstream/master
+
+### 修改分支名称(没有old 默认当前分支), 包括远程分支
+
+> <http://stackoverflow.com/a/6591218/4757521>
+
+    git branch -m [old] new
+    git push -f --mirror
+
 ### checkout最新commit
 
     git checkout <branch>
@@ -16,7 +30,7 @@ Git学习笔记
 
 > [所有修改方法](http://gitbook.liuhui998.com/4_9.html)
 
-#### 安装
+#### 安装 设置config
 
 `--global`表示这台机器上所有仓库都使用此配置
 
@@ -53,28 +67,28 @@ git commit --amend -m 'change the last commit'
 Git cmd
 -------
 
-- ubuntu 默认中文转为英文 想恢复中文 用#注释掉
+### ubuntu 默认中文转为英文 想恢复中文 用#注释掉
 `echo "alias git='LANG=en_GB git'" >> ~/.bashrc`
 
-- 更新origin url
+### 更新origin url
 `git remote set-url origin [new-url]`
 
-- 查看远程库的分支
+### 查看远程库的分支
 `git branch -a`
 
-- 创建分支
+### 创建分支
 `git checkout -b [name]`
 
-- 合并分支 --no-ff模式 可以保留分支信息
+### 合并分支 --no-ff模式 可以保留分支信息
 `git merge --no-ff -m "dev message" [dev_name]`
 
-- 删除分支
+### 删除分支
 `git branch -d [name]`
 
-- 将stash的内容新建为tesstchange分支
+### 将stash的内容新建为tesstchange分支
 `git stash branch testchanges`
 
-- [git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
+### [git显示中文为274\288\432](https://gist.github.com/vkyii/1079783)
 `git config --global core.quotepath false`
 
 Git Bash
