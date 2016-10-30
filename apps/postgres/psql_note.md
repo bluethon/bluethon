@@ -7,7 +7,7 @@ shell版
 ``` shell
 
 # 创建数据库并授权
-sudo -u postgres createdb -O dbuser exampledb
+sudo -u postgres createdb -O <dbuser> <exampledb>
 # 启动管理数据库
 sudo -u postgres psql
 # 查看现有数据库

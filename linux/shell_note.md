@@ -4,6 +4,10 @@ Shell Note
 常用命令
 ------
 
+### 获取命令所在位置
+
+    type -a <foo>
+
 ### 获取当前文件所在绝对
 
     dirname $(readlink -f $0)
