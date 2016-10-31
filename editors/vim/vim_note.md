@@ -56,6 +56,13 @@ set fileencodings=utf-8,gbk,big5
 cmd
 ---
 
+### 获取键盘映射时的internal code
+
+    # insert mode
+    <kbd>Ctrl</kbd><kbd>K</kbd>
+    # then press any key
+    # will output the internal code
+
 ### 行排序 去重
 
 > <http://vim.wikia.com/wiki/Sort_lines>
