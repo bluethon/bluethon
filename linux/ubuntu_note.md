@@ -4,6 +4,10 @@ Note For Ubuntu
 Settings
 --------
 
+### 用户config 自动运行 xxx.desktop
+
+    $ ~/.config/autostart/
+
 ### 启用fcitx并开机启动
 
     alt+f2
