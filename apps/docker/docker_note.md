@@ -34,4 +34,14 @@ sudo apt-get install docker-engine
 sudo service docker start
 # Verify docker is installed correctly.
 sudo docker run hello-world
+
+# Configure Docker to start on boot
+sudo systemctl enable docker
+
+# 不使用sudo使用docker
+# Create a Docker group
+sudo groupadd docker
+sudo usermod -aG docker $USER
+# relogin
+docker run hello-world
 ```
