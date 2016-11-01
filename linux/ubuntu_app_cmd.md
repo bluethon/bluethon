@@ -35,4 +35,6 @@ sudo add-apt-repository ppa:peterlevi/ppa
 sudo apt-get update
 sudo apt-get install variety variety-slideshow
 
+# 鼠标全局手势
+sudo apt install easystroke
 ```
