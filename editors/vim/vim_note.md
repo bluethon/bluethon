@@ -1,6 +1,11 @@
 VIM学习笔记
 ==========
 
+doc site
+--------
+
+<http://vim.wikia.com/wiki/Vim_Tips_Wiki>
+
 hotkey
 ------
 
@@ -17,6 +22,10 @@ hotkey
 
     S+j     拼接两行 join lines
     =       格式化代码(format code)
+    C-g     显示文件名
+    1C-g    显示文件名(full path)
+    1C-g    显示文件名(full path)
+    2C-g    显示文件名(full path & buffer)
 
 .vimrc
 ------
