@@ -40,6 +40,8 @@ sudo systemctl enable docker
 
 # 不使用sudo使用docker
 # Create a Docker group
+# 显示所有group(不能加sudo)
+# groups
 sudo groupadd docker
 sudo usermod -aG docker $USER
 # relogin

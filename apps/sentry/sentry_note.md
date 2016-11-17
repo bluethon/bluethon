@@ -59,3 +59,40 @@ visiting http://localhost:9000/
 - create a Project.
 - In Project DashBoard> Settings >  Client Keys, you can find DSN (reffered in this tutorial as dsn) and DSN (Public) - (Reffered in this tutorial as public-dsn)
 
+
+
+
+docker - debian
+---------------
+
+``` sh
+sudo vim /etc/apt/sources.list.d/backports.list
+
+deb http://http.debian.net/debian wheezy-backports main
+
+sudo apt-get update
+
+apt-get purge "lxc-docker*"
+apt-get purge "docker.io*"
+
+ $ apt-get update
+ $ apt-get install apt-transport-https ca-certificates
+
+ apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+ lsb_release -a
+
+ vim /etc/apt/sources.list.d/docker.list
+
+deb https://apt.dockerproject.org/repo debian-wheezy main
+
+apt-get update
+
+apt-cache policy docker-engine
+
+sudo apt-get install docker-engine
+
+sudo service docker start
+
+sudo docker run hello-world
+```
