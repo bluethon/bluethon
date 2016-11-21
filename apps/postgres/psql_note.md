@@ -66,3 +66,8 @@ db版
 # 删除表
 DROP TABLE IF EXISTS backup_tbl;
 ```
+
+参数
+----
+
+-p 端口

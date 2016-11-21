@@ -1,6 +1,9 @@
 Sentry Note
 ===========
 
+> <https://blog.stevem.io/posts/quick-start-installing-sentry-on-ubuntu-14-04>
+> <http://dustindavis.me/setting-up-your-own-sentry-server/>
+
 引用
 ----
 
@@ -39,11 +42,17 @@ source venv/bin/activate
 
 pip install raven
 
+# default conf in ~/.sentry
 sentry init <path to the folder>
 
-SENTRY_CONF=. sentry upgrade
+# SENTRY_CONF=<path to the folder> sentry upgrade
+sentry upgrade
 
-SENTRY_CONF=/etc/sentry sentry run web
+# create a new user
+sentry createuser
+
+# SENTRY_CONF=/etc/sentry sentry run web
+sentry run web
 
 visiting http://localhost:9000/
 

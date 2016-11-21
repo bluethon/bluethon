@@ -182,6 +182,23 @@ Ctrl+y          # 往前滚动一行
 替换
 ---
 
+> <http://vim.wikia.com/wiki/Search_and_replace>
+
+### 替换可使用其他分隔符
+
+You can use other delimiters with substitute:
+
+    :s#http://www.example.com/index.html#http://example.com/#
+
+### 使用`\zs` 和 `\ze` 进行匹配替换
+
+Save typing by using \zs and \ze to set the start and end of a pattern. For example, instead of:
+
+    :s/Copyright 2007 All Rights Reserved/Copyright 2008 All Rights Reserved/
+Use:
+
+    :s/Copyright \zs2007\ze All Rights Reserved/2008/
+
 #### 简单替换表达式
 
     :[range]s/from/to/[flags]

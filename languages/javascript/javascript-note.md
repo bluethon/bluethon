@@ -1,6 +1,11 @@
 JavaScript 学习笔记
 ==========
 
+site
+-----
+
+> [代码优劣对比](https://jsperf.com/browse)
+
 代码片段
 -------
 
