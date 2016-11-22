@@ -31,6 +31,11 @@ ubuntu
 127.0.0.1       abc
 ```
 
+### Unable to lock the administration directory (/var/lib/dpkg/) is another process using it?
+
+    sudo lsof /var/lib/dpkg/lock
+    kill -p <PID>
+
 postgres
 --------
 

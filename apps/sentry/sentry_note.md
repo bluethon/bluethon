@@ -4,6 +4,18 @@ Sentry Note
 > <https://blog.stevem.io/posts/quick-start-installing-sentry-on-ubuntu-14-04>
 > <http://dustindavis.me/setting-up-your-own-sentry-server/>
 
+DEBUG
+-----
+
+### supervisor worker always starting
+
+``` sh
+# if use root, add C_FORCE_ROOT
+[program:sentry-worker]
+directory=/www/sentry/
+environment=SENTRY_CONF="/etc/sentry",C_FORCE_ROOT=true
+```
+
 引用
 ----
 
