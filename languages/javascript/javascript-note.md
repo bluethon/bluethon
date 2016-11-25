@@ -30,6 +30,9 @@ console.timeEnd("计时器1");
 console.profile('性能分析器');
 All();
 console.profileEnd();
+
+// es5添加默认值
+args1 = args1 || 1
 ```
 
 ---

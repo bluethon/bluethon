@@ -117,3 +117,42 @@ sudo service docker start
 
 sudo docker run hello-world
 ```
+
+files
+-----
+
+### supervisor.conf
+
+``` sh
+[program:sentry-web]
+directory=/www/sentry/
+environment=SENTRY_CONF="/etc/sentry"
+command=/www/sentry/bin/sentry run web
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/etc/sentry/web.log
+stderr_logfile=syslog
+
+[program:sentry-worker]
+directory=/www/sentry/
+environment=SENTRY_CONF="/etc/sentry",C_FORCE_ROOT=true
+command=/www/sentry/bin/sentry run worker -l WARNING
+autostart=true
+autorestart=true
+redirect_stderr=true
+killasgroup=true
+stdout_logfile=syslog
+stderr_logfile=/etc/sentry/worker.log
+
+[program:sentry-cron]
+directory=/www/sentry/
+environment=SENTRY_CONF="/etc/sentry"
+command=/www/sentry/bin/sentry run cron
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=syslog
+stderr_logfile=/etc/sentry/cron.log
+
+```
