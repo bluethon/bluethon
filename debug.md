@@ -19,6 +19,12 @@ ssh
 ubuntu
 ------
 
+### Python locale error: unsupported locale setting
+
+    export LC_ALL="en_US.UTF-8"
+    export LC_CTYPE="en_US.UTF-8"
+    sudo dpkg-reconfigure locales
+
 ### mount exfat
 
     sudo apt-get install exfat-fuse exfat-utils

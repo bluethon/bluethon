@@ -4,6 +4,20 @@ Shell Note
 常用命令
 ------
 
+### 
+
+### 增加用户(sudo)
+
+    adduser <username>
+    usermod -aG sudo <username>
+    su - <username>
+
+### 修改ssh端口(port)
+
+    sudo vim /etc/ssh/sshd_config
+    # Port 22
+    /etc/init.d/sshd restart
+
 ### 获取命令所在位置
 
     type -a <foo>
