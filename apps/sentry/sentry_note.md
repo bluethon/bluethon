@@ -7,7 +7,7 @@ Sentry Note
 DEBUG
 -----
 
-### supervisor worker always starting
+### **supervisor worker always starting**
 
 ``` sh
 # if use root, add C_FORCE_ROOT
