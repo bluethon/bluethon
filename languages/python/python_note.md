@@ -18,6 +18,7 @@ Python学习笔记
     <li>        List Item                               列表项
     <p>         paragraph                               段落
     MIME        Multipurpose Internet Mail Extension    多目标因特网邮件扩展
+    &nbsp;      Non-Breaking Space                      不间断空格
 
 ## 名词解释
 

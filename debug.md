@@ -49,3 +49,12 @@ postgres
 
     sudo -u postgres psql
     ALTER USER <user> PASSWORD 'newPassword';
+
+zsh
+---
+
+### zsh: no matches found: thunderbird*
+
+    unsetopt no_match
+
+> <http://askubuntu.com/a/481591/537695>
