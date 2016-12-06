@@ -3,6 +3,19 @@
 
 **ibus不能卸载!!! 与系统深度集成**
 
+一键脚本
+--------
+
+``` sh
+# 资源监视器
+sudo apt-get install indicator-multiload
+
+# 壁纸
+sudo add-apt-repository ppa:peterlevi/ppa
+sudo apt-get update
+sudo apt-get install variety variety-slideshow
+```
+
 ### ohmyzsh
 
 [补全插件](https://github.com/zsh-users/zsh-autosuggestions)
