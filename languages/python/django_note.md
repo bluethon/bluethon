@@ -56,30 +56,40 @@ class Xxx(models.Model):
         verbose_name = '发票信息'
         # 复数
         verbose_name_plural = '发票信息'
+```
 
-# 国际化
-from django.utils.translation import ugettext_lazy as _
-_('example')
+### 国际化
 
-# 修饰器,关闭csrf exempt-免除
-from django.views.decorators.csrf import csrf_exempt
+    from django.utils.translation import ugettext_lazy as _
+    _('example')
 
-#       正则匹配url     视图函数        别名, 唯一, 模板中使用
-# http://foofish.net/blog/55/django-url
-url(r'^wx_activity$', wx_activity, name='wx_activity'),
+### 修饰器,关闭csrf exempt-免除
 
-# 查找最近的一条数据库记录
-# http://stackoverflow.com/questions/15675672/django-get-the-latest-record-with-filter
-obj= Model.objects.filter(testfield=12).order_by('-id')[0]
-obj= Model.objects.filter(testfield=12).latest('testfield')
+    from django.views.decorators.csrf import csrf_exempt
 
-# template for 渲染表单
-{% for field in form %}
-    {{ field }}
-{% endfor %}
+###       正则匹配url     视图函数        别名, 唯一, 模板中使用
 
-# nginx http https
-# http://stackoverflow.com/questions/8153875/how-to-deploy-an-https-only-site-with-django-nginx
+> <http://foofish.net/blog/55/django-url>
+
+    url(r'^wx_activity$', wx_activity, name='wx_activity'),
+
+### 查找最近的一条数据库记录
+> <http://stackoverflow.com/questions/15675672/django-get-the-latest-record-with-filter>
+
+    obj= Model.objects.filter(testfield=12).order_by('-id')[0]
+    obj= Model.objects.filter(testfield=12).latest('testfield')
+
+### template for 渲染表单
+
+    {% for field in form %}
+        {{ field }}
+    {% endfor %}
+
+### nginx http https
+
+> <http://stackoverflow.com/questions/8153875/how-to-deploy-an-https-only-site-with-django-nginx>
+
+``` python
 # django settings.py
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # nginx settings
@@ -87,26 +97,35 @@ location / {
     # ... 
     proxy_set_header X-Forwarded-Proto $scheme;
 }
+```
 
-# template获取当前url
-# http://stackoverflow.com/questions/2882490/how-to-get-the-current-url-within-a-django-template
-{{ request.path }}
-{{ request.get_full_path }}
+### template获取当前url
 
-# logging
+> <http://stackoverflow.com/questions/2882490/how-to-get-the-current-url-within-a-django-template>
+
+    {{ request.path }}
+    {{ request.get_full_path }}
+
+### logging
+
+``` python
 # app.module
 # getLogger中为指定的名称或__name__ 动态
 logger = logging.getLogger('django')
 __name__  # weixin.views
-
-# 实例属性复制 模型继承
-new_invoice.__dict__.update(invoice_info.__dict__)
-
-# add user to group
-http://stackoverflow.com/questions/6288661/adding-a-user-to-a-group-in-django
 ```
 
+### 实例属性复制 模型继承
+
+    new_invoice.__dict__.update(invoice_info.__dict__)
+
+### add user to group
+
+> <http://stackoverflow.com/questions/6288661/adding-a-user-to-a-group-in-django>
+
 ---
+
+
 
 manual
 ------
@@ -169,3 +188,4 @@ reference
 
 1 [Django Signals Example](http://www.koopman.me/2015/01/django-signals-example/)
 - [设置model的电话 使用正则Regex 校验](http://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-phone-number-in-django-models)
+- [QuerySet](https://docs.djangoproject.com/en/dev/ref/models/querysets/)

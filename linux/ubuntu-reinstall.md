@@ -14,6 +14,9 @@ sudo apt-get install indicator-multiload
 sudo add-apt-repository ppa:peterlevi/ppa
 sudo apt-get update
 sudo apt-get install variety variety-slideshow
+
+# ipython 智能shell
+sudo apt install ipython3
 ```
 
 ### ohmyzsh
