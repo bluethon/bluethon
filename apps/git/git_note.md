@@ -4,6 +4,11 @@ Git学习笔记
 常用
 ---
 
+### 更新已删除的远程分支
+
+    git fetch --all --prune
+    git branch -a
+
 ### fork后增加原始库remote, 并同步代码
 
     git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
@@ -83,7 +88,13 @@ Git cmd
 `git merge --no-ff -m "dev message" [dev_name]`
 
 ### 删除分支
-`git branch -d [name]`
+
+    git branch -d [name]
+
+### 删除远程分支
+
+    git push origin :[branch2]
+    git push origin --delete [branch2]
 
 ### 将stash的内容新建为tesstchange分支
 `git stash branch testchanges`
@@ -115,7 +126,8 @@ url末尾加`/compare`
 
 `ssh-keygen -t rsa -C "youremail@example.com"`
 
-默认存在User目录下.ssh\
+默认存在User目录下.ssh
+
 > GitHub->Account Setting->SSH Keys->id_rsa.pub
 
 #### 本地库关联到GitHub  origin为远程仓库名称,可以修改
@@ -127,8 +139,7 @@ url末尾加`/compare`
 #### 提交[branch1]为远程的[branch2]
 `git push origin branch1:branch2`
 
-### 删除远程分支+
-`git push origin :[branch2]`
+
 
 #### 更新origin url
 `git remote set-url origin [new-url]`
