@@ -6,7 +6,7 @@
 一键脚本
 --------
 
-``` sh
+#!/bin/bash
 # 资源监视器
 sudo apt-get install indicator-multiload
 

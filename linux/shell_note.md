@@ -4,7 +4,10 @@ Shell Note
 常用命令
 ------
 
-### 
+### 出现非零即退出
+
+    # bash下 `help set` 查看详细信息
+    set -e
 
 ### 增加用户(sudo)
 

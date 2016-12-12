@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # git clone https://github.com/inconshreveable/ngrok
 ### 请使用下面的地址，修复了无法访问的包地址
