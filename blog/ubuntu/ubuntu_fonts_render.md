@@ -1,6 +1,13 @@
 Ubuntu字体美化
 =============
 
+字体DEBUG
+--------
+
+    FC_DEBUG=1024 keepass2
+    FC_DEBUG=8 keepass2
+    FC_DEBUG=2053 keepass2
+
 [安装及卸载Infinality][0]
 -------------
 

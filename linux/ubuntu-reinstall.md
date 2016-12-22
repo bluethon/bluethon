@@ -39,6 +39,15 @@ sudo apt install ipython3
     - 如果报依赖错误，输入： `sudo apt-get install -f`
     - 自动解决依赖后再执行步骤1
 
+**new**
+
+> <https://www.sstype.com/read/317.html>
+
+- [wine直接安装](https://github.com/hillwoodroc/winetricks-zh)
+- [清风博客 一个qq正式版](http://phpcj.org/wineqq/)
+- [野狼博客](https://www.sstype.com/read/317.html)
+https://ubuntuforums.org/archive/index.php/t-865265.html
+
 ### Chrome
 
 [sina下载地址](http://down.tech.sina.com.cn/page/43719.html)
