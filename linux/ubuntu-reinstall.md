@@ -48,6 +48,28 @@ sudo apt install ipython3
 - [野狼博客](https://www.sstype.com/read/317.html)
 https://ubuntuforums.org/archive/index.php/t-865265.html
 
+sudo add-apt-repository ppa:wine/wine-builds
+
+
+``` shell
+sudo dpkg --add-architecture i386
+sudo add-apt-repository ppa:wine/wine-builds
+sudo apt-get update
+sudo apt-get install --install-recommends winehq-devel
+
+git clone https://github.com/hillwoodroc/winetricks-zh.git
+
+cd wintricks-zh
+cp winetricks-zh /usr/bin/
+# https://github.com/hillwoodroc/winetricks-zh#未安装-winetricks
+winetricks-zh qqlight
+
+# 修复输入后是方块
+vim ~/.local/share/applications/wine/Programs/腾讯软件/QQ轻聊版/QQ轻聊版.desktop
+# 环境变量增加 LC_ALL=zh_CN.utf8
+Exec=env LC_ALL=zh_CN.utf8 WINEPREFIX=/home/blue/.local/share/wineprefixes/qqlight wine "C:\Program Files (x86)\Tencent\QQLite\Bin\QQScLauncher.exe"
+```
+
 ### Chrome
 
 [sina下载地址](http://down.tech.sina.com.cn/page/43719.html)
