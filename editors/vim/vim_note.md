@@ -9,6 +9,14 @@ doc site
 hotkey
 ------
 
+    # 查找替换
+    dt<c>   删到c(不包含)    delete until <c>
+    df<c>   删到c(包含)     delete find <c>
+    di<c>   删除c内(不包含)
+    da<c>   删除c内(包含)
+    dib     删除圆括号内
+    diB     删除花括号内
+
     :e!     重新加载(!从local disk)
     :sp     文件名水平分割窗口
     :vs     文件名垂直分割窗口

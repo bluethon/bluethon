@@ -11,6 +11,9 @@ update-manager
 # 制作启动盘
 usb-creator-gtk
 
+# 截图
+gnome-screenshot
+
 ```
 
 ---
@@ -19,6 +22,9 @@ usb-creator-gtk
 -----
 
 ``` shell
+
+# 包管理 & 查找
+sudo apt install synaptic
 
 # zsh & ohmyzsh
 sudo apt install zsh

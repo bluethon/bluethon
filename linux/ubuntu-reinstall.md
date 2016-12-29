@@ -6,6 +6,14 @@
 一键脚本
 --------
 
+### Fonts
+
+> [10楼](http://forum.ubuntu.org.cn/viewtopic.php?f=8&t=463088&hilit=fontconfig)
+安装及配置文件
+链接: https://pan.baidu.com/s/1mi6pqUs 密码: gp9m
+
+> [金步国的blog](http://www.jinbuguo.com/gui/linux_fontconfig.html)
+
 #!/bin/bash
 # 资源监视器
 sudo apt-get install indicator-multiload
