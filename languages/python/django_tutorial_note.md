@@ -43,3 +43,10 @@ Chapter 4
 ### `DetailView`
 
 - default template name = `<app name>/<model name>_detail.html`
+
+Chapter 7
+---------
+
+### 查找django源文件 source file
+
+    python -c "import django; print(django.__path__)"
