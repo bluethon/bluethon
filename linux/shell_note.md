@@ -4,6 +4,11 @@ Shell Note
 常用命令
 ------
 
+### 设定 & 撤销 环境变量
+
+    export DEBUG=false
+    unset DEBUG
+
 ### 出现非零即退出
 
     # bash下 `help set` 查看详细信息
