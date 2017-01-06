@@ -1,7 +1,7 @@
 pip相关笔记
 ==========
 
-#### 运维相关
+### 运维相关
 
 ``` bash
 # 升级单个包
@@ -12,6 +12,9 @@ python -m pip install --upgrade pip
 
 # 生成requirementst.txt
 pip freeze > requirements.txt
+# 与现有requirements.txt文件对比
+pip freeze -r requirements.txt
+
 # 安装
 pip install -r requirements.txt
 
@@ -29,13 +32,13 @@ pip install pip-review
 pip-review --local --interactive
 ```
 
-#### Windows下非官方包源
+### Windows下非官方包源
 
 [Python Extension Packages for Windows - Christoph Gohlke](http://www.lfd.uci.edu/~gohlke/pythonlibs/)
 
 
 
-#### pip使用代理安装package
+### pip使用代理安装package
 ``` shell
 # UNIX
 export http_proxy=<user>:<password>@<proxy_ip_address>:<port>
