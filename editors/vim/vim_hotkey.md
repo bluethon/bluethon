@@ -1,6 +1,8 @@
 hotkey
 ------
 
+    w !sudo tee %   保存只读文件<http://www.geekyboy.com/archives/629>
+
     # 查找替换
     dt<c>   删到c(不包含)    delete until <c>
     df<c>   删到c(包含)     delete find <c>
