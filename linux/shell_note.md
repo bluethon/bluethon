@@ -4,6 +4,16 @@ Shell Note
 常用命令
 ------
 
+### grep 去除自己
+
+> <http://unix.stackexchange.com/a/74186/181922>
+
+原理: 正则 查找`f`后为`oobar`的字符  
+所以结果`--color=auto [f]oobar`中`f`后为`]`, 不匹配 就过滤了
+
+
+    ps -ef |grep [f]oobar
+
 ### 设定 & 撤销 环境变量
 
     export DEBUG=false

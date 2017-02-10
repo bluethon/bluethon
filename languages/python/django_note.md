@@ -4,6 +4,16 @@ Django Note
 library
 -------
 
+### local time
+
+    from django.utils import timezone
+    now = timezone.now()
+    local_time = timezone.localtime(now)
+
+### time format
+
+    timezone.now().strftime('%Y年%m月%dr日 %H:%M')
+
 ### dumpdata & loaddata
 
 <https://coderwall.com/p/mvsoyg/django-dumpdata-and-loaddata>
