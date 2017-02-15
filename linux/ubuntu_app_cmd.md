@@ -22,6 +22,10 @@ gnome-screenshot
 -----
 
 ``` shell
+# Albert - linux版Alfred
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install albert
 
 # 包管理 & 查找
 sudo apt install synaptic

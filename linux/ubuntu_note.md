@@ -4,9 +4,17 @@ Note For Ubuntu
 Settings
 --------
 
-### 用户config 自动运行 xxx.desktop
+### 添加自启动
 
-    $ ~/.config/autostart/
+1. dash | startup | add
+
+2. `cd ~/.config/autostart/` and create `.desktop` file
+
+可以使用软链接进行
+
+    $ ln -s foo.desktop ~/.config/autostart
+
+> <http://askubuntu.com/questions/814/how-to-run-scripts-on-start-up>
 
 ### 启用fcitx并开机启动
 
@@ -75,14 +83,6 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 - `sudo reboot`
 
 > [stackoverflow](http://askubuntu.com/questions/148717/how-do-i-boot-into-the-console-and-then-launch-the-ubuntu-desktop-from-it)
-
-#### 添加自启动
-
-1. dash | startup | add
-
-2. `cd ~/.config/autostart/` and create `.desktop` file
-
-ref: (http://askubuntu.com/questions/814/how-to-run-scripts-on-start-up)
 
 #### 重启桌面 Xorg
 
