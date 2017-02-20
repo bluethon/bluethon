@@ -4,6 +4,33 @@ Shell Note
 常用命令
 ------
 
+### 上个命令最后一部分
+
+    !$
+
+可用于创建目录后`cd`到此目录
+
+    mkdir foo
+    cd !$
+
+### 存储路径 cd 
+
+``` sh
+# 将目录加入stack
+pushd [path]
+# 将目录移出stack, 并恢复当前目录到上个stack(即cd)
+popd [path]
+# 查看stack
+#   查看编号    清除
+dirs [-v] [-c]
+# 使用编号4
+cd ~4
+```
+
+`pushd`两次将固化list中1以后的位置, `popd`解除
+
+> <http://unix.stackexchange.com/a/330843/181922>
+
 ### grep 去除自己
 
 > <http://unix.stackexchange.com/a/74186/181922>
