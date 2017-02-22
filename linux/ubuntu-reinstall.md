@@ -7,6 +7,9 @@
 --------
 
 ``` sh
+#----------
+# install
+#----------
 # 资源监视器
 sudo apt-get install indicator-multiload
 
@@ -17,6 +20,14 @@ sudo apt-get install variety variety-slideshow
 
 # ipython 智能shell
 sudo apt install ipython3
+
+# 任务管理器
+sudo apt install htop
+
+#-------------------
+# uninstall
+#-------------------
+sudo apt remove webbrowser-app
 ```
 
 ### ohmyzsh

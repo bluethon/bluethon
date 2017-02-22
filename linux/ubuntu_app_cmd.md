@@ -11,6 +11,10 @@ update-manager
 # 制作启动盘
 usb-creator-gtk
 
+# 清除ppa
+sudo apt install ppa-purge
+sudo ppa-purge ppa:no1wantdthisname/ppa
+
 ```
 
 ---
