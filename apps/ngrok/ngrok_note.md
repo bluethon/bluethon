@@ -17,8 +17,8 @@ https://toontong.github.io/blog/about-ngrok.html
 
 ### 生成证书
 
-``` sh
-#!/bin/sh
+#!/bin/bash
+#!/bin/bash
 
 domain="yourdomain.com"
 
@@ -35,7 +35,7 @@ cp device.key ../assets/server/tls/snakeoil.key
 
 ### 编译ngrok
 
-``` sh
+#!/bin/bash
 # 装必要的工具
 sudo apt-get install build-essential golang mercurial git
 

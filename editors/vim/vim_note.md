@@ -6,64 +6,10 @@ doc site
 
 <http://vim.wikia.com/wiki/Vim_Tips_Wiki>
 
-hotkey
-------
-
-    :e!     重新加载(!从local disk)
-    :sp     文件名水平分割窗口
-    :vs     文件名垂直分割窗口
-    C-w     快速切换窗口
-    F3      快速打开或关闭树形目录
-    F9      查看当前代码结构及自动补全
-    F5      一键运行程序
-    F6      代码格式化
-    F8      调试C和C++
-    F2      去除代码中的空行(个人觉得不实用)
-
-    S+j     拼接两行 join lines
-    =       格式化代码(format code)
-    C-g     显示文件名
-    1C-g    显示文件名(full path)
-    1C-g    显示文件名(full path)
-    2C-g    显示文件名(full path & buffer)
-
-.vimrc
-------
-
-``` shell
-
-# 折行
-set textwidth=80
-set wrap
-set nowrap
-
-# ctrl-u转换当前单词为大写
-# 也可选中, U
-inoremap <C-u> <esc>gUiwea
-
-# 滚屏时保留的行数
-set scrolloff=7
-set so=7
-
-# syntax 语法高亮
-sy on
-sy clear
-
-# set 一般性设置
-# go gui option 为空
-set go=
-
-# colo 调色方案
-colo evening
-
-# 显示中文 依次使用序列中的编码方式, 最优的在左
-set fileencodings=utf-8,gbk,big5
-```
-
 ---
 
-cmd
----
+Tips
+----
 
 ### 获取键盘映射时的internal code
 

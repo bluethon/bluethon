@@ -9,7 +9,7 @@ DEBUG
 
 ### **supervisor worker always starting**
 
-``` sh
+#!/bin/bash
 # if use root, add C_FORCE_ROOT
 [program:sentry-worker]
 directory=/www/sentry/
@@ -43,7 +43,7 @@ environment=SENTRY_CONF="/etc/sentry",C_FORCE_ROOT=true
 
 安装依赖
 -------
-``` sh
+#!/bin/bash
 sudo apt install python-setuptools python-pip python-dev libxslt1-dev gcc libffi-dev libjpeg-dev libxml2-dev libxslt-dev libyaml-dev libpq-dev
 
 sudo pip2 install virtualenv
@@ -86,7 +86,7 @@ visiting http://localhost:9000/
 docker - debian
 ---------------
 
-``` sh
+#!/bin/bash
 sudo vim /etc/apt/sources.list.d/backports.list
 
 deb http://http.debian.net/debian wheezy-backports main
@@ -123,7 +123,7 @@ files
 
 ### supervisor.conf
 
-``` sh
+#!/bin/bash
 [program:sentry-web]
 directory=/www/sentry/
 environment=SENTRY_CONF="/etc/sentry"

@@ -1,4 +1,4 @@
-Ubuntu apps bash cmd 
+Ubuntu apps bash cmd
 ====================
 
 原生
@@ -15,6 +15,9 @@ usb-creator-gtk
 sudo apt install ppa-purge
 sudo ppa-purge ppa:no1wantdthisname/ppa
 
+# 截图
+gnome-screenshot
+
 ```
 
 ---
@@ -23,6 +26,13 @@ sudo ppa-purge ppa:no1wantdthisname/ppa
 -----
 
 ``` shell
+# Albert - linux版Alfred
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install albert
+
+# 包管理 & 查找
+sudo apt install synaptic
 
 # zsh & ohmyzsh
 sudo apt install zsh

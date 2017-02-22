@@ -36,6 +36,7 @@ Sublime
 
 1.  [sublime开启scope_name显示](./sublime/show_scope_name.md)
 -   [emmet停止tab某些情况下起作用](./sublime/disable_emmet_tab.md)
+-   [emmet强制html中<br>为<br />](./sublime/force_change_br_to_br_with_slash.md)
 -   [project设置相对路径参考](./sublime/project_path.md)
 -   [Package Control设置shadowsocks代理](./sublime/package_control_proxy.md)
 

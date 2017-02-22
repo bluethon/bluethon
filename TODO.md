@@ -4,7 +4,7 @@
 ssh
 ----
 
-``` sh
+#!/bin/bash
 # 测试是否有ssh服务
 ps -e | grep ssh
 
@@ -34,7 +34,7 @@ sudo ifconfig eth0 up
 [ubuntu关闭盖子不睡眠](http://askubuntu.com/a/742662/537695)
 ------------------
 
-``` sh
+#!/bin/bash
 sudo vim /etc/UPower/UPower.conf
 # change to
 IgnoreLid=True
@@ -45,7 +45,7 @@ sudo service upower restart
 shell
 -----
 
-``` sh
+#!/bin/bash
 # 测试网络
 curl baidu.com
 ```

@@ -12,7 +12,7 @@ win set share folder
 
 in linux do below
 
-``` sh
+#!/bin/bash
 # 修改默认挂载点
 sudo VBoxControl guestproperty set /VirtualBox/GuestAdd/SharedFolders/MountDir /home/blue/programs/
 sudo VBoxControl guestproperty get /VirtualBox/GuestAdd/SharedFolders/MountDir

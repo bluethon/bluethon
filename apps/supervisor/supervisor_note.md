@@ -1,7 +1,7 @@
 Supervisor Note
 ===============
 
-``` sh
+#!/bin/bash
 # 安装
 pip install supervisor
 
@@ -11,7 +11,7 @@ echo_supervisord_conf > /etc/supervisord.conf
 
 ### 修改日志输出位置
 
-``` sh
+#!/bin/bash
 # /var/log/syslog
 stdout_logfile=syslog
 
@@ -21,7 +21,7 @@ stdout_logfile=/home/haibo/subserver.log
 
 ### 引入自己的任务
 
-``` sh
+#!/bin/bash
 # /path/to/foo.conf
 touch foo.conf
 # make soft link
@@ -31,7 +31,7 @@ ln -s /etc/supervisor/conf.d/foo.conf /path/to/foo.conf
 
 ### sample
 
-``` sh
+#!/bin/bash
 [program:sentry-web]
 directory=/home/haibo/sentry/
 environment=SENTRY_CONF="/home/haibo/.sentry"
@@ -64,7 +64,7 @@ stderr_logfile=syslog
 
 ```
 
-``` sh
+#!/bin/bash
 [program:sentry-web]
 directory=/home/haibo/sentry/
 environment=SENTRY_CONF="/home/haibo/.sentry"

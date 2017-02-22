@@ -39,7 +39,7 @@ psql [DB_NAME] < infile.db
 备份
 ---
 
-``` sh
+#!/bin/bash
 # 导出
 pg_dump [DB_NAME] > outfile.db
 # 创建数据库(以template0为模板)
