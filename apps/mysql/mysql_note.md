@@ -68,3 +68,20 @@ MySQL笔记
 #### 2.修改密码
 
     update mysql.user set password=password('new password') where User="lionbule" and Host="localhost";
+
+
+安装
+---
+
+### Ubuntu
+
+``` sh
+# mysql
+sudo apt install mysql-server
+
+# dependencies
+sudo apt install python-pip python-dev libmysqlclient-dev
+# python
+pip install MySQL-python
+
+```

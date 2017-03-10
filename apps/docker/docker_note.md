@@ -1,6 +1,23 @@
 docker note
 ===========
 
+国内版
+-----
+
+``` sh
+# docker本体
+# https://mirror.tuna.tsinghua.edu.cn/help/docker/
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt-get update
+sudo apt-get install docker-engine
+
+# dockerhub镜像
+# https://c.163.com/wiki/index.php?title=DockerHub%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F
+echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=http://hub-mirror.c.163.com\"" | sudo tee -a /etc/default/docker
+sudo service docker restart
+```
+
 Install for ubuntu 16.04[LTS]
 -------
 
