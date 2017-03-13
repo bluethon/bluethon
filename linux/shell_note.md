@@ -4,6 +4,26 @@ Shell Note
 常用命令
 ------
 
+### I/O写入文件 tee
+
+-a  add 追加
+
+    echo 'foo' | tee bar.txt
+    echo 'foo' | tee -a bar.txt
+
+
+### 批量查找替换某些文件
+
+> <http://stackoverflow.com/a/15402972/4757521>
+
+查找
+
+    grep foo /path/to/files
+
+替换
+
+    find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
+
 ### 上个命令最后一部分
 
     !$
