@@ -4,31 +4,15 @@ docker note
 TODO
 ----
 
-https://docs.gitlab.com/omnibus/docker/
-
 https://yeasy.gitbooks.io/docker_practice/content/container/daemon.html
-
-https://docs.gitlab.com/omnibus/docker/#after-starting-a-container
-
-https://docs.docker.com/compose/install/
 
 http://wiki.jikexueyuan.com/project/docker/userguide/dockerizing.html
 
-部署
-----
-
-> <https://docs.docker.com/compose/install/>
+---------------------------------------------------------
 
 
-
-ref
----
-
-[设置代理部分](https://segmentfault.com/a/1190000006146697)
-[代理cow](https://github.com/cyfdecyf/cow)
-
-国内版
------
+安装docker(国内版)
+----------------
 
 ``` sh
 # docker本体
@@ -41,15 +25,33 @@ sudo apt-get install docker-engine
 
 # dockerhub镜像
 # https://lug.ustc.edu.cn/wiki/mirrors/help/docker
-sudo -i
-# 编辑或者创建
-vim /etc/docker/daemon.json
-{
-  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
-}
-echo "{\n  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]\n}" | tee /etc/docker/daemon.json
+echo "{\n  \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"]\n}" | sudo tee /etc/docker/daemon.json
 sudo service docker restart
+
+# docker-compose
+pyvenv venv
+pip install docker-compose
 ```
+
+--------------------------------------------------------
+
+部署使用docker-compose
+--------------------
+
+> <https://docs.docker.com/compose/install/>
+
+命令行补全
+--------
+
+oh-my-zsh自带
+
+> <https://docs.docker.com/compose/completion/>
+
+
+代理
+---
+
+[设置代理部分](https://segmentfault.com/a/1190000006146697)
 
 Install for ubuntu 16.04[LTS]
 -------
@@ -57,8 +59,6 @@ Install for ubuntu 16.04[LTS]
 > <https://docs.docker.com/engine/installation/linux/ubuntulinux/#/prerequisites>
 
 ``` bash
-# Update package information, ensure that APT works with the https method, and that CA certificates are installed.
-sudo apt-get update
 # Install packages to allow apt to use a repository over HTTPS:
 sudo apt-get install \
     apt-transport-https \

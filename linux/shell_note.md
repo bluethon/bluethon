@@ -4,6 +4,11 @@ Shell Note
 常用命令
 ------
 
+### 获取发行版名称
+
+    lsb_release -cs
+    echo $(lsb_release -cs) > foo.txt
+
 ### I/O写入文件 tee
 
 -a  add 追加
