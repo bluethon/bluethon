@@ -1,6 +1,23 @@
 MySQL笔记
 =========
 
+### 查看内置信息
+
+    # 版本
+    select version();
+    # 日期
+    select current_date;
+    # 用户
+    select user();
+    # 数据库
+    show databases;
+    # 使用数据库(分号不是必须)
+    use test
+    # 表
+    show tables;
+    # 开启补全
+    \#
+
 #### 创建数据库
 `create batabase data_name`
 #### 重启mysql
@@ -33,11 +50,11 @@ MySQL笔记
 权限
 ---
 
-#### 查看某用户权限
+### 查看某用户权限
 
     show grants for 'root'@'localhost'
 
-#### 把指定的权限分配给特定的用户，如果这个用户不存在，则会创建一个用户
+### 创建用户 把指定的权限分配给特定的用户，如果这个用户不存在，则会创建一个用户
 
     grant 权限 on 数据库名.表名 to 用户名@登陆主机 identified by '密码'
 
@@ -83,5 +100,11 @@ sudo apt install mysql-server
 sudo apt install python-pip python-dev libmysqlclient-dev
 # python
 pip install MySQL-python
+```
 
+### 补全设置
+
+``` cnf
+[mysql]
+auto-rehash
 ```
