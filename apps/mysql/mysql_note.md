@@ -1,6 +1,18 @@
 MySQL笔记
 =========
 
+Install
+-------
+
+### error
+
+``` sh
+# mysql_config not found
+sudo apt-get install libmysqlclient-dev
+# command 'x86_64-linux-gnu-gcc' failed with exit 
+sudo apt-get install python-dev
+```
+
 ### 查看内置信息
 
     # 版本

@@ -12,6 +12,9 @@ python -m pip install --upgrade pip
 
 # 生成requirementst.txt
 pip freeze > requirements.txt
+# 过滤生成(or), 忽略大小写
+pip freeze | grep -i -E 'foo|bar'
+pip freeze | grep -i 'foo\|bar' # \转义|
 # 与现有requirements.txt文件对比
 pip freeze -r requirements.txt
 
