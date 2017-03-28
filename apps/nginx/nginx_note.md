@@ -4,7 +4,10 @@ Nginx Note
 nginx
 -----
 
-service nginx reload
+### 重启
+
+    sudo service nginx restart
+    sudo nginx -s reload
 
 /etc/nginx/site-available/weixin.yokeneng.com
 
