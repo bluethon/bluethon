@@ -4,6 +4,29 @@ Shell Note
 常用命令
 ------
 
+### 7z 解压
+
+    sudo apt install p7zip
+    # x 解压 -o 设置解压目录(注意中间没有空格)
+    7z x foo.7z -onew_folder
+
+### scp 复制
+
+    # 复制文件file到vps主机的用户目录
+    scp file vps:
+
+### 查看进程信息
+
+    ps -ef | grep '[f]oobar'
+    # -a 所有
+    pgrep -a foobar
+    pgrep -fl foobar
+
+### 查看端口占用(注意权限, 否则可能会看不到)
+
+    sudo lsof -i:8118
+    sudo netstat -ano | grep 8118
+
 ### 获取发行版名称
 
     lsb_release -cs
@@ -61,10 +84,10 @@ cd ~4
 > <http://unix.stackexchange.com/a/74186/181922>
 
 原理: 正则 查找`f`后为`oobar`的字符  
-所以结果`--color=auto [f]oobar`中`f`后为`]`, 不匹配 就过滤了
+所以结果`--color=auto [f]oobar`中`f`后为`]`, 不匹配 就过滤了  
+zsh如果执行不成功, 需要引号引起关键字部分
 
-
-    ps -ef |grep [f]oobar
+    ps -ef |grep '[f]oobar'
 
 ### 设定 & 撤销 环境变量
 
@@ -157,10 +180,6 @@ sudo usermod -aG sudo [user]
 # 设置shell
 sudo usermod -s </bin/bash> <username>
 ```
-
-### 查看端口占用
-
-    netstat -ano
 
 #### 删除当前及子文件夹某类文件
 

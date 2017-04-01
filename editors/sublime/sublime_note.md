@@ -16,17 +16,17 @@ sublime.log_commands(True)
 Settings
 --------
 
-#### snippet 自定义代码片段
+### snippet 自定义代码片段
 中文
 http://www.bluesdream.com/blog/sublime-text-snippets-function.html
 英文
 http://docs.sublimetext.info/en/sublime-text-3/extensibility/snippets.html
 
-#### Linux下输入中文
+### Linux下输入中文
 
 见`sublime_imfix/`
 
-#### 设置新建文件的默认格式和语法高亮 （`cmd+n`）
+### 设置新建文件的默认格式和语法高亮 （`cmd+n`）
 
 1. 使用`package control`安装`Default File Type`
 
@@ -41,7 +41,7 @@ http://docs.sublimetext.info/en/sublime-text-3/extensibility/snippets.html
 
 3. 重启 Sublime text 2，试验下新建文件，看下右下角指示是否为 Markdown
 
-#### SublimeGit User设置
+### SublimeGit User设置
 ``` json
 {
     "git_executables": {
@@ -52,7 +52,7 @@ http://docs.sublimetext.info/en/sublime-text-3/extensibility/snippets.html
 }
 ```
 
-#### anacoda
+### anacoda
 
 **venv project设置**
 
