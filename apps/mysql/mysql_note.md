@@ -13,6 +13,28 @@ sudo apt-get install libmysqlclient-dev
 sudo apt-get install python-dev
 ```
 
+### init
+
+mysql -u root -p < init.sql
+
+``` sql
+create database foo;
+grant all on foo.* to user@localhost with grant option;
+```
+
+### rename database 重命名数据库
+
+> <http://stackoverflow.com/a/1072988/4757521>
+
+``` shell
+mysqldump -u username -p -v olddatabase > olddbdump.sql
+mysqladmin -u username -p create newdatabase
+mysql -u username -p newdatabase < olddbdump.sql
+# or
+mysqladmin -u username -p create newdatabase
+mysqldump -u username -v olddatabase -p | mysql -u username -p -D newdatabase
+```
+
 ### 查看内置信息
 
     # 版本
@@ -31,7 +53,7 @@ sudo apt-get install python-dev
     \#
 
 #### 创建数据库
-`create batabase data_name`
+`create database data_name`
 #### 重启mysql
 `sudo service mysql restart`
 

@@ -1,8 +1,57 @@
 Shell Note
 ==========
 
+<!-- MarkdownTOC -->
+
+- [常用命令](#常用命令)
+    - [copy keep own perrmission 复制 移动 保留权限](#copy-keep-own-perrmission-复制-移动-保留权限)
+    - [change shell](#change-shell)
+    - [7z 解压](#7z-解压)
+    - [scp 复制](#scp-复制)
+    - [查看进程信息](#查看进程信息)
+    - [查看端口占用\(注意权限, 否则可能会看不到\)](#查看端口占用注意权限-否则可能会看不到)
+    - [获取发行版名称](#获取发行版名称)
+    - [I/O写入文件 tee](#io写入文件-tee)
+    - [批量查找替换某些文件](#批量查找替换某些文件)
+    - [上个命令最后一部分](#上个命令最后一部分)
+    - [存储路径 cd](#存储路径-cd)
+    - [grep 去除自己](#grep-去除自己)
+    - [设定 & 撤销 环境变量](#设定--撤销-环境变量)
+    - [出现非零即退出](#出现非零即退出)
+    - [增加用户\(sudo\)](#增加用户sudo)
+    - [修改ssh端口\(port\)](#修改ssh端口port)
+    - [获取命令所在位置](#获取命令所在位置)
+    - [获取当前文件所在绝对](#获取当前文件所在绝对)
+    - [修改hosts 及 主机名称](#修改hosts-及-主机名称)
+    - [自定义zsh custom路径](#自定义zsh-custom路径)
+    - [获取上级目录\(get the parent directory of current directory\)](#获取上级目录get-the-parent-directory-of-current-directory)
+    - [显示当前真正路径\(pwd without symlinks\)](#显示当前真正路径pwd-without-symlinks)
+    - [重置tty](#重置tty)
+    - [查看Linux系统版本](#查看linux系统版本)
+    - [更改默认shel](#更改默认shel)
+    - [显示当前用户](#显示当前用户)
+    - [删除用户\(已登陆\)](#删除用户已登陆)
+    - [新建用户并到root组](#新建用户并到root组)
+- [DEBUG](#debug)
+    - [sudo unable to resolve host](#sudo-unable-to-resolve-host)
+    - [chsh you may not change the shell for](#chsh-you-may-not-change-the-shell-for)
+- [Shell](#shell)
+
+<!-- /MarkdownTOC -->
+
+
 常用命令
 ------
+
+### copy keep own perrmission 复制 移动 保留权限
+
+    cp -rp foo bar
+
+> -p     same as --preserve=mode,ownership,timestamps
+
+### change shell
+
+    sudo chsh username -s /bin/zsh
 
 ### 7z 解压
 
@@ -14,6 +63,9 @@ Shell Note
 
     # 复制文件file到vps主机的用户目录
     scp file vps:
+    # remote to remote
+    # host1的默认用户目录 to host2的./foo/bar
+    scp -3 host1: host2:foo/bar
 
 ### 查看进程信息
 
@@ -642,12 +694,10 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 
 #### 命令生效顺序
 
-1. 用绝对路径或相对路径执行的命令
-2. 别名
-3. Bash的内部命令
-4. 按照$PATH环境变量定义的目录查找顺序找到的第一个命令
-
-
+    1. 用绝对路径或相对路径执行的命令
+    2. 别名
+    3. Bash的内部命令
+    4. 按照$PATH环境变量定义的目录查找顺序找到的第一个命令
 
 #### 历史命令
 
