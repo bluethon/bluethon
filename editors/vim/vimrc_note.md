@@ -3,6 +3,14 @@ vimrc Note
 
 ``` shell
 
+### 缩进
+# tab缩进4
+set tabstop=4
+# tab转换为空格
+set expandtab
+# > 缩进4空格
+set shiftwidth=4
+
 # 折行
 set textwidth=80
 set wrap
