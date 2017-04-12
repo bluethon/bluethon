@@ -29,6 +29,10 @@ Host *.xxx.com
 # add private key 
 ssh-add ~/.ssh/id_rsa_xxx
 
+# if error:  Permission denied (publickey)
+ssh-agent bash
+# go on
+
 # if need delete cache
 ssh-add -D
 

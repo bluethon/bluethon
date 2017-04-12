@@ -52,8 +52,6 @@ mysqldump -u username -v olddatabase -p | mysql -u username -p -D newdatabase
     # 开启补全
     \#
 
-#### 创建数据库
-`create database data_name`
 #### 重启mysql
 `sudo service mysql restart`
 

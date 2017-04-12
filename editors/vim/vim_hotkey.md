@@ -1,10 +1,17 @@
 hotkey
 ------
 
-    w !sudo tee %   保存只读文件<http://www.geekyboy.com/archives/629>
+    # 特殊操作
+    w !sudo tee %                           保存只读文件<http://www.geekyboy.com/archives/629>
+    git config --gloabal core.editor vim    使用vim编辑文件
 
-    # 查找替换
+    # 查找
     ggN     定位最后一个查找
+
+    # 替换
+    :%s/foo/bar/gc      Change each 'foo' to 'bar', ask for every confirmation first.
+
+    # 删除
     dt<c>   删到c(不包含)    delete until <c>
     df<c>   删到c(包含)     delete find <c>
     di<c>   删除c内(不包含)
