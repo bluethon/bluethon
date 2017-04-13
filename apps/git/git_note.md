@@ -1,6 +1,20 @@
 Git学习笔记
 ===========
 
+Error
+-----
+
+### Permission denied (publickey)
+
+    # test
+    ssh -T git@github.com
+    ssh -vT git@github.com
+
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa_xxx
+    
+    ssh-add -l
+
 常用
 ---
 
