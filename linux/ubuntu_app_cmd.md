@@ -18,6 +18,9 @@ sudo ppa-purge ppa:no1wantdthisname/ppa
 # 截图
 gnome-screenshot
 
+# 日志查看工具
+lnav
+
 ```
 
 ---

@@ -6,6 +6,12 @@ Usage
 
 ``` shell
 
+### 试试查看文件末尾
+less +F ...
+
+### 查看service 信息
+service --status-all
+
 ### tar exclude 打包 排除 
 tar -cvf name dir1 --exclude dir2
 
@@ -43,6 +49,7 @@ sudo lsof -i:8118
 sudo netstat -ano | grep 8118
 
 ### 获取发行版名称 ubuntu release version
+# 添加源时使用
 lsb_release -cs
 echo $(lsb_release -cs) > foo.txt
 
