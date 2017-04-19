@@ -6,6 +6,9 @@ Usage
 
 ``` shell
 
+### current directory
+CWD=$(dirname $(readlink -f $0))
+
 ### 试试查看文件末尾
 less +F ...
 
