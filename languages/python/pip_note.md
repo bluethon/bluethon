@@ -1,6 +1,33 @@
 pip相关笔记
 ==========
 
+pip-tools
+---------
+
+> <https://github.com/jazzband/pip-tools>
+
+### install
+
+    pip install pip-tools
+
+### usage
+
+    # requirements.in
+    Flask
+
+    pip-compile                         # create requirements.txt
+    pip-compile dev-requirements.in     # create dev-requirements.txt
+
+    pip-compile --upgrade               # upgrade
+
+    pip-sync                            # install package
+    pip-sync dev-requirements.txt       # install package
+
+---------------------
+
+pip
+---
+
 ### 运维相关
 
 ``` bash

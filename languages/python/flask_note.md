@@ -11,7 +11,8 @@ deploy
 python manage.py db init
 python manage.py db migrate -m 'message'
 python manage.py db upgrade
-
+python manage.py db downgrade
+python manage.py db current
 ```
 
 note
