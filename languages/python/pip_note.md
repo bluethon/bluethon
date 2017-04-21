@@ -19,6 +19,7 @@ pip-tools
     pip-compile dev-requirements.in     # create dev-requirements.txt
 
     pip-compile --upgrade               # upgrade
+    pip-compile -U                      # upgrade
 
     pip-sync                            # install package
     pip-sync dev-requirements.txt       # install package
