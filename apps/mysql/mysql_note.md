@@ -4,6 +4,24 @@ MySQL笔记
 Install
 -------
 
+### 远程连接数据库
+
+> <http://stackoverflow.com/a/11225588/4757521>
+
+    GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';
+
+    # comment out my.cnf
+    # path: `mysql --help` 里面有加载顺序
+    # /etc/mysql/my.cnf
+    #bind-address = 127.0.0.1 
+
+    # restart mysql
+    sudo service mysql restart
+
+    # check(sudo 否则看不到)
+    sudo netstat -tupan | grep mysql
+
+
 ### error
 
 ``` sh
@@ -82,13 +100,23 @@ mysqldump -u username -v olddatabase -p | mysql -u username -p -D newdatabase
 权限
 ---
 
+> <https://serverfault.com/a/115954/380738>
+
 ### 查看某用户权限
 
-    show grants for 'root'@'localhost'
+    show grants for 'root'@'localhost';
+
+### 撤销权限
+
+    revoke all privileges on *.* from 'user'@'host';
 
 ### 创建用户 把指定的权限分配给特定的用户，如果这个用户不存在，则会创建一个用户
 
-    grant 权限 on 数据库名.表名 to 用户名@登陆主机 identified by '密码'
+    grant 权限 on 数据库名.表名 to 用户名@登陆主机 identified by '密码';
+
+### 刷新权限
+
+    flush privileges;
 
 > 权限
 

@@ -4,6 +4,10 @@ Command Notes
 Usage
 -----
 
+### 刷新权限
+
+    flush privileges;
+
 ### 创建数据库
 
     create database data_name
