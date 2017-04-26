@@ -6,6 +6,9 @@ Usage
 
 ``` shell
 
+### 执行git alias远程脚本
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/bluethon/bluethon/master/languages/shell/git-alias.sh)"
+
 ### current directory
 CWD=$(dirname $(readlink -f $0))
 
