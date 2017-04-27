@@ -1,28 +1,24 @@
 Python常用代码片段
 ================
 
-dcit add(字典 增加)
-------------------
+### dcit add(字典 增加)
 
     dict.update({})
 
-datetime时间格式化
-----------------
+### datetime时间格式化
 
 ``` python
 datetime.strftime('%Y年%m月%d日 %H:%M')
 ```
 
-获取上一个对象
------------
+### 获取上一个对象
 
 ``` python
 old = '123'
 new = _         # new: '123'
 ```
 
-输出解释器路径
----
+### 输出解释器路径
 
 ``` python
 # http://stackoverflow.com/a/2589722/4757521
