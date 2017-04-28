@@ -31,6 +31,14 @@ ssh-add ~/.ssh/id_rsa_xxx
 
 # if error:  Permission denied (publickey)
 ssh-agent bash
+
+# or
+# > <http://www.funtoo.org/Keychain>
+sudo apt install keychain
+vim ~/.zshrc
+# 不需要路径
+eval `keychain --eval --agents ssh id_rsa_xxx`
+
 # go on
 
 # if need delete cache
