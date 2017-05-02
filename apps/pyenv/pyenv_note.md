@@ -32,12 +32,16 @@ Usage
 
 ### use virtualenv()
 
-virtualenvwrapper版本不需要, 已可以自动激活
+virtualenvwrapper 已不需要, virtualenv已可以自动激活
 
-    pyenv virtualenv 3.6.1 venv
+    # 创建3.6.1的虚拟环境venv
+    pyenv virtualenv 3.6.1 foo-venv
+    # 将当前目录 设定为某个名称的虚拟环境
+    pyenv local foo-venv
 
-显示当前python版本
-
+    # 查看所有虚拟环境
+    pyenv virtualenvs
+    # 显示当前python版本
     pyenv version
 
 ### remove

@@ -1,6 +1,17 @@
 错误笔记
 =======
 
+supervisor
+----------
+
+### socket error
+
+服务没有启动
+
+    sudo service supervisor start
+
+------------------
+
 ssh
 ---
 

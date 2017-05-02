@@ -21,3 +21,14 @@ note
 ### 查看SQLAlchemy生成的原生SQL查询语句
 
     str(User.query.all())
+
+### sqlite url 路径设置(sqlalchemy规定)
+
+    # 绝对写法
+    # sqlite:/// + /tmp/foo.db
+    sqlite:////tmp/foo.db
+    # 相对写法 文件所在目录下
+    # sqlite:/// + tmp/foo.db
+    sqlite:///tmp/foo.db
+    sqlite:///./tmp/foo.db
+

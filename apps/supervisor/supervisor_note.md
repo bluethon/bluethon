@@ -27,7 +27,7 @@ stdout_logfile=/home/haibo/subserver.log
 touch foo.conf
 # make soft link
 # /etc/supervisor/supervisor.conf tail will include this
-ln -s /etc/supervisor/conf.d/foo.conf /path/to/foo.conf
+sudo ln -sf $(pwd)/supervisor.conf /etc/supervisor/conf.d/foo.conf
 ```
 
 ### sample

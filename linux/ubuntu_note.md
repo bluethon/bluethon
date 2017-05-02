@@ -4,6 +4,19 @@ Note For Ubuntu
 Settings
 --------
 
+### 文件默认打开程序
+
+    file > right click > properties > open with > set as default
+
+    # 对应系统文件(验证对应此文件)
+    # /usr/share/applications/mimeinfo.cache
+    # 默认文件
+    # /usr/share/applications/mimeapps.list
+    
+    # 当前用户版
+    # ~/.local/share/applications/mimeapps.list
+    # ~/.local/share/applications/mimeinfo.cache
+
 ### 添加自启动
 
 1. dash | startup | add
@@ -48,22 +61,18 @@ Settings
 where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in error message)
 
 
-#### 重启X
+### 重启X
 
     sudo /etc/init.d/lightdm restart
 
-#### 升级发行版
+### 升级发行版
 
     sudo update-manager -d
 
-#### 显示硬件和显卡驱动信息
+### 显示硬件和显卡驱动信息
 
     lspci
     sudo lshw -C display
-
----
-其他设置
--------
 
 ### virtualbox无法调整更大分辨率
 
@@ -74,7 +83,7 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 链接中有文件位置, 这次无法启动是路径文件夹没有权限, `chmod 755`后修复bug
 <http://www.cnblogs.com/bluestorm/p/3320920.html>
 
-#### 开机进入tty
+### 开机进入tty
 
 - `sudo vim /etc/default/grub`
 - change line `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"` to
@@ -84,19 +93,19 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 
 > [stackoverflow](http://askubuntu.com/questions/148717/how-do-i-boot-into-the-console-and-then-launch-the-ubuntu-desktop-from-it)
 
-#### 重启桌面 Xorg
+### 重启桌面 Xorg
 
     `ctrl+alt+f1`
     `ps -t tty1`
     `sudo kill 9 PID`  # 结束当前会话
     `sudo service lightdm restart`
 
-#### 输入法短语自定义
+### 输入法短语自定义
 
 输入法设置->附加组件->快速输入->设置快捷键(暂定F2)->快速输入列表自定义
 [参考](https://fcitx-i m.org/wiki/QuickPhrase/zh-cn)
 
-#### [ubuntu修改屏幕默认亮度](http://blog.csdn.net/hustrains/article/details/8469633)
+### [ubuntu修改屏幕默认亮度](http://blog.csdn.net/hustrains/article/details/8469633)
 
 - 查询亮度
     `cat /sys/class/backlight/acpi_video0/max_brightness`
@@ -104,19 +113,19 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 - 在“exit 0”前面一行添加一行文字
     `echo 4 > /sys/class/backlight/acpi_video0/brightness`
 
-#### python pip 库 路径
+### python pip 库 路径
 
 > /usr/local/lib/python2.7/dist-packages
 
-#### top
+### top
 
 任务管理器
 
-#### 看版本号
+### 看版本号
 
 `cat /etc/os-release`
 
-#### bash git不能自动补全
+### bash git不能自动补全
 
 1. 修改/etc/bash.bashrc
     把下面内容的注释符去掉
@@ -129,15 +138,14 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 
 2. 重启bash
 
-#### 备份源列表:
+### 备份源列表:
 
     `sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup`
 
-#### home下文件夹中文改为英文
+### home下文件夹中文改为英文
 
 ``` shell
 export LANG=en_US    #改变支持的语言为英语
 xdg-user-dirs-gtk-update   #更新系统语言，按照中文对应的英语进行翻译
 export LANG=zh_CN.UTF-8    #重新支持中文
 ```
-
