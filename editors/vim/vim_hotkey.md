@@ -10,6 +10,7 @@ hotkey
 
     # 替换
     :%s/foo/bar/gc      Change each 'foo' to 'bar', ask for every confirmation first.
+    :s/Copyright \zs2007\ze All Rights Reserved/2008/
 
     # 删除
     dt<c>   删到c(不包含)    delete until <c>

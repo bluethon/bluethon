@@ -10,59 +10,59 @@ Python
 
 1.  [函数的带星号形参和带双星号形参](http://www.math.pku.edu.cn/teachers/qiuzy/computing/basics/pb_file210.htm)
 -   [解压可迭代对象赋值给多个变量](http://python3-cookbook.readthedocs.org/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html)
--   [使用pyinstaller将python程序打包为exe](./python/pyinstaller.md)
--   [@staticmethod与@classmethod辨析](./python/diff_staticmethod_&_classmethod.md)
--   [Python常用函数清单](./python/python_method_list.md)
--   [Python格式化输出dict等集合对象](./python/python_print_format_dict.md)
+-   [使用pyinstaller将python程序打包为exe](../languages/python/pyinstaller.md)
+-   [@staticmethod与@classmethod辨析](../languages/python/diff_staticmethod_&_classmethod.md)
+-   [Python常用函数清单](../languages/python/python_method_list.md)
+-   [Python格式化输出dict等集合对象](../languages/python/python_print_format_dict.md)
 -   [Python Requests Post to Json](http://stackoverflow.com/questions/9733638/post-json-using-python-requests)
--   [Python标准库代码示例](./python/python_library_examples.md)
+-   [Python标准库代码示例](../languages/python/python_library_examples.md)
 
 ---
 
 Shell
 -----
 
-1.  [批量修改文件夹名字](./shell/rename_folder.md)
--   [永久设置环境变量](./shell/permanently_export_variables.md)
--   [SSH免密码登陆](./shell/ssh-keygen_login_no_password.md)
--   [更改Caps Lock为Esc](./shell/change_caps-lock_to_esc.md)
--   [多ssh-key管理](./shell/multi_ssh-key.md)
--   [Linux Shell读书笔记](./shell/linux_shell_scripting_cookbook_note.md)
+1.  [批量修改文件夹名字](../linux/shell/rename_folder.md)
+-   [永久设置环境变量](../linux/shell/permanently_export_variables.md)
+-   [SSH免密码登陆](../linux/shell/ssh-keygen_login_no_password.md)
+-   [更改Caps Lock为Esc](../linux/shell/change_caps-lock_to_esc.md)
+-   [多ssh-key管理](../linux/shell/multi_ssh-key.md)
+-   [Linux Shell读书笔记](../linux/shell/linux_shell_scripting_cookbook_note.md)
 
 ---
 
 Sublime
 -------
 
-1.  [sublime开启scope_name显示](./sublime/show_scope_name.md)
--   [emmet停止tab某些情况下起作用](./sublime/disable_emmet_tab.md)
--   [emmet强制html中<br>为<br />](./sublime/force_change_br_to_br_with_slash.md)
--   [project设置相对路径参考](./sublime/project_path.md)
--   [Package Control设置shadowsocks代理](./sublime/package_control_proxy.md)
+1.  [sublime开启scope_name显示](../editors/sublime/show_scope_name.md)
+-   [emmet停止tab某些情况下起作用](../editors/sublime/disable_emmet_tab.md)
+-   [emmet强制html中<br>为<br />](../editors/sublime/force_change_br_to_br_with_slash.md)
+-   [project设置相对路径参考](../editors/sublime/project_path.md)
+-   [Package Control设置shadowsocks代理](../editors/sublime/package_control_proxy.md)
 
 ---
 
 Ubuntu
 ------
 
-1.  [终端默认启动位置及大小自定义](./ubuntu/gnome_terminal.md)
--   [卸载ibus导致只有桌面壁纸](./ubuntu/uninstall_ibus_bug.md)
--   [手动编译Vim](./ubuntu/build_vim.md)
--   [手动安装python](./ubuntu/build_python.md)
--   [PPA源](./ubuntu/add_ppa.md)
--   [自定义系统时间格式](./ubuntu/custom_date_format.md)
--   [导入导出dconf的自定义设置(时间 custom keybindings)](./ubuntu/dconf_import_export.md)
--   [Ubuntu快捷键](./ubuntu/ubuntu_hotkey.md)
--   [Ubuntu多屏卡顿解决方法](./ubuntu/ubuntu_dual_monitor_slow.md)
--   [Ubuntu字体美化](./ubuntu/ubuntu_fonts_render.md)
--   [安卓模拟器genymotion](./ubuntu/genymotion.md)
+1.  [终端默认启动位置及大小自定义](../linux/ubuntu/gnome_terminal.md)
+-   [卸载ibus导致只有桌面壁纸](../linux/ubuntu/uninstall_ibus_bug.md)
+-   [手动编译Vim](../linux/ubuntu/build_vim.md)
+-   [手动安装python](../linux/ubuntu/build_python.md)
+-   [PPA源](../linux/ubuntu/add_ppa.md)
+-   [自定义系统时间格式](../linux/ubuntu/custom_date_format.md)
+-   [导入导出dconf的自定义设置(时间 custom keybindings)](../linux/ubuntu/dconf_import_export.md)
+-   [Ubuntu快捷键](../linux/ubuntu/ubuntu_hotkey.md)
+-   [Ubuntu多屏卡顿解决方法](../linux/ubuntu/ubuntu_dual_monitor_slow.md)
+-   [Ubuntu字体美化](../linux/ubuntu/ubuntu_fonts_render.md)
+-   [安卓模拟器genymotion](../linux/ubuntu/genymotion.md)
 
 ---
 
 Git
 ---
 
-1.  [从历史commit恢复文件并不再跟踪](./git/git_update-index.md)
+1.  [从历史commit恢复文件并不再跟踪](../apps/git/git_update-index.md)
 
 ---
 

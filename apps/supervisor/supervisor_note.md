@@ -1,6 +1,17 @@
 Supervisor Note
 ===============
 
+### 配置文件command字段使用变量
+
+在config中加入此section, 未在3.2中测试
+
+    [supervisord]
+    environment = PATH="/foo/bar:%(ENV_PATH)s"
+
+`%(ENV_XXX)s`在`command`中使用需要version >= 3.2
+
+### 生成配置文件
+
 ``` shell
 #!/bin/bash
 # 安装
