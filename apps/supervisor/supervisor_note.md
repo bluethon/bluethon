@@ -1,14 +1,16 @@
 Supervisor Note
 ===============
 
-### 配置文件command字段使用变量
+Command
+-------
 
-在config中加入此section, 未在3.2中测试
+    stop foo    停止进程, 用reload和update都不会自动启动
+    reread      载入最新配置文件, 不重启
+    update      载入最新配置文件, 如果改动则重启
+    reload      载入最新配置文件, 全部重启
 
-    [supervisord]
-    environment = PATH="/foo/bar:%(ENV_PATH)s"
-
-`%(ENV_XXX)s`在`command`中使用需要version >= 3.2
+Install
+-------
 
 ### 生成配置文件
 
@@ -20,6 +22,23 @@ pip install supervisor
 # 生成配置文件
 echo_supervisord_conf > /etc/supervisord.conf
 ```
+
+Configuration
+-------------
+
+### 设置环境变量PATH
+
+    [program:xxxx]
+    environment = PATH="/foo/bar:%(ENV_PATH)s"
+
+### 配置文件command字段使用环境变量
+
+在config中加入此section, 未在3.2中测试
+
+    [supervisord]
+    environment = PATH="/foo/bar:%(ENV_PATH)s"
+
+`%(ENV_XXX)s`在`command`中使用需要version >= 3.2
 
 ### 修改日志输出位置
 

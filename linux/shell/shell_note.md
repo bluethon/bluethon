@@ -24,10 +24,46 @@ Shell Note
     - [显示当前用户](#显示当前用户)
     - [删除用户\(已登陆\)](#删除用户已登陆)
     - [新建用户并到root组](#新建用户并到root组)
+    - [删除当前及子文件夹某类文件](#删除当前及子文件夹某类文件)
+    - [获取当前完整路径\(无视soft link\)](#获取当前完整路径无视soft-link)
+    - [复制到系统剪贴板](#复制到系统剪贴板)
+    - [添加环境变量](#添加环境变量)
+    - [获取当前路径到变量](#获取当前路径到变量)
+    - [组合命令\(参考用\)](#组合命令参考用)
+    - [查看文件夹大小](#查看文件夹大小)
+    - [安装deb包](#安装deb包)
+    - [加权限](#加权限)
+    - [查看$PATH\(冒号分割\)](#查看path冒号分割)
+    - [后台运行](#后台运行)
+    - [开机启动](#开机启动)
+    - [软链接](#软链接)
 - [DEBUG](#debug)
     - [sudo unable to resolve host](#sudo-unable-to-resolve-host)
     - [chsh you may not change the shell for](#chsh-you-may-not-change-the-shell-for)
 - [Shell](#shell)
+    - [df 查看磁盘分区使用情况](#df-查看磁盘分区使用情况)
+    - [du 统计磁盘上的文件大小](#du-统计磁盘上的文件大小)
+    - [diff](#diff)
+    - [ls](#ls)
+    - [`rm` remove](#rm-remove)
+    - [`cp` copy & rename](#cp-copy--rename)
+    - [pwd == print working directory](#pwd--print-working-directory)
+    - [find](#find)
+    - [grep](#grep)
+    - [man](#man)
+    - [压缩和解压缩](#压缩和解压缩)
+    - [tar 打包命令](#tar-打包命令)
+    - [关机和重启](#关机和重启)
+    - [挂载](#挂载)
+    - [其他](#其他)
+    - [脚本](#脚本)
+    - [别名&快捷键](#别名快捷键)
+    - [命令生效顺序](#命令生效顺序)
+    - [历史命令](#历史命令)
+    - [输出重定向](#输出重定向)
+    - [管道符](#管道符)
+    - [通配符](#通配符)
+    - [其他特殊符号](#其他特殊符号)
 
 <!-- /MarkdownTOC -->
 
@@ -176,49 +212,49 @@ sudo usermod -aG sudo [user]
 sudo usermod -s </bin/bash> <username>
 ```
 
-#### 删除当前及子文件夹某类文件
+### 删除当前及子文件夹某类文件
 
     find . -name "*.py"  | xargs rm -f
 
-#### 获取当前完整路径(无视soft link)
+### 获取当前完整路径(无视soft link)
 
     /bin/pwd
 
-#### 复制到系统剪贴板
+### 复制到系统剪贴板
 
     cat ~/.ssh/id_rsa.pub | xclip -sel clip
 
-#### 添加环境变量
+### 添加环境变量
 
     vim ~/.bashrc
 
-#### 获取当前路径到变量
+### 获取当前路径到变量
 
     path=$(pwd)
 
-#### 组合命令(参考用)
+### 组合命令(参考用)
 
     $ cd  /usr/local/bin && ls -l | grep "../lib/node_modules/" | awk '{print $9}'| xargs rm #删除全局 node 模块注册的软链
 
-#### 查看文件夹大小
+### 查看文件夹大小
 
     $ du --max-depth=0 [folder] -h
 
-#### 安装deb包
+### 安装deb包
 
     $ sudo dpkg -i XXXX.deb
 
-#### 加权限
+### 加权限
 
 a:all user x:execute
 
     $ chmod a+x [file]
 
-#### 查看$PATH(冒号分割)
+### 查看$PATH(冒号分割)
 
-`echo $PATH`
+    echo $PATH
 
-#### 后台运行
+### 后台运行
 
 ``` bash
 # 最后一个&不能缺少(/dev/null丢弃log)
@@ -232,13 +268,13 @@ ps -ef|grep sslocal
 fg %n
 ```
 
-#### 开机启动
+### 开机启动
 
 1. 打开`/etc/rc.local`
 - 在`exit 0`前加入要执行的命令
 - 需要`sudo`, 需要写绝对路径
 
-#### 软链接
+### 软链接
 
 ``` bash
 # -s soft
@@ -267,7 +303,7 @@ DEBUG
 Shell
 -----
 
-#### df 查看磁盘分区使用情况
+### df 查看磁盘分区使用情况
 
 ``` bash
 -l  # 仅显示本地磁盘(默认)
@@ -279,7 +315,7 @@ Shell
 -x  # 不显示指定类型文件系统的分区
 ```
 
-#### du 统计磁盘上的文件大小
+### du 统计磁盘上的文件大小
 
 ``` bash
 -b  # 以byte为单位统计文件
@@ -290,7 +326,7 @@ Shell
 -s  # 指定统计目录
 ```
 
-#### diff
+### diff
 
 `diff [options] files`
 `-B` 忽略空行
@@ -302,11 +338,10 @@ Shell
 `-q` 只显示是否相同
 `-r` 递归比较子目录的文件
 
-* **eg**
-
+    # example
     $ diff -B -u -w -I 'author|FileSystemEvent' www/ ../liao/awesome-python3-webapp/www/ >diff.log
 
-#### ls
+### ls
 
     a all
     l long
@@ -314,64 +349,63 @@ Shell
     `ll` == `ls -l`
     `ls-ah`查看隐藏文件
 
-#### `rm` remove
+### `rm` remove
 
 -r recursive 递归 可删除目录
 -f force 强制删除 不提示
 
-#### `cp` copy & rename
+### `cp` copy & rename
 
 `-a` == `-pdr` 完全复制, 包括创建时间等
 
-#### pwd == print working directory
+### pwd == print working directory
 
-#### find
+### find
 
 完全匹配
 
-* `iname`
-    不区分大小写
-    $ find /root -iname install.log
+``` shell
+# -iname 不区分大小写
+find /root -iname install.log
 
-* `user`
-    按照所有者搜索
+# -user 按照所有者搜索
 
-* `nouser`
-    查找没有所有者的文件
-    find /root -nouser
+# -nouser 查找没有所有者的文件
+find /root -nouser
 
-`find /var/log/ -mtime +10`
-查找10天前修改的文件
+# 查找10天前修改的文件
+# -10 10天内修改文件
+# 10  10天当天修改的文件
+# +10 10天前修改的文件
+find /var/log/ -mtime +10
 
-    -10 10天内修改文件
-    10  10天当天修改的文件
-    +10 10天前修改的文件
 
-`find . -size 25k`
-`find . -size 25M`
-查找文件大小是25KB的文件/25MB
+# 查找文件大小是25KB的文件/25MB
+# -25k  小于25KB的文件
+# 25k   等于25KB的文件
+# +25k  大于25KB的文件
+find . -size 25k
+find . -size 25M
 
-    -25k  小于25KB的文件
-    25k   等于25KB的文件
-    +25k  大于25KB的文件
 
-`find /etc -size +20k -a -size -50k -exec ls -lh {} \;`
-查找/etc/目录下 大于20kb小于50kb 的文件, 并显示详细信息
+# 查找/etc/目录下 大于20kb小于50kb 的文件, 并显示详细信息
+# `-a` and 与
+# `-o` or  或
+# `-exec/-ok 命令 {} \;` 对搜索结果执行操作,`{} \;`是固定结尾格式
+find /etc -size +20k -a -size -50k -exec ls -lh {} \;
+```
 
-    `-a` and 与
-    `-o` or  或
-    `-exec/-ok 命令 {} \;` 对搜索结果执行操作,`{} \;`是固定结尾格式
+### grep
 
-#### grep
+``` shell
+# 在文件中搜索字符 包含匹配
+# `-i`    忽略大小写
+# `-v`    排除指定字符串
+# -- -v   查找-v
+grep [选项] 字符串 文件名
+```
 
-`grep [选项] 字符串 文件名`
-在文件中搜索字符 包含匹配
-
-    `-i`    忽略大小写
-    `-v`    排除指定字符串
-    -- -v   查找-v
-
-#### man
+### man
 
 在帮助中打`/d`可以查找包含d的帮助文本, 类似VIM
 此时按n键向下查找, N向上查找
@@ -403,36 +437,45 @@ Shell
     - q      退出
 
 
-#### 压缩和解压缩
+### 压缩和解压缩
 
-* **.zip**
+#### zip
 
-    `zip 压缩文件名 源文件` 压缩文件
-    压缩文件名不强制要写扩展名, 但是为了自己知道是压缩文件, 写上对应后缀
-    一般linux显示为*红色*
+``` shell
+# 不强制要写扩展名, 但是为了自己知道是压缩文件, 写上对应后缀
+# 一般linux显示为*红色*
+# 压缩文件
+zip 压缩文件名 源文件 压缩文件名
+# 压缩目录
+zip -r 压缩文件名 目录源
 
-    `zip -r 压缩文件名 目录源` 压缩目录
+# 解压缩
+unzip 压缩文件
+```
 
-    `unzip 压缩文件` 解压缩
+#### gz
 
-* **.gz**
-    `gzip 源文件`
-    压缩为.gz格式的文件, 源文件消失
+``` shell
+# 压缩为.gz格式的文件, 源文件消失
+gzip 源文件
 
-    `gzip -c 源文件 > 压缩文件`
-    压缩为.gz格式, 源文件保留
-    `gzip -c xx > xx.gz`
-    gzip本身不支持保留, 但是`-c`将压缩后数据输出, 利用`>`重定向到某文件中储存压缩结果
+# 压缩为.gz格式, 源文件保留
+gzip -c 源文件 > 压缩文件
+# gzip本身不支持保留, 但是`-c`将压缩后数据输出, 利用`>`重定向到某文件中储存压缩结果
+gzip -c xx > xx.gz
 
-    `gzip -r 目录`
-    压缩目录下所有子文件, 但是不能压缩目录本身
+# 压缩目录下所有子文件, 但是不能压缩目录本身
+gzip -r 目录
 
-    `gzip -d 压缩文件`
-    解压缩
-    or
-    `gunzip 压缩文件`
 
-    `gunzip -r 文件夹` 解压文件夹内所有文件
+# 解压缩
+gzip -d 压缩文件
+# or
+gunzip 压缩文件
+
+# 解压文件夹内所有文件
+gunzip -r 文件夹
+```
 
 * **.bz2**
 
@@ -448,40 +491,35 @@ Shell
     or
     `bunzip2 压缩文件`
 
-* **.tar**
-    打包命令
+### tar 打包命令
 
-    `tar -cvf 打包文件名 源文件`
-    -c: 打包
-    -v: 显示过程
-    -f: 指定打包后的文件名
+``` shell
+# -c: 打包
+# -v: 显示过程
+# -f: 指定打包后的文件名
+tar -cvf 打包文件名 源文件
+# -x: 解打包
+tar -xvf 打包文件名
+# -t: =test 仅查看压缩包
+tar -ztvf 文件名
 
-    `tar -xvf 打包文件名`
-    -x: 解打包
+# gz
+# -z: 压缩为.tar.gz格式
+tar -zcvf 压缩包名.tar.gz 源文件
+# 压缩到指定位置, 多个文件空格分割
+tar -zcvf /tmp/压缩包名.tar.gz 源文件1 源文件2
+# 解压
+tar -zxvf 压缩包名.tar.gz
 
-    `tar -zcvf 压缩包名.tar.gz 源文件`
-    -z: 压缩为.tar.gz格式
+# bz
+tar -jcvf 压缩包名.tar.bz2 源文件
+# -z: 压缩为.tar.bz2格式
+tar -jxvf 压缩包名.tar.bz2
+# 制定位置解压 -C位置必须在后面
+tar -jxvf 压缩包名.tar.bz2 -C /tmp/
+```
 
-    > 常用
-    `tar -zxvf 压缩包名.tar.gz`
-
-* **解压**
-
-    `tar -jcvf 压缩包名.tar.bz2 源文件`
-    -z: 压缩为.tar.bz2格式
-    `tar -jxvf 压缩包名.tar.bz2`
-    解压
-
-    `tar -zcvf /tmp/压缩包名.tar.gz 源文件1 源文件2`
-    压缩到指定位置, 多个文件空格分割
-    `tar -jxvf 压缩包名.tar.bz2 -C /tmp/`
-    制定位置解压 -C位置必须在后面
-
-    `tar -ztvf 文件名`
-    -t: =test 仅查看压缩包
-
-
-#### 关机和重启
+### 关机和重启
 
 * **shutdown**
 
@@ -512,7 +550,7 @@ Shell
 
     `runlevel` 查询系统运行级别, 第一个N表示none 即前一个级别为空
 
-#### 挂载
+### 挂载
 
 `mount` 查看已挂载的设备
 `mount -a` 依据/etcfstab的内容, 自动挂载
@@ -532,7 +570,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 `mount -t vfat /dev/sdb1 /mnt/usb/` vfat已淘汰 sdb1不固定, 由上一步确定
 
 
-#### 其他
+### 其他
 
 * **查看登录用户信息**
 
@@ -593,7 +631,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
     `\e[0m` 关闭颜色
     `31m` 红色, 数字范围30-37 黑-白
 
-#### 脚本
+### 脚本
 
 新建文件为`xx.sh`
 
@@ -618,7 +656,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
     $ source hello.sh
 
 
-#### 别名&快捷键
+### 别名&快捷键
 
 查看别名
 `alias`
@@ -635,14 +673,14 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 `unalias 别名`
 
 
-#### 命令生效顺序
+### 命令生效顺序
 
     1. 用绝对路径或相对路径执行的命令
     2. 别名
     3. Bash的内部命令
     4. 按照$PATH环境变量定义的目录查找顺序找到的第一个命令
 
-#### 历史命令
+### 历史命令
 
 `history [选项] [历史命令保存文件]`
 
@@ -663,7 +701,7 @@ HISTSIZE=1000
 `!字串` 执行最后一条以该字串开头的命令
 
 
-#### 输出重定向
+### 输出重定向
 
 带有错误输出的地方左右不能有*空格*
 
@@ -680,7 +718,7 @@ HISTSIZE=1000
 ```
 
 
-#### 管道符
+### 管道符
 
 **多命令顺序执行**
 
@@ -699,7 +737,7 @@ ls && echo yes || echo no  # 示例 正确执行显示yes, 错误时不执行ech
 ```
 
 
-#### 通配符
+### 通配符
 
 ``` bash
 ?   # 匹配单个字符
@@ -709,7 +747,7 @@ ls && echo yes || echo no  # 示例 正确执行显示yes, 错误时不执行ech
 [^] # 匹配不是括号中的字符
 ```
 
-#### 其他特殊符号
+### 其他特殊符号
 
 ``` bash
 ''  # 单引号, 其中的特殊字符无效

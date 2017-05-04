@@ -13,7 +13,8 @@ Install
     sudo apt install python-dev
     pip install git-webhook
 
-### configuration
+Configuration
+-------------
 
     gitwebhook config
 
@@ -50,4 +51,40 @@ GITHUB_CLIENT_SECRET = 'passwd'
     # celery async task
     gitwebhook celery
 
-访问`localhost:18340`, github账号登录
+### supervisor
+
+``` shell
+[group:git-webhook]
+programs=git-hookserver,git-hookcelery
+priority = 999
+
+[program:git-hookserver]
+directory = /home/ubuntu/code/git-webhook
+user=ubuntu
+command= /home/ubuntu/.pyenv/versions/2.7.12/envs/git-webhook-2.7.12/bin/gitwebhook runserver
+redirect_stderr = true
+stdout_logfile = /home/ubuntu/code/git-webhook/webhook-web.log
+autostart = true
+autorestart = true
+
+[program:git-hookcelery]
+directory = /home/ubuntu/code/git-webhook
+user=ubuntu
+command=/home/ubuntu/.pyenv/versions/2.7.12/envs/git-webhook-2.7.12/bin/gitwebhook celery
+# 不设置环境变量 celery找不到
+environment = PATH="/home/ubuntu/.pyenv/versions/2.7.12/envs/git-webhook-2.7.12/bin:%(ENV_PATH)s"
+redirect_stderr = true
+stdout_logfile = /home/ubuntu/code/git-webhook/webhook-celery.log
+autostart = true
+autorestart = true
+```
+
+### 访问`localhost:18340`, github账号登录
+
+### 设置 server信息
+
+    Cname 随便 名字
+
+### 设置web hook
+
+    Git Repository      仅仓库名
