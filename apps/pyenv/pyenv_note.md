@@ -7,6 +7,12 @@ Installation
 ### Install
 
     $ curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+
+    # add below
+    export PATH="/home/<user>/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+
     $ exec $SHELL           # restart shell
 
 ### Upgrade
@@ -17,9 +23,8 @@ Installation
 
     $ rm -fr ~/.pyenv
 
-and remove below
-
-    export PATH="~/.pyenv/bin:$PATH"
+    # and remove below
+    export PATH="/home/<user>/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 
@@ -27,6 +32,9 @@ Usage
 -----
 
 ### install python
+
+    # before
+    sudo apt install libbz2-dev libsqlite3-dev libreadline-dev
 
     pyenv install 3.6.1
 
