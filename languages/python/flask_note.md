@@ -1,6 +1,17 @@
 Flask 笔记
 =========
 
+debug
+-----
+
+### TypeError: __init__() takes at most 2 arguments (3 given)
+
+出错位置如果如下
+
+    validator(form, self)
+
+则form中`DataRequired`改为`DataRequired()`
+
 deploy
 ------
 

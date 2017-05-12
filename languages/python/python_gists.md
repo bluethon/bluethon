@@ -1,6 +1,10 @@
 Python常用代码片段
 ================
 
+### 获取list第一个元素
+
+    return next(iter(user or []), None)
+
 ### dcit add(字典 增加)
 
     dict.update({})
