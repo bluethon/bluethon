@@ -1,6 +1,11 @@
 Python常用代码片段
 ================
 
+### py2 字典循环 dict for
+
+    for key, value in d.iteritems():
+        pass
+
 ### 获取list第一个元素
 
     return next(iter(user or []), None)

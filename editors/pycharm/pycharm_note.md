@@ -1,6 +1,17 @@
 Pycharm学习笔记
 ===========
 
+Table Editor
+------------
+
+### Filter
+
+查询框类似SQL的`where` 关键字
+
+    # % 通配 0或更多
+    # _ 匹配 1个
+    name LIKE 'a%' AND note LIKE 'b_'
+
 Setting Help
 ------------
 
