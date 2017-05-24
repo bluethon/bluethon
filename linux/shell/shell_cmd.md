@@ -13,8 +13,9 @@ exec $SHELL
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/bluethon/bluethon/master/languages/shell/git-alias.sh)"
 curl -fsSL https://raw.githubusercontent.com/bluethon/bluethon/master/languages/shell/git-alias.sh | bash
 
-### current directory
+### 当前文件夹 current directory
 CWD=$(dirname $(readlink -f $0))
+
 
 ### 试试查看文件末尾
 less +F ...

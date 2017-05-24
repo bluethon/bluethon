@@ -12,6 +12,10 @@ hotkey
     :%s/foo/bar/gc      Change each 'foo' to 'bar', ask for every confirmation first.
     :s/Copyright \zs2007\ze All Rights Reserved/2008/
 
+    # 大小写
+    gUiw    大写当前单词
+    gUU     大写当前行
+
     # 删除
     dt<c>   删到c(不包含)    delete until <c>
     df<c>   删到c(包含)     delete find <c>

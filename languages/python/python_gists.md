@@ -1,6 +1,14 @@
 Python常用代码片段
 ================
 
+### list循环
+
+> <https://stackoverflow.com/a/126533/4757521>
+
+    a = []
+    for i, v in enumerate(a):
+        print i, v
+
 ### py2 字典循环 dict for
 
     for key, value in d.iteritems():

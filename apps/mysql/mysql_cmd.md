@@ -4,6 +4,17 @@ Command Notes
 Usage
 -----
 
+### 时间相关内置函数
+
+    DATE('2017-05-23')          # 格式化字符串为日期
+    CURDATE()                   # 当前日期
+    NOW() - INTERVAL 10 DAY     # 当前时间的10天前
+
+### 格式化日期
+
+    DATE_FORMAT(date, format)
+    DATE_FORMAT(NOW(), '%Y年%m月%d日')
+
 ### mysqldump
 
     -d                  # 不导出数据
