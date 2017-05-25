@@ -221,7 +221,7 @@ git reset --hard origin/master
 `git checkout -b origin/[branch-name] [branch-name]`
 
 建立本地分支和远程分支的关联
-`git branch --set-upstream origin/<remote-branch> <local-branch>`
+`git branch -u origin/<remote-branch> <local-branch>`
 
 从远程抓去分支信息
 `git pull <远程主机名> <远程分支>:<本地分支>`

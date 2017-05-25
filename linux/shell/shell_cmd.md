@@ -1,6 +1,15 @@
 Shell Commands
 ==============
 
+QuickList
+---------
+
+``` shell
+
+date +%Y-%m-%d %H:%M:%S %Z              # 2017-05-25 11:20:45 CST
+
+```
+
 Usage
 -----
 
