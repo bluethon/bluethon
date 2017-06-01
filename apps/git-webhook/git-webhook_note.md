@@ -85,6 +85,8 @@ autorestart = true
 
     Cname 随便 名字
 
+    cat id_rsa_forwebhook.pub >> authorized_keys
+
 ### 设置web hook
 
     Git Repository      仅仓库名

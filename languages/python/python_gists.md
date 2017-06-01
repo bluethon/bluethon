@@ -1,6 +1,47 @@
 Python常用代码片段
 ================
 
+### 对象有没有属性
+
+> <https://stackoverflow.com/q/610883/4757521>
+
+``` python
+if hasattr(a, 'property'):
+    a.property
+
+try:
+    val = a.property
+except AttributeError:
+    otherStuff()
+else:
+    doStuff(val)
+```
+
+### json to dict to object
+
+> <http://python3-cookbook.readthedocs.io/zh_CN/latest/c06/p02_read-write_json_data.html>
+
+``` python
+import json
+s = '{"name": "ACME", "shares": 50, "price": 490.1}'
+
+# support nested
+class JSONObject():
+    def __init__(self, d):
+        self.__dict__ = d
+
+data = json.loads(s, object_hook=JSONObject)
+data.time
+
+# alternative
+# nested can't work 嵌套的json会有问题
+class Payload():
+    def __init__(self, j):
+        self.__dict__ = json.loads(j)
+
+data = Payload(j)
+```
+
 ### list循环
 
 > <https://stackoverflow.com/a/126533/4757521>

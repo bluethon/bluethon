@@ -3,46 +3,47 @@ Shell Note
 
 <!-- MarkdownTOC -->
 
-- [常用命令](#常用命令)
-    - [批量查找替换某些文件](#批量查找替换某些文件)
-    - [上个命令最后一部分](#上个命令最后一部分)
-    - [存储路径 cd](#存储路径-cd)
-    - [grep 去除自己](#grep-去除自己)
-    - [设定 & 撤销 环境变量](#设定--撤销-环境变量)
-    - [出现非零即退出](#出现非零即退出)
-    - [增加用户\(sudo\)](#增加用户sudo)
-    - [修改ssh端口\(port\)](#修改ssh端口port)
-    - [获取命令所在位置](#获取命令所在位置)
-    - [获取当前文件所在绝对](#获取当前文件所在绝对)
-    - [修改hosts 及 主机名称](#修改hosts-及-主机名称)
-    - [自定义zsh custom路径](#自定义zsh-custom路径)
-    - [获取上级目录\(get the parent directory of current directory\)](#获取上级目录get-the-parent-directory-of-current-directory)
-    - [显示当前真正路径\(pwd without symlinks\)](#显示当前真正路径pwd-without-symlinks)
-    - [重置tty](#重置tty)
-    - [查看Linux系统版本](#查看linux系统版本)
-    - [更改默认shel](#更改默认shel)
-    - [显示当前用户](#显示当前用户)
-    - [删除用户\(已登陆\)](#删除用户已登陆)
-    - [新建用户并到root组](#新建用户并到root组)
-    - [删除当前及子文件夹某类文件](#删除当前及子文件夹某类文件)
-    - [获取当前完整路径\(无视soft link\)](#获取当前完整路径无视soft-link)
-    - [复制到系统剪贴板](#复制到系统剪贴板)
-    - [添加环境变量](#添加环境变量)
-    - [获取当前路径到变量](#获取当前路径到变量)
-    - [组合命令\(参考用\)](#组合命令参考用)
-    - [查看文件夹大小](#查看文件夹大小)
-    - [安装deb包](#安装deb包)
-    - [加权限](#加权限)
-    - [查看$PATH\(冒号分割\)](#查看path冒号分割)
-    - [后台运行](#后台运行)
-    - [开机启动](#开机启动)
-    - [软链接](#软链接)
 - [DEBUG](#debug)
+    - [脚本中写入mysql 密码的问题](#%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%86%99%E5%85%A5mysql-%E5%AF%86%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98)
     - [sudo unable to resolve host](#sudo-unable-to-resolve-host)
     - [chsh you may not change the shell for](#chsh-you-may-not-change-the-shell-for)
+- [常用命令](#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4)
+    - [批量查找替换某些文件](#%E6%89%B9%E9%87%8F%E6%9F%A5%E6%89%BE%E6%9B%BF%E6%8D%A2%E6%9F%90%E4%BA%9B%E6%96%87%E4%BB%B6)
+    - [上个命令最后一部分](#%E4%B8%8A%E4%B8%AA%E5%91%BD%E4%BB%A4%E6%9C%80%E5%90%8E%E4%B8%80%E9%83%A8%E5%88%86)
+    - [存储路径 cd](#%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84-cd)
+    - [grep 去除自己](#grep-%E5%8E%BB%E9%99%A4%E8%87%AA%E5%B7%B1)
+    - [设定 & 撤销 环境变量](#%E8%AE%BE%E5%AE%9A--%E6%92%A4%E9%94%80-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+    - [出现非零即退出](#%E5%87%BA%E7%8E%B0%E9%9D%9E%E9%9B%B6%E5%8D%B3%E9%80%80%E5%87%BA)
+    - [增加用户\(sudo\)](#%E5%A2%9E%E5%8A%A0%E7%94%A8%E6%88%B7sudo)
+    - [修改ssh端口\(port\)](#%E4%BF%AE%E6%94%B9ssh%E7%AB%AF%E5%8F%A3port)
+    - [获取命令所在位置](#%E8%8E%B7%E5%8F%96%E5%91%BD%E4%BB%A4%E6%89%80%E5%9C%A8%E4%BD%8D%E7%BD%AE)
+    - [获取当前文件所在绝对](#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E6%89%80%E5%9C%A8%E7%BB%9D%E5%AF%B9)
+    - [修改hosts 及 主机名称](#%E4%BF%AE%E6%94%B9hosts-%E5%8F%8A-%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%A7%B0)
+    - [自定义zsh custom路径](#%E8%87%AA%E5%AE%9A%E4%B9%89zsh-custom%E8%B7%AF%E5%BE%84)
+    - [获取上级目录\(get the parent directory of current directory\)](#%E8%8E%B7%E5%8F%96%E4%B8%8A%E7%BA%A7%E7%9B%AE%E5%BD%95get-the-parent-directory-of-current-directory)
+    - [显示当前真正路径\(pwd without symlinks\)](#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%9C%9F%E6%AD%A3%E8%B7%AF%E5%BE%84pwd-without-symlinks)
+    - [重置tty](#%E9%87%8D%E7%BD%AEtty)
+    - [查看Linux系统版本](#%E6%9F%A5%E7%9C%8Blinux%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC)
+    - [更改默认shel](#%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4shel)
+    - [显示当前用户](#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7)
+    - [删除用户\(已登陆\)](#%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7%E5%B7%B2%E7%99%BB%E9%99%86)
+    - [新建用户并到root组](#%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E5%88%B0root%E7%BB%84)
+    - [删除当前及子文件夹某类文件](#%E5%88%A0%E9%99%A4%E5%BD%93%E5%89%8D%E5%8F%8A%E5%AD%90%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9F%90%E7%B1%BB%E6%96%87%E4%BB%B6)
+    - [获取当前完整路径\(无视soft link\)](#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%AE%8C%E6%95%B4%E8%B7%AF%E5%BE%84%E6%97%A0%E8%A7%86soft-link)
+    - [复制到系统剪贴板](#%E5%A4%8D%E5%88%B6%E5%88%B0%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF)
+    - [添加环境变量](#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+    - [获取当前路径到变量](#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84%E5%88%B0%E5%8F%98%E9%87%8F)
+    - [组合命令\(参考用\)](#%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83%E7%94%A8)
+    - [查看文件夹大小](#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F)
+    - [安装deb包](#%E5%AE%89%E8%A3%85deb%E5%8C%85)
+    - [加权限](#%E5%8A%A0%E6%9D%83%E9%99%90)
+    - [查看$PATH\(冒号分割\)](#%E6%9F%A5%E7%9C%8Bpath%E5%86%92%E5%8F%B7%E5%88%86%E5%89%B2)
+    - [后台运行](#%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C)
+    - [开机启动](#%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8)
+    - [软链接](#%E8%BD%AF%E9%93%BE%E6%8E%A5)
 - [Shell](#shell)
-    - [df 查看磁盘分区使用情况](#df-查看磁盘分区使用情况)
-    - [du 统计磁盘上的文件大小](#du-统计磁盘上的文件大小)
+    - [df 查看磁盘分区使用情况](#df-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5)
+    - [du 统计磁盘上的文件大小](#du-%E7%BB%9F%E8%AE%A1%E7%A3%81%E7%9B%98%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F)
     - [diff](#diff)
     - [ls](#ls)
     - [`rm` remove](#rm-remove)
@@ -51,22 +52,43 @@ Shell Note
     - [find](#find)
     - [grep](#grep)
     - [man](#man)
-    - [压缩和解压缩](#压缩和解压缩)
-    - [tar 打包命令](#tar-打包命令)
-    - [关机和重启](#关机和重启)
-    - [挂载](#挂载)
-    - [其他](#其他)
-    - [脚本](#脚本)
-    - [别名&快捷键](#别名快捷键)
-    - [命令生效顺序](#命令生效顺序)
-    - [历史命令](#历史命令)
-    - [输出重定向](#输出重定向)
-    - [管道符](#管道符)
-    - [通配符](#通配符)
-    - [其他特殊符号](#其他特殊符号)
+    - [压缩和解压缩](#%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9)
+    - [tar 打包命令](#tar-%E6%89%93%E5%8C%85%E5%91%BD%E4%BB%A4)
+    - [关机和重启](#%E5%85%B3%E6%9C%BA%E5%92%8C%E9%87%8D%E5%90%AF)
+    - [挂载](#%E6%8C%82%E8%BD%BD)
+    - [其他](#%E5%85%B6%E4%BB%96)
+    - [脚本](#%E8%84%9A%E6%9C%AC)
+    - [别名&快捷键](#%E5%88%AB%E5%90%8D%E5%BF%AB%E6%8D%B7%E9%94%AE)
+    - [命令生效顺序](#%E5%91%BD%E4%BB%A4%E7%94%9F%E6%95%88%E9%A1%BA%E5%BA%8F)
+    - [历史命令](#%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4)
+    - [输出重定向](#%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91)
+    - [管道符](#%E7%AE%A1%E9%81%93%E7%AC%A6)
+    - [通配符](#%E9%80%9A%E9%85%8D%E7%AC%A6)
+    - [其他特殊符号](#%E5%85%B6%E4%BB%96%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7)
 
 <!-- /MarkdownTOC -->
 
+DEBUG
+------
+
+### 脚本中写入mysql 密码的问题
+
+> <https://stackoverflow.com/a/8055745/4757521>
+
+加入引号
+
+    mysql -u "$user" "-p$pwd" "$db" < "/dev/null"
+
+### sudo unable to resolve host
+
+    修改127.0.0.1 后面, 更正为当前名称
+    sudo vim /etc/hosts
+
+### chsh you may not change the shell for
+
+    sudo usermod -s </bin/bash> <username>
+
+---
 
 常用命令
 ------
@@ -286,19 +308,6 @@ ln -sf [target] [linkname]
 
 ---
 
-DEBUG
-------
-
-### sudo unable to resolve host
-
-    修改127.0.0.1 后面, 更正为当前名称
-    sudo vim /etc/hosts
-
-### chsh you may not change the shell for
-
-    sudo usermod -s </bin/bash> <username>
-
----
 
 Shell
 -----

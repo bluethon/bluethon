@@ -34,3 +34,12 @@ flask
 > <https://github.com/mgood/flask-debugtoolbar>
 
 扩展调试工具(django版本的移植)
+
+json
+----
+
+### jsonpickle
+
+> <https://github.com/jsonpickle/jsonpickle>
+
+json格式话工具, json to object
