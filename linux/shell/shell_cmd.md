@@ -7,6 +7,9 @@ QuickList
 ``` shell
 
 date +%Y-%m-%d %H:%M:%S %Z              # 2017-05-25 11:20:45 CST
+pw=$(( pw + 0 ))                        # 文本转数字(数据库拼接密码需数字)
+ls -altr --time=atime                   # 显示所有文件, 按读取时间逆序
+stat foo.txt                            # 查看文件详细信息
 
 ```
 
