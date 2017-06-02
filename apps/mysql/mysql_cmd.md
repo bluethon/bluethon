@@ -1,6 +1,13 @@
 Command Notes
 =============
 
+Quick List
+----------
+
+``` sql
+select database();                  # 当前数据库
+```
+
 Usage
 -----
 
