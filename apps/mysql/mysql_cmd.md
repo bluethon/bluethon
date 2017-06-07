@@ -5,11 +5,19 @@ Quick List
 ----------
 
 ``` sql
-select database();                  # 当前数据库
+SELECT DATABASE();                  # 当前数据库
 ```
 
 Usage
 -----
+
+### shell中登录数据库
+
+``` shell
+# mysql -u $user -p$pw $db
+# 上面会导致输出`-p $pw`的样子
+mysql -u $user -p"$(echo $pw)" $db      # String格式变量
+```
 
 ### 时间相关内置函数
 

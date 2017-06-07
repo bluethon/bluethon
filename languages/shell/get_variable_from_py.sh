@@ -7,17 +7,20 @@
 ################
 
 python_script='
+from __future__ import print_function
 import sys
 d = {}                                    # create a context for variables
 exec(open(sys.argv[1], "r").read()) in d  # execute the Python code in that context
 for k in sys.argv[2:]:
-  print "%s\0" % str(d[k]).split("\0")[0] # ...and extract your strings NUL-delimited
+    print("%s\0" % str(d[k]).split("\0")[0], end="")
+    # print "%s\0" % str(d[k]).split("\0")[0] # ...and extract your strings NUL-delimited
 '
 
 read_python_vars() {
   local python_file=$1; shift
   local varname
   for varname; do
+    # IFS= read -r "${varname#*:}"
     IFS= read -r -d '' "${varname#*:}"
   done < <(python -c "$python_script" "$python_file" "${@%%:*}")
 }
