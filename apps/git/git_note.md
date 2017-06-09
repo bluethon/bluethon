@@ -208,8 +208,6 @@ git reset --hard origin/master
 强制删除未合并分支
 `git branch -D [name]`
 
-查看分支合并情况 --图 --单行 --简化commit
-`git log --graph --pretty=oneline --abbrev-commit`
 
 查看远程库信息
 `git remote -v`

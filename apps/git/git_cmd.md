@@ -11,4 +11,6 @@ git reset HEAD~1
 git reset --soft [HEAD]                             # 仅HEAD指针
 git reset [--mixed] [HEAD]                          # HEAD指针和INDEX
 git reset --hard [HEAD]                             # 全部, HEAD指针 index work
+git log --graph --oneline --decorate                # decorate 显示branch HEAD
+git branch -f <branch-name> [<start-point>]         # --force 强制重置X分支到Y提交
 ```
