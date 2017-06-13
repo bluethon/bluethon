@@ -6,11 +6,12 @@ QuickList
 
 ``` shell
 
-date +%Y-%m-%d %H:%M:%S %Z              # 2017-05-25 11:20:45 CST
-pw=$(( pw + 0 ))                        # 文本转数字(数据库拼接密码需数字)
-ls -altr --time=atime                   # 显示所有文件, 按读取时间逆序
-stat foo.txt                            # 查看文件详细信息
-echo -ne "n\0m\0k" | od -c              # od -c 显示各种转义字符
+date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
+pw=$(( pw + 0 ))                            # 文本转数字(数据库拼接密码需数字)
+ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序
+stat foo.txt                                # 查看文件详细信息
+echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
+sudo update-alternatives --config editor    # 更改默认编辑器
 
 ```
 
@@ -18,6 +19,11 @@ Usage
 -----
 
 ``` shell
+
+### ssh登录后sudo不输入密码
+sudo visudo
+# last of the file, add below
+<username>  ALL=(ALL:ALL) NOPASSWD: ALL
 
 ### read
 read -r -d '\n'     # 读取, 转义不生效, 读取结束符设为\n(默认)

@@ -54,4 +54,9 @@ sudo apt-get install variety variety-slideshow
 
 # 鼠标全局手势
 sudo apt install easystroke
+
+# ssh key管理 自动加入
+sudo apt install keychain
+vim ~/.zshrc
+eval `keychain --eval --agents ssh id_rsa_github_jhb`
 ```
