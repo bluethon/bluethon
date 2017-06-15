@@ -4,6 +4,14 @@ Pycharm学习笔记
 Table Editor
 ------------
 
+### 区域 排除 代码格式化(Live Templates版)
+
+``` python
+# @formatter:off
+$SELECTION$
+# @formatter:on
+```
+
 ### Filter
 
 查询框类似SQL的`where` 关键字
