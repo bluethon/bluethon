@@ -1,6 +1,14 @@
 Python常用代码片段
 ================
 
+Usage
+-----
+
+``` python
+d = {key: value for (key, value) in interable}        # 生成字典    https://stackoverflow.com/a/1747827/4757521
+```
+
+
 ### 对象有没有属性
 
 > <https://stackoverflow.com/q/610883/4757521>
