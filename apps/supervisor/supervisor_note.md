@@ -4,10 +4,11 @@ Supervisor Note
 Command
 -------
 
-    stop foo    停止进程, 用reload和update都不会自动启动
-    reread      载入最新配置文件, 不重启
-    update      载入最新配置文件, 如果改动则重启
-    reload      载入最新配置文件, 全部重启
+    stop foo                # 停止进程, 用reload和update都不会自动启动
+    reread                  # 载入最新配置文件, 不重启
+    update                  # 载入最新配置文件, 如果改动则重启
+    reload                  # 载入最新配置文件, 全部重启
+    restart [group]:\*      # 重启group的所有进程
 
 Install
 -------
