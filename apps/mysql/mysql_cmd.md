@@ -11,6 +11,15 @@ SELECT DATABASE();                  # 当前数据库
 Usage
 -----
 
+### 创建和更新日期
+
+``` sql
+CREATE TABLE foo (
+    `creation_time`     DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `modification_time` DATETIME ON UPDATE CURRENT_TIMESTAMP
+)
+```
+
 ### shell中登录数据库
 
 ``` shell
