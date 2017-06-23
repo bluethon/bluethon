@@ -5,7 +5,8 @@ Quick List
 ----------
 
 ``` sql
-SELECT DATABASE();                  # 当前数据库
+SELECT DATABASE();                      # 当前数据库
+SELECT CONCAT('http://', 'domain');     # 字符串拼接
 ```
 
 Usage
