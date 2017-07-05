@@ -5,7 +5,8 @@ Usage
 -----
 
 ``` python
-d = {key: value for (key, value) in interable}        # 生成字典    https://stackoverflow.com/a/1747827/4757521
+d = {key: value for (key, value) in interable}      # 生成字典    https://stackoverflow.com/a/1747827/4757521
+bin(0x7f)                                           # 16hex to 2 bin
 ```
 
 
@@ -50,6 +51,14 @@ class Payload():
 data = Payload(j)
 ```
 
+## List
+
+### list拼接
+
+    a = [1, 2]
+    b = [3, 4]
+    a.extend(b)     # [1, 2, 3, 4]
+
 ### list循环
 
 > <https://stackoverflow.com/a/126533/4757521>
@@ -58,14 +67,17 @@ data = Payload(j)
     for i, v in enumerate(a):
         print i, v
 
+### 获取list第一个元素
+
+    return next(iter(user or []), None)
+
 ### py2 字典循环 dict for
 
     for key, value in d.iteritems():
         pass
 
-### 获取list第一个元素
 
-    return next(iter(user or []), None)
+## Dict
 
 ### dcit add(字典 增加)
 

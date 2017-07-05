@@ -12,3 +12,10 @@
 To add current dir to python path, use 
 
     export PYTHONPATH=`pwd`
+
+### UnicodeDecodeError: 'ascii' codec can't decode byte
+
+> <https://stackoverflow.com/a/35444608/4757521>
+
+- python2默认decode使用的是ascii, codec(coder & decoder)
+- 变量定义统一使用u'', unicode, PS: 这不是utf-8
