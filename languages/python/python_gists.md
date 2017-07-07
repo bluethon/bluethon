@@ -9,7 +9,6 @@ d = {key: value for (key, value) in interable}      # 生成字典    https://st
 bin(0x7f)                                           # 16hex to 2 bin
 ```
 
-
 ### 对象有没有属性
 
 > <https://stackoverflow.com/q/610883/4757521>
@@ -78,6 +77,16 @@ data = Payload(j)
 
 
 ## Dict
+
+### 判断dict为空
+
+> <https://stackoverflow.com/a/23177452/4757521>
+
+利用空dict布尔值为False
+
+    dct = {}
+    bool(dct)       # False
+    not dct         # True
 
 ### dcit add(字典 增加)
 
