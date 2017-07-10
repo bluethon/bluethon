@@ -1,9 +1,14 @@
 pip相关笔记
 ==========
 
+DEBUG
+-----
 
+### TypeError: '>' not supported between instances of 'Version' and 'SetuptoolsVersion'
 
----------------------
+重装pip
+
+    pip install pip -I      # ignore == --force
 
 pip
 ---
