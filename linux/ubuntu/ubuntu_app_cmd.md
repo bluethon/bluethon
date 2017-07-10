@@ -21,6 +21,9 @@ gnome-screenshot
 # 日志查看工具
 lnav
 
+# 窗口信息查看(如坐标位置)
+xwininfo
+
 ```
 
 ---

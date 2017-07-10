@@ -1,5 +1,15 @@
-多ssh-key管理
-------------
+SSH Notes
+=========
+
+DEBUG
+-----
+
+### ssh too many authentication failures
+
+没有复制pubkey到server, 使用`ssh-copy-id`复制后修复
+
+Usage
+-----
 
 ### 1. 生成ssh key时指定文件名
 
@@ -26,7 +36,7 @@ Host *.xxx.com
 
 ``` bash
 
-# add private key 
+# add private key
 ssh-add ~/.ssh/id_rsa_xxx
 
 # if error:  Permission denied (publickey)
