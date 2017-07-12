@@ -14,6 +14,9 @@ ls -altr --time=atime                       # 显示所有文件, 按读取时�
 stat foo.txt                                # 查看文件详细信息
 echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
 
+export DEBUG=false                          # 设置环境变量
+unset DEBUG                                 # 清除
+
 ```
 
 Usage
@@ -46,7 +49,7 @@ less +F ...
 ### 查看service 信息
 service --status-all
 
-### tar exclude 打包 排除 
+### tar exclude 打包 排除
 tar -cvf name dir1 --exclude dir2
 
 ### 查看文件夹大小

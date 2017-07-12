@@ -34,8 +34,11 @@ xwininfo
 ``` shell
 # Albert - linux版Alfred
 sudo add-apt-repository ppa:nilarimogard/webupd8
-sudo apt-get update
-sudo apt-get install albert
+sudo apt update; sudo apt install albert
+
+# atom
+sudo add-apt-repository ppa:webupd8team/atom
+sudo apt update; sudo apt install atom
 
 # 包管理 & 查找
 sudo apt install synaptic

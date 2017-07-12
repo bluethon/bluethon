@@ -1,12 +1,24 @@
 Python常用代码片段
 ================
 
-Usage
------
+Cmd
+---
 
 ``` python
 d = {key: value for (key, value) in interable}      # 生成字典    https://stackoverflow.com/a/1747827/4757521
 bin(0x7f)                                           # 16hex to 2 bin
+```
+
+Usage
+-----
+
+### 生成随机数
+
+``` python
+import os
+import binascii
+
+print(binascii.hexlify(os.urandom(32)))
 ```
 
 ### 对象有没有属性
