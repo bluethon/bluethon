@@ -1,12 +1,26 @@
 Python常用代码片段
 ================
 
-Usage
------
+CMD
+---
 
 ``` python
 d = {key: value for (key, value) in interable}      # 生成字典    https://stackoverflow.com/a/1747827/4757521
 bin(0x7f)                                           # 16hex to 2 bin
+```
+
+Usage
+-----
+
+### SQL String Format
+
+> <https://stackoverflow.com/a/9433548/4757521>
+
+``` python
+sql = ('select field1, field2, field3, field4 '
+       'from table '
+       'where condition1=1 '
+       'and condition2=2 ')
 ```
 
 ### 对象有没有属性
