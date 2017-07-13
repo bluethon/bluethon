@@ -1,39 +1,14 @@
 pip相关笔记
 ==========
 
-pip-tools
----------
+DEBUG
+-----
 
-> <https://github.com/jazzband/pip-tools>
+### TypeError: '>' not supported between instances of 'Version' and 'SetuptoolsVersion'
 
-### install
+重装pip
 
-    pip install pip-tools
-
-### usage
-
-    # requirements.in
-    Flask
-    ipython<6                           # 限定版本
-
-    pip-compile                         # create requirements.txt
-    pip-compile dev-requirements.in     # create dev-requirements.txt
-
-    pip-compile --upgrade               # 如果已有txt, 必须使用此才能升级
-    pip-compile -U                      # upgrade
-
-    pip-sync                            # install package
-    pip-sync dev-requirements.txt       # install package
-
-### notes
-
-分开dev-requirement.in放仅dev需要的包, requirements.in保持不变
-
-    pip-compile dev-requirements.in
-    pip-compile requirements.in
-    pip-sync dev-requirements.txt requirements.txt
-
----------------------
+    pip install pip -I      # ignore == --force
 
 pip
 ---

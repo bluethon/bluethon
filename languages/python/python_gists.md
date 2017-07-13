@@ -1,7 +1,11 @@
 Python常用代码片段
 ================
 
+<<<<<<< HEAD
 CMD
+=======
+Cmd
+>>>>>>> 189ad5b7d534911968e4e7d5a04b650aa903a286
 ---
 
 ``` python
@@ -12,6 +16,7 @@ bin(0x7f)                                           # 16hex to 2 bin
 Usage
 -----
 
+<<<<<<< HEAD
 ### SQL String Format
 
 > <https://stackoverflow.com/a/9433548/4757521>
@@ -21,6 +26,15 @@ sql = ('select field1, field2, field3, field4 '
        'from table '
        'where condition1=1 '
        'and condition2=2 ')
+=======
+### 生成随机数
+
+``` python
+import os
+import binascii
+
+print(binascii.hexlify(os.urandom(32)))
+>>>>>>> 189ad5b7d534911968e4e7d5a04b650aa903a286
 ```
 
 ### 对象有没有属性

@@ -21,6 +21,9 @@ gnome-screenshot
 # 日志查看工具
 lnav
 
+# 窗口信息查看(如坐标位置)
+xwininfo
+
 ```
 
 ---
@@ -31,8 +34,11 @@ lnav
 ``` shell
 # Albert - linux版Alfred
 sudo add-apt-repository ppa:nilarimogard/webupd8
-sudo apt-get update
-sudo apt-get install albert
+sudo apt update; sudo apt install albert
+
+# atom
+sudo add-apt-repository ppa:webupd8team/atom
+sudo apt update; sudo apt install atom
 
 # 包管理 & 查找
 sudo apt install synaptic
