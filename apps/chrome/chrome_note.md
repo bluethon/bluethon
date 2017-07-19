@@ -1,6 +1,11 @@
 Chrome Notes
 ============
 
+Extersions
+----------
+
+    octotree            Code tree for GitHub
+
 ### Adobe Flash Player显示三角图标, 不播放
 
 启用
