@@ -1,7 +1,16 @@
 vimrc Note
 ==========
 
+Map
+---
+
+> <http://yyq123.blogspot.com/2010/12/vim-map.html>
+
 ``` shell
+
+### 屏蔽键
+
+<nop>
 
 ### 缩进
 # tab缩进4
