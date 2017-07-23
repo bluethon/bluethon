@@ -1,6 +1,13 @@
 Package List
 ============
 
+list
+----
+
+    mysqlclient
+    pipdeptree
+    pip-tools
+
 pip manage tools
 ----------------
 
