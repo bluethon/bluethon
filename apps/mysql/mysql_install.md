@@ -1,6 +1,23 @@
 Mysql Install Note
 ==================
 
+Init
+----
+
+``` sql
+CREATE USER 'newuser'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'%';
+FLUSH PRIVILEGES;
+```
+
+``` shell
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+# comment out
+# bind-address 127.0.0.1
+sudo service mysql restart
+```
+
+
 Driver
 ------
 

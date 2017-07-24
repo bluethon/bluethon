@@ -20,6 +20,7 @@ Install
 
     # check(sudo 否则看不到)
     sudo netstat -tupan | grep mysql
+    sudo lsof -Pni :3306
 
 
 ### error

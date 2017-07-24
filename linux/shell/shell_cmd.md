@@ -83,6 +83,7 @@ pgrep -fl foobar
 
 ### 通过端口 查看端口占用(注意权限, 否则可能会看不到)
 sudo lsof -i:8118
+sudo lsof -Pni:8118
 sudo netstat -ano | grep 8118
 
 ### 获取发行版名称 ubuntu release version

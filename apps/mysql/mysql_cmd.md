@@ -13,6 +13,10 @@ ALTER TABLE foo ADD COLUMN bar VARCHAR(100);    # 增加列
 
 SELECT DATABASE();                              # 当前数据库
 SELECT CONCAT('http://', 'domain');             # 字符串拼接
+SELECT VERSION();                               # mysql内查看版本
+SELECT USER();                                  # 当前用户
+SHOW warnings;                                  # 查看警告内容
+SHOW variables LIKE 'version';                  # mysql内查看版本
 ```
 
 Usage
