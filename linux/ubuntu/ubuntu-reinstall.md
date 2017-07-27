@@ -27,6 +27,9 @@ sudo apt install ipython3
 # 任务管理器
 sudo apt install htop
 
+# 图片编辑工具
+sudo apt insatll gimp
+
 #-------------------
 # uninstall
 #-------------------

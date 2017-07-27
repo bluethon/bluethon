@@ -30,8 +30,10 @@ set nowrap
 inoremap <C-u> <esc>gUiwea
 
 # 滚屏时保留的行数
+# http://vim.wikia.com/wiki/Keep_your_cursor_centered_vertically_on_the_screen
 set scrolloff=7
 set so=7
+set so=0        # set default
 
 # syntax 语法高亮
 sy on
