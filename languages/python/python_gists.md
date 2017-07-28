@@ -12,6 +12,14 @@ bin(0x7f)                                           # 16hex to 2 bin
 Usage
 -----
 
+### 某路径加入环境变量
+
+``` python
+import sys
+from os.path import abspath, dirname
+sys.path.insert(0, dirname(dirname(abspath(__file__))))
+```
+
 ### SQL String Format
 
 > <https://stackoverflow.com/a/9433548/4757521>
