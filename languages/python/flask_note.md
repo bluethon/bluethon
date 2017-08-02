@@ -12,6 +12,12 @@ debug
 
 则form中`DataRequired`改为`DataRequired()`
 
+packages
+--------
+
+    # https://stackoverflow.com/a/25696535/4757521
+    Flask-JsonTools
+
 deploy
 ------
 
@@ -42,4 +48,3 @@ note
     # sqlite:/// + tmp/foo.db
     sqlite:///tmp/foo.db
     sqlite:///./tmp/foo.db
-

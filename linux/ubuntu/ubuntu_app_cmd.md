@@ -23,7 +23,6 @@ lnav
 
 # 窗口信息查看(如坐标位置)
 xwininfo
-
 ```
 
 ---
@@ -32,9 +31,20 @@ xwininfo
 -----
 
 ``` shell
+
+# 开机启动小键盘
+# 加入开机启动: numlockx on
+sudo apt install numlockx
+
+# 图片编辑工具
+sudo apt insatll gimp
+
 # Albert - linux版Alfred
 sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt update; sudo apt install albert
+# autostart
+# > https://albertlauncher.github.io/docs/faq/#how-can-i-autostart-albert
+ln -s /usr/share/applications/albert.desktop ~/.config/autostart/
 
 # atom
 sudo add-apt-repository ppa:webupd8team/atom

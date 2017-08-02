@@ -17,6 +17,8 @@ SELECT VERSION();                               # mysql内查看版本
 SELECT USER();                                  # 当前用户
 SHOW warnings;                                  # 查看警告内容
 SHOW variables LIKE 'version';                  # mysql内查看版本
+
+alter user 'root'@'%' identified by 'pwd';      # 修改用户密码
 ```
 
 Usage

@@ -8,6 +8,10 @@ Cmd
     alembic revision --autogenerate -m 'message'
     alembic upgrade
 
+script
+------
+
+    op.execute('UPDATE bills SET bill_createtime = CURRENT_TIMESTAMP WHERE bill_birthday = 0;')
 
 env.py
 ------
