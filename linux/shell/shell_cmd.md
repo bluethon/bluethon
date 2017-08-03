@@ -17,6 +17,9 @@ echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
 export DEBUG=false                          # 设置环境变量
 unset DEBUG                                 # 清除
 
+pidof fcitx | xargs kill                    # 结束程序
+lsof -ti:8000 |xargs kill                   # 根据端口占用结束程序
+
 ```
 
 Usage
