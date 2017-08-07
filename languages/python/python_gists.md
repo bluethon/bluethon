@@ -7,10 +7,15 @@ CMD
 ``` python
 d = {key: value for (key, value) in interable}      # 生成字典    https://stackoverflow.com/a/1747827/4757521
 bin(0x7f)                                           # 16hex to 2 bin
+datetime.date.today()                               # 今天    > datetime
 ```
 
 Usage
 -----
+
+### datetime
+
+> <http://www.wklken.me/posts/2015/03/03/python-base-datetime.html>
 
 ### 某路径加入环境变量
 
