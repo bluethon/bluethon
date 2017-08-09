@@ -11,7 +11,11 @@ Cmd
 script
 ------
 
-    op.execute('UPDATE bills SET bill_createtime = CURRENT_TIMESTAMP WHERE bill_birthday = 0;')
+``` python
+op.execute('UPDATE bills SET bill_createtime = CURRENT_TIMESTAMP WHERE bill_birthday = 0;')
+alter_column('表名', '先有的列名', new_column_name='重命名后的列名', existring_type=字段类型)
+```
+
 
 env.py
 ------
