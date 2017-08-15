@@ -13,6 +13,21 @@ datetime.date.today()                               # 今天    > datetime
 Usage
 -----
 
+### count directory files
+
+> <https://stackoverflow.com/a/2632251/4757521>
+
+``` python
+import os, os.path
+
+# simple version for working with CWD
+print len([name for name in os.listdir('.') if os.path.isfile(name)])
+
+# path joining version for other paths
+DIR = '/tmp'
+print len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
+```
+
 ### datetime
 
 > <http://www.wklken.me/posts/2015/03/03/python-base-datetime.html>
