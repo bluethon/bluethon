@@ -27,10 +27,11 @@ from os.path import abspath, dirname
 sys.path.insert(0, dirname(dirname(abspath(__file__))))  # Insert <.>/src
 
 from lib import SQLALCHEMY_DATABASE_URI
-from lib.model_sa import Base
+from lib.model_sa import Base, OldBase
 
 config.set_main_option('sqlalchemy.url', SQLALCHEMY_DATABASE_URI)
 target_metadata = Base.metadata
+target_metadata = [Base.metadata, OldBase.metadata]
 
 context.configure(
     # custom
