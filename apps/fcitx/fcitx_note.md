@@ -14,6 +14,12 @@ debug
 > <http://www.cnblogs.com/raybiolee/p/5693279.html>
 
 ``` shell
+# simple version
+vim /usr/share/glib-2.0/schemas/50_sogoupinyin.gschema.override
+# 把第四行改成
+overrides={'Gtk/IMModule':<'fcitx'>}
+
+# all version
 mkdir -p extract/DEBIAN
 #prepare the environ
 # 准备环境
@@ -34,5 +40,4 @@ dpkg-deb -b extract/ ./sogoupinyin_2.0.0.0078_wkd.deb
 # 无果没有指定文件名，就和原文件名一样，这是在/extract/DEBIAN/control中定义的
 sudo gdebi sogoupinyin_2.0.0.0078_wkd.deb
 # 安装 install
-
 ```

@@ -8,6 +8,7 @@ CMD
 d = {key: value for (key, value) in interable}      # 生成字典    https://stackoverflow.com/a/1747827/4757521
 bin(0x7f)                                           # 16hex to 2 bin
 datetime.date.today()                               # 今天    > datetime
+a = a or None                                       # 过滤''和None 为 None
 ```
 
 Usage

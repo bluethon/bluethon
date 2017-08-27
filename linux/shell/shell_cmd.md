@@ -20,6 +20,8 @@ unset DEBUG                                 # 清除
 pidof fcitx | xargs kill                    # 结束程序
 lsof -ti:8000 |xargs kill                   # 根据端口占用结束程序
 
+ln -s prefix_{old,new}_suffix               # 创建只修改括号的链接(new -> old)
+
 ```
 
 Usage
