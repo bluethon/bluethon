@@ -27,6 +27,18 @@ DT = Column(DateTime(timezone=True), default=func.now())
 Note
 ----
 
+### relationship
+
+``` python
+# 增加
+# > http://docs.sqlalchemy.org/en/latest/orm/basic_relationships.html#association-object
+a = A()
+b = B()
+a.bs.append(b)
+a.bs.extend([b1, b2])
+
+```
+
 ### filter dynamic from dict
 
 > <https://stackoverflow.com/a/7605366/4757521>

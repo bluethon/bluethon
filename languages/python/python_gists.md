@@ -8,10 +8,30 @@ CMD
 d = {key: value for (key, value) in interable}      # 生成字典    https://stackoverflow.com/a/1747827/4757521
 bin(0x7f)                                           # 16hex to 2 bin
 datetime.date.today()                               # 今天    > datetime
+del lst[:]                                          # 清除列表, 且不成为空列表
 ```
 
 Usage
 -----
+
+### clear list
+
+> <https://stackoverflow.com/a/1400622/4757521>
+
+``` python
+# actually removes the contents from the list, not replaces the old label with a new empty list
+del lst[:]
+# equal
+lst[:] = []
+# for Py3
+lst.clear()
+
+# !!!not do this
+lst = []
+# because if
+b = lst
+# b still have all element
+```
 
 ### count directory files
 
