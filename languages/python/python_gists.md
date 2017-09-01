@@ -9,6 +9,7 @@ d = {key: value for (key, value) in interable}      # 生成字典    https://st
 bin(0x7f)                                           # 16hex to 2 bin
 datetime.date.today()                               # 今天    > datetime
 del lst[:]                                          # 清除列表, 且不成为空列表
+a = a or None                                       # 过滤''和None 为 None
 ```
 
 Usage

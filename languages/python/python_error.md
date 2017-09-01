@@ -1,6 +1,19 @@
 错误处理
 =======
 
+### No module named apt_pkg
+
+> <https://stackoverflow.com/a/36232975/4757521>
+
+系统安装多版本py3时, 默认识别高版本, 但是我的是识别了低版本,
+所以需要创建反过来的链接(36m -> 35m)
+
+``` python
+# python3-apt checks the highest python version, instead of the current python version in use.
+cd /usr/lib/python3/dist-packages
+sudo ln -s apt_pkg.cpython-{35m,36m}-x86_64-linux-gnu.so
+```
+
 ### No module named pkg_resources
 > <https://stackoverflow.com/a/10538412/4757521>
 

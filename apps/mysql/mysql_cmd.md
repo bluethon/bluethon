@@ -5,11 +5,22 @@ Quick List
 ----------
 
 ``` sql
-ALTER TABLE foo MODIFY COLUMN bar VARCHAR(100) AFTER id;    # 修改列顺序
-ALTER TABLE foo CONVERT TO CHARSET utf8;        # 转换表为utf-8
+-- charset
+SELECT @@character_set_database, @@collation_database;  # 查看所有数据库charset
+SELECT SCHEMA_NAME,
+       DEFAULT_CHARACTER_SET_NAME,
+       DEFAULT_COLLATION_NAME
+    FROM INFORMATION_SCHEMA.SCHEMATA;                   # 查看所有数据库charset
 ALTER DATABASE foo CHARSET = utf8;              # 设置数据库默认编码
+ALTER DATABASE db_name CHARACTER SET utf8       # 设置数据库默认编码
+
+SHOW TABLE STATUS WHERE Name LIKE '%ff%';       # 表状态(包含charset), WHERE 可选
+ALTER TABLE foo CONVERT TO CHARSET utf8;        # 转换表为utf-8
 ALTER TABLE foo DEFAULT CHARSET = utf8;         # 设置表默认编码
+
+-- column
 ALTER TABLE foo ADD COLUMN bar VARCHAR(100);    # 增加列
+ALTER TABLE foo MODIFY COLUMN bar VARCHAR(100) AFTER id;    # 修改列顺序
 
 SELECT DATABASE();                              # 当前数据库
 SELECT CONCAT('http://', 'domain');             # 字符串拼接
