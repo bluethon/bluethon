@@ -30,7 +30,7 @@ xwininfo
 第三方
 -----
 
-``` shell
+``` bash
 
 # 开机启动小键盘
 # 加入开机启动: numlockx on
@@ -75,4 +75,11 @@ sudo apt install easystroke
 sudo apt install keychain
 vim ~/.zshrc
 eval `keychain --eval --agents ssh id_rsa_github_jhb`
+
+# theme
+sudo add-apt-repository ppa:snwh/pulp
+sudo apt-get update
+sudo apt-get install paper-icon-theme
+sudo apt-get install paper-cursor-theme
+sudo apt-get install paper-gtk-theme
 ```

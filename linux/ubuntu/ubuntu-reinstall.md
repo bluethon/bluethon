@@ -26,6 +26,17 @@ sudo apt install ipython3
 
 # 任务管理器
 sudo apt install htop
+
+# theme
+sudo add-apt-repository ppa:snwh/pulp
+sudo apt-get update
+# install icon theme
+sudo apt-get install paper-icon-theme
+# install cursor theme
+sudo apt-get install paper-cursor-theme
+# install gtk theme
+sudo apt-get install paper-gtk-theme
+
 #-------------------
 # uninstall
 #-------------------

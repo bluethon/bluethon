@@ -40,3 +40,10 @@ context.configure(
 )
 # ------- custom end --------------
 ```
+
+Note
+----
+
+### 设置忽略某些表
+
+> <https://gist.github.com/utek/6163250>

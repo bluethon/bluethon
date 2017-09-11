@@ -5,6 +5,7 @@ QuickList
 ---------
 
 ``` shell
+CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 
 sudo update-alternatives --config editor    # 更改默认编辑器 shell editor
 
