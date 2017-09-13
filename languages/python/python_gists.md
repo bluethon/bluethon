@@ -15,6 +15,23 @@ a = a or None                                       # 过滤''和None 为 None
 Usage
 -----
 
+### CamelCase to snake_case
+
+Class Name 类名 转换 convert
+
+> <https://stackoverflow.com/a/1176023/4757521>
+
+``` python
+def convert(name):
+    s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
+    return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
+```
+
+or
+
+    import inflection
+    inflection.underscore('CamelCase')  # camel_case
+
 ### clear list
 
 > <https://stackoverflow.com/a/1400622/4757521>

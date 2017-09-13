@@ -4,12 +4,12 @@ Package List
 list
 ----
 
-    mysqlclient
+    mysqlclient         # 数据库驱动(在更新, 推荐)
     pipdeptree
-    pip-tools
-
-pip manage tools
-----------------
+    pip-tools           # pip包管理工具
+    flask-debugtoolbar  # flask web测试工具
+    jsonpickle          # json格式化工具
+    inflection          # 驼峰转下划线, 单复数(pluralize)
 
 ### pipdeptree
 
@@ -48,24 +48,21 @@ requirements.txt自动管理工具(包含升级功能)
     pip-compile requirements.in
     pip-sync dev-requirements.txt requirements.txt
 
----
-
-flask
------
-
 ### flask-debugtoolbar
 
 > <https://github.com/mgood/flask-debugtoolbar>
 
 扩展调试工具(django版本的移植)
 
----
-
-json
-----
-
 ### jsonpickle
 
 > <https://github.com/jsonpickle/jsonpickle>
 
-json格式话工具, json to object
+json格式化工具, json to object
+
+### inflection
+
+> <https://stackoverflow.com/a/17328907/4757521>
+
+    >>> inflection.underscore('CamelCase')
+    'camel_case'

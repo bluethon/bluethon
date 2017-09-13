@@ -16,6 +16,17 @@ FROM users
 Gist
 ----
 
+### 让mixin列在表最后
+
+> <https://stackoverflow.com/a/4013184/4757521>
+
+``` python
+lass NotesMixin(object):
+    @declared_attr
+    def notes(cls):
+        return sa.Column(sa.String(4000) , nullable=False, default='')
+```
+
 ### 设置数据库自动时间
 
 ``` python
