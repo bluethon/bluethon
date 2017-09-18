@@ -6,6 +6,7 @@ QuickList
 
 ``` shell
 CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
+currentdir=${PWD##*/}                       # 当前文件夹名
 
 sudo update-alternatives --config editor    # 更改默认编辑器 shell editor
 
@@ -29,6 +30,11 @@ Usage
 -----
 
 ``` shell
+
+### 当前文件夹名
+# > <https://stackoverflow.com/a/1371283/4757521>
+currentdir=${PWD##*/}
+echo "${PWD##*/}"
 
 ### ssh登录后sudo不输入密码
 sudo visudo

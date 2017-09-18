@@ -17,6 +17,11 @@ Installation
 
 ### Upgrade
 
+    cd ~/.pyenv
+    git pl
+
+or
+
     $ pyenv update
 
 ### Remove
