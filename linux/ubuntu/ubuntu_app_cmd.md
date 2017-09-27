@@ -82,4 +82,10 @@ sudo apt-get update
 sudo apt-get install paper-icon-theme
 sudo apt-get install paper-cursor-theme
 sudo apt-get install paper-gtk-theme
+
+# markdown工具
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+sudo add-apt-repository 'deb http://typora.io linux/'
+sudo apt-get update
+sudo apt-get install typora
 ```
