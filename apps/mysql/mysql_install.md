@@ -10,12 +10,17 @@ GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'%';
 FLUSH PRIVILEGES;
 ```
 
-``` shell
-vim /etc/mysql/mysql.conf.d/mysqld.cnf
-# comment out
-# bind-address 127.0.0.1
-sudo service mysql restart
+Settings
+--------
+
+    vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+``` conf
+[mysqld]
+bind-address 127.0.0.1      # 哪些IP可以访问
+max_allowed_packet          # Error 2006(增大可以避免?)
 ```
+    sudo service mysql restart
 
 
 Driver

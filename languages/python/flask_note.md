@@ -35,6 +35,12 @@ python manage.py db current
 note
 ----
 
+### jinja block minus
+
+block中的加减号是清除空格相关功能
+
+> <http://jinja.pocoo.org/docs/dev/templates/#whitespace-control>
+
 ### 查看SQLAlchemy生成的原生SQL查询语句
 
     str(User.query.all())

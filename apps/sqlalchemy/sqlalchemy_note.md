@@ -6,6 +6,7 @@ Cmd
 
 ``` python
 session.query(User.name.label('name_label')).all()
+query.order_by(Model.column.desc())                     # 逆序
 ```
 
 ``` sql
@@ -37,6 +38,10 @@ DT = Column(DateTime(timezone=True), default=func.now())
 
 Note
 ----
+
+### desc
+
+> <https://stackoverflow.com/a/4187279/4757521>
 
 ### deaclare_attr
 
