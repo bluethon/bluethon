@@ -17,7 +17,9 @@ sudo ln -s apt_pkg.cpython-{35m,36m}-x86_64-linux-gnu.so
 ### No module named pkg_resources
 > <https://stackoverflow.com/a/10538412/4757521>
 
-curl https://bootstrap.pypa.io/ez_setup.py | python
+    pip install -U setuptools
+    # or
+    curl https://bootstrap.pypa.io/ez_setup.py | python
 
 ### error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
 
