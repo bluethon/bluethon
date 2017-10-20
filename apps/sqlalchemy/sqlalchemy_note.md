@@ -17,6 +17,19 @@ FROM users
 Gist
 ----
 
+### relationship desc 逆序
+
+``` python
+from sqlalchemy import desc
+
+class User(Base):
+    # ...
+    addresses = relationship(
+                    lambda: Address,
+                    order_by=lambda: desc(Address.email),
+                    primaryjoin=lambda: Address.user_id==User.id)
+```
+
 ### 让mixin列在表最后
 
 > <https://stackoverflow.com/a/4013184/4757521>
