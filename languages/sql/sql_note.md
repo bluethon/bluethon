@@ -1,8 +1,14 @@
 SQL Note
 =========
 
-- 不带列名
-`select * from t1 where id <10 into outfile "D:\\xxx.txt"`
+quick cmd
+---------
+
+``` sql
+select * from t1 where id <10 into outfile "D:\\xxx.txt"    # 不带列名
+where c1 IS NOT NULL AND c1 <> ''   # 不为空(1)
+where length(c1) > 0    # 不为空(2)
+```
 
 ---
 

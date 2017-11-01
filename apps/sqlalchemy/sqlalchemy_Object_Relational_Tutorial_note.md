@@ -1,12 +1,27 @@
 Index
-=====
+-----
 
 - [数据库链接配置](http://docs.sqlalchemy.org/en/latest/core/engines.html#database-urls)
 
 ---
 
+cmd
+---
+
+``` python
+# text 使用 文本 实现sql
+from sqlalchemy import text
+session.query(User).filter(text('id<224')).order_by(text('id'))
+
+# params
+session.query(User).filter(text('id<:value and name=:name')). \
+    params(value=224, name='fred')
+```
+
+---
+
 Note
-====
+----
 
 ### Sequence
 
