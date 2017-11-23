@@ -11,7 +11,7 @@ cat /etc/X11/default-display-manager        # lightDM or gdm3
 CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 currentdir=${PWD##*/}                       # 当前文件夹名
 
-sudo update-alternatives --config editor    # 更改默认编辑器 shell editor
+sudo update-alternatives --config editor    # 更改默认编辑器 shell editor vim
 
 date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
 pw=$(( pw + 0 ))                            # 文本转数字(数据库拼接密码需数字)
