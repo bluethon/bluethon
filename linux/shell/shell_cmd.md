@@ -5,6 +5,9 @@ QuickList
 ---------
 
 ``` shell
+echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
+cat /etc/X11/default-display-manager        # lightDM or gdm3
+
 CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 currentdir=${PWD##*/}                       # 当前文件夹名
 
