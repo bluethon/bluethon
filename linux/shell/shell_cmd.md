@@ -27,6 +27,7 @@ lsof -ti:8000 |xargs kill                   # 根据端口占用结束程序
 
 ln -s prefix_{old,new}_suffix               # 创建只修改括号的链接(new -> old)
 
+find /usr/ -name libproxychains.so.3        # 查找/usr/下 xx.so.3名字的文件
 ```
 
 Usage
