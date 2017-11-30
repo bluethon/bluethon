@@ -14,6 +14,29 @@ http://wiki.jikexueyuan.com/project/docker/userguide/dockerizing.html
 安装docker(国内版)
 ----------------
 
+### 阿里云
+
+> https://yq.aliyun.com/articles/110806
+
+``` sh
+# step 1: 安装必要的一些系统工具
+sudo apt-get update
+sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+# step 2: 安装GPG证书
+curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+# Step 3: 写入软件源信息(stable三月一次稳定版, edge每月一次更新版)
+sudo add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable edge"
+# Step 4: 更新并安装 Docker-CE
+sudo apt-get -y update
+sudo apt-get -y install docker-ce
+
+# 不使用sudo
+sudo usermod -aG docker $USER
+```
+
+### 清华(旧版本)
+
 ``` sh
 # docker本体
 # https://mirror.tuna.tsinghua.edu.cn/help/docker/
@@ -23,14 +46,46 @@ echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial mai
 sudo apt-get update
 sudo apt-get install docker-engine
 
-# dockerhub镜像
+dockerhub镜像(中科大)
+-------------------
+
+``` sh
 # https://lug.ustc.edu.cn/wiki/mirrors/help/docker
 echo "{\n  \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"]\n}" | sudo tee /etc/docker/daemon.json
 sudo service docker restart
+```
 
-# docker-compose
+### docker-compose
+
+``` sh
 pyvenv venv
 pip install docker-compose
+```
+
+docker machine(批量操作工具)
+--------------
+
+> https://github.com/docker/machine/releases
+
+``` sh
+curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+    chmod +x /tmp/docker-machine &&
+    sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+```
+
+docker-completion
+-----------------
+
+> https://github.com/leonhartX/docker-machine-zsh-completion
+
+``` sh
+git clone https://github.com/leonhartX/docker-machine-zsh-completion.git ~/.oh-my-zsh/custom/plugins/docker-machine
+
+vim .zshrc
+
+### add below
+plugins+=(docker-machine)
+autoload -U compinit && compinit
 ```
 
 --------------------------------------------------------

@@ -1,6 +1,11 @@
 Pycharm学习笔记
 ===========
 
+Install
+-------
+
+    snap install [pycharm-community|pycharm-professional] --classic
+
 Table Editor
 ------------
 
@@ -51,8 +56,8 @@ Setting Help
     export GTK_IM_MODULE=fcitx
     export QT_IM_MODULE=fcitx
     export XMODIFIERS=@im=fcitx
-    
-    
+
+
 openjdk8
 --------
 

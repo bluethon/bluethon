@@ -5,6 +5,12 @@ QuickList
 ---------
 
 ``` shell
+exec $SHELL -l                              # 刷新Shell
+
+groups                                      # 查看用户组
+groups $USER                                # 查看某用户的用户组
+$USER                                       # 当前用户
+
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 cat /etc/X11/default-display-manager        # lightDM or gdm3
 

@@ -1,6 +1,13 @@
 vimrc Note
 ==========
 
+CMD
+---
+
+``` vimrc
+colorscheme molokai                 # 设置主题(k-vim也可)
+```
+
 Map
 ---
 

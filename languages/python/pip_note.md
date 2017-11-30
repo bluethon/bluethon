@@ -19,6 +19,7 @@ pip
 pip install -U pip                  # 升级单个包
 pip install -r requirements.txt
 pip install 'ipython>=5,<6'         # 安装 大于5且小于6 的版本
+pip install --user                  # 在用户目录下安装(非虚拟环境)
 
 pip list --outdated                 # 查看需要升级的包
 pip list -o
@@ -27,6 +28,8 @@ pip install pip-review              # 升级所有包
 pip-review --local --interactive
 
 pip freeze | grep -i -E 'foo|bar'   # 过滤生成(or), 忽略大小写
+
+pip completion --zsh              # 自动补全代码, 复制到.zshrc
 ```
 
 ### windows升级package
