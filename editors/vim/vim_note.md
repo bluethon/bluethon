@@ -11,6 +11,10 @@ doc site
 Tips
 ----
 
+### 默认color(theme)路径(path)
+
+    /usr/share/vim/vim74/colors
+
 ### 获取键盘映射时的internal code
 
     # insert mode

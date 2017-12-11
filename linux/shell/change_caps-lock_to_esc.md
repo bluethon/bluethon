@@ -1,6 +1,18 @@
 将Caps Lock改为Esc键
 ===================
 
+For Gnome(17.10 or later)
+------------------
+
+> https://askubuntu.com/a/969066/537695
+
+    sudo apt install gnome-tweak-tool
+
+Keyboard & Mouse -> Additional Layout Options -> Caps Lock key behavior
+
+For Unity(before 17.10)
+------------------
+
 - touch .Xmodmap
 
 - add
@@ -17,6 +29,3 @@ keycode 66 = Escape
 > - [xev 提供按键代码](http://askubuntu.com/a/23493/537695)
 > - [xmodmap设置参考](http://askubuntu.com/a/670033/537695)
 > - [参考(win & linux)](http://mingxinglai.com/cn/2013/05/change-capslock-to-esc/)
-
-
-
