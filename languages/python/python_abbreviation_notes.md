@@ -22,6 +22,7 @@
     &nbsp;      Non-Breaking Space                      不间断空格
     codec       coder & decoder                         编解码器
     xhr         XMLHttpRequest
+    PIN         Personal Identification Number
 
 ## 名词解释
 

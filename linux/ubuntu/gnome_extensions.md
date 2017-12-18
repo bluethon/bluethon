@@ -1,6 +1,12 @@
 Gnome Extension
 ===============
 
+### clock format
+
+    %Oa / %F / %T
+
+[Clock override](https://extensions.gnome.org/extension/1206/clock-override/)
+
 ### 托盘图标(坚果云等)
 
 [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)

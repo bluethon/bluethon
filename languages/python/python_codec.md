@@ -25,7 +25,4 @@ sys.getdefaultencoding()        # 'utf-8'
 u'中'                                # u'\u4e2d'
 s = '\u4e2d'
 print s.decode('unicode_escape')    # 中
-
-gg
-
 ```
