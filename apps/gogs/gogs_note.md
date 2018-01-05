@@ -25,6 +25,19 @@ bug
 
     sudo systemctl enable gogs      # 开机启动
 
+Note
+----
+
+### custom configuration
+
+默认的自定义`custom/conf/app.ini`在`/opt/gogs/`
+
+`GOGS_CUSTOM`决定自定义目录位置
+
+package.io打包版本位置如下
+
+    vim /etc/gogs/config/app.ini
+
 ### web hook
 
 - 推送地址由webserver那边定
