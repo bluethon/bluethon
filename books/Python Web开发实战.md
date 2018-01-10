@@ -131,3 +131,4 @@ app = Flask(__name__, static_folder='/tmp')
 ### 即插视图
 
 - 标准视图继承自`flask.views.View`, 必须实现`dispatch_request`(app_view.py)
+- 调度方法视图(API), 可使用`MethodView`的`decorators`属性添加装饰器, 做登录验证等
