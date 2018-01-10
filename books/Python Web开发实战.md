@@ -102,3 +102,32 @@ from flask import redirect
 redirect(location)  # 默认302
 redirect(location, code=301)    # 指定状态码
 ```
+
+### 响应(response)
+
+视图函数的返回值会被自动转换为一个响应对象, **部分**逻辑如下:
+
+- 如果返回的是一个字符串, 会用字符串数据和默认参数创建以字符串为主体, 状态码为200, MIME类型是`text/html的`werkzeug.wrappers.Response`响应对象
+- 可以直接指定状态字符串('201 CREATED1'), 替代数字的201
+
+``` python
+return {'headers': [1, 2, 3]}, 201, [('X-Request-Id', '100')]
+return {'headers': [1, 2, 3]}, '201 CREATED1', [('X-Request-Id', '100')]
+```
+
+### 静态文件管理(static)
+
+- 推荐使用Ngnix等管理静态文件
+- 使用`url_for`生成路径
+- 也可以定制静态文件的真实目录
+
+``` python
+url_for('static', filename='static')    # "/static/style.css"
+
+# 访问`http://localhost:9000/static/style.css`, 即访问`/tmp/style.css`文件
+app = Flask(__name__, static_folder='/tmp')
+```
+
+### 即插视图
+
+- 标准视图继承自`flask.views.View`, 必须实现`dispatch_request`(app_view.py)

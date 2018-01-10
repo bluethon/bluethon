@@ -21,8 +21,10 @@
     MIME        Multipurpose Internet Mail Extension    多目标因特网邮件扩展
     &nbsp;      Non-Breaking Space                      不间断空格
     codec       coder & decoder                         编解码器
+
     xhr         XMLHttpRequest
     PIN         Personal Identification Number
+    rv          Return Value
 
 ## 名词解释
 
