@@ -35,16 +35,19 @@ sudo apt-get -y install docker-ce
 sudo usermod -aG docker $USER
 ```
 
-### 清华(旧版本)
+### 清华(已更新)
 
 ``` sh
 # docker本体
-# https://mirror.tuna.tsinghua.edu.cn/help/docker/
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-# 16.04 LTS
-echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+# https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/
+curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 sudo apt-get update
-sudo apt-get install docker-engine
+sudo apt-get install docker-ce
 
 dockerhub镜像(中科大)
 -------------------
