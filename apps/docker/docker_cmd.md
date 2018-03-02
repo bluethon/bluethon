@@ -1,5 +1,5 @@
-docker
-------
+docker cmd
+----------
 
 ``` shell
 docker run --name web_dev -it -p 9000:9000
@@ -38,7 +38,32 @@ docker exec -it <container> bash        # 进入容器(退出后容器不停止)
 docker container rm <container>         # 删除容器
     -f                                  # 结束运行状态的容器(发送SIGKILL信号)
 docker container prune                  # 清除所有终止状态额容器
+
+docker build -t <name>[:<tag>] <path>   # 根据Dockerfile构建镜像
+            -t                          # tag
 ```
+
+Note
+----
+
+### RUN vs CMD
+
+> https://ibm.co/2BR8Yqr
+
+CMD和ENTRYPOINT推荐使用Exec格式, 因为指令可读性更强, 更易理解  
+RUN则两种都可以
+
+Shell格式
+
+- <instruction> <command>
+- 底层调用 /bin/sh -c <command>
+- 变量会被解析
+
+Exec格式
+
+- <instruction> ["executable", "param1", "param2", ...]
+- 直接调用<command>
+- 变量不会被解析
 
 ### docker-compose
 

@@ -18,6 +18,9 @@ git stash list                                      # 查看序号
 git stash pop/apply stash@{n}                       # 弹出/应用 n序号的stash
 
 git show <branch>:/path/to/file > foo               # [#1]获取其他分支的文件到foo
+
+git push origin :[branch2]                          # 删除远程分支
+git rm --cached <FILENAME>                          # untrack file
 ```
 
 [#1](https://stackoverflow.com/a/2364223/4757521)
