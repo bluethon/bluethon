@@ -13,6 +13,7 @@ bin(0x7f)                                           # 16hex to 2 bin
 datetime.date.today()                               # 今天    > datetime
 del lst[:]                                          # 清除列表, 且不成为空列表
 a = a or None                                       # 过滤''和None 为 None
+os.path.basename('path')                            # 获取文件(夹)名称
 ```
 
 Usage

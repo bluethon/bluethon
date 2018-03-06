@@ -5,7 +5,8 @@ QuickList
 ---------
 
 ``` shell
-fc-match <font>                                 # 按tab可以查看系统有哪些字体
+sudo systemctl list-units --type service    # 显示系统所有自启动服务
+fc-match <font>                             # 按tab可以查看系统有哪些字体
 exec $SHELL -l                              # 刷新Shell
 
 groups                                      # 查看用户组

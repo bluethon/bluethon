@@ -1,6 +1,13 @@
 FLask Code Note
 ===============
 
+cmd
+---
+
+``` python
+DATABASE_URI = 'sqlite://:memory:'
+```
+
 ### 上下文
 
 产生请求的上下文

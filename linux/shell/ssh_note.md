@@ -1,10 +1,22 @@
 SSH Notes
 =========
 
+CMD
+---
+
+``` sh
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@localhost
+ssh-copy-id -i ~/.ssh/id_rsa.pub <alias>
+```
+
 DEBUG
 -----
 
 ### ssh too many authentication failures
+
+> https://serverfault.com/a/580864/380738
+
+> [example](https://gist.github.com/rubo77/e01ac25450df5521d6fa)
 
 没有复制pubkey到server, 使用`ssh-copy-id`复制后修复
 
@@ -26,7 +38,14 @@ Usage
 
 2. 添加
 
-``` bash
+``` sh
+Host *
+    # local -> server1 -> server2
+    # 使用本地pk登录server2
+    ForwardAgent yes
+    # 仅使用设定的private key, 避免too many auth failure
+    IdentitiesOnly yes
+
 Host *.xxx.com
     IdentityFile ~/.ssh/id_rsa_xxx
     User [your username]
