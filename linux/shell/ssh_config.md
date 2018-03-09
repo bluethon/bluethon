@@ -1,5 +1,32 @@
-设置
-===
+Config
+======
+
+config
+------
+
+``` sh
+Host *
+  # allow local -> server1 -> server2
+  # use local private key to server 2
+  ForwardAgent yes
+  # avoid Too many authentication failures
+  # explicitly provided private key.
+  IdentitiesOnly yes
+
+Host github.com
+  HostName github.com
+  Port 22
+  # ProxyCommand=nc -X 5 -x localhost:1080 %h %p
+  User git
+  IdentityFile ~/.ssh/id_rsa_github
+
+  # PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa_bitbucket.pub
+
+```
+
+sshd config
+-----------
 
 ### 最大连接时间
 

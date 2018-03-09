@@ -6,14 +6,16 @@ Error
 
 ### Permission denied (publickey)
 
+Host必须是`github.com`, 否则匹配不到config, 可注意`-vT`顶部是否匹配
+
     # test
-    ssh -T git@github.com
     ssh -vT git@github.com
 
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa_xxx
     
     ssh-add -l
+    ssh-add -l -E md5
 
 常用
 ---
