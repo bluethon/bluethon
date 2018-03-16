@@ -10,6 +10,8 @@ docker run --name web_dev -it -p 9000:9000
                                         # image:tag
                                         # /bin/zsh, 登录的默认Shell
     -d                                  # daemon 后台运行
+    --rm                                # 一次性
+    bash                                # 启动shell
 docker start web_dev                    # 启动容器
 
 docker image ls                         # 显示镜像列表

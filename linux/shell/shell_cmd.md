@@ -5,10 +5,15 @@ QuickList
 ---------
 
 ``` shell
+man hier                                    # 介绍Linux文档结构
 sudo systemctl list-units --type service    # 显示系统所有自启动服务
 fc-match <font>                             # 按tab可以查看系统有哪些字体
+
+echo $0                                     # 当前
+echo $SHELL                                 # 默认
 exec $SHELL -l                              # 刷新Shell
 
+getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组
 groups $USER                                # 查看某用户的用户组
 $USER                                       # 当前用户
@@ -59,10 +64,6 @@ read -r -d '\n'     # 读取, 转义不生效, 读取结束符设为\n(默认)
 
 ### restart shell
 exec $SHELL
-
-### 执行git alias远程脚本
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/bluethon/bluethon/master/languages/shell/git-alias.sh)"
-curl -fsSL https://raw.githubusercontent.com/bluethon/bluethon/master/languages/shell/git-alias.sh | bash
 
 ### 当前文件夹 current directory
 CWD=$(dirname $(readlink -f $0))

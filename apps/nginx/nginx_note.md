@@ -1,6 +1,12 @@
 Nginx Note
 ===========
 
+cmd
+---
+
+    nginx -t        # 验证配置
+    nginx -s reload # 重新加载配置
+
 configuration
 -------------
 

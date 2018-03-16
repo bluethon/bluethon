@@ -19,6 +19,16 @@ os.path.basename('path')                            # 获取文件(夹)名称
 Usage
 -----
 
+### copy file
+
+> https://stackoverflow.com/a/123212/4757521
+
+``` python
+from shutil import copyfile
+
+copyfile(src, dst)
+```
+
 ### try import
 
 ``` python

@@ -24,6 +24,8 @@ deploy
 ### migrate
 
 ``` shell
+# old from 2018.3
+# new for flask db <cmd>
 # 创建迁移仓库, 本身不改动数据
 python manage.py db init
 python manage.py db migrate -m 'message'

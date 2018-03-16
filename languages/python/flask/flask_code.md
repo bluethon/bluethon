@@ -12,8 +12,16 @@ DATABASE_URI = 'sqlite://:memory:'
 
 产生请求的上下文
 
-    with app.test_request_context():
-        print(url_for('item', id='1'))
+``` python
+with app.test_request_context():
+    print(url_for('item', id='1'))
+
+# or
+ctx = app.test_request_context()
+ctx.push()
+# jsonify({})
+ctx.pop()
+```
 
 ### 配置代理
 
