@@ -1,0 +1,43 @@
+# 版本
+version: '2'
+
+services:
+  # 服务名
+  app:
+    # 启动后容器名称
+    container_name: 'app'
+    # 构建镜像
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # 构建的镜像名:Tag
+    image: app:dev
+    # 暴露的端口 主机:容器
+    ports:
+      - '9001:9000'
+    # 挂载目录 主机:容器
+    volumes:
+      - ./instance:/data/app/instance
+      - ./log:/data/app/log
+    links:
+      - mongo
+      - redis
+    depends_on:
+      - mongo
+      - redis
+    # 环境变量, 覆盖Dockerfile
+    environment:
+      - FLASK_CONFIG=development
+  mongo:
+    container_name: 'mongo'
+    image: mongo
+    ports:
+      - '27018:27017'
+    environment:
+      - MONGO_DATA_DIR=/data/db
+     # - MONGO_LOG_DIR=/
+  redis:
+    container_name: 'redis'
+    image: redis
+    ports:
+      - 6370:6379

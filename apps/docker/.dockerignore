@@ -1,0 +1,7 @@
+instance/
+venv/
+log/
+#__pycache__/
+
+.*
+*.log*
