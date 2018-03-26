@@ -20,6 +20,7 @@ $USER                                       # 当前用户
 
 uname -a                                    # kernal version
 lsb_release -a                              # 发行版信息
+lsb_release -cs                             # 版本名称 xenail#
 
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 cat /etc/X11/default-display-manager        # lightDM or gdm3

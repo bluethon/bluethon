@@ -21,6 +21,7 @@ docker images                           # 显示镜像列表(等价)
 docker --version                        # 显示版本
 docker inspect -f "{{ .NetworkSettings.IPAddress }}" <containerNameOrId>
                                         # 显示容器IP
+docker system df                        # 占用存储大小
 
 docker rm $(docker ps -a -q)            # 删除所有容器(remove all docker containers)
                                         # -a 列出所有, 默认只列出run的, -q 仅显示id
