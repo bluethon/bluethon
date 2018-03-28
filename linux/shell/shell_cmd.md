@@ -6,7 +6,11 @@ QuickList
 
 ``` shell
 man hier                                    # 介绍Linux文档结构
+tzselect                                    # 时区选择工具
+
 sudo systemctl list-units --type service    # 显示系统所有自启动服务
+sudo systemctl list-unit-files |grep nginx  # 显示nginx服务状态
+sudo systemctl enable/disable nginx.service # 开启/关闭自启动
 fc-match <font>                             # 按tab可以查看系统有哪些字体
 
 echo $0                                     # 当前
@@ -52,6 +56,9 @@ Usage
 -----
 
 ``` shell
+
+### 系统服务位置
+/etc/systemd/system/multi-user.target.wants
 
 ### 当前文件夹名
 # > <https://stackoverflow.com/a/1371283/4757521>

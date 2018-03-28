@@ -2,26 +2,35 @@ docker cmd
 ----------
 
 ``` shell
-docker run --name web_dev -it -p 9000:9000
-    -p 3141:3141 dongweiming/web_develop:dev /bin/zsh
-                                        # --name, 指定容器名称, 默认随机
-                                        # -it, i：交互，t：tty
-                                        # -p, 显式暴露特定端口
+docker run --name web_dev -it -p 9000:9000 -p 3141:3141
+    -e TZ=Asia/Shanghai
+    dongweiming/web_develop:dev /bin/zsh
+    --name <con name>                   # 指定容器名称, 默认随机
+    -it                                 # i：交互，t：tty
+    -p <hostP>:<conPort>                # 显式暴露特定端口
                                         # image:tag
                                         # /bin/zsh, 登录的默认Shell
-    -d                                  # daemon 后台运行
+    -d                                  # detach 后台运行
+    -e <list>                           # 环境变量
     --rm                                # 一次性
     bash                                # 启动shell
+
+docker inspect --format '{{ .Id }}' <container name>
+                                        # 获得容器完整ID
+docker cp <conId>:/path/within/con /host/path/target
+                                        # 从容器内拷贝文件到主机上
 docker start web_dev                    # 启动容器
 
 docker image ls                         # 显示镜像列表
-docker image rm [option] <image1> [<image2> ...]    # 删除本地镜像
+docker image rm [option] <image1> [<image2> ...]
+                                        # 删除本地镜像
 
 docker images                           # 显示镜像列表(等价)
 docker --version                        # 显示版本
 docker inspect -f "{{ .NetworkSettings.IPAddress }}" <containerNameOrId>
                                         # 显示容器IP
 docker system df                        # 占用存储大小
+docker info                             # docker系统信息(可查看镜像地址)
 
 docker rm $(docker ps -a -q)            # 删除所有容器(remove all docker containers)
                                         # -a 列出所有, 默认只列出run的, -q 仅显示id
@@ -44,6 +53,10 @@ docker container prune                  # 清除所有终止状态额容器
 
 docker build -t <name>[:<tag>] <path>   # 根据Dockerfile构建镜像
             -t                          # tag
+            -f <file>                   # 指定Dockerfil
+
+docker network create <name>            # 创建网络
+docker network inspect <name>           # 查看网络内的信息, 主机IP等
 ```
 
 Note

@@ -7,6 +7,9 @@ cmd
     nginx -t        # 验证配置
     nginx -s reload # 重新加载配置
 
+    docker kill -s HUP <container name>     # 重载配置
+    docker restart <container name>         # 重启
+
 configuration
 -------------
 
