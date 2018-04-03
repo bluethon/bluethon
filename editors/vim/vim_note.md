@@ -11,6 +11,10 @@ doc site
 Tips
 ----
 
+### 官方教程
+
+    vimtutor zh_cn
+
 ### 默认color(theme)路径(path)
 
     /usr/share/vim/vim74/colors

@@ -3,22 +3,26 @@ docker cmd
 
 ``` shell
 docker run --name web_dev -it -p 9000:9000 -p 3141:3141
+    -v `pwd`/dist:/app/dist
     -e TZ=Asia/Shanghai
     dongweiming/web_develop:dev /bin/zsh
     --name <con name>                   # 指定容器名称, 默认随机
-    -it                                 # i：交互，t：tty
-    -p <hostP>:<conPort>                # 显式暴露特定端口
                                         # image:tag
                                         # /bin/zsh, 登录的默认Shell
     -d                                  # detach 后台运行
+    -it                                 # i：交互，t：tty
     -e <list>                           # 环境变量
+    -p <hostP>:<conPort>                # 显式暴露特定端口
+    -w /path/to/workdir                 # 设定默认目录
     --rm                                # 一次性
     bash                                # 启动shell
 
-docker inspect --format '{{ .Id }}' <container name>
-                                        # 获得容器完整ID
 docker cp <conId>:/path/within/con /host/path/target
                                         # 从容器内拷贝文件到主机上
+
+docker inspect --format '{{ .Id }}' <container name>
+                                        # 获得容器完整ID
+
 docker start web_dev                    # 启动容器
 
 docker image ls                         # 显示镜像列表
@@ -57,6 +61,8 @@ docker build -t <name>[:<tag>] <path>   # 根据Dockerfile构建镜像
 
 docker network create <name>            # 创建网络
 docker network inspect <name>           # 查看网络内的信息, 主机IP等
+
+docker save 
 ```
 
 Note

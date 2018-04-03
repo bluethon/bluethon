@@ -50,6 +50,8 @@ ln -s prefix_{old,new}_suffix               # 创建只修改括号的链接(new
 
 find /usr/ -name libproxychains.so.3        # 查找/usr/下 xx.so.3名字的文件
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+
+ls -la | vim -                              # 使用vim查看STDIN的内容
 ```
 
 Usage

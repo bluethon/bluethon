@@ -17,6 +17,8 @@ hotkey
     gUU     大写当前行
 
     # 删除
+    D       d$
+    C       c$
     dt<c>   删到c(不包含)    delete until <c>
     df<c>   删到c(包含)     delete find <c>
     di<c>   删除c内(不包含)
