@@ -28,6 +28,7 @@
 
 ## 名词解释
 
+    dangling        虚悬镜像(docker)
     metaclass       元类
     thumbnail       缩略图
     hover           悬停

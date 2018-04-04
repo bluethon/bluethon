@@ -7,6 +7,7 @@ CMD
 ``` sh
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@localhost
 ssh-copy-id -i ~/.ssh/id_rsa.pub <alias>
+ssh -G <hostname> | awk '/^hostname / { print $2 }'     # 显示host ip
 ```
 
 DEBUG

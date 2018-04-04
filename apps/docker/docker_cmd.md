@@ -17,36 +17,38 @@ docker run --name web_dev -it -p 9000:9000 -p 3141:3141
     --rm                                # 一次性
     bash                                # 启动shell
 
+docker pull dongweiming/web_develop:dev # 下载dwm的web_develop镜像, Tag是dev
+docker start web_dev                    # 启动容器
+docker system df                        # 占用存储大小
+docker info                             # docker系统信息(可查看镜像地址)
+docker logs <container>                 # 查看容器输出(run -d后台运行时)
+docker ps [-a]                          # 查看容器状态
+docker stop $(docker ps -f label=type=fe)
+                                        # 组合命令停止某容器
+
 docker cp <conId>:/path/within/con /host/path/target
                                         # 从容器内拷贝文件到主机上
 
-docker inspect --format '{{ .Id }}' <container name>
-                                        # 获得容器完整ID
-
-docker start web_dev                    # 启动容器
-
+docker images                           # 显示镜像列表(等价)
 docker image ls                         # 显示镜像列表
 docker image rm [option] <image1> [<image2> ...]
                                         # 删除本地镜像
+docker image prune                      # 删除dangling镜像(虚悬, <none>)
 
-docker images                           # 显示镜像列表(等价)
 docker --version                        # 显示版本
+docker stats                            # 容器整体运行状态
 docker inspect -f "{{ .NetworkSettings.IPAddress }}" <containerNameOrId>
                                         # 显示容器IP
-docker system df                        # 占用存储大小
-docker info                             # docker系统信息(可查看镜像地址)
+docker inspect --format '{{ .Id }}' <container name>
+                                        # 获得容器完整ID
 
 docker rm $(docker ps -a -q)            # 删除所有容器(remove all docker containers)
                                         # -a 列出所有, 默认只列出run的, -q 仅显示id
-
-docker pull dongweiming/web_develop:dev # 下载dwm的web_develop镜像, Tag是dev
 
 docker volume create <vol>              # 创建数据卷
 docker volume inspect <vol>             # 查看数据卷信息
 docker volume ls                        # 查看所有数据卷
 docker volume prune                     # 清除无主的数据卷
-
-docker logs <container>                 # 查看容器输出(run -d后台运行时)
 
 docker attach <container>               # 进入容器(退出后容器停止)
 docker exec -it <container> bash        # 进入容器(退出后容器不停止) 推荐
@@ -62,7 +64,7 @@ docker build -t <name>[:<tag>] <path>   # 根据Dockerfile构建镜像
 docker network create <name>            # 创建网络
 docker network inspect <name>           # 查看网络内的信息, 主机IP等
 
-docker save 
+docker save -o foo.tar <image:tag>      # 离线保存镜像为文件(丢失分层)
 ```
 
 Note
@@ -90,12 +92,8 @@ Exec格式
 ### docker-compose
 
 ``` shell
-# 启动
-docker-compose up
-# 后台启动(detached mode)
-docker-compose up -d
-# 查看
-docker-compose ps
-# 停止
-docker-compose down
+docker-compose up                       # 启动
+docker-compose up -d                    # 后台启动(detached mode)
+docker-compose ps                       # 查看
+docker-compose down                     # 停止
 ```

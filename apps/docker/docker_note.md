@@ -48,9 +48,18 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 sudo apt-get install docker-ce
+```
 
-dockerhub镜像(中科大)
+docker hub镜像
 -------------------
+
+### official
+
+``` shell
+echo "{\n  \"registry-mirrors\": [\"https://registry.docker-cn.com\"]\n}" | sudo tee /etc/docker/daemon.json && sudo systemctl restart docker.service
+```
+
+### 中科大
 
 ``` sh
 # https://lug.ustc.edu.cn/wiki/mirrors/help/docker
