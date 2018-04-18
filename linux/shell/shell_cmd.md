@@ -12,10 +12,12 @@ sudo systemctl list-units --type service    # 显示系统所有自启动服务
 sudo systemctl list-unit-files |grep nginx  # 显示nginx服务状态
 sudo systemctl enable/disable nginx.service # 开启/关闭自启动
 fc-match <font>                             # 按tab可以查看系统有哪些字体
+sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
 
 echo $0                                     # 当前
 echo $SHELL                                 # 默认
 exec $SHELL -l                              # 刷新Shell
+set -a && . ./<file> && set +a                 # 导入文件变量
 
 getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组
@@ -28,11 +30,13 @@ lsb_release -cs                             # 版本名称 xenail#
 
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 cat /etc/X11/default-display-manager        # lightDM or gdm3
+nproc                                       # CPU数量
 
 CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 currentdir=${PWD##*/}                       # 当前文件夹名
 
 sudo update-alternatives --config editor    # 更改默认编辑器 shell editor vim
+sudo update-alternatives --config java      # 更改默认java版本
 
 date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
 pw=$(( pw + 0 ))                            # 文本转数字(数据库拼接密码需数字)
@@ -52,6 +56,8 @@ find /usr/ -name libproxychains.so.3        # 查找/usr/下 xx.so.3名字的文
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
 
 ls -la | vim -                              # 使用vim查看STDIN的内容
+
+gzip < file > file.gz                       # 
 ```
 
 Usage

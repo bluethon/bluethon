@@ -16,10 +16,13 @@ pip
 ### cmd
 
 ``` bash
-pip install -U pip                  # 升级单个包
-pip install -r requirements.txt
-pip install 'ipython>=5,<6'         # 安装 大于5且小于6 的版本
-pip install --user                  # 在用户目录下安装(非虚拟环境)
+pip install
+            -U pip                              # 升级单个包
+            -i https://pypi.douban.com/simple   # 源
+            -r requirements.txt
+            'ipython>=5,<6'         # 安装 大于5且小于6 的版本
+            --user                  # 在用户目录下安装(非虚拟环境)
+            -I                      # ignore, force
 
 pip list --outdated                 # 查看需要升级的包
 pip list -o

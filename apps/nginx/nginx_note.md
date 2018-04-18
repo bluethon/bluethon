@@ -17,6 +17,21 @@ configuration
     # Nginx: 413 Request Entity Too Large Error and Solution
     client_max_body_size 2M;            # 单文件大小上限
 
+docker-compose
+--------------
+
+### debug
+
+> https://github.com/docker-library/docs/tree/master/nginx#running-nginx-in-debug-mode
+
+``` yml
+web:
+  image: nginx
+  volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  command: [nginx-debug, '-g', 'daemon off;']
+```
+
 nginx
 -----
 
@@ -67,7 +82,3 @@ sudo ln -s /etc/nginx/site-available/foo.com /etc/nginx/site-enable/foo.com
 
     sudo service nginx restart
     sudo nginx -s reload
-
-/etc/nginx/site-available/weixin.yokeneng.com
-
-location 部分

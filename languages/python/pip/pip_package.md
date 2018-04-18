@@ -21,6 +21,8 @@ requirements.txt自动管理工具(包含升级功能)
 
 > <https://github.com/jazzband/pip-tools>
 
+[Makefile配置](http://jamescooke.info/a-successful-pip-tools-workflow-for-managing-python-package-requirements.html)
+
 #### install
 
     pip install pip-tools

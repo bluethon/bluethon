@@ -34,13 +34,20 @@ docker image ls                         # 显示镜像列表
 docker image rm [option] <image1> [<image2> ...]
                                         # 删除本地镜像
 docker image prune                      # 删除dangling镜像(虚悬, <none>)
+docker rmi $(docker images | grep '^<none>' | awk '{print $3}')
+                                        # 删除<none>的镜像
 
 docker --version                        # 显示版本
-docker stats                            # 容器整体运行状态
+docker config
 docker inspect -f "{{ .NetworkSettings.IPAddress }}" <containerNameOrId>
                                         # 显示容器IP
 docker inspect --format '{{ .Id }}' <container name>
                                         # 获得容器完整ID
+docker inspect -f "{{ .RestartCount }}" <con-id>
+                                        # 容器重启次数
+docker inspect -f "{{ .State.StartedAt }}" <con-id>
+                                        # 上次重启时间
+docker stats                            # 容器整体运行状态
 
 docker rm $(docker ps -a -q)            # 删除所有容器(remove all docker containers)
                                         # -a 列出所有, 默认只列出run的, -q 仅显示id
@@ -65,6 +72,8 @@ docker network create <name>            # 创建网络
 docker network inspect <name>           # 查看网络内的信息, 主机IP等
 
 docker save -o foo.tar <image:tag>      # 离线保存镜像为文件(丢失分层)
+docker save <image:tag> | gzip > f.tgz  # 导出为压缩包
+gzip -dk f.tgz | docker load            # 导入压缩包
 ```
 
 Note

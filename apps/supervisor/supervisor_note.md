@@ -9,6 +9,7 @@ Command
     update                  # 载入最新配置文件, 如果改动则重启
     reload                  # 载入最新配置文件, 全部重启
     restart [group]:\*      # 重启group的所有进程
+    tail foo stdout         # 查看日志
 
 Install
 -------

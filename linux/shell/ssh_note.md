@@ -13,6 +13,12 @@ ssh -G <hostname> | awk '/^hostname / { print $2 }'     # 显示host ip
 DEBUG
 -----
 
+### publickey auth fail
+
+出现过`/home/user/.ssh`目录权限不是755的情况
+
+    sudo vim /var/log/auth.log
+
 ### ssh too many authentication failures
 
 > https://serverfault.com/a/580864/380738

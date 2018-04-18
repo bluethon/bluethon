@@ -48,12 +48,12 @@ db.createUser({
     use test
 
 ``` js
-    db.createUser(
+db.createUser(
   {
     user: "gevin",
     pwd: "gevin",
     roles: [ { role: "readWrite", db: "test" },
              { role: "readWrite", db: "test2" } ]
   }
-)
+);
 ```

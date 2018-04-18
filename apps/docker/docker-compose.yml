@@ -15,6 +15,15 @@ services:
     # 暴露的端口 主机:容器
     ports:
       - '9001:9000'
+    # 重启
+    # no - 不重启, 默认
+    # on-failure[:max-retries] - 非0状态码退出时重启[尝试重启次数]
+    # always - 始终重启
+    # unless-stopped - 不管状态码始终重启, 除非之前已为停止状态
+    # 每次重启延迟为上次双倍, 默认100ms, 然后是200ms, 400ms
+    # 重启成功后delay重置为100ms
+    # 重启次数 docker inspect -f "{{ .RestartCount }}" <con-id>
+    restart: no
     # 挂载目录 主机:容器
     volumes:
       - ./instance:/data/app/instance
