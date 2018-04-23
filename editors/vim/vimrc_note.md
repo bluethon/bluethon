@@ -1,11 +1,13 @@
 vimrc Note
 ==========
 
-CMD
----
+.vimrc
+------
 
-``` vimrc
-colorscheme molokai                 # 设置主题(k-vim也可)
+```
+colorscheme molokai                 " 设置主题(k-vim也可)
+autocmd FileType yaml set tabstop=2 shiftwidth=2 expandtab ai
+                                    " yml缩进
 ```
 
 Map
