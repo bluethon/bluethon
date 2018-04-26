@@ -16,7 +16,9 @@ cmd
     docker run --rm -v /home/blue/github/docker-compose/mongo/dump/:/backup mongo bash -c 'mongorestore /backup --uri mongodb://xiaoyu:heheda@localhost:27017/railway_map?authSource=railway_map --gzip'
     mongorestore -v --gzip -d railway_map -u xiaoyu -p heheda
 
-``` mongo
+``` js
+db.system.users.find().pretty();                // 查看所有用户
+
 db.createUser({ 
     user: 'admin', 
     pwd: '123', 
@@ -30,7 +32,7 @@ db.createUser(
     pwd: "heheda",
     roles: [ { role: "readWrite", db: "railway_map" }]
   }
-)
+);
 ```
 
 install
