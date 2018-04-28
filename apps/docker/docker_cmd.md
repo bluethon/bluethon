@@ -31,10 +31,14 @@ docker cp <conId>:/path/within/con /host/path/target
 
 docker images                           # 显示镜像列表(等价)
 docker image ls                         # 显示镜像列表
+docker images --filter "dangling=true" -q --no-trunc
+docker images -f "dangling=true" -q --no-trunc
+                                        # 过滤虚悬镜像
 docker image rm [option] <image1> [<image2> ...]
                                         # 删除本地镜像
 docker image prune                      # 删除dangling镜像(虚悬, <none>)
 docker rmi $(docker images | grep '^<none>' | awk '{print $3}')
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
                                         # 删除<none>的镜像
 
 docker --version                        # 显示版本
