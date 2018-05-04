@@ -11,6 +11,8 @@ tzselect                                    # 时区选择工具
 sudo systemctl list-units --type service    # 显示系统所有自启动服务
 sudo systemctl list-unit-files |grep nginx  # 显示nginx服务状态
 sudo systemctl enable/disable nginx.service # 开启/关闭自启动
+sudo systemctl daemon-reload                # 重载配置文件
+sudo systemctl restart httpd.service        # 重启(更改文件后, 先重载)
 fc-match <font>                             # 按tab可以查看系统有哪些字体
 sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
 
@@ -27,6 +29,8 @@ $USER                                       # 当前用户
 uname -a                                    # kernal version
 lsb_release -a                              # 发行版信息
 lsb_release -cs                             # 版本名称 xenail#
+sudo hostnamectl set-hostname rhel7         # 设置主机名
+sudo localectl set-locale LANG=en_GB.utf8 # 设置本地化参数
 
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 cat /etc/X11/default-display-manager        # lightDM or gdm3

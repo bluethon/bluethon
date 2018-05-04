@@ -31,6 +31,10 @@ xwininfo
 -----
 
 ``` bash
+uget                                # 下载(./apps)
+
+# 截图
+shutter
 
 # 开机启动小键盘
 # 加入开机启动: numlockx on
