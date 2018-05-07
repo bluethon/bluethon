@@ -1,6 +1,17 @@
 错误笔记
 =======
 
+Makefile
+--------
+
+### makefile:2: *** missing separator. Stop
+
+Makefile只能用tab, 不能使用4个space
+
+> https://stackoverflow.com/a/16945143/4757521
+
+    cat -e -t -v  makefile_name
+
 supervisor
 ----------
 
@@ -29,6 +40,12 @@ ssh
 
 ubuntu
 ------
+
+### Failed to connect to bus: No such file or directory
+
+> https://askubuntu.com/a/999123/537695
+
+    sudo apt install --reinstall dbus
 
 ### Python locale error: unsupported locale setting
 
