@@ -7,6 +7,8 @@ QuickList
 ``` shell
 man hier                                    # 介绍Linux文档结构
 tzselect                                    # 时区选择工具
+sudo update-alternatives --config editor    # 更改默认编辑器 editor vim
+sudo update-alternatives --config java      # 更改默认java版本
 
 sudo systemctl list-units --type service    # 显示系统所有自启动服务
 sudo systemctl list-unit-files |grep nginx  # 显示nginx服务状态
@@ -19,7 +21,7 @@ sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
 echo $0                                     # 当前
 echo $SHELL                                 # 默认
 exec $SHELL -l                              # 刷新Shell
-set -a && . ./<file> && set +a                 # 导入文件变量
+set -a && . ./<file> && set +a              # 导入文件变量
 
 getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组
@@ -30,17 +32,15 @@ uname -a                                    # kernal version
 lsb_release -a                              # 发行版信息
 lsb_release -cs                             # 版本名称 xenail#
 sudo hostnamectl set-hostname rhel7         # 设置主机名
-sudo localectl set-locale LANG=en_GB.utf8 # 设置本地化参数
+sudo localectl set-locale LANG=en_GB.utf8   # 设置本地化参数
 
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 cat /etc/X11/default-display-manager        # lightDM or gdm3
 nproc                                       # CPU数量
 
 CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
-currentdir=${PWD##*/}                       # 当前文件夹名
 
-sudo update-alternatives --config editor    # 更改默认编辑器 shell editor vim
-sudo update-alternatives --config java      # 更改默认java版本
+currentdir=${PWD##*/}                       # 当前文件夹名
 
 date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
 pw=$(( pw + 0 ))                            # 文本转数字(数据库拼接密码需数字)
@@ -52,7 +52,7 @@ export DEBUG=false                          # 设置环境变量
 unset DEBUG                                 # 清除
 
 pidof fcitx | xargs kill                    # 结束程序
-lsof -ti:8000 |xargs kill                   # 根据端口占用结束程序
+lsof -ti :8000 |xargs kill                  # 根据端口占用结束程序
 
 ln -s prefix_{old,new}_suffix               # 创建只修改括号的链接(new -> old)
 
@@ -61,7 +61,7 @@ echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial mai
 
 ls -la | vim -                              # 使用vim查看STDIN的内容
 
-gzip < file > file.gz                       # 
+gzip < file > file.gz                       #
 ```
 
 Usage
@@ -77,10 +77,12 @@ Usage
 currentdir=${PWD##*/}
 echo "${PWD##*/}"
 
-### ssh登录后sudo不输入密码
+### ssh登录后sudo不输入密码(no password)
 sudo visudo
 # last of the file, add below
 <username>  ALL=(ALL:ALL) NOPASSWD: ALL
+# restart
+sudo systemctl restart sudo.service
 
 ### read
 read -r -d '\n'     # 读取, 转义不生效, 读取结束符设为\n(默认)

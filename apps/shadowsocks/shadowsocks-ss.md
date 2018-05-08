@@ -67,6 +67,7 @@ sudo systemctl enable shadowsocks-libev-local.service
 old(decrepit)
 ---
 
+``` shell
 #!/bin/bash
 sudo apt install python-pip
 pip install shadowsocks

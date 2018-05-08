@@ -4,10 +4,6 @@ Crontab Notes
 Usage
 -----
 
-### change editor to vim
-
-    select-editor
-
 ### 查看
 
     crontab -u user1 -l
