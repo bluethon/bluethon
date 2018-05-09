@@ -60,6 +60,8 @@ find /usr/ -name libproxychains.so.3        # 查找/usr/下 xx.so.3名字的文
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
 
 ls -la | vim -                              # 使用vim查看STDIN的内容
+sed -n -e 5p <file>                         # 查看第5行
+sed -n 5,8p <file>                          # 查看5-8行
 
 gzip < file > file.gz                       #
 ```

@@ -4,8 +4,10 @@ Nginx Note
 cmd
 ---
 
-    nginx -t        # 验证配置
-    nginx -s reload # 重新加载配置
+    nginx -t                                # 验证配置
+          -T                                # 验证并输出
+          -c nginx.conf -t                  # 指定文件验证
+          -s reload                         # 重新加载配置
 
     docker kill -s HUP <container name>     # 重载配置
     docker restart <container name>         # 重启
@@ -24,12 +26,22 @@ docker-compose
 
 > https://github.com/docker-library/docs/tree/master/nginx#running-nginx-in-debug-mode
 
-``` yml
+``` yaml
 web:
   image: nginx
   volumes:
     - ./nginx.conf:/etc/nginx/nginx.conf:ro
   command: [nginx-debug, '-g', 'daemon off;']
+
+  # 读取环境变量
+  environment:
+      ENV_FOO: ENV_FOO
+      ENV_BAR: ENV_BAR
+  command: >
+    sh -c "envsubst \"`env | awk -F = '{printf \" $$%s\", $$1}'`\"
+    < /etc/nginx/conf.d/web.template
+    > /etc/nginx/conf.d/default.conf &&
+    nginx -g 'daemon off;'"
 ```
 
 nginx
@@ -37,7 +49,7 @@ nginx
 
 ### http配置
 
-``` sh
+``` conf
 server {
     listen 80;
     listen 443 ssl;
