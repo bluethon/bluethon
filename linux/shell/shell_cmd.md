@@ -20,7 +20,7 @@ sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
 
 echo $0                                     # 当前
 echo $SHELL                                 # 默认
-exec $SHELL -l                              # 刷新Shell
+exec $SHELL                                 # 刷新Shell
 set -a && . ./<file> && set +a              # 导入文件变量
 
 getent group | cut -d: -f1                  # 显示所有组(仅组名)
@@ -64,6 +64,9 @@ sed -n -e 5p <file>                         # 查看第5行
 sed -n 5,8p <file>                          # 查看5-8行
 
 gzip < file > file.gz                       #
+
+if [ ! -z "$var1" ]                         # variable not empty
+if [[ ! -z $var1 ]]
 ```
 
 Usage
@@ -89,12 +92,8 @@ sudo systemctl restart sudo.service
 ### read
 read -r -d '\n'     # 读取, 转义不生效, 读取结束符设为\n(默认)
 
-### restart shell
-exec $SHELL
-
 ### 当前文件夹 current directory
 CWD=$(dirname $(readlink -f $0))
-
 
 ### 试试查看文件末尾
 less +F ...

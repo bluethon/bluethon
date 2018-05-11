@@ -28,6 +28,32 @@ Host github.com
 sshd config
 -----------
 
+### 多 Github deploy keys
+
+> https://www.justinsilver.com/technology/github-multiple-repository-ssh-deploy-keys/
+
+
+``` shell
+# create
+ssh-keygen -t rsa -f ~/.ssh/id_rsa_repo1 -C https://github.com/username/foo
+# test key
+ssh -i /home/username/.ssh/id_rsa_repo1 git@github.com
+```
+
+**alias host**
+
+``` config
+Host repo1 github.com
+  Hostname github.com
+  IdentityFile /home/username/.ssh/id_rsa_repo1
+
+Host repo2 github.com
+  Hostname github.com
+  IdentityFile /home/username/.ssh/id_rsa_repo2
+```
+
+    git clone git@repo1:username/repo1.git
+
 ### 最大连接时间
 
     sudo vim /etc/ssh/sshd_config
