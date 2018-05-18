@@ -8,7 +8,15 @@ CMD
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@localhost
 ssh-copy-id -i ~/.ssh/id_rsa.pub <alias>
 ssh -G <hostname> | awk '/^hostname / { print $2 }'     # 显示host ip
+
+ssh -R :15000:localhost:5000 ptdv       # 远程ptdv:15000转发到本地5000
+    -R                                  # 远程转发模式
+    -f                                  # 后台运行
+    -NT                                 # N, 仅连接, 不打开shell
+                                        # T, 不分配TTY
 ```
+
+> [教程](http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html)
 
 DEBUG
 -----
