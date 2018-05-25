@@ -56,7 +56,7 @@ docker hub镜像
 ### official
 
 ``` shell
-echo "{\n  \"registry-mirrors\": [\"https://registry.docker-cn.com\"]\n}" | sudo tee /etc/docker/daemon.json && sudo systemctl restart docker.service
+echo -e "{\n  \"registry-mirrors\": [\"https://registry.docker-cn.com\"]\n}" | sudo tee /etc/docker/daemon.json && sudo systemctl restart docker.service
 ```
 
 ### 中科大

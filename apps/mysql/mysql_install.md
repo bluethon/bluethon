@@ -5,7 +5,9 @@ Init
 ----
 
 ``` sql
+# 创建用户
 CREATE USER 'newuser'@'%' IDENTIFIED BY 'password';
+# 赋权(未来此命令不可直接创建用户了)
 GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'%';
 FLUSH PRIVILEGES;
 ```

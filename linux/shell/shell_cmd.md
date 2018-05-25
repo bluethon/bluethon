@@ -30,7 +30,9 @@ $USER                                       # 当前用户
 
 uname -a                                    # kernal version
 lsb_release -a                              # 发行版信息
-lsb_release -cs                             # 版本名称 xenail#
+lsb_release -cs                             # 版本名称 xenail
+ip r                                        # ip信息
+ip route
 sudo hostnamectl set-hostname rhel7         # 设置主机名
 sudo localectl set-locale LANG=en_GB.utf8   # 设置本地化参数
 
@@ -43,7 +45,7 @@ CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 currentdir=${PWD##*/}                       # 当前文件夹名
 
 date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
-pw=$(( pw + 0 ))                            # 文本转数字(数据库拼接密码需数字)
+pw=$[ pw + 0 ]                              # 文本转数字(数据库拼接密码需数字)
 ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序
 stat foo.txt                                # 查看文件详细信息
 echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
@@ -63,7 +65,7 @@ ls -la | vim -                              # 使用vim查看STDIN的内容
 sed -n -e 5p <file>                         # 查看第5行
 sed -n 5,8p <file>                          # 查看5-8行
 
-gzip < file > file.gz                       #
+gzip < file > file.gz                       # 压缩文件
 
 if [ ! -z "$var1" ]                         # variable not empty
 if [[ ! -z $var1 ]]

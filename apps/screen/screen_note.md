@@ -6,6 +6,7 @@ process background
 ``` shell
 screen                      # first
 netease-cloud-music %U      # run
+# C+a & C+d
 screen -ls                  # list
 screen -r foo               # attach
 ```
