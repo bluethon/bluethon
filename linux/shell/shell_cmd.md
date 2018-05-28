@@ -4,6 +4,15 @@ Shell Commands
 QuickList
 ---------
 
+``` sh
+# 配色是=号左右没有空格导致的
+CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
+pw=$[ pw + 0 ]                              # 文本转数字(数据库拼接密码需数字)
+export DEBUG=false                          # 设置环境变量
+unset DEBUG                                 # 清除
+
+```
+
 ``` shell
 man hier                                    # 介绍Linux文档结构
 tzselect                                    # 时区选择工具
@@ -40,18 +49,14 @@ echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类�
 cat /etc/X11/default-display-manager        # lightDM or gdm3
 nproc                                       # CPU数量
 
-CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 
-currentdir=${PWD##*/}                       # 当前文件夹名
+${PWD##*/}                                  # 当前文件夹名(PWD, Bash内置变量)
 
 date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
-pw=$[ pw + 0 ]                              # 文本转数字(数据库拼接密码需数字)
 ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序
 stat foo.txt                                # 查看文件详细信息
 echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
 
-export DEBUG=false                          # 设置环境变量
-unset DEBUG                                 # 清除
 
 pidof fcitx | xargs kill                    # 结束程序
 lsof -ti :8000 |xargs kill                  # 根据端口占用结束程序
@@ -64,11 +69,16 @@ echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial mai
 ls -la | vim -                              # 使用vim查看STDIN的内容
 sed -n -e 5p <file>                         # 查看第5行
 sed -n 5,8p <file>                          # 查看5-8行
+sed -i -- 's/foo/bar' <file>                # 修改内容
 
 gzip < file > file.gz                       # 压缩文件
 
 if [ ! -z "$var1" ]                         # variable not empty
 if [[ ! -z $var1 ]]
+
+cp -rp foo bar                              # 复制 保留权限
+   -p                                       # same as --preserve=mode,ownership,timestamps
+   -P                                       # 保留软链接 symbolic links
 ```
 
 Usage
@@ -76,8 +86,14 @@ Usage
 
 ``` shell
 
-### 系统服务位置
+### PATH
+# 系统服务位置
 /etc/systemd/system/multi-user.target.wants
+# pdf 默认
+~/.config/mimeapps.list
+
+# 替换文件内容
+# > https://unix.stackexchange.com/questions/112023/how-can-i-replace-a-string-in-a-files
 
 ### 当前文件夹名
 # > <https://stackoverflow.com/a/1371283/4757521>
@@ -110,10 +126,6 @@ tar -cvf name dir1 --exclude dir2
 du -sh .
 du -sh *    #list all files
 
-### copy keep own perrmission 复制 移动 保留权限
-# -p     same as --preserve=mode,ownership,timestamps
-cp -rp foo bar
-
 ### change shell
 sudo chsh username -s /bin/zsh
 
@@ -144,7 +156,6 @@ sudo netstat -ano | grep 8118
 # 添加源时使用
 lsb_release -cs
 echo $(lsb_release -cs) > foo.txt
-
 
 ### I/O写入文件 支持sudo tee
 # -a  add 追加
