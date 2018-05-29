@@ -26,6 +26,7 @@ sudo systemctl daemon-reload                # 重载配置文件
 sudo systemctl restart httpd.service        # 重启(更改文件后, 先重载)
 fc-match <font>                             # 按tab可以查看系统有哪些字体
 sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
+tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
 
 echo $0                                     # 当前
 echo $SHELL                                 # 默认
@@ -91,6 +92,12 @@ Usage
 /etc/systemd/system/multi-user.target.wants
 # pdf 默认
 ~/.config/mimeapps.list
+
+## double dash (--), 用来区分参数和正则表达式
+# > https://unix.stackexchange.com/a/11382/181922
+
+# 查看进程输出
+# > https://unix.stackexchange.com/a/308666/181922
 
 # 替换文件内容
 # > https://unix.stackexchange.com/questions/112023/how-can-i-replace-a-string-in-a-files

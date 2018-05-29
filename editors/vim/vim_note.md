@@ -6,6 +6,8 @@ doc site
 
 <http://vim.wikia.com/wiki/Vim_Tips_Wiki>
 
+[SpaceVim](https://github.com/SpaceVim/SpaceVim)
+
 ---
 
 Tips

@@ -77,7 +77,8 @@ docker network inspect <name>           # 查看网络内的信息, 主机IP等
 
 docker save -o foo.tar <image:tag>      # 离线保存镜像为文件(丢失分层)
 docker save <image:tag> | gzip > f.tgz  # 导出为压缩包
-gzip -dk f.tgz | docker load            # 导入压缩包
+docker load -i f.tgz                    # 导入压缩包
+# 测试有问题 gzip -dk f.tgz | docker load            # 导入压缩包
 ```
 
 Note
