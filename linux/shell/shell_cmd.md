@@ -32,6 +32,7 @@ echo $0                                     # 当前
 echo $SHELL                                 # 默认
 exec $SHELL                                 # 刷新Shell
 set -a && . ./<file> && set +a              # 导入文件变量
+export $(grep -v '^#' .env | xargs -d '\n') # 
 
 getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组

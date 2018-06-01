@@ -10,6 +10,7 @@ list
     flask-debugtoolbar  # flask web测试工具
     jsonpickle          # json格式化工具
     inflection          # 驼峰转下划线, 单复数(pluralize)
+    tqdm                # 进度条工具
 
 ### pipdeptree
 

@@ -25,6 +25,9 @@ docker logs <container>                 # 查看容器输出(run -d后台运行�
 docker ps [-a]                          # 查看容器状态
 docker stop $(docker ps -f label=type=fe)
                                         # 组合命令停止某容器
+docker stop $(docker ps -a -q)          # 停止所有容器 
+docker rm $(docker ps -a -q)            # 删除所有容器(remove all docker containers)
+                                        # -a 列出所有, 默认只列出run的, -q 仅显示id
 
 docker cp <conId>:/path/within/con /host/path/target
                                         # 从容器内拷贝文件到主机上
@@ -43,6 +46,7 @@ docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 
 docker --version                        # 显示版本
 docker config
+docker stats                            # 容器整体运行状态
 docker inspect -f "{{ .NetworkSettings.IPAddress }}" <containerNameOrId>
                                         # 显示容器IP
 docker inspect --format '{{ .Id }}' <container name>
@@ -51,10 +55,13 @@ docker inspect -f "{{ .RestartCount }}" <con-id>
                                         # 容器重启次数
 docker inspect -f "{{ .State.StartedAt }}" <con-id>
                                         # 上次重启时间
-docker stats                            # 容器整体运行状态
-
-docker rm $(docker ps -a -q)            # 删除所有容器(remove all docker containers)
-                                        # -a 列出所有, 默认只列出run的, -q 仅显示id
+docker inspect -f \
+   '{{range $index, $value := .Config.Env}}{{$value}} {{end}}' container_name
+                                        # 打印环境变量(空格)
+docker inspect -f \
+    '{{range $index, $value := .Config.Env}}{{println $value}}{{end}}' \
+    container_name
+                                        # 打印环境变量(多行)
 
 docker volume create <vol>              # 创建数据卷
 docker volume inspect <vol>             # 查看数据卷信息
@@ -78,7 +85,6 @@ docker network inspect <name>           # 查看网络内的信息, 主机IP等
 docker save -o foo.tar <image:tag>      # 离线保存镜像为文件(丢失分层)
 docker save <image:tag> | gzip > f.tgz  # 导出为压缩包
 docker load -i f.tgz                    # 导入压缩包
-# 测试有问题 gzip -dk f.tgz | docker load            # 导入压缩包
 ```
 
 Note

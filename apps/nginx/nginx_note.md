@@ -49,11 +49,21 @@ nginx
 
 ### http配置
 
-``` conf
+``` nginx
 server {
     listen 80;
     listen 443 ssl;
     server_name domain_or_addr;
+
+    # 404 定位到 /
+    error_page 404 /;
+
+    # = 精确匹配, 加速
+    location = / { 
+        index index.html;
+    }
+
+    # 最后匹配(无视位置) /
     location / {
         proxy_pass http://localhost:8000;
     }
@@ -64,7 +74,7 @@ server {
 
 sudo vim /etc/nginx/site-available/foo.com
 
-``` conf
+``` nginx
 upstream foo {
     # 使用文件socket
     server unix:///tmp/foo.sock;
