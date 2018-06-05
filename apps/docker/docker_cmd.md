@@ -47,6 +47,8 @@ docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 docker --version                        # 显示版本
 docker config
 docker stats                            # 容器整体运行状态
+docker system prune                     # 系统清理
+
 docker inspect -f "{{ .NetworkSettings.IPAddress }}" <containerNameOrId>
                                         # 显示容器IP
 docker inspect --format '{{ .Id }}' <container name>

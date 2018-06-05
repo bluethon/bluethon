@@ -32,7 +32,8 @@ echo $0                                     # 当前
 echo $SHELL                                 # 默认
 exec $SHELL                                 # 刷新Shell
 set -a && . ./<file> && set +a              # 导入文件变量
-export $(grep -v '^#' .env | xargs -d '\n') # 
+export $(grep -v '^#' .env | xargs -d '\n') # 导入文件变量(推荐)
+RUN make; exit 0                            # 指定exit code (0=success)
 
 getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组
@@ -93,6 +94,8 @@ Usage
 /etc/systemd/system/multi-user.target.wants
 # pdf 默认
 ~/.config/mimeapps.list
+# alpine version 版本
+cat /etc/alpine-release
 
 ## double dash (--), 用来区分参数和正则表达式
 # > https://unix.stackexchange.com/a/11382/181922
