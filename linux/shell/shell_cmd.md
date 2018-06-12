@@ -4,15 +4,6 @@ Shell Commands
 QuickList
 ---------
 
-``` sh
-# 配色是=号左右没有空格导致的
-CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
-pw=$[ pw + 0 ]                              # 文本转数字(数据库拼接密码需数字)
-export DEBUG=false                          # 设置环境变量
-unset DEBUG                                 # 清除
-
-```
-
 ``` shell
 man hier                                    # 介绍Linux文档结构
 tzselect                                    # 时区选择工具
@@ -39,6 +30,7 @@ getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组
 groups $USER                                # 查看某用户的用户组
 $USER                                       # 当前用户
+setxkbmap -query | grep model               # 显示键盘布局
 
 uname -a                                    # kernal version
 lsb_release -a                              # 发行版信息
@@ -52,8 +44,11 @@ echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类�
 cat /etc/X11/default-display-manager        # lightDM or gdm3
 nproc                                       # CPU数量
 
-
+CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 ${PWD##*/}                                  # 当前文件夹名(PWD, Bash内置变量)
+pw=$[ pw + 0 ]                              # 文本转数字(数据库拼接密码需数字)
+export DEBUG=false                          # 设置环境变量
+unset DEBUG                                 # 清除
 
 date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
 ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序

@@ -58,34 +58,6 @@ sudo apt remove webbrowser-app
 
 [补全插件](https://github.com/zsh-users/zsh-autosuggestions)
 
-### ss
-
-1. 打开`/etc/rc.local`
-- 在`exit 0`前加入要执行的命令
-- `nohup /usr/local/bin/sslocal -c /home/blue/shell/shadowsocks.json &> /home/blue/shell/myss.log &`
-- 需要`sudo`, 需要写绝对路径
-
-### QQ
-
-- 下载
-[下载地址](http://www.ubuntukylin.com/applications/showimg.php?lang=cn&id=23)
-- 安装
-    - 在wine-qqintl目录下打开终端输入： `sudo dpkg -i fonts-wqy-microhei_0.2.0-beta-2_all.deb ttf-wqy-microhei_0.2.0-beta-2_all.deb wine-qqintl_0.1.3-2_i386.deb`
-    - 如果报依赖错误，输入： `sudo apt-get install -f`
-    - 自动解决依赖后再执行步骤1
-
-**new**
-
-> <https://www.sstype.com/read/317.html>
-
-- [wine直接安装](https://github.com/hillwoodroc/winetricks-zh)
-- [清风博客 一个qq正式版](http://phpcj.org/wineqq/)
-- [野狼博客](https://www.sstype.com/read/317.html)
-https://ubuntuforums.org/archive/index.php/t-865265.html
-
-sudo add-apt-repository ppa:wine/wine-builds
-
-
 ``` shell
 sudo dpkg --add-architecture i386
 sudo add-apt-repository ppa:wine/wine-builds
@@ -105,14 +77,9 @@ vim ~/.local/share/applications/wine/Programs/腾讯软件/QQ轻聊版/QQ轻聊�
 Exec=env LC_ALL=zh_CN.utf8 WINEPREFIX=/home/blue/.local/share/wineprefixes/qqlight wine "C:\Program Files (x86)\Tencent\QQLite\Bin\QQScLauncher.exe"
 ```
 
-### Chrome
+### compiz manager(软件商店)
 
-[sina下载地址](http://down.tech.sina.com.cn/page/43719.html)
-
-### Vim
-
-`wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh`
-
+关闭alt键(Desktop -> Ubuntu Unity Plugin -> General)
 
 其他
 ----
