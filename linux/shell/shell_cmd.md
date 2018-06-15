@@ -7,18 +7,6 @@ QuickList
 ``` shell
 man hier                                    # 介绍Linux文档结构
 tzselect                                    # 时区选择工具
-sudo update-alternatives --config editor    # 更改默认编辑器 editor vim
-sudo update-alternatives --config java      # 更改默认java版本
-
-sudo systemctl list-units --type service    # 显示系统所有自启动服务
-sudo systemctl list-unit-files |grep nginx  # 显示nginx服务状态
-sudo systemctl enable/disable nginx.service # 开启/关闭自启动
-sudo systemctl daemon-reload                # 重载配置文件
-sudo systemctl restart httpd.service        # 重启(更改文件后, 先重载)
-fc-match <font>                             # 按tab可以查看系统有哪些字体
-sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
-tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
-
 echo $0                                     # 当前
 echo $SHELL                                 # 默认
 exec $SHELL                                 # 刷新Shell
@@ -26,12 +14,23 @@ set -a && . ./<file> && set +a              # 导入文件变量
 export $(grep -v '^#' .env | xargs -d '\n') # 导入文件变量(推荐)
 RUN make; exit 0                            # 指定exit code (0=success)
 
+# system info
+echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
+cat /etc/X11/default-display-manager        # lightDM or gdm3
+nproc                                       # CPU数量
+sudo update-alternatives --config editor    # 更改默认编辑器 editor vim
+sudo update-alternatives --config java      # 更改默认java版本
+sudo systemctl list-units --type service    # 显示系统所有自启动服务
+sudo systemctl list-unit-files |grep nginx  # 显示nginx服务状态
+sudo systemctl enable/disable nginx.service # 开启/关闭自启动
+sudo systemctl daemon-reload                # 重载配置文件
+sudo systemctl restart httpd.service        # 重启(更改文件后, 先重载)
+fc-match <font>                             # 按tab可以查看系统有哪些字体
 getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组
 groups $USER                                # 查看某用户的用户组
 $USER                                       # 当前用户
 setxkbmap -query | grep model               # 显示键盘布局
-
 uname -a                                    # kernal version
 lsb_release -a                              # 发行版信息
 lsb_release -cs                             # 版本名称 xenail
@@ -40,43 +39,53 @@ ip route
 sudo hostnamectl set-hostname rhel7         # 设置主机名
 sudo localectl set-locale LANG=en_GB.utf8   # 设置本地化参数
 
-echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
-cat /etc/X11/default-display-manager        # lightDM or gdm3
-nproc                                       # CPU数量
+# time
+date                                        # 显示当前时间
+date +%s                                    # 显示timestamp
+date -d @<epoch>                            # 根据timestamp
+date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
+ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序
+time <script>                               # 脚本运行时间
 
+# text
+ls -la | vim -                              # 使用vim查看STDIN的内容
+sed -n -e 5p <file>                         # 查看第5行
+sed -n 5,8p <file>                          # 查看5-8行
+sed -i -- 's/foo/bar' <file>                # 修改内容
+sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
+tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
+cp -rp foo bar                              # 复制 保留权限
+   -p                                       # same as --preserve=mode,ownership,timestamps
+   -P                                       # 保留软链接 symbolic links
+
+# zip
+gzip < file > file.gz                       # 压缩文件
+
+# test value
+if [ ! -z "$var1" ]                         # variable not empty
+if [[ ! -z $var1 ]]
+
+# kill
+pidof fcitx | xargs kill                    # 结束程序
+lsof -ti :8000 |xargs kill                  # 根据端口占用结束程序
+
+# debug
+set -x                                      # 显示参数和命令
+    -v                                      # 显示输入
+    +x                                      # 关闭调试
+#!/bin/bash -xv                             # (同上)
+
+# other
+stat foo.txt                                # 查看文件详细信息
+echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
 CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 ${PWD##*/}                                  # 当前文件夹名(PWD, Bash内置变量)
 pw=$[ pw + 0 ]                              # 文本转数字(数据库拼接密码需数字)
 export DEBUG=false                          # 设置环境变量
 unset DEBUG                                 # 清除
-
-date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
-ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序
-stat foo.txt                                # 查看文件详细信息
-echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
-
-
-pidof fcitx | xargs kill                    # 结束程序
-lsof -ti :8000 |xargs kill                  # 根据端口占用结束程序
-
 ln -s prefix_{old,new}_suffix               # 创建只修改括号的链接(new -> old)
-
 find /usr/ -name libproxychains.so.3        # 查找/usr/下 xx.so.3名字的文件
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
-
-ls -la | vim -                              # 使用vim查看STDIN的内容
-sed -n -e 5p <file>                         # 查看第5行
-sed -n 5,8p <file>                          # 查看5-8行
-sed -i -- 's/foo/bar' <file>                # 修改内容
-
-gzip < file > file.gz                       # 压缩文件
-
-if [ ! -z "$var1" ]                         # variable not empty
-if [[ ! -z $var1 ]]
-
-cp -rp foo bar                              # 复制 保留权限
-   -p                                       # same as --preserve=mode,ownership,timestamps
-   -P                                       # 保留软链接 symbolic links
 ```
 
 Usage

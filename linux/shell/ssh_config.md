@@ -28,6 +28,14 @@ Host github.com
 sshd config
 -----------
 
+### 运行root登录
+
+    sudo vim /etc/ssh/sshd_config
+
+``` ssh
+PermitRootLogin yes
+```
+
 ### 多 Github deploy keys
 
 > https://www.justinsilver.com/technology/github-multiple-repository-ssh-deploy-keys/

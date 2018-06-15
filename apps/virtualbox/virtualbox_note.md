@@ -23,5 +23,5 @@ sudo VBoxControl guestproperty get /VirtualBox/GuestAdd/SharedFolders/MountPrefi
 sudo VBoxControl guestproperty set /VirtualBox/GuestAdd/SharedFolders/MountPrefix ""
 
 # 增加用户到组
-sudo adduser <user> vboxsf 
+sudo adduser <user> vboxsf
 ```
