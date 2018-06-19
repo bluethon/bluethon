@@ -1,7 +1,22 @@
 Linux Screen Note
 =================
 
-process background
+CMD
+---
+
+``` shell
+screen -ls                  # 查看所有session
+screen -S 10260.pts-21.blue-ThinkPad-T430s  -X quit
+                            #不登入, 结束
+screen -r
+```
+
+Key
+---
+
+    c+a c+a             # 循环切换
+
+### process background
 
 ``` shell
 screen                      # first

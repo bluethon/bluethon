@@ -26,6 +26,14 @@ DEBUG
 Note
 ----
 
+### 子进程
+
+``` sh
+    $()         # 方式1
+    ``          # 方式2
+    "$()"       # 保留空格和换行(\n)
+```
+
 ### 使用Mac的复制
 
 > <https://superuser.com/questions/385748/binding-superc-superv-to-copy-and-paste>
@@ -51,7 +59,7 @@ Note
     mkdir foo
     cd !$
 
-### 存储路径 cd 
+### 存储路径 cd
 
 ``` sh
 # 将目录加入stack
@@ -73,8 +81,8 @@ cd ~4
 
 > <http://unix.stackexchange.com/a/74186/181922>
 
-原理: 正则 查找`f`后为`oobar`的字符  
-所以结果`--color=auto [f]oobar`中`f`后为`]`, 不匹配 就过滤了  
+原理: 正则 查找`f`后为`oobar`的字符
+所以结果`--color=auto [f]oobar`中`f`后为`]`, 不匹配 就过滤了
 zsh如果执行不成功, 需要引号引起关键字部分
 
     ps -ef |grep '[f]oobar'

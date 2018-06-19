@@ -57,6 +57,7 @@ tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
 cp -rp foo bar                              # 复制 保留权限
    -p                                       # same as --preserve=mode,ownership,timestamps
    -P                                       # 保留软链接 symbolic links
+cat -n                                      # 行号
 
 # zip
 gzip < file > file.gz                       # 压缩文件
@@ -86,6 +87,7 @@ unset DEBUG                                 # 清除
 ln -s prefix_{old,new}_suffix               # 创建只修改括号的链接(new -> old)
 find /usr/ -name libproxychains.so.3        # 查找/usr/下 xx.so.3名字的文件
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+sudo su - <user>                            # 切换用户(无需输入<user>密码)
 ```
 
 Usage
