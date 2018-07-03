@@ -1,9 +1,16 @@
+Vim Hotkey Note
+===============
+
 hotkey
 ------
 
     # 特殊操作
     w !sudo tee %                           保存只读文件<http://www.geekyboy.com/archives/629>
     git config --gloabal core.editor vim    使用vim编辑文件
+
+    # vim surround
+    # https://github.com/tpope/vim-surround
+    ysiw"   增加双引号
 
     # 查找
     ggN     定位最后一个查找

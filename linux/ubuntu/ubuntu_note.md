@@ -19,7 +19,7 @@ Settings
     # /usr/share/applications/mimeinfo.cache
     # 默认文件
     # /usr/share/applications/mimeapps.list
-    
+
     # 当前用户版
     # ~/.local/share/applications/mimeapps.list
     # ~/.local/share/applications/mimeinfo.cache

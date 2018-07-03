@@ -46,6 +46,12 @@ date -d @<epoch>                            # 根据timestamp
 date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
 ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序
 time <script>                               # 脚本运行时间
+timedatectl status                          # 时间, 时区
+sudo timedatectl set-timezone Asia/Shanghai # 设置时区
+sudo dpkg-reconfigure tzdata                # 设置时区(图形界面)
+/etc/timezone                               # 当前时区
+/etc/localtime                              # 当前时区信息(binary)
+/usr/share/zoneinfo                         # 所有时区
 
 # text
 ls -la | vim -                              # 使用vim查看STDIN的内容
@@ -54,6 +60,12 @@ sed -n 5,8p <file>                          # 查看5-8行
 sed -i -- 's/foo/bar' <file>                # 修改内容
 sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
 tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
+     -n 1000                                # 末尾1000行
+less <file>                                 # 打开后按`F`, = tail -f
+     -N                                     # 显示行号
+     +GG                                    # 打开末尾
+                                            # p n%, 跳到`n%`处
+
 cp -rp foo bar                              # 复制 保留权限
    -p                                       # same as --preserve=mode,ownership,timestamps
    -P                                       # 保留软链接 symbolic links

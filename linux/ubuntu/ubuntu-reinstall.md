@@ -1,7 +1,12 @@
 重装步骤
 =======
 
-**ibus不能卸载!!! 与系统深度集成**
+package
+-------
+
+``` sh
+shellcheck                  # vscode shellcheck依赖
+```
 
 一键脚本
 --------
@@ -20,12 +25,6 @@ sudo apt-get install indicator-multiload
 sudo add-apt-repository ppa:peterlevi/ppa
 sudo apt-get update
 sudo apt-get install variety variety-slideshow
-
-# ipython 智能shell
-sudo apt install ipython3
-
-# 任务管理器
-sudo apt install htop
 
 # theme
 sudo add-apt-repository ppa:snwh/pulp

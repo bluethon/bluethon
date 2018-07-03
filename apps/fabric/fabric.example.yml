@@ -1,0 +1,24 @@
+hosts:
+#  - 'pt-2'
+#  - 'pt-3'
+  - &h 'pt-4'
+
+roles:
+#  nginx: *h
+  api: *h
+
+# normal
+#roles:
+#  nginx: 'pt-1'
+#  api: &api 'pt-2'
+#  mongo: 'pt-3'
+#  init: *api
+
+# 连接设定
+connect_kwargs:
+  password: ''
+  allow_agent: False
+
+# sudo密码
+sudo:
+  password: ''

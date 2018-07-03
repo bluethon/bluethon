@@ -140,6 +140,19 @@ Ctrl+y          # 往前滚动一行
 
 > <http://vim.wikia.com/wiki/Search_and_replace>
 
+### 粘贴复制内容到替换命令
+
+You can yank the hightlighted text first.
+Then
+
+- <kbd>/</kbd>
+
+- <kbd>Ctrl</kbd><kbd>r</kbd>
+
+- <kbd>"</kbd>
+
+Which will paste what you have yanked after the <kbd>/</kbd>.
+
 ### 替换可使用其他分隔符
 
 You can use other delimiters with substitute:
