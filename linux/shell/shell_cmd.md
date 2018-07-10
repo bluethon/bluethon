@@ -36,6 +36,7 @@ lsb_release -a                              # 发行版信息
 lsb_release -cs                             # 版本名称 xenail
 ip r                                        # ip信息
 ip route
+hostname -I                                 # ip, 更推荐
 sudo hostnamectl set-hostname rhel7         # 设置主机名
 sudo localectl set-locale LANG=en_GB.utf8   # 设置本地化参数
 
@@ -77,6 +78,7 @@ gzip < file > file.gz                       # 压缩文件
 # test value
 if [ ! -z "$var1" ]                         # variable not empty
 if [[ ! -z $var1 ]]
+if [ <var> = 'test' ]                       # <var> equal 'test'
 
 # kill
 pidof fcitx | xargs kill                    # 结束程序
