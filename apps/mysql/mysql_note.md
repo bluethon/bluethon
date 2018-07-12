@@ -1,8 +1,16 @@
 MySQL笔记
 =========
 
-Install
--------
+NOTE
+----
+
+### increase max_allowed_packet size in mysql docker
+
+    version: "3"
+    services:
+        data:
+            image: "mysql:5.7"
+            command: --max_allowed_packet=32505856
 
 ### 远程连接数据库
 
@@ -13,7 +21,7 @@ Install
     # comment out my.cnf
     # path: `mysql --help` 里面有加载顺序
     # /etc/mysql/my.cnf
-    #bind-address = 127.0.0.1 
+    #bind-address = 127.0.0.1
 
     # restart mysql
     sudo service mysql restart
@@ -28,7 +36,7 @@ Install
 ``` sh
 # mysql_config not found
 sudo apt-get install libmysqlclient-dev
-# command 'x86_64-linux-gnu-gcc' failed with exit 
+# command 'x86_64-linux-gnu-gcc' failed with exit
 sudo apt-get install python-dev
 ```
 
