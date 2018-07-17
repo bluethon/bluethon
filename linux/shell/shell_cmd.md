@@ -17,6 +17,7 @@ RUN make; exit 0                            # 指定exit code (0=success)
 # system info
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 cat /etc/X11/default-display-manager        # lightDM or gdm3
+cat /etc/os-release                         # 发行版信息
 nproc                                       # CPU数量
 sudo update-alternatives --config editor    # 更改默认编辑器 editor vim
 sudo update-alternatives --config java      # 更改默认java版本
@@ -55,6 +56,7 @@ sudo dpkg-reconfigure tzdata                # 设置时区(图形界面)
 /usr/share/zoneinfo                         # 所有时区
 
 # text
+fc-list                                     # 查看字体及位置
 ls -la | vim -                              # 使用vim查看STDIN的内容
 sed -n -e 5p <file>                         # 查看第5行
 sed -n 5,8p <file>                          # 查看5-8行
