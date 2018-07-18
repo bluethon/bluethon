@@ -11,7 +11,12 @@ hotkey
 
     # vim surround
     # https://github.com/tpope/vim-surround
-    ysiw"   增加双引号
+    ysiw"       增加双引号
+    ysiw(       括号(带空格)
+    ysiw)       括号(不带空格)
+    ysiw<div>   标签
+    ysiw>       书名号
+    yss         整行
 
     # 查找
     ggN     定位最后一个查找

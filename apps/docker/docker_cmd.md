@@ -1,5 +1,8 @@
 docker cmd
-----------
+==========
+
+CMD
+---
 
 ``` shell
 docker run --name web_dev -it -p 9000:9000 -p 3141:3141
@@ -25,7 +28,7 @@ docker logs <container>                 # 查看容器输出(run -d后台运行�
 docker ps [-a]                          # 查看容器状态
 docker stop $(docker ps -f label=type=fe)
                                         # 组合命令停止某容器
-docker stop $(docker ps -a -q)          # 停止所有容器 
+docker stop $(docker ps -a -q)          # 停止所有容器
 docker rm $(docker ps -a -q)            # 删除所有容器(remove all docker containers)
                                         # -a 列出所有, 默认只列出run的, -q 仅显示id
 
@@ -85,7 +88,8 @@ docker network create <name>            # 创建网络
 docker network inspect <name>           # 查看网络内的信息, 主机IP等
 
 docker save -o foo.tar <image:tag>      # 离线保存镜像为文件(丢失分层)
-docker save <image:tag> | gzip > f.tgz  # 导出为压缩包
+docker save <image:tag> | pv | pigz > f.tgz
+                                        # 导出为压缩包
 docker load -i f.tgz                    # 导入压缩包
 ```
 
@@ -94,21 +98,21 @@ Note
 
 ### RUN vs CMD
 
-> https://ibm.co/2BR8Yqr
+> <https://ibm.co/2BR8Yqr>
 
-CMD和ENTRYPOINT推荐使用Exec格式, 因为指令可读性更强, 更易理解  
+CMD和ENTRYPOINT推荐使用Exec格式, 因为指令可读性更强, 更易理解
 RUN则两种都可以
 
 Shell格式
 
-- <instruction> <command>
-- 底层调用 /bin/sh -c <command>
+- `<instruction> <command>`
+- 底层调用`/bin/sh -c <command>`
 - 变量会被解析
 
 Exec格式
 
-- <instruction> ["executable", "param1", "param2", ...]
-- 直接调用<command>
+- `<instruction> ["executable", "param1", "param2", ...]`
+- 直接调用`command`
 - 变量不会被解析
 
 ### docker-compose

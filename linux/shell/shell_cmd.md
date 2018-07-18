@@ -61,6 +61,9 @@ ls -la | vim -                              # 使用vim查看STDIN的内容
 sed -n -e 5p <file>                         # 查看第5行
 sed -n 5,8p <file>                          # 查看5-8行
 sed -i -- 's/foo/bar' <file>                # 修改内容
+sed -i -- '/foo/a bar' <file>               # 在foo行后插入bar
+sed -i -- '/foo/i bar' <file>               # 在foo行前插入bar
+    -n                                      # 只显示更改的内容(默认全部输出)
 sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
 tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
      -n 1000                                # 末尾1000行
@@ -75,6 +78,9 @@ cp -rp foo bar                              # 复制 保留权限
 cat -n                                      # 行号
 
 # zip
+pigz                                        # 使用多核心
+zip -s 0 ori.zip --out des.zip              # 将分卷压缩ori合并为des
+unzip file                                  # 解压缩
 gzip < file > file.gz                       # 压缩文件
 
 # test value
