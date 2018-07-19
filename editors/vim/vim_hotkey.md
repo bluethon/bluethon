@@ -18,6 +18,16 @@ hotkey
     ysiw>       书名号
     yss         整行
 
+    # mark
+    ma          加书签a
+    'a          跳转到行
+    `a          跳转到位置
+    d'a         删除光标到行
+    :marks      list
+    ''          跳回
+    ``          跳回
+    :delm a     删除书签
+
     # 查找
     ggN     定位最后一个查找
 
