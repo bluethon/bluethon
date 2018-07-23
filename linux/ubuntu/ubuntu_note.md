@@ -11,6 +11,12 @@ sudo apt-mark auto <pkg>                # 包设为自动(可被autoremove)
 Settings
 --------
 
+### 列出手动安装的包
+
+> <https://askubuntu.com/a/492343/537695>
+
+    comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)
+
 ### 文件默认打开程序
 
     file > right click > properties > open with > set as default
@@ -32,7 +38,7 @@ Settings
 
 可以使用软链接进行
 
-    $ ln -s foo.desktop ~/.config/autostart
+    ln -s foo.desktop ~/.config/autostart
 
 > <http://askubuntu.com/questions/814/how-to-run-scripts-on-start-up>
 
@@ -51,11 +57,11 @@ Settings
 
 ### 重装package
 
-    $ sudo apt install --reinstall [package]
+    sudo apt install --reinstall [package]
 
 ### 开机运行
 
-    $ /etc/rc.local
+    /etc/rc.local
 
 ### bash中运行显示加载字体相关
 
@@ -66,7 +72,6 @@ Settings
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <PUBKEY>
 
 where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in error message)
-
 
 ### 重启X
 
@@ -110,7 +115,7 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 ### 输入法短语自定义
 
 输入法设置->附加组件->快速输入->设置快捷键(暂定F2)->快速输入列表自定义
-[参考](https://fcitx-i m.org/wiki/QuickPhrase/zh-cn)
+[参考](https://fcitx-im.org/wiki/QuickPhrase/zh-cn)
 
 ### [ubuntu修改屏幕默认亮度](http://blog.csdn.net/hustrains/article/details/8469633)
 
@@ -145,7 +150,7 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 
 2. 重启bash
 
-### 备份源列表:
+### 备份源列表
 
     `sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup`
 
@@ -155,4 +160,17 @@ where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in e
 export LANG=en_US    #改变支持的语言为英语
 xdg-user-dirs-gtk-update   #更新系统语言，按照中文对应的英语进行翻译
 export LANG=zh_CN.UTF-8    #重新支持中文
+```
+
+### ubuntu关闭盖子不睡眠
+
+> <http://askubuntu.com/a/742662/537695)>
+
+``` sh
+#!/bin/bash
+sudo vim /etc/UPower/UPower.conf
+# change to
+IgnoreLid=True
+# Restart
+sudo service upower restart
 ```
