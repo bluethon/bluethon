@@ -51,6 +51,7 @@ docker --version                        # 显示版本
 docker config
 docker stats                            # 容器整体运行状态
 docker system prune                     # 系统清理
+                    --filter until=240h # 清除10天前数据, 单位(h, m, s)
 
 docker inspect -f "{{ .NetworkSettings.IPAddress }}" <containerNameOrId>
                                         # 显示容器IP
