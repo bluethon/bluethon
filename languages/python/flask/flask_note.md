@@ -18,24 +18,15 @@ packages
     # https://stackoverflow.com/a/25696535/4757521
     Flask-JsonTools
 
-deploy
-------
-
-### migrate
-
-``` shell
-# old from 2018.3
-# new for flask db <cmd>
-# 创建迁移仓库, 本身不改动数据
-python manage.py db init
-python manage.py db migrate -m 'message'
-python manage.py db upgrade
-python manage.py db downgrade
-python manage.py db current
-```
-
 note
 ----
+
+### 环境变量方法设置CLI启动参数
+
+    # pattern
+    # FLASK + 命令 + 参数
+    # FLASK_COMMAND_OPTION
+    export FLASK_RUN_PORT=8000
 
 ### jinja block minus
 

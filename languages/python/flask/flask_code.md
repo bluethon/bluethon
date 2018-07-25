@@ -1,12 +1,24 @@
 FLask Code Note
 ===============
 
-cmd
----
+CONFIG
+------
+
+### CLI
+
+``` sh
+FLASK_RUN_PORT=8000         # 端口
+FLASK_SKIP_DOTENV=1         # 即使安装`python-dotenv`也不加载
+```
+
+### APP
 
 ``` python
 DATABASE_URI = 'sqlite://:memory:'
 ```
+
+CODE
+----
 
 ### 上下文
 

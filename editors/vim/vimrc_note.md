@@ -51,6 +51,9 @@ sy clear
 # set 一般性设置
 # go gui option 为空
 set go=
+# 显示normal模式下已输入按键
+set showcmd
+set noshowcmd
 
 # colo 调色方案
 colo evening
