@@ -15,10 +15,18 @@ del lst[:]                                          # 清除列表, 且不成为
 a = a or None                                       # 过滤''和None 为 None
 os.path.basename('path')                            # 获取文件(夹)名称
 id(object)                                          # 获取对象id, 用来区分
+time func()                                         # 计算用时
 ```
 
 Usage
 -----
+
+### 随机选择
+
+``` python
+import random
+random.choice(FOO_LIST)
+``
 
 ### copy file
 
