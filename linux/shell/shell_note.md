@@ -134,15 +134,15 @@ zsh如果执行不成功, 需要引号引起关键字部分
 
 ### 显示当前真正路径(pwd without symlinks)
 
-    $ pwd -P
+    pwd -P
 
 ### 重置tty
 
-    $ reset
+    reset
 
 ### 查看Linux系统版本
 
-    $ lsb_release -a
+    lsb_release -a
 
 ### [更改默认shel](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)
 
@@ -201,21 +201,21 @@ sudo usermod -s </bin/bash> <username>
 
 ### 组合命令(参考用)
 
-    $ cd  /usr/local/bin && ls -l | grep "../lib/node_modules/" | awk '{print $9}'| xargs rm #删除全局 node 模块注册的软链
+    cd  /usr/local/bin && ls -l | grep "../lib/node_modules/" | awk '{print $9}'| xargs rm #删除全局 node 模块注册的软链
 
 ### 查看文件夹大小
 
-    $ du --max-depth=0 [folder] -h
+    du --max-depth=0 [folder] -h
 
 ### 安装deb包
 
-    $ sudo dpkg -i XXXX.deb
+    sudo dpkg -i XXXX.deb
 
 ### 加权限
 
 a:all user x:execute
 
-    $ chmod a+x [file]
+    chmod a+x [file]
 
 ### 查看$PATH(冒号分割)
 
@@ -252,7 +252,6 @@ ln -sf [target] [linkname]
 ```
 
 ---
-
 
 Shell
 -----
@@ -364,7 +363,7 @@ grep [选项] 字符串 文件名
 在帮助中打`/d`可以查找包含d的帮助文本, 类似VIM
 此时按n键向下查找, N向上查找
 
-* **帮助级别**
+**帮助级别**
 帮助界面左上角括号内数字, 范围1-9, 具体含义可以`man man`查看
 
 `-f` 查看命令拥有的帮助级别, 相当于`whatis`
@@ -372,16 +371,16 @@ grep [选项] 字符串 文件名
 `whereis 命令` 找到命令相关文件 也可通过文件路径等 获取相关信息
 `-k` 模糊查找关键字 等于`apropos`命令
 
-* **选项帮助**
+**选项帮助**
 `xx --help`
 只获取命令的选项帮助(如果是中文系统, 部分帮助可显示中文)
 
-* **shell内部命令帮助**
+**shell内部命令帮助**
 `help xx`
 获取shell内部帮助
 `whereis xx` 如果存在可执行文件, 就不是shell内部命令
 
-* **详细命令帮助**
+**详细命令帮助**
 `info xx`
 
     - enter  进入子帮助页面(带有*号标记)
@@ -389,7 +388,6 @@ grep [选项] 字符串 文件名
     - n      进入下一个帮助小节
     - p      进入上一个帮助小节
     - q      退出
-
 
 ### 压缩和解压缩
 
@@ -431,7 +429,7 @@ gunzip 压缩文件
 gunzip -r 文件夹
 ```
 
-* **.bz2**
+### **.bz2**
 
     不能压缩目录
 
@@ -475,7 +473,7 @@ tar -jxvf 压缩包名.tar.bz2 -C /tmp/
 
 ### 关机和重启
 
-* **shutdown**
+shutdown
 
     `shutdown [选项] 时间`
     关机, 关机前会保存数据, 安全, 推荐
@@ -497,7 +495,7 @@ tar -jxvf 压缩包名.tar.bz2 -C /tmp/
     init 6
     ```
 
-* **init**
+init
 
     系统运行级别, 0-6
     详查`cat /etc/inittab`
@@ -523,10 +521,9 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 `fdisk -l` 查看U盘设备文件名
 `mount -t vfat /dev/sdb1 /mnt/usb/` vfat已淘汰 sdb1不固定, 由上一步确定
 
-
 ### 其他
 
-* **查看登录用户信息**
+查看登录用户信息
 
     `w`
     输出:
@@ -554,7 +551,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
     `who`
     输出: 用户名 登录终端 登录时间(登录IP)
 
-* **查询当前登录和过去登录的用户信息**
+查询当前登录和过去登录的用户信息
 
     `last`
     last命令默认读取`/var/log/wtmp`下文件数据, 但数据为二进制, 只能用命令查看, 防篡改
@@ -573,7 +570,7 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
     查看当前使用的Shell
     `echo $SHELL`
 
-* **echo**
+echo
 
     `echo [选项] [输出内容]`
     -e 支持反斜线控制的字符转换
@@ -589,10 +586,9 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 
 新建文件为`xx.sh`
 
-文件头必须为
-`#!/bin/Bash`
+文件头必须为`#!/bin/Bash`
 
-**执行**
+执行
 
 1. 赋予执行权限, 直接运行(相对路径)
 
@@ -608,7 +604,6 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 3. source(不用修改执行权限)
 
     $ source hello.sh
-
 
 ### 别名&快捷键
 
@@ -626,7 +621,6 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
 删除别名(临时)
 `unalias 别名`
 
-
 ### 命令生效顺序
 
     1. 用绝对路径或相对路径执行的命令
@@ -641,19 +635,17 @@ dev下的cdrom为sr0的软链接, `ll`可查看, -t可不写
     -c 清空历史命令
     -w 把缓存中的历史命令写入历史命令保存文件`~/.bash_history`
 
-**修改历史命令大小**
-
 ``` bash
+# 修改历史命令大小
 vim ~/.bashrc
 HISTSIZE=1000
 ```
 
-**调用**
+调用
 
 `!n` 重复执行第n条命令
 `!!` 执行上一条
 `!字串` 执行最后一条以该字串开头的命令
-
 
 ### 输出重定向
 
@@ -671,25 +663,19 @@ HISTSIZE=1000
 命令 >> 文件1 2>>文件2 # 正确追加文件1, 错误追加文件2
 ```
 
-
 ### 管道符
 
-**多命令顺序执行**
-
 ``` bash
+# 多命令顺序执行
 命令A; 命令B  # 顺序执行
 命令A && 命令B  # 逻辑与 A正确执行后才执行B
 命令A && 命令B  # 逻辑或 A错误执行后才执行B
 
 ls && echo yes || echo no  # 示例 正确执行显示yes, 错误时不执行echo yes, 则显示no
-```
 
-**管道符**
-
-``` bash
+# 管道符
 命令A | 命令B  # A的正确输出作为B的操作对象
 ```
-
 
 ### 通配符
 

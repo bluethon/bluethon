@@ -19,6 +19,7 @@ pip
 pip install
             -U pip                              # 升级单个包
             -i https://pypi.douban.com/simple   # 源
+               https://pypi.tuna.tsinghua.edu.cn/simple
             -r requirements.txt
             'ipython>=5,<6'         # 安装 大于5且小于6 的版本
             --user                  # 在用户目录下安装(非虚拟环境)
