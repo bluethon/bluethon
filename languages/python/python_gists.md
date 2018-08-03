@@ -21,6 +21,16 @@ time func()                                         # 计算用时
 Usage
 -----
 
+### 多进程
+
+``` python
+from concurrent.futures import ProcessPoolExecutor
+
+with futures.ProcessPoolExecutor() as executor:
+    # defalut max_workers=os.cpu_count()
+    do_something
+```
+
 ### 随机选择
 
 ``` python
