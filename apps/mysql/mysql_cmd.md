@@ -1,35 +1,40 @@
-Command Notes
-=============
+MySQL Command Notes
+===================
 
-Quick List
-----------
+CMD
+---
 
 ``` sql
+CREATE DATABASE db_name;                        -- 创建数据库
+DROP DATABASE db_name;                          -- 删除数据库
+
 -- charset
-SELECT @@character_set_database, @@collation_database;  # 查看所有数据库charset
+SELECT @@character_set_database, @@collation_database;
+                                                -- 查看所有数据库charset
 SELECT SCHEMA_NAME,
        DEFAULT_CHARACTER_SET_NAME,
        DEFAULT_COLLATION_NAME
-    FROM INFORMATION_SCHEMA.SCHEMATA;                   # 查看所有数据库charset
-ALTER DATABASE foo CHARSET = utf8;              # 设置数据库默认编码
-ALTER DATABASE db_name CHARACTER SET utf8       # 设置数据库默认编码
+    FROM INFORMATION_SCHEMA.SCHEMATA;           -- 查看所有数据库charset
+ALTER DATABASE foo CHARSET = utf8;              -- 设置数据库默认编码
+ALTER DATABASE db_name CHARACTER SET utf8       -- 设置数据库默认编码
 
-SHOW TABLE STATUS WHERE Name LIKE '%ff%';       # 表状态(包含charset), WHERE 可选
-ALTER TABLE foo CONVERT TO CHARSET utf8;        # 转换表为utf-8
-ALTER TABLE foo DEFAULT CHARSET = utf8;         # 设置表默认编码
+SHOW TABLE STATUS WHERE Name LIKE '%ff%';       -- 表状态(包含charset), WHERE 可选
+ALTER TABLE foo CONVERT TO CHARSET utf8;        -- 转换表为utf-8
+ALTER TABLE foo DEFAULT CHARSET = utf8;         -- 设置表默认编码
 
 -- column
-ALTER TABLE foo ADD COLUMN bar VARCHAR(100);    # 增加列
-ALTER TABLE foo MODIFY COLUMN bar VARCHAR(100) AFTER id;    # 修改列顺序
+ALTER TABLE foo ADD COLUMN bar VARCHAR(100);    -- 增加列
+ALTER TABLE foo MODIFY COLUMN bar VARCHAR(100) AFTER id;
+                                                -- 修改列顺序
 
-SELECT DATABASE();                              # 当前数据库
-SELECT CONCAT('http://', 'domain');             # 字符串拼接
-SELECT VERSION();                               # mysql内查看版本
-SELECT USER();                                  # 当前用户
-SHOW warnings;                                  # 查看警告内容
-SHOW variables LIKE 'version';                  # mysql内查看版本
+SELECT DATABASE();                              -- 当前数据库
+SELECT CONCAT('http://', 'domain');             -- 字符串拼接
+SELECT VERSION();                               -- mysql内查看版本
+SELECT USER();                                  -- 当前用户
+SHOW warnings;                                  -- 查看警告内容
+SHOW variables LIKE 'version';                  -- mysql内查看版本
 
-alter user 'root'@'%' identified by 'pwd';      # 修改用户密码
+alter user 'root'@'%' identified by 'pwd';      -- 修改用户密码
 ```
 
 Usage

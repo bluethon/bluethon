@@ -124,3 +124,23 @@ docker-compose up -d                    # 后台启动(detached mode)
 docker-compose ps                       # 查看
 docker-compose down                     # 停止
 ```
+
+### docker ps
+
+    # table for title
+    docker ps --format "table {{.ID}}\t{{.Labels}}"
+
+    Placeholder     Description
+    .ID
+    .Image
+    .Command
+    .CreatedAt
+    .RunningFor     Elapsed time since the container was started.
+    .Ports
+    .Status
+    .Size
+    .Names
+    .Labels
+    .Label          Eg: '{{.Label "com.docker.swarm.cpu"}}'
+    .Mounts
+    .Networks
