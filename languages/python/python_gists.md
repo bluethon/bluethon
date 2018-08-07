@@ -8,7 +8,8 @@ CMD
 # coding=utf-8
 # encoding: utf-8
 
-d = {key: value for (key, value) in interable}      # 生成字典    https://stackoverflow.com/a/1747827/4757521
+# https://stackoverflow.com/a/1747827/4757521
+d = {key: value for (key, value) in interable}      # 生成字典
 bin(0x7f)                                           # 16hex to 2 bin
 datetime.date.today()                               # 今天    > datetime
 del lst[:]                                          # 清除列表, 且不成为空列表
@@ -16,6 +17,8 @@ a = a or None                                       # 过滤''和None 为 None
 os.path.basename('path')                            # 获取文件(夹)名称
 id(object)                                          # 获取对象id, 用来区分
 time func()                                         # 计算用时
+list.index(value)                                   # 通过值获取下标
+list1 + list2                                       # 数据拼接(list concatenate)
 ```
 
 Usage
