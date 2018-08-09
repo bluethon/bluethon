@@ -56,6 +56,7 @@ sudo dpkg-reconfigure tzdata                # 设置时区(图形界面)
 /etc/timezone                               # 当前时区
 /etc/localtime                              # 当前时区信息(binary)
 /usr/share/zoneinfo                         # 所有时区
+export TZ='Asia/Shanghai'                   # alpine 设置时区环境变量
 
 # text
 fc-list                                     # 查看字体及位置
@@ -114,6 +115,7 @@ echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial mai
 sudo su - <user>                            # 切换用户(无需输入<user>密码)
 netstat -tuplen                             # 查看22端口
 nmap -sP 192.168.1.0/24                     # ping扫描, 列出响应主机
+wget -nv http://foo/ -O -                   # 访问, 输出到stdout
 ```
 
 Usage
