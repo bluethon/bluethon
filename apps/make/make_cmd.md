@@ -12,7 +12,7 @@ make -k all                     # 忽略错误继续
 Note
 ----
 
-> https://seisman.github.io/how-to-write-makefile/overview.html
+> <https://seisman.github.io/how-to-write-makefile/overview.html>
 
 ### MakeFile中变量以`$`开头, Shell变量`$$`开头
 

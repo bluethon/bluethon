@@ -4,19 +4,18 @@ docker note
 TODO
 ----
 
-https://yeasy.gitbooks.io/docker_practice/content/container/daemon.html
+<https://yeasy.gitbooks.io/docker_practice/content/container/daemon.html>
 
-http://wiki.jikexueyuan.com/project/docker/userguide/dockerizing.html
+<http://wiki.jikexueyuan.com/project/docker/userguide/dockerizing.html>
 
 ---------------------------------------------------------
-
 
 安装docker(国内版)
 ----------------
 
 ### 阿里云
 
-> https://yq.aliyun.com/articles/110806
+> <https://yq.aliyun.com/articles/110806>
 
 ``` sh
 # step 1: 安装必要的一些系统工具
@@ -77,7 +76,7 @@ pip install docker-compose
 docker machine(批量操作工具)
 --------------
 
-> https://github.com/docker/machine/releases
+> <https://github.com/docker/machine/releases>
 
 ``` sh
 curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
@@ -88,7 +87,7 @@ curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machi
 docker-completion
 -----------------
 
-> https://github.com/leonhartX/docker-machine-zsh-completion
+> <https://github.com/leonhartX/docker-machine-zsh-completion>
 
 ``` sh
 git clone https://github.com/leonhartX/docker-machine-zsh-completion.git ~/.oh-my-zsh/custom/plugins/docker-machine
@@ -99,8 +98,6 @@ vim .zshrc
 plugins+=(docker-machine)
 autoload -U compinit && compinit
 ```
-
---------------------------------------------------------
 
 部署使用docker-compose
 --------------------
@@ -113,7 +110,6 @@ autoload -U compinit && compinit
 oh-my-zsh自带
 
 > <https://docs.docker.com/compose/completion/>
-
 
 代理
 ---

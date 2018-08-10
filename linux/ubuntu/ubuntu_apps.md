@@ -47,8 +47,10 @@ sudo apt install numlockx
 sudo apt insatll gimp
 
 # Albert - linux版Alfred
-sudo add-apt-repository ppa:nilarimogard/webupd8
-sudo apt update; sudo apt install albert
+wget -qO - "https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_$(lsb_release -rs)/Release.key" | sudo apt-key add -
+echo "deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_$(lsb_release -rs)/ /" > /etc/apt/sources.list.d/home:manuelschneid3r.list
+sudo apt update
+sudo apt install albert
 # autostart
 # > https://albertlauncher.github.io/docs/faq/#how-can-i-autostart-albert
 ln -s /usr/share/applications/albert.desktop ~/.config/autostart/
