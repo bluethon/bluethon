@@ -26,6 +26,8 @@ docker system df                        # 占用存储大小
 docker info                             # docker系统信息(可查看镜像地址)
 docker logs <container>                 # 查看容器输出(run -d后台运行时)
 docker ps [-a]                          # 查看容器状态
+docker ps -a --format="table {{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}"
+
 docker stop $(docker ps -f label=type=fe)
                                         # 组合命令停止某容器
 docker stop $(docker ps -a -q)          # 停止所有容器
@@ -73,6 +75,8 @@ docker volume create <vol>              # 创建数据卷
 docker volume inspect <vol>             # 查看数据卷信息
 docker volume ls                        # 查看所有数据卷
 docker volume prune                     # 清除无主的数据卷
+                    --filter "label!=keep"
+                                        # 通过标签过滤, 不等于keep, ls中不适用
 
 docker attach <container>               # 进入容器(退出后容器停止)
 docker exec -it <container> bash        # 进入容器(退出后容器不停止) 推荐
@@ -134,8 +138,8 @@ docker-compose down                     # 停止
     .ID
     .Image
     .Command
-    .CreatedAt
-    .RunningFor     Elapsed time since the container was started.
+    .CreatedAt      标准时间
+    .RunningFor     Elapsed time since the container was started.(多少天前)
     .Ports
     .Status
     .Size
