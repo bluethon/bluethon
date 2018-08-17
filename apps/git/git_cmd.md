@@ -22,6 +22,9 @@ git show <branch>:/path/to/file > foo               # [#1]获取其他分支的�
 
 git push origin :[branch2]                          # 删除远程分支
 git rm --cached <FILENAME>                          # untrack file
+
+git describe --tags `git rev-list --tags --max-count=1` | sed 's/.*-v//'
+                                                    # 获取最新tag
 ```
 
 [#1](https://stackoverflow.com/a/2364223/4757521)
