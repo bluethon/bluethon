@@ -66,7 +66,9 @@ sed -n 5,8p <file>                          # 查看5-8行
 sed -i -- 's/foo/bar' <file>                # 修改内容
 sed -i -- '/foo/a bar' <file>               # 在foo行后插入bar
 sed -i -- '/foo/i bar' <file>               # 在foo行前插入bar
-    -n                                      # 只显示更改的内容(默认全部输出)
+sed -n -- 's/foo/bar/p' <fiel>              # 只显示更改的内容
+                                            # -n 阻止输出所有行
+                                            # /p 后缀p为只显示替换匹配到的
 sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
 tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
      -n 1000                                # 末尾1000行
