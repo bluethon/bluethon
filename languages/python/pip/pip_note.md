@@ -10,6 +10,10 @@ DEBUG
 
     pip install pip -I      # ignore == --force
 
+### ModuleNotFoundError: No module named 'pip._internal'
+
+    sudo python3 -m pip install -U pip
+
 pip
 ---
 

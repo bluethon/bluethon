@@ -17,7 +17,11 @@ TODO
 
 > <https://yq.aliyun.com/articles/110806>
 
-``` sh
+``` bash
+# update: 2018-08-24
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+# old
 # step 1: 安装必要的一些系统工具
 sudo apt-get update
 sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
