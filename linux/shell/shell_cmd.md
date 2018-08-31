@@ -42,6 +42,9 @@ sudo hostnamectl set-hostname rhel7         # 设置主机名
 sudo vim /etc/hostname
 sudo localectl set-locale LANG=en_GB.utf8   # 设置本地化参数
 sudo chvt <num>                             # change tty
+sudo systemd-analyze critical-chain         # 系统启动树
+sar                                         # 记录各类系统情况, 可生成日报告
+sudo systemctl start sysstat.service        # sar后端进程
 
 # time
 date                                        # 显示当前时间
@@ -102,6 +105,9 @@ set -x                                      # 显示参数和命令
     -v                                      # 显示输入
     +x                                      # 关闭调试
 #!/bin/bash -xv                             # (同上)
+
+# network
+socat TCP-LISTEN:2375,reuseaddr,fork UNIX-CLIENT:/var/run/docker.sock
 
 # other
 stat foo.txt                                # 查看文件详细信息

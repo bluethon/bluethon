@@ -8,6 +8,7 @@ cmd
           -T                                # 验证并输出
           -c nginx.conf -t                  # 指定文件验证
           -s reload                         # 重新加载配置
+          -g daemon off                     # 不启动守护进程
 
     docker kill -s HUP <container name>     # 重载配置
     docker restart <container name>         # 重启
@@ -24,7 +25,7 @@ docker-compose
 
 ### debug
 
-> https://github.com/docker-library/docs/tree/master/nginx#running-nginx-in-debug-mode
+> <https://github.com/docker-library/docs/tree/master/nginx#running-nginx-in-debug-mode>
 
 ``` yaml
 web:
@@ -59,7 +60,7 @@ server {
     error_page 404 /;
 
     # = 精确匹配, 加速
-    location = / { 
+    location = / {
         index index.html;
     }
 
@@ -102,5 +103,5 @@ sudo ln -s /etc/nginx/site-available/foo.com /etc/nginx/site-enable/foo.com
 
 ### 重启
 
-    sudo service nginx restart
+    sudo systemctl restart nginx
     sudo nginx -s reload

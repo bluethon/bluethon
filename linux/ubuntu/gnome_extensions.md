@@ -6,8 +6,32 @@ Tweak
 
     sudo apt install gnome-tweaks
 
+DEBUG
+-----
+
+### log
+
+> <https://stackoverflow.com/a/8428578/4757521>
+
+- <kbd>Alt</kbd>+<kbd>F2</kbd>
+- lg
+- global.log('hello world');
+
+### reload
+
+- desktop
+  - <kbd>Alt</kbd>+<kbd>F2</kbd>
+  - r
+- terminal
+  - `gnome-shell --replace`
+
+
 Extensions
 ----------
+
+### 锁屏常亮
+
+[unblank](https://extensions.gnome.org/extension/1414/unblank/)
 
 ### Mac Dock
 
@@ -37,4 +61,4 @@ Extensions
 
 ### OCS-Store主题
 
-https://www.sspanda.com/an-zhuang-ubuntu-17-10-bi-zuo-de-shi-qing/
+<https://www.sspanda.com/an-zhuang-ubuntu-17-10-bi-zuo-de-shi-qing/>

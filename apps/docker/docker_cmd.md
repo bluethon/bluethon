@@ -127,6 +127,8 @@ docker-compose up                       # 启动
 docker-compose up -d                    # 后台启动(detached mode)
 docker-compose ps                       # 查看
 docker-compose down                     # 停止
+docker-compose down -v                  # 删除volumes
+docker-compose down --rmi <local/all>   # 删除images
 ```
 
 ### docker ps

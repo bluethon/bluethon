@@ -34,6 +34,13 @@ xwininfo
 -----
 
 ``` bash
+# 网络
+ngrep
+
+# 日志查看工具
+ksystemlog
+
+# download
 uget                                # 下载(./apps)
 
 # 截图
@@ -55,10 +62,6 @@ sudo apt install albert
 # > https://albertlauncher.github.io/docs/faq/#how-can-i-autostart-albert
 ln -s /usr/share/applications/albert.desktop ~/.config/autostart/
 
-# atom
-sudo add-apt-repository ppa:webupd8team/atom
-sudo apt update; sudo apt install atom
-
 # 包管理 & 查找
 sudo apt install synaptic
 
@@ -69,16 +72,10 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # 取色器
 sudo apt-get install gpick
 
-# 资源监视器
-sudo apt-get install indicator-multiload
-
 # 壁纸
 sudo add-apt-repository ppa:peterlevi/ppa
 sudo apt-get update
 sudo apt-get install variety variety-slideshow
-
-# 鼠标全局手势
-sudo apt install easystroke
 
 # ssh key管理 自动加入
 sudo apt install keychain

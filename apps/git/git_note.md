@@ -219,9 +219,7 @@ url末尾加`/compare`
 
 ### 提交[branch1]为远程的[branch2]
 
-
 `git push origin branch1:branch2`
-
 
 Git Note
 --------
