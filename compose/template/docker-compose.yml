@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dv-be-api:master
+    container_name: 'dv-be-api_master'
+    env_file:
+      - .env
+    ports:
+      - '9020:9000'
+    volumes:
+      - apilog:/app/log
+    restart: always
+    depends_on:
+      - mongo
+#      - redis
+    networks:
+      - api
+
+networks:
+  api:
+
+volumes:
+  apilog:

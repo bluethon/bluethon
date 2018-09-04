@@ -73,10 +73,6 @@ Settings
 
 where `<PUBKEY>` is your missing public key for repository, e.g. `8BAF9A6F`(in error message)
 
-### 重启X
-
-    sudo /etc/init.d/lightdm restart
-
 ### 升级发行版
 
     sudo update-manager -d
