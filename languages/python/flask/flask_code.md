@@ -20,11 +20,20 @@ DATABASE_URI = 'sqlite://:memory:'
 CODE
 ----
 
+### Use Flask current_app.logger inside threading or Multiprocess
+
+> <https://stackoverflow.com/a/39477756/4757521>
+
+``` py
+# pass app to threading
+app = current_app._get_current_object()
+```
+
 ### 上下文
 
 产生请求的上下文
 
-``` python
+``` py
 with app.test_request_context():
     print(url_for('item', id='1'))
 

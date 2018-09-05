@@ -4,7 +4,7 @@ Python常用代码片段
 CMD
 ---
 
-``` python
+``` py
 # coding=utf-8
 # encoding: utf-8
 
@@ -26,7 +26,7 @@ Usage
 
 ### 多进程
 
-``` python
+``` py
 from concurrent.futures import ProcessPoolExecutor
 
 with futures.ProcessPoolExecutor() as executor:
@@ -36,16 +36,16 @@ with futures.ProcessPoolExecutor() as executor:
 
 ### 随机选择
 
-``` python
+``` py
 import random
 random.choice(FOO_LIST)
-``
+```
 
 ### copy file
 
-> https://stackoverflow.com/a/123212/4757521
+> <https://stackoverflow.com/a/123212/4757521>
 
-``` python
+``` py
 from shutil import copyfile
 
 copyfile(src, dst)
@@ -53,7 +53,7 @@ copyfile(src, dst)
 
 ### try import
 
-``` python
+``` py
 try:
     from local_settings import *
 except ImportError as e:
@@ -66,7 +66,7 @@ Class Name 类名 转换 convert
 
 > <https://stackoverflow.com/a/1176023/4757521>
 
-``` python
+``` py
 def convert(name):
     s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
     return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
@@ -81,7 +81,7 @@ or
 
 > <https://stackoverflow.com/a/1400622/4757521>
 
-``` python
+``` py
 # actually removes the contents from the list, not replaces the old label with a new empty list
 del lst[:]
 # equal
@@ -100,7 +100,7 @@ b = lst
 
 > <https://stackoverflow.com/a/2632251/4757521>
 
-``` python
+``` py
 import os, os.path
 
 # simple version for working with CWD
@@ -113,11 +113,11 @@ print len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, 
 
 ### datetime
 
-> <http://www.wklken.me/posts/2015/03/03/python-base-datetime.html>
+> <http://www.wklken.me/posts/2015/03/03/py-base-datetime.html>
 
 ### 某路径加入环境变量
 
-``` python
+``` py
 import sys
 from os.path import abspath, dirname
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
@@ -127,7 +127,7 @@ sys.path.insert(0, dirname(dirname(abspath(__file__))))
 
 > <https://stackoverflow.com/a/9433548/4757521>
 
-``` python
+``` py
 sql = ('select field1, field2, field3, field4 '
        'from table '
        'where condition1=1 '
@@ -136,7 +136,7 @@ sql = ('select field1, field2, field3, field4 '
 
 ### 生成随机数
 
-``` python
+``` py
 import os
 import binascii
 
@@ -147,7 +147,7 @@ print(binascii.hexlify(os.urandom(32)))
 
 > <https://stackoverflow.com/q/610883/4757521>
 
-``` python
+``` py
 if hasattr(a, 'property'):
     a.property
 
@@ -163,7 +163,7 @@ else:
 
 > <http://python3-cookbook.readthedocs.io/zh_CN/latest/c06/p02_read-write_json_data.html>
 
-``` python
+``` py
 import json
 s = '{"name": "ACME", "shares": 50, "price": 490.1}'
 
@@ -184,7 +184,8 @@ class Payload():
 data = Payload(j)
 ```
 
-## List
+List
+----
 
 ### list拼接
 
@@ -209,8 +210,8 @@ data = Payload(j)
     for key, value in d.iteritems():
         pass
 
-
-## Dict
+Dict
+----
 
 ### 判断dict为空
 
@@ -228,20 +229,20 @@ data = Payload(j)
 
 ### datetime时间格式化
 
-``` python
+``` py
 datetime.strftime('%Y年%m月%d日 %H:%M')
 ```
 
 ### 获取上一个对象
 
-``` python
+``` py
 old = '123'
 new = _         # new: '123'
 ```
 
 ### 输出解释器路径
 
-``` python
+``` py
 # http://stackoverflow.com/a/2589722/4757521
 import sys
 print(sys.executable)
@@ -249,7 +250,8 @@ print(sys.executable)
 
 转码
 ----
-``` python
+
+``` py
 # 字母转ascii
 ord('c')
 # 十进制转十六进制
