@@ -24,6 +24,24 @@ list1 + list2                                       # 数据拼接(list concaten
 Usage
 -----
 
+### logger level
+
+> <https://stackoverflow.com/a/30086809/4757521>
+
+``` py
+import logging
+from flask import Flask
+app = Flask(__name__)  # or instead of __name__ provide the name of the module
+app.logger.setLevel(logging.ERROR)
+```
+
+### 多错误(multiple exceptions in one line)
+
+``` py
+except (IDontLikeYouException, YouAreBeingMeanException) as e:
+    pass
+```
+
 ### 多进程
 
 ``` py

@@ -9,6 +9,12 @@ make -n all                     # -n 预览要执行的命令
 make -k all                     # 忽略错误继续
 ```
 
+自动变量(Automatic Variables)
+---------
+
+    $@          指代目标, 即make foo中的foo
+    $*          指代%匹配的部分
+
 Note
 ----
 

@@ -51,6 +51,7 @@ date                                        # 显示当前时间
 date +%s                                    # 显示timestamp
 date -d @<epoch>                            # 根据timestamp
 date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
+TZ='America/Los_Angeles' date               # 显示洛杉矶时间
 ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序
 time <script>                               # 脚本运行时间
 timedatectl status                          # 时间, 时区
