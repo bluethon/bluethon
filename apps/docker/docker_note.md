@@ -1,14 +1,14 @@
-docker note
+Docker Note
 ===========
 
-TODO
+Note
 ----
 
-<https://yeasy.gitbooks.io/docker_practice/content/container/daemon.html>
+### zsh下不能补全exec
 
-<http://wiki.jikexueyuan.com/project/docker/userguide/dockerizing.html>
+> <https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58>
 
----------------------------------------------------------
+不能使用`-it`, 需要使用`-i -t`
 
 安装docker(国内版)
 ----------------
@@ -20,6 +20,7 @@ TODO
 ``` bash
 # update: 2018-08-24
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+sudo usermod -aG docker $USER
 
 # old
 # step 1: 安装必要的一些系统工具
@@ -54,7 +55,7 @@ sudo apt-get install docker-ce
 ```
 
 docker hub镜像
--------------------
+--------------
 
 ### official
 
@@ -70,13 +71,6 @@ echo "{\n  \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"]\n}" | 
 sudo service docker restart
 ```
 
-### docker-compose
-
-``` sh
-pyvenv venv
-pip install docker-compose
-```
-
 docker machine(批量操作工具)
 --------------
 
@@ -86,92 +80,4 @@ docker machine(批量操作工具)
 curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
     chmod +x /tmp/docker-machine &&
     sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
-```
-
-docker-completion
------------------
-
-> <https://github.com/leonhartX/docker-machine-zsh-completion>
-
-``` sh
-git clone https://github.com/leonhartX/docker-machine-zsh-completion.git ~/.oh-my-zsh/custom/plugins/docker-machine
-
-vim .zshrc
-
-### add below
-plugins+=(docker-machine)
-autoload -U compinit && compinit
-```
-
-部署使用docker-compose
---------------------
-
-> <https://docs.docker.com/compose/install/>
-
-命令行补全
---------
-
-oh-my-zsh自带
-
-> <https://docs.docker.com/compose/completion/>
-
-代理
----
-
-[设置代理部分](https://segmentfault.com/a/1190000006146697)
-
-Install for ubuntu 16.04[LTS]
--------
-
-> <https://docs.docker.com/engine/installation/linux/ubuntulinux/#/prerequisites>
-
-``` bash
-# Install packages to allow apt to use a repository over HTTPS:
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
-# Add Docker’s official GPG key:
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-sudo vim /etc/apt/sources.list.d/docker.list
-# Ubuntu Xenial 16.04 (LTS)
-deb https://apt.dockerproject.org/repo ubuntu-xenial main
-# set up the stable repository.
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-
-### INSTALL
-sudo apt update
-# Purge the old repo if it exists.
-sudo apt purge lxc-docker
-# Verify that APT is pulling from the right repository.
-apt-cache policy docker-engine
-
-# For Ubuntu Trusty, and Xenial, it’s recommended to install the linux-image-extra-* kernel packages. The linux-image-extra-* packages allows you use the aufs storage driver.
-sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
-
-# install
-sudo apt-get update
-sudo apt-get install docker-engine
-
-# Start the docker daemon.
-sudo service docker start
-# Verify docker is installed correctly.
-sudo docker run hello-world
-
-# Configure Docker to start on boot
-sudo systemctl enable docker
-
-# 不使用sudo使用docker
-# Create a Docker group
-# 显示所有group(不能加sudo)
-# groups
-sudo groupadd docker
-sudo usermod -aG docker $USER
-# relogin
-docker run hello-world
 ```
