@@ -12,6 +12,12 @@ DEBUG
 
     mysql -u "$user" "-p$pwd" "$db" < "/dev/null"
 
+### sudo take long time
+
+    sudo vim /etc/hosts
+    # add
+    127.0.0.1 hostname
+
 ### sudo unable to resolve host
 
     修改127.0.0.1 后面, 更正为当前名称

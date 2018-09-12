@@ -8,6 +8,8 @@ abbreviation
 
     eval        evaluate                                重新运算求出参数的内容
     sar         System Activity Report                  系统活动报告
+    fd          file descriptors                        文件句柄(文件描述符)
+    lsof        list open files                         列出(进程)打开的文件
 
 ### html
 

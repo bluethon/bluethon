@@ -15,6 +15,7 @@ export $(grep -v '^#' .env | xargs -d '\n') # 导入文件变量(推荐)
 RUN make; exit 0                            # 指定exit code (0=success)
 
 # system
+ulimit -n                                   # 文件句柄数
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 cat /etc/X11/default-display-manager        # lightDM or gdm3
 cat /etc/os-release                         # 发行版信息
@@ -38,7 +39,7 @@ lsb_release -cs                             # 版本名称 xenail
 ip r                                        # ip信息
 ip route
 hostname -I                                 # ip, 更推荐
-sudo hostnamectl set-hostname rhel7         # 设置主机名
+sudo hostnamectl set-hostname rhel7         # 设置主机名(记得同步更改/etc/hosts)
 sudo vim /etc/hostname
 sudo localectl set-locale LANG=en_GB.utf8   # 设置本地化参数
 sudo chvt <num>                             # change tty
