@@ -9,15 +9,23 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@localhost
 ssh-copy-id -i ~/.ssh/id_rsa.pub <alias>
 ssh -G <hostname> | awk '/^hostname / { print $2 }'     # 显示host ip
 
-ssh -R :10022:localhost:22 remote           # 让远程ptdv:15000转发到本地5000
-ssh -R remote:15000:localhost:5000 remote   # 等价
+ssh
     -R                                      # 远程转发模式
     -f                                      # 后台运行
-    -NT                                     # N, 仅连接, 不打开shell
-                                            # T, 不分配TTY
+    -N                                      # N, 仅连接, 不打开shell
+    -T                                      # T, 不分配TTY
+    -S                                      # socket
+    -M                                      # Master Mode
+ssh -R :10022:localhost:22 remote           # 让远程ptdv:15000转发到本地5000
+ssh -R remote:15000:localhost:5000 remote   # 等价
+
+ssh -NMf -S /tmp/a.sock -R :5000:localhost:5000 <server>
+                                            # 远端转发, socket控制, master mode
+ssh -S /tmp/a.sock -O exit <server>         # 停止端口转发, 避免使用kill process
 ```
 
 > [教程](http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html)
+> [控制端口转发进程](https://unix.stackexchange.com/a/164656/181922)
 
 DEBUG
 -----
@@ -30,8 +38,7 @@ DEBUG
 
 ### ssh too many authentication failures
 
-> https://serverfault.com/a/580864/380738
-
+> <https://serverfault.com/a/580864/380738>
 > [example](https://gist.github.com/rubo77/e01ac25450df5521d6fa)
 
 没有复制pubkey到server, 使用`ssh-copy-id`复制后修复

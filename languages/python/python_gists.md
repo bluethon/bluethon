@@ -19,6 +19,7 @@ id(object)                                          # 获取对象id, 用来区�
 time func()                                         # 计算用时
 list.index(value)                                   # 通过值获取下标
 list1 + list2                                       # 数据拼接(list concatenate)
+f'{foo:<8}'                                         # 制表, 左对齐, 8宽度
 ```
 
 Usage

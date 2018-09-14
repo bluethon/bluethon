@@ -5,6 +5,8 @@
 SHELL=/bin/bash
 .DEFAULT_GOAL := start
 
+%: export COMPOSE_PROJECT_NAME =
+
 ### common
 
 clean-image:
@@ -21,6 +23,9 @@ CMD=-h
 
 test:
 	docker-compose ${CMD}
+
+pull:
+	docker-compose pull
 
 down:
 	docker-compose down
