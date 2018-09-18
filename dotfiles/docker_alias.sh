@@ -1,0 +1,12 @@
+# docker
+alias ls='ls --color=auto'
+alias ll='ls -lh --color=always'
+alias dps='docker ps -a --format="table {{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}"'
+alias dis='docker images'
+alias drmi='docker rmi'
+alias de='docker exec -i -t'
+alias dl='docker logs -tf'
+alias dip='docker image prune --filter until=48h'
+alias dsp='docker system prune --filter until=48h'
+alias dcu='docker-compose up -d'
+alias dcd='docker-compose down'

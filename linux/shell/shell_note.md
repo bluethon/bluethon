@@ -32,6 +32,14 @@ DEBUG
 Note
 ----
 
+### stop while
+
+> <https://unix.stackexchange.com/a/121391/181922>
+
+ctrl+z
+
+    kill %1
+
 ### 子进程
 
 ``` sh

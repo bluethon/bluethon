@@ -11,6 +11,10 @@ sudo apt-mark auto <pkg>                # 包设为自动(可被autoremove), not
 Settings
 --------
 
+### 双屏切换桌面(workspaces, monitor)
+
+Tweak > Workspaces > Display Handing > Workspaces span displays
+
 ### 列出手动安装的包
 
 > <https://askubuntu.com/a/492343/537695>

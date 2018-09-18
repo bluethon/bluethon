@@ -15,7 +15,6 @@ export $(grep -v '^#' .env | xargs -d '\n') # 导入文件变量(推荐)
 RUN make; exit 0                            # 指定exit code (0=success)
 
 # system
-ulimit -n                                   # 文件句柄数
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 cat /etc/X11/default-display-manager        # lightDM or gdm3
 cat /etc/os-release                         # 发行版信息
@@ -41,11 +40,14 @@ ip route
 hostname -I                                 # ip, 更推荐
 sudo hostnamectl set-hostname rhel7         # 设置主机名(记得同步更改/etc/hosts)
 sudo vim /etc/hostname
-sudo localectl set-locale LANG=en_GB.utf8   # 设置本地化参数
 sudo chvt <num>                             # change tty
 sudo systemd-analyze critical-chain         # 系统启动树
 sar                                         # 记录各类系统情况, 可生成日报告
 sudo systemctl start sysstat.service        # sar后端进程
+echo $RANDOM                                # 生成随机数(0-32767)
+ulimit
+        -n                                  # 文件句柄数
+        -a                                  # 所有信息
 
 # time
 date                                        # 显示当前时间
@@ -76,16 +78,19 @@ sed -n -- 's/foo/bar/p' <fiel>              # 只显示更改的内容
                                             # /p 后缀p为只显示替换匹配到的
 sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
 tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
+less
      -n 1000                                # 末尾1000行
-less <file>                                 # 打开后按`F`, = tail -f
      -N                                     # 显示行号
      +GG                                    # 打开末尾
                                             # p n%, 跳到`n%`处
-
-cp -rp foo bar                              # 复制 保留权限
+less <file>                                 # 打开后按`F`, = tail -f
+cp
    -p                                       # same as --preserve=mode,ownership,timestamps
    -P                                       # 保留软链接 symbolic links
+cp -rp foo bar                              # 复制 保留权限
 cat -n                                      # 行号
+echo
+        -n                                  # 不换行
 
 # zip
 pigz                                        # 使用多核心
@@ -110,6 +115,26 @@ set -x                                      # 显示参数和命令
 
 # network
 socat TCP-LISTEN:2375,reuseaddr,fork UNIX-CLIENT:/var/run/docker.sock
+nc                                          # net connection
+    -w 1                                    # wait time out 1s
+    -u                                      # use UDP
+nc -w 1 -u localhost 8125                   # UDP监听8125端口
+
+# locale
+agi `check-language-support -l zh-hans`     # 安装简中
+#
+/var/lib/locales/supported.d                # 语言包
+check-language-support -a                   # 列出所有未安装语言包
+agi language-pack-gnome-zh-hans             # 安装简中语言包
+locale                                      # 目前系统区域设置
+locale -a                                   # 可用的区域
+sudo dpkg-reconfigure locales               # 所有区域(设置是否开启, 更改后默认执行locale-gen)
+/etc/locale.gen                             # 上述文件路径
+sudo locale-gen                             # 手动更改.gen后执行
+localectl list-locales                      # 显示开启的区域(和locale -a略有不同)
+sudo localectl set-locale LANG=en_US.utf8   # 设置区域 语言参数
+/etc/default/locale                         # 上述位置
+
 
 # other
 stat foo.txt                                # 查看文件详细信息
