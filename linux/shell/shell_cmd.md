@@ -7,25 +7,21 @@ QuickList
 ``` shell
 man hier                                    # 介绍Linux文档结构
 tzselect                                    # 时区选择工具
-echo $0                                     # 当前
-echo $SHELL                                 # 默认
-exec $SHELL                                 # 刷新Shell
 set -a && . ./<file> && set +a              # 导入文件变量
 export $(grep -v '^#' .env | xargs -d '\n') # 导入文件变量(推荐)
 RUN make; exit 0                            # 指定exit code (0=success)
 
-# system
-echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
+### system
+chsh -s `which zsh` <user>                  # change shell
+du                                          # 文件夹大小
+du -hs .                                    # 查看当前文件夹
+du -hs *                                    # 查看所有文件
 cat /etc/X11/default-display-manager        # lightDM or gdm3
 cat /etc/os-release                         # 发行版信息
+cat /etc/alpine-release                     # alpine version 版本
 nproc                                       # CPU数量
-sudo update-alternatives --config editor    # 更改默认编辑器 editor vim
-sudo update-alternatives --config java      # 更改默认java版本
-sudo systemctl list-units --type service    # 显示系统所有自启动服务
-sudo systemctl list-unit-files |grep nginx  # 显示nginx服务状态
-sudo systemctl enable/disable nginx.service # 开启/关闭自启动
-sudo systemctl daemon-reload                # 重载配置文件
-sudo systemctl restart httpd.service        # 重启(更改文件后, 先重载)
+update-alternatives --config editor         # 更改默认编辑器 editor vim
+update-alternatives --config java           # 更改默认java版本
 fc-match <font>                             # 按tab可以查看系统有哪些字体
 getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组
@@ -38,50 +34,70 @@ lsb_release -cs                             # 版本名称 xenail
 ip r                                        # ip信息
 ip route
 hostname -I                                 # ip, 更推荐
-sudo hostnamectl set-hostname rhel7         # 设置主机名(记得同步更改/etc/hosts)
-sudo vim /etc/hostname
-sudo chvt <num>                             # change tty
-sudo systemd-analyze critical-chain         # 系统启动树
+hostnamectl set-hostname rhel7              # 设置主机名(记得同步更改/etc/hosts)
+vim /etc/hostname
+chvt <num>                                  # change tty
 sar                                         # 记录各类系统情况, 可生成日报告
-sudo systemctl start sysstat.service        # sar后端进程
-echo $RANDOM                                # 生成随机数(0-32767)
+systemctl start sysstat.service             # sar后端进程
+echo $0                                     # 当前shell
+echo $SHELL                                 # 默认shell
+exec $SHELL                                 # 刷新Shell
+echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
+
+systemd-analyze
+                critical-chain              # 系统启动树
+                time                        # kernal各部分用时
+                blame                       # 按服务耗时逆序排列
+systemctl
+          list-units --type service         # 显示系统所有自启动服务
+          list-unit-files |grep nginx       # 显示nginx服务状态
+          enable/disable nginx.service      # 开启/关闭自启动
+          daemon-reload                     # 重载配置文件
+          restart httpd.service             # 重启(更改文件后, 先重载)
 ulimit
         -n                                  # 文件句柄数
         -a                                  # 所有信息
 
-# time
+### time
 date                                        # 显示当前时间
-date +%s                                    # 显示timestamp
-date -d @<epoch>                            # 根据timestamp
-date +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
+     +%s                                    # 显示timestamp
+     -d @<epoch>                            # 根据timestamp
+     +%Y-%m-%d %H:%M:%S %Z                  # 2017-05-25 11:20:45 CST
 TZ='America/Los_Angeles' date               # 显示洛杉矶时间
 ls -altr --time=atime                       # 显示所有文件, 按读取时间逆序
 time <script>                               # 脚本运行时间
 timedatectl status                          # 时间, 时区
-sudo timedatectl set-timezone Asia/Shanghai # 设置时区
-sudo dpkg-reconfigure tzdata                # 设置时区(图形界面)
+timedatectl set-timezone Asia/Shanghai      # 设置时区
+dpkg-reconfigure tzdata                     # 设置时区(图形界面)
 /etc/timezone                               # 当前时区
 /etc/localtime                              # 当前时区信息(binary)
 /usr/share/zoneinfo                         # 所有时区
 export TZ='Asia/Shanghai'                   # alpine 设置时区环境变量
 
-# text
+### text
+read -r -d '\n'                             # 读取, 转义不生效, 读取结束符设为\n(默认)
 fc-list                                     # 查看字体及位置
 ls -la | vim -                              # 使用vim查看STDIN的内容
-sed -n -e 5p <file>                         # 查看第5行
-sed -n 5,8p <file>                          # 查看5-8行
-sed -i -- 's/foo/bar' <file>                # 修改内容
-sed -i -- '/foo/a bar' <file>               # 在foo行后插入bar
-sed -i -- '/foo/i bar' <file>               # 在foo行前插入bar
-sed -n -- 's/foo/bar/p' <fiel>              # 只显示更改的内容
+tee                                         # 支持sudo
+echo 'foo' | tee bar.txt                    # 写入
+echo 'foo' | tee -a bar.txt                 # 追加
+sed
+    -n -e 5p <file>                         # 查看第5行
+    -n 5,8p <file>                          # 查看5-8行
+    -i -- 's/foo/bar' <file>                # 修改内容
+    -i -- '/foo/a bar' <file>               # 在foo行后插入bar
+    -i -- '/foo/i bar' <file>               # 在foo行前插入bar
+    -n -- 's/foo/bar/p' <fiel>              # 只显示更改的内容
                                             # -n 阻止输出所有行
                                             # /p 后缀p为只显示替换匹配到的
-sudo tail -f /var/log/auth.log              # 刷新查看文件末尾
+tail -f /var/log/auth.log                   # 刷新查看文件末尾
 tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
 less
      -n 1000                                # 末尾1000行
      -N                                     # 显示行号
      +GG                                    # 打开末尾
+     +F                                     # 末尾
+
                                             # p n%, 跳到`n%`处
 less <file>                                 # 打开后按`F`, = tail -f
 cp
@@ -92,11 +108,20 @@ cat -n                                      # 行号
 echo
         -n                                  # 不换行
 
-# zip
+### zip
 pigz                                        # 使用多核心
-zip -s 0 ori.zip --out des.zip              # 将分卷压缩ori合并为des
 unzip file                                  # 解压缩
 gzip < file > file.gz                       # 压缩文件
+zip -s 0 ori.zip --out des.zip              # 将分卷压缩ori合并为des
+tar
+    -z                                      # use gzip
+    -x                                      # 解包
+    -c                                      # 打包
+    -v                                      # verbose
+    -f <name>                               # 指定生成name
+    -t                                      # 查看内容（=test)
+    --exclude <dir>                         # 排除文件夹
+tar -zcvf des.tgz source1 source2           # 多文件
 
 # test value
 if [ ! -z "$var1" ]                         # variable not empty
@@ -107,38 +132,47 @@ if [ <var> = 'test' ]                       # <var> equal 'test'
 pidof fcitx | xargs kill                    # 结束程序
 lsof -ti :8000 |xargs kill                  # 根据端口占用结束程序
 
-# debug
+### debug
 set -x                                      # 显示参数和命令
     -v                                      # 显示输入
     +x                                      # 关闭调试
 #!/bin/bash -xv                             # (同上)
 
-# network
+### network
+sudo lsof -Pni :8118                        # 查看端口占用
+sudo netstat -ano | grep 8118               # 查看端口
 socat TCP-LISTEN:2375,reuseaddr,fork UNIX-CLIENT:/var/run/docker.sock
+
+scp
+scp file vps:                               # copy file to vps's home
+scp -3 host1: host2:foo/bar                 # host1->local->host2
 nc                                          # net connection
     -w 1                                    # wait time out 1s
     -u                                      # use UDP
 nc -w 1 -u localhost 8125                   # UDP监听8125端口
 
-# locale
+### locale
 agi `check-language-support -l zh-hans`     # 安装简中
-#
 /var/lib/locales/supported.d                # 语言包
 check-language-support -a                   # 列出所有未安装语言包
 agi language-pack-gnome-zh-hans             # 安装简中语言包
 locale                                      # 目前系统区域设置
 locale -a                                   # 可用的区域
-sudo dpkg-reconfigure locales               # 所有区域(设置是否开启, 更改后默认执行locale-gen)
+dpkg-reconfigure locales                    # 所有区域(设置是否开启, 更改后默认执行locale-gen)
 /etc/locale.gen                             # 上述文件路径
-sudo locale-gen                             # 手动更改.gen后执行
+locale-gen                                  # 手动更改.gen后执行
 localectl list-locales                      # 显示开启的区域(和locale -a略有不同)
-sudo localectl set-locale LANG=en_US.utf8   # 设置区域 语言参数
+localectl set-locale LANG=en_US.utf8        # 设置区域 语言参数
 /etc/default/locale                         # 上述位置
 
+### log
+dmesg                                       # 启动日志
 
-# other
-stat foo.txt                                # 查看文件详细信息
+### other
+echo $RANDOM                                # 生成随机数(0-32767)
 echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list
+stat foo.txt                                # 查看文件详细信息
 CWD=$(dirname $(readlink -f $0))            # pwd path 当前文件路径
 ${PWD##*/}                                  # 当前文件夹名(PWD, Bash内置变量)
 pw=$[ pw + 0 ]                              # 文本转数字(数据库拼接密码需数字)
@@ -146,7 +180,6 @@ export DEBUG=false                          # 设置环境变量
 unset DEBUG                                 # 清除
 ln -s prefix_{old,new}_suffix               # 创建只修改括号的链接(new -> old)
 find /usr/ -name libproxychains.so.3        # 查找/usr/下 xx.so.3名字的文件
-echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
 sudo su - <user>                            # 切换用户(无需输入<user>密码)
 netstat -tuplen                             # 查看22端口
 nmap -sP 192.168.1.0/24                     # ping扫描, 列出响应主机
@@ -163,8 +196,6 @@ Usage
 /etc/systemd/system/multi-user.target.wants
 # pdf 默认
 ~/.config/mimeapps.list
-# alpine version 版本
-cat /etc/alpine-release
 
 ## double dash (--), 用来区分参数和正则表达式
 # > https://unix.stackexchange.com/a/11382/181922
@@ -184,61 +215,15 @@ echo "${PWD##*/}"
 sudo visudo
 # last of the file, add below
 <username>  ALL=(ALL:ALL) NOPASSWD: ALL
-# restart
-sudo systemctl restart sudo.service
-
-### read
-read -r -d '\n'     # 读取, 转义不生效, 读取结束符设为\n(默认)
-
-### 当前文件夹 current directory
-CWD=$(dirname $(readlink -f $0))
-
-### 试试查看文件末尾
-less +F ...
-
-### 查看service 信息
-service --status-all
-
-### tar exclude 打包 排除
-tar -cvf name dir1 --exclude dir2
-
-### 查看文件夹大小
-du -sh .
-du -sh *    #list all files
-
-### change shell
-sudo chsh username -s /bin/zsh
 
 ### 7z 解压
 sudo apt install p7zip
 # x 解压 -o 设置解压目录(注意中间没有空格)
 7z x foo.7z -onew_folder
 
-### scp 复制
-# 复制文件file到vps主机的用户目录
-scp file vps:
-# remote to remote
-# host1的默认用户目录 to host2的./foo/bar
-scp -3 host1: host2:foo/bar
-
 ### 进程名称 查看进程信息
 ps -ef | grep '[f]oobar'
 # -a 所有
 pgrep -a foobar
 pgrep -fl foobar
-
-### 通过端口 查看端口占用(注意权限, 否则可能会看不到)
-sudo lsof -i:8118
-sudo lsof -Pni:8118
-sudo netstat -ano | grep 8118
-
-### 获取发行版名称 ubuntu release version
-# 添加源时使用
-lsb_release -cs
-echo $(lsb_release -cs) > foo.txt
-
-### I/O写入文件 支持sudo tee
-# -a  add 追加
-echo 'foo' | tee bar.txt
-echo 'foo' | tee -a bar.txt
 ```

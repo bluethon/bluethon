@@ -89,11 +89,15 @@ sudo lvdisplay
 sudo lvremove /dev/vg1/var_ext
 # 如果是全用, 按G输入会报错, 因为实际差若干M
 # 可以先分99%, 剩下扩展
-sudo lvextend -L [+]1020M /dev/vg1/var_ext
+# -r resizefs, 调整lv大小后调整文件系统, 有数据时必加!!!
+sudo lvextend -r -L [+]1020M /dev/vg1/var_ext
 # 减少
-sudo lvreduce -L 4G /dev/vg1/var_ext
+sudo lvreduce -r -L -4G /dev/vg1/var_ext   # 减少4G
+sudo lvreduce -r -L 4G /dev/vg1/var_ext    # 减到4G!!!
 # rename
 sudo lvrename vg1/var_ext var_ext1
+# 调整大小
+lvresize
 
 # 3.5 格式化
 sudo mkfs.ext4 /dev/vg1/var_ext
@@ -127,7 +131,7 @@ sudo mount /dev/vg1/var_ext /var
 # 11 auto mount
 sudo vim /etc/fstab
 
-/dev/vg1/var_ext    /var    ext4    default 0   0
+/dev/vg1/var_ext    /var    ext4    defaults 0   0
 
 # 12 return multitasking mode
 sudo init 5

@@ -443,48 +443,6 @@ gunzip 压缩文件
 gunzip -r 文件夹
 ```
 
-### **.bz2**
-
-    不能压缩目录
-
-    `bzip2 源文件`
-    压缩为.bz2格式, 不保留源文件
-    `bzip2 -k 源文件`
-    压缩后保留源文件
-
-    `bzip2 -d 压缩文件`
-    解压 -k保留压缩文件
-    or
-    `bunzip2 压缩文件`
-
-### tar 打包命令
-
-``` shell
-# -c: 打包
-# -v: 显示过程
-# -f: 指定打包后的文件名
-tar -cvf 打包文件名 源文件
-# -x: 解打包
-tar -xvf 打包文件名
-# -t: =test 仅查看压缩包
-tar -ztvf 文件名
-
-# gz
-# -z: 压缩为.tar.gz格式
-tar -zcvf 压缩包名.tar.gz 源文件
-# 压缩到指定位置, 多个文件空格分割
-tar -zcvf /tmp/压缩包名.tar.gz 源文件1 源文件2
-# 解压
-tar -zxvf 压缩包名.tar.gz
-
-# bz
-tar -jcvf 压缩包名.tar.bz2 源文件
-# -z: 压缩为.tar.bz2格式
-tar -jxvf 压缩包名.tar.bz2
-# 制定位置解压 -C位置必须在后面
-tar -jxvf 压缩包名.tar.bz2 -C /tmp/
-```
-
 ### 关机和重启
 
 shutdown

@@ -8,6 +8,18 @@ CMD
 sudo apt-mark auto <pkg>                # 包设为自动(可被autoremove), not manually
 ```
 
+DEBUG
+-----
+
+### local-premount(OS boot slow)
+
+> <https://askubuntu.com/a/1013935/537695>
+
+    sudo systemd-analyze time
+    # sudo vim /etc/initramfs-tools/conf.d/resume
+    RESUME=none
+    sudo update-initramfs -u
+
 Settings
 --------
 
