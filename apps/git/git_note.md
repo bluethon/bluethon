@@ -17,6 +17,12 @@ Host必须是`github.com`, 否则匹配不到config, 可注意`-vT`顶部是否�
     ssh-add -l
     ssh-add -l -E md5
 
+### commit case-sensitive only filename changes
+
+> <https://stackoverflow.com/a/20907647/4757521>
+
+    git mv OldFileNameCase newfilenamecase
+
 useage
 ------
 
@@ -27,12 +33,6 @@ git fetch --all --prune                     # 更新已删除的远程分支
 git branch -a
 
 git init                            # Git本地新建repository
-
-                                    # 退回之前(后)的文件版本
-git reset --hard HEAD^
-git reset --hard HEAD~100
-git reset --hard 3628164(commit ID)
-git reset --hard origin/master
 
 git reflog                          # 查看命令记录
 git diff HEAD --[filename]          # 查看工作区和版本库最新版本区别
@@ -45,8 +45,7 @@ git branch -a                       # 查看远程库的分支
 git merge [name]                    # 合并[name]分支到当前分支  如果可能, Git优先使用"Fast forward"模式 快速但是合并后 分支信息丢失
 git merge --no-ff -m "dev message" [dev_name]
                                     # 合并分支 --no-ff模式 可以保留分支信息
-git branch -d [name]                # 删除分支
-git branch -D [name]                # 强制删除未合并分支
+
 git remote -v                       # 查看远程库信息
 
 git push origin [branch-name]       # 推送本地分支

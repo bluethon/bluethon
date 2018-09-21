@@ -139,6 +139,7 @@ set -x                                      # 显示参数和命令
 #!/bin/bash -xv                             # (同上)
 
 ### network
+/etc/NetworkManager/system-connections      # 网络连接confX
 sudo lsof -Pni :8118                        # 查看端口占用
 sudo netstat -ano | grep 8118               # 查看端口
 socat TCP-LISTEN:2375,reuseaddr,fork UNIX-CLIENT:/var/run/docker.sock

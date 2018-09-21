@@ -1,5 +1,5 @@
 # 版本
-version: '2'
+version: '3'
 
 services:
   # 服务名
@@ -37,6 +37,8 @@ services:
     # 环境变量, 覆盖Dockerfile
     environment:
       - FLASK_CONFIG=development
+    # 网络连接到主机
+    network_mode: 'host'
   mongo:
     container_name: 'mongo'
     image: mongo

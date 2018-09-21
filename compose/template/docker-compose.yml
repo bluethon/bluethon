@@ -16,7 +16,7 @@ services:
     restart: always
     depends_on:
       - mongo
-#      - redis
+      - redis
     networks:
       - api
 

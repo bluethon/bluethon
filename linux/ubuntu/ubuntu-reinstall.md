@@ -1,5 +1,5 @@
-重装步骤
-=======
+新系统设定
+========
 
 package
 -------
@@ -13,12 +13,14 @@ sudo apt-get update
 sudo apt-get install variety variety-slideshow
 ```
 
-### Fonts
+### max_user_watches
 
-> [10楼](http://forum.ubuntu.org.cn/viewtopic.php?f=8&t=463088&hilit=fontconfig)
-安装及配置文件
-链接: https://pan.baidu.com/s/1mi6pqUs 密码: gp9m
-> [金步国的blog](http://www.jinbuguo.com/gui/linux_fontconfig.html)
+> <https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc>
+
+    cat /proc/sys/fs/inotify/max_user_watches
+    # /etc/sysctl.conf
+    fs.inotify.max_user_watches=524288
+    sudo sysctl -p --system
 
 ### ohmyzsh
 
