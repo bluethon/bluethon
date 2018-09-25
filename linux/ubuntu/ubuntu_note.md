@@ -23,6 +23,12 @@ DEBUG
 Settings
 --------
 
+### chrome no password
+
+> <https://youtu.be/qsll0Ug2QXA>
+
+Password and Keys > Passwords > Login > Right Click > Change Pwd > set null
+
 ### 双屏切换桌面(workspaces, monitor)
 
 Tweak > Workspaces > Display Handing > Workspaces span displays
