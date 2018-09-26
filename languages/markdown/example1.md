@@ -156,7 +156,7 @@
 [jane-eyre-pic]: http://img3.douban.com/mpic/s1108264.jpg
 [jane-eyre-douban]: http://book.douban.com/subject/1141406/
 
-代码如下： 
+代码如下：
 ```
 [![][jane-eyre-pic]][jane-eyre-douban]
 [jane-eyre-pic]: http://img3.douban.com/mpic/s1108264.jpg

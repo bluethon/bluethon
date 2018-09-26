@@ -54,6 +54,7 @@ systemctl
           enable/disable nginx.service      # 开启/关闭自启动
           daemon-reload                     # 重载配置文件
           restart httpd.service             # 重启(更改文件后, 先重载)
+          --state=not-found --all           # 不存在的服务
 ulimit
         -n                                  # 文件句柄数
         -a                                  # 所有信息

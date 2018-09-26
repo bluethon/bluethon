@@ -8,15 +8,12 @@ MAINTAINER bluethon
 ENV FLASK_APP=manage.py \
     FLASK_CONFIG="production" \
     APP_PORT=9000 \
-    PROJECT_DIR=/data/app
+    PROJECT_DIR=/app
 
 # 执行命令并构建新的镜像层
-RUN echo '[global]' >> pip.conf && \
-    echo 'index-url = https://pypi.douban.com/simple' >> pip.conf
-RUN pip install -r /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt -i https://pypi.douban.com/simple
 
 # 切换目录
-WORKDIR ~/web_develop
 WORKDIR $PROJECT_DIR
 
 # 复制文件(当前磁盘目录 to 容器内目录)

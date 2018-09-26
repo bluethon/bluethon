@@ -9,8 +9,6 @@ FROM python:3
 MAINTAINER bluethon
 
 # 执行命令并构建新的镜像层
-RUN echo '[global]' >> pip.conf && \
-    echo 'index-url = https://pypi.douban.com/simple' >> pip.conf
 RUN pip install -r /tmp/requirements.txt -i https://pypi.douban.com/simple
 
 # 切换目录

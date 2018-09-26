@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  grafana:
+    build: ./grafana
+    image: my-grafana
+    container_name: 'grafana'
+    ports:
+    - '10030:3000'
+    volumes:
+    - grafana-storage:/var/lib/grafana
+
+  graphite:
+    image: graphiteapp/graphite-statsd
+    container_name: 'graphite'
+    #env_file:
+    #  - .env
+    environment:
+      - TZ=PRC
+    restart: always
+    volumes:
+    - graphite-storage:/opt/graphite/storage
+    ports:
+      - '10031:80'            # nginx
+#      - '8080:8080'          # Graphite internal gunicorn port (without Nginx proxying)
+      - '2003-2004:2003-2004' # carbon receiver
+      - '2023-2024:2023-2024' # carbon aggregator
+      - '8125:8125/udp'       # statsd
+      - '8126:8126'           # statsd admin
+
+  collectd:
+    build:
+      context: ./collectd
+    image: collectd
+    container_name: 'collectd'
+    environment:
+      - HOST_NAME=collectd-docker
+    network_mode: 'host'
+    privileged: true
+    restart: always
+    depends_on:
+      - graphite
+#    env_file:
+#      - .env
+    volumes:
+      - /:/hostfs:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  graphite-storage:
+  grafana-storage:
