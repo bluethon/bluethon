@@ -50,3 +50,18 @@ read -d ":" var
 ### 返回值
 
 true是/bin下的
+
+### IFS, 系统分隔符
+
+``` sh
+data='name,sex,rollno,location'
+
+oldIFS=$IFS
+IFS=, #now
+for item in $data
+do
+    echo Item: $item
+done
+
+IFS=$oldIFS
+```

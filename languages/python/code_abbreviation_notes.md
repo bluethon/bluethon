@@ -10,6 +10,7 @@ abbreviation
     sar         System Activity Report                  系统活动报告
     fd          file descriptors                        文件句柄(文件描述符)
     lsof        list open files                         列出(进程)打开的文件
+    IFS         Internal Field Separator                内部字段分隔符
 
 ### html
 
@@ -44,3 +45,10 @@ explaination
     thumbnail       缩略图
     hover           悬停
     DOM             文档对象模型
+    delimiter       定界符
+    cluster         集群
+    orchestration   编排
+    scale           弹性
+    best-of-breed   最佳实践
+    schedule        调度
+    traffic         流量
