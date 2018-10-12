@@ -1,6 +1,11 @@
 vimrc Note
 ==========
 
+One Key for Server
+------------------
+
+    curl https://raw.githubusercontent.com/wklken/vim-for-server/master/vimrc > ~/.vimrc
+
 .vimrc
 ------
 

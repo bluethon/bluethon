@@ -6,6 +6,12 @@ CMD
 
 ``` shell
 sudo apt-mark auto <pkg>                # 包设为自动(可被autoremove), not manually
+              manual
+              hold                      # 停留在此版本
+              unhold
+              showauto
+              showmanual
+              showhold
 ```
 
 DEBUG

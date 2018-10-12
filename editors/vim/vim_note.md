@@ -39,7 +39,6 @@ Tips
     # all sort reverse
     :%sort!
 
-
 ### 使用系统剪贴板
 
     sudo apt install vim-gnome

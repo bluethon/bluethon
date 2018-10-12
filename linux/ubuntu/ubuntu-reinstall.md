@@ -1,6 +1,19 @@
 新系统设定
 ========
 
+Source
+------
+
+### sed
+
+    sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+    sudo sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+
+### repogen
+
+> <https://mirrors.ustc.edu.cn/repogen/>
+> <https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/>
+
 package
 -------
 

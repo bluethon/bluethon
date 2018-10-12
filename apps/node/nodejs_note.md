@@ -21,6 +21,7 @@ sudo npm install -g npm
     npm config edit
     # add
     registry = https://registry.npm.taobao.org
+    registry = https://npmreg.proxy.ustclug.org
 
 包
 ---

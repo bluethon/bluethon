@@ -43,6 +43,7 @@ systemctl start sysstat.service             # sar后端进程
 echo $0                                     # 当前shell
 echo $SHELL                                 # 默认shell
 exec $SHELL                                 # 刷新Shell
+hash -r                                     # 清除shell缓存
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 
 systemd-analyze
