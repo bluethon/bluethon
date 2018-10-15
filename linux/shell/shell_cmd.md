@@ -154,6 +154,8 @@ nc                                          # net connection
     -w 1                                    # wait time out 1s
     -u                                      # use UDP
 nc -w 1 -u localhost 8125                   # UDP监听8125端口
+rsync
+rsync -av source des:/dest/ination          # 远程复制保持权限
 
 ### locale
 agi `check-language-support -l zh-hans`     # 安装简中
@@ -188,6 +190,8 @@ sudo su - <user>                            # 切换用户(无需输入<user>密
 netstat -tuplen                             # 查看22端口
 nmap -sP 192.168.1.0/24                     # ping扫描, 列出响应主机
 wget -nv http://foo/ -O -                   # 访问, 输出到stdout
+find / -name .DS_Store -print0 | xargs -0 rm
+                                            # 删除特定目录下指定文件
 ```
 
 Usage

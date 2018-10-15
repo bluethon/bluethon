@@ -9,7 +9,8 @@ CMD
 pip3 install --user pipenv
 
 # add to .zshrc
-echo export PATH="/home/blue/.local/bin:$PATH" >> ~/.zshrc
+BASE=`python3 -m site --user-base`
+echo export PATH="$BASE/bin:$PATH" >> ~/.zshrc
 
 # active
 pipenv shell

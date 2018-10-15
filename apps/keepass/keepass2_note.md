@@ -1,9 +1,17 @@
-KeePass2
-========
+KeePass2 Note
+=============
+
+OSX
+---
+
+msd
+
+Linux
+-----
 
 ### 内容乱码(方块)
 
-> http://www.myjoyoo.com/node/keepass-in-ubuntu
+> <http://www.myjoyoo.com/node/keepass-in-ubuntu>
 
 显示内容的乱码，修改字体就行了：Tools --> Options --> Interface --> Select List Fonts，我选择的是：Noto Sans Mono CJK SC
 
