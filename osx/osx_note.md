@@ -1,6 +1,11 @@
 OS X Note
 =========
 
+CMD
+---
+
+    open -a TextEdit filename           用写字板打开文件
+
 Shortcuts
 ---------
 

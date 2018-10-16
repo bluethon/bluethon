@@ -188,7 +188,7 @@ ln -s prefix_{old,new}_suffix               # 创建只修改括号的链接(new
 find /usr/ -name libproxychains.so.3        # 查找/usr/下 xx.so.3名字的文件
 sudo su - <user>                            # 切换用户(无需输入<user>密码)
 netstat -tuplen                             # 查看22端口
-nmap -sP 192.168.1.0/24                     # ping扫描, 列出响应主机
+nmap -sP 192.168.1.0/24                     # ping扫描, 列出响应主机(sudo 可显示MAC)
 wget -nv http://foo/ -O -                   # 访问, 输出到stdout
 find / -name .DS_Store -print0 | xargs -0 rm
                                             # 删除特定目录下指定文件
