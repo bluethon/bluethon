@@ -24,6 +24,7 @@ Packages
     MacPass             Keepass Mac开源版本
     iStat Menus         系统资源监控(收费, 有笔记)
     iTerm2              终端
+    Smooze              外接鼠标滚轮速度/方向调节(部分收费)
 
 Website
 -------
@@ -43,3 +44,51 @@ add(顶层dict下, 即只缩进2space)
 
     <key>LSUIElement</key>
     <true/>
+
+### iTerm2
+
+    # 每次打开当前目录, 而非home
+    Preferences / Profiles / Reuse previous session's directory
+    # paste slow
+    # https://apple.stackexchange.com/a/315515
+
+### 安装GNU Linux版的 系统命令
+
+``` sh
+brew install coreutils
+# All commands have been installed with the prefix 'g'.
+# or Set below to .zshrc
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+```
+
+### 修改ls color
+
+> <https://geoff.greer.fm/lscolors/>
+
+``` sh
+brew coreutils
+# .zshrc
+test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
+if [ -n "$LS_COLORS" ]; then
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
+alias ls='gls --color=auto'
+alias ll='ls -lh --color=always'
+alias l='gls -alh --color=auto'
+```
+
+### python venv
+
+``` shell
+brew install pyenv
+pip install --user pipenv
+
+# .zshrc
+eval "$(pyenv init -)"
+pyenv install 3.6.6
+
+# cd project
+pyenv local 3.6.6
+pipenv install
+```

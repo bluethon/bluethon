@@ -4,7 +4,13 @@ pyenv notes
 Installation
 ------------
 
-### Install
+### Install(OSX)
+
+    brew install pyenv
+    # .zshrc
+    eval "$(pyenv init -)"
+
+### Install(Linux)
 
     $ curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 
