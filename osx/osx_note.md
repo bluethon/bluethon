@@ -87,6 +87,8 @@ pip install --user pipenv
 # .zshrc
 eval "$(pyenv init -)"
 pyenv install 3.6.6
+# if zlib not available
+CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.6.6
 
 # cd project
 pyenv local 3.6.6

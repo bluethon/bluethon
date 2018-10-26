@@ -1,9 +1,7 @@
 # 继承的镜像:tag
 FROM python:3
 
-LABEL maintainer 'j5088794@gmail.com'
-# 构建者(废弃)
-MAINTAINER bluethon
+LABEL maintainer='bluethon j5088794@gmail.com'
 
 ENV FLASK_APP=manage.py \
     FLASK_CONFIG="production" \

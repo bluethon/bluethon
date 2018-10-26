@@ -1,6 +1,33 @@
 Kubernetes Note
 ===============
 
+TODO
+----
+
+``` sh
+kubeadm token list
+kubeadm token generate --print-join-command
+kubectl get nodes
+kubectl get pod --all-namespaces
+kubectl describe pod kube-flannel-ds-v0p3x --namespace=kube-system
+```
+
+CMD
+---
+
+``` shell
+# 列出依赖包版本
+# https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#running-kubeadm-without-an-internet-connection
+kubeadm config images list
+```
+
+Note
+----
+
+### init config
+
+> <https://godoc.org/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1alpha3>
+
 Install
 -------
 

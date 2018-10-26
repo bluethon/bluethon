@@ -16,6 +16,7 @@ ssh
     -T                                      # T, 不分配TTY
     -S                                      # socket
     -M                                      # Master Mode
+    -F                                      # ssh config path
 ssh -R :10022:localhost:22 remote           # 让远程ptdv:15000转发到本地5000
 ssh -R remote:15000:localhost:5000 remote   # 等价
 

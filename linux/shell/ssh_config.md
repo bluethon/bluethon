@@ -12,6 +12,10 @@ Host *
   # avoid Too many authentication failures
   # explicitly provided private key.
   IdentitiesOnly yes
+  # multiplexing, 多路复用
+  ControlMaster auto
+  ControlPath /tmp/ssh-%r@%h:%p.sock
+  ControlPersist 1h
 
 Host github.com
   HostName github.com
