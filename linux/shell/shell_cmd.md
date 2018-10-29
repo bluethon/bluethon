@@ -78,6 +78,7 @@ dpkg-reconfigure tzdata                     # 设置时区(图形界面)
 export TZ='Asia/Shanghai'                   # alpine 设置时区环境变量
 
 ### text
+b=${a:12:5}                                 # string slice
 read -r -d '\n'                             # 读取, 转义不生效, 读取结束符设为\n(默认)
 fc-list                                     # 查看字体及位置
 ls -la | vim -                              # 使用vim查看STDIN的内容
@@ -93,6 +94,7 @@ sed
     -n -- 's/foo/bar/p' <fiel>              # 只显示更改的内容
                                             # -n 阻止输出所有行
                                             # /p 后缀p为只显示替换匹配到的
+          's/\(foo\)/\1bar'                 # group match, =foobar
 tail -f /var/log/auth.log                   # 刷新查看文件末尾
 tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
 less

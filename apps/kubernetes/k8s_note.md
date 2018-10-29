@@ -1,6 +1,13 @@
 Kubernetes Note
 ===============
 
+URL
+---
+
+[GCR 同步仓库](https://github.com/mritd/gcr)
+[kubenetes-tools 一些工具](https://github.com/openthings/kubernetes-tools)
+[kubenetes一键脚本](https://github.com/cookcodeblog/k8s-deploy)
+
 TODO
 ----
 
