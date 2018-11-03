@@ -27,6 +27,7 @@ docker logs <container>                 # 查看容器输出(run -d后台运行�
     - f                                 # 持续
 docker ps [-a]                          # 查看容器状态
 docker ps -a --format="table {{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}"
+docker ps | less -S                     # 解决显示换行问题
 
 docker stop $(docker ps -f label=type=fe)
                                         # 组合命令停止某容器

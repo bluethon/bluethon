@@ -16,8 +16,21 @@ kubeadm token list
 kubeadm token generate --print-join-command
 kubectl get nodes
 kubectl get pod --all-namespaces
+# 带ip
+kubectl get pod --all-namespaces -o wide
 kubectl describe pod kube-flannel-ds-v0p3x --namespace=kube-system
+sudo systemctl status kubelet.service
+kubectl run httpd-app --image=httpd --replicas=2
+kubectl get deployments
+kubectl get pod -o wide
+kubectl describe deployments.apps nginx-deployment
+kubectl get replicasets
+kubectl describe replicasets.apps nginx-deployment-d4597f7d4
+kubectl describe pods
 ```
+
+- k8s的系统组件在`kubu-system`namespace中
+- kubulet是唯一不在容器中的组件, Ubuntu中通过systemd运行
 
 CMD
 ---
