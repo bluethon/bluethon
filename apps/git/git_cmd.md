@@ -2,10 +2,12 @@ Git Common Use Command
 ======================
 
 ``` shell
+### git checkout
+git checkout <branch> -- <file>                     # 从其他分支提取文件
 
 ### git branch
-git branch -d <branch>                                  # 删除分支
-git branch -D <branch>                # 强制删除未合并分支
+git branch -d <branch>                              # 删除分支
+git branch -D <branch>                              # 强制删除未合并分支
 git branch -u origin/<branch> <local-branch>        # 设定默认拉取分支
 git branch -f <branch-name> [<start-point>]         # --force 强制重置X分支到Y提交
 

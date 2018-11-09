@@ -40,6 +40,7 @@ vim /etc/hostname
 chvt <num>                                  # change tty
 sar                                         # 记录各类系统情况, 可生成日报告
 systemctl start sysstat.service             # sar后端进程
+id -Gn                                      # 当前用户 groups
 echo $0                                     # 当前shell
 echo $SHELL                                 # 默认shell
 exec $SHELL                                 # 刷新Shell
@@ -76,6 +77,8 @@ dpkg-reconfigure tzdata                     # 设置时区(图形界面)
 /etc/localtime                              # 当前时区信息(binary)
 /usr/share/zoneinfo                         # 所有时区
 export TZ='Asia/Shanghai'                   # alpine 设置时区环境变量
+for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
+                                            # shell time speed
 
 ### text
 b=${a:12:5}                                 # string slice

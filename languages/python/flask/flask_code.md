@@ -20,6 +20,13 @@ DATABASE_URI = 'sqlite://:memory:'
 CODE
 ----
 
+### Trace
+
+``` py
+track = get_current_traceback(skip=1, show_hidden_frames=True, ignore_system_exceptions=False)
+track.log()
+```
+
 ### Use Flask current_app.logger inside threading or Multiprocess
 
 > <https://stackoverflow.com/a/39477756/4757521>
