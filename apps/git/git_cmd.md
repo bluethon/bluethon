@@ -12,6 +12,7 @@ git branch -u origin/<branch> <local-branch>        # 设定默认拉取分支
 git branch -f <branch-name> [<start-point>]         # --force 强制重置X分支到Y提交
 
 ### git clean
+git clean -n                                        # 预览要清除的文件
 git clean -f                                        # 清理合并产生的额外文件
 
 ### git diff

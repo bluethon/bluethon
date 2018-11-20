@@ -27,6 +27,15 @@ kubectl describe deployments.apps nginx-deployment
 kubectl get replicasets
 kubectl describe replicasets.apps nginx-deployment-d4597f7d4
 kubectl describe pods
+kubectl delete deployments.apps nginx-deployment
+kubectl delete -f nginx.yml
+# 使master也可当做Node使用
+kubectl taint node k8s-master node-role.kubernetes.io/master-
+# 恢复
+kubectl taint node k8s-master node-role.kubernetes.io/master="":NoSchedule
+kubectl get nodes --show-labels
+# 编辑/查看DaemonSet
+kubectl edit daemonsets.extensions --namespace kube-system kube-proxy
 ```
 
 - k8s的系统组件在`kubu-system`namespace中
@@ -65,4 +74,59 @@ cat /proc/swaps
 sudo swapoff -a
 sudo vim /etc/fstab
 # comment swap line
+```
+
+Upgrade
+-------
+
+### Upgrade the control plane
+
+``` sh
+sudo apt update
+# 必须指定名称, 因为上面设定了hold
+sudo apt upgrade -y kubelet kubeadm kubectl
+kubeadm version
+
+# 显示将要升级的内容
+sudo kubeadm upgrade plan
+# 列出当前版本需要的image tag
+kubeadm config images list
+# 修改, 拉取并打官方tag
+04_pull_image.sh
+
+# 升级
+sudo kubeadm upgrade apply vx.xx.x
+```
+
+### Upgrade master and node packages
+
+``` sh
+# 1. 剔除node
+# in master, $NODE is node name pt-4
+kubectl drain $NODE --ignore-daemonsets
+# or
+kubectl drain ip-172-31-85-18 --ignore-daemonsets
+
+# 2. 安装package
+sudo apt update
+# 必须指定名称, 因为上面设定了hold
+sudo apt upgrade -y kubelet kubeadm kubectl
+kubeadm version
+
+# 3. 手动下载image
+# 显示将要升级的内容
+sudo kubeadm upgrade plan
+# 列出当前版本需要的image tag
+kubeadm config images list
+# 修改, 拉取并打官方tag
+04_pull_image.sh
+
+# 4. upgrade kubelet on each node
+sudo kubeadm upgrade node config --kubelet-version $(kubelet --version | cut -d ' ' -f 2)
+sudo systemctl restart kubelet.service
+sudo systemctl status kubelet.service
+# on maseter
+kubectl uncordon $NODE
+# check
+kubectl get nodes
 ```

@@ -48,6 +48,7 @@ hotkey
     da<c>   删除c内(包含)
     dib     删除圆括号内
     diB     删除花括号内
+    :[start_line_no],[end_line_no]d
 
     :e!     重新加载(!从local disk)
     :sp     文件名水平分割窗口

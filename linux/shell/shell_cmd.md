@@ -53,7 +53,7 @@ systemd-analyze
                 blame                       # 按服务耗时逆序排列
 systemctl
           list-units --type service         # 显示系统所有自启动服务
-          list-unit-files |grep nginx       # 显示nginx服务状态
+          list-unit-files | grep nginx      # 显示nginx服务状态
           enable/disable nginx.service      # 开启/关闭自启动
           daemon-reload                     # 重载配置文件
           restart httpd.service             # 重启(更改文件后, 先重载)
@@ -61,6 +61,10 @@ systemctl
 ulimit
         -n                                  # 文件句柄数
         -a                                  # 所有信息
+strace
+        -r                                  # 打印相对时间戳(print relative timestamp)
+        -o <file>                           # 输出到文件
+
 
 ### time
 date                                        # 显示当前时间
@@ -82,12 +86,19 @@ for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 
 ### text
 b=${a:12:5}                                 # string slice
-read -r -d '\n'                             # 读取, 转义不生效, 读取结束符设为\n(默认)
-fc-list                                     # 查看字体及位置
-ls -la | vim -                              # 使用vim查看STDIN的内容
-tee                                         # 支持sudo
+cp -rp foo bar                              # 复制 保留权限
+cat -n                                      # 行号
 echo 'foo' | tee bar.txt                    # 写入
 echo 'foo' | tee -a bar.txt                 # 追加
+fc-list                                     # 查看字体及位置
+ls -la | vim -                              # 使用vim查看STDIN的内容
+read -r -d '\n'                             # 读取, 转义不生效, 读取结束符设为\n(默认)
+tee                                         # 支持sudo
+tail -f /var/log/auth.log                   # 刷新查看文件末尾
+tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
+
+echo
+        -n                                  # 不换行
 sed
     -n -e 5p <file>                         # 查看第5行
     -n 5,8p <file>                          # 查看5-8行
@@ -98,23 +109,20 @@ sed
                                             # -n 阻止输出所有行
                                             # /p 后缀p为只显示替换匹配到的
           's/\(foo\)/\1bar'                 # group match, =foobar
-tail -f /var/log/auth.log                   # 刷新查看文件末尾
-tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
 less
      -n 1000                                # 末尾1000行
      -N                                     # 显示行号
      +GG                                    # 打开末尾
      +F                                     # 末尾
-
-                                            # p n%, 跳到`n%`处
 less <file>                                 # 打开后按`F`, = tail -f
+                                            # p n%, 跳到`n%`处
 cp
    -p                                       # same as --preserve=mode,ownership,timestamps
    -P                                       # 保留软链接 symbolic links
-cp -rp foo bar                              # 复制 保留权限
-cat -n                                      # 行号
-echo
-        -n                                  # 不换行
+cut
+    -d ' '                                  # 分隔符, 此处为空格
+    -f x                                    # 取第x个元素
+
 
 ### zip
 pigz                                        # 使用多核心
