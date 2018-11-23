@@ -36,10 +36,74 @@ kubectl taint node k8s-master node-role.kubernetes.io/master="":NoSchedule
 kubectl get nodes --show-labels
 # 编辑/查看DaemonSet
 kubectl edit daemonsets.extensions --namespace kube-system kube-proxy
+kubectl get jobs.batch
+kubectl logs <job>
+
+# job(restartPolicy: Never)失败会一直创建新的Pod, (restartPolicy: OnFailure)则会重启同一Pod
+# job的completions和parallelism默认为1
+
+# show all api versions
+kubectl api-versions
+
+# 获取cron job
+kubectl get cronjobs.batch
+# 获取实际的每次jobs
+kubectl get jobs.batch
+
+kubectl get services
+kubectl describe services httpd-svc
+
+# look dns
+kubectl get deployments.apps --namespace kube-system
+
+kubectl run --generator=run-pod/v1 alpine --rm -it --image alpine /bin/sh
+# 查看域名
+nslookup httpd-svc.default
+# 同namespace可以省略
+nslookup httpd-svc
+# 查看所有命名空间
+kubectl get namespaces
 ```
 
 - k8s的系统组件在`kubu-system`namespace中
 - kubulet是唯一不在容器中的组件, Ubuntu中通过systemd运行
+
+YAML
+----
+
+``` yaml
+apiVersion: batch/v1
+apiVersion: batch/v1beta1
+kind: Job
+kind: CronJob
+spec:
+  # 并发
+  parallelism: 2
+  # 总数
+  completions: 6
+  schedule: "* * * * *"
+restartPolicy: Never
+restartPolicy: OnFailure
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpd-svc
+spec:
+  # 开启节点端口
+  type: NodePort
+  selector:
+    run: httpd
+  ports:
+    - protocol: TCP
+      # 节点
+      nodePort: 30000
+      # ClusterIP
+      port: 8080
+      # Pod
+      targetPort: 80
+```
 
 CMD
 ---

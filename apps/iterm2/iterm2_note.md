@@ -11,6 +11,7 @@ Shortcuts
     C-u                 删除行
     C-p                 上
     C-a                 开始
+    C-h                 Backspace
     C-n                 下
     A-f                 前进一个单词(Esc+)
     A-b                 后退一个单词(Esc+)
@@ -28,6 +29,10 @@ Profiles / Keys / Left ⌥ Key / Esc+
 
     Home    SS3 H   Esc+OH
     End     SS3 F   Esc+OF
+
+### Hex Codes
+
+    0x17        delete a word
 
 Note
 ----

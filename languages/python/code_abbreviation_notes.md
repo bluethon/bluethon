@@ -52,3 +52,4 @@ explaination
     best-of-breed   最佳实践
     schedule        调度
     traffic         流量
+    deprecated      弃用

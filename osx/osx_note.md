@@ -26,6 +26,7 @@ Packages
     iTerm2              终端
     Smooze              外接鼠标滚轮速度/方向调节(license)
     Hopper Disassembler 反汇编工具(hack, license, notes)
+    Key Codes           键盘码(Hex)<https://manytricks.com/keycodes/>
 
 Website
 -------

@@ -46,6 +46,7 @@ echo $SHELL                                 # 默认shell
 exec $SHELL                                 # 刷新Shell
 hash -r                                     # 清除shell缓存
 echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
+sudo iptables-save                          # 查看防火墙(firewall)规则
 
 systemd-analyze
                 critical-chain              # 系统启动树
@@ -122,6 +123,9 @@ cp
 cut
     -d ' '                                  # 分隔符, 此处为空格
     -f x                                    # 取第x个元素
+grep
+    -v                                      # 匹配文本中包含`-`
+    --                                      # 同上
 
 
 ### zip

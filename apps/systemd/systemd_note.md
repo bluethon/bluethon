@@ -15,8 +15,11 @@ Create
 Description=Jenkins Daemon
 
 [Service]
+Environment="FOO=bar"
+Type=forking    # ???
 ExecStart=/usr/bin/java -jar /home/jenkins_user/jenkins.war
 User=jenkins_user
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
