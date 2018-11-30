@@ -22,8 +22,8 @@ pipenv install -d
 pipenv install -r requirements.txt
 
 
-pipenv lock -r > requirements.txxt
-pipenv lock -rd > requirements-dev.txxt
+pipenv lock -r > requirements.txt
+pipenv lock -rd > requirements-dev.txt
 
 pipenv update
 # equal to

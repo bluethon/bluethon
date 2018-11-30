@@ -25,6 +25,19 @@ f'{foo:<8}'                                         # 制表, 左对齐, 8宽度
 Usage
 -----
 
+### 转码
+
+``` py
+# 字母转ascii
+ord('c')
+# 十进制转十六进制
+hex(number)
+# 字符串转换为字符列表
+list('string')
+# 二进制书写
+chr(0b01110111)
+```
+
 ### logger level
 
 > <https://stackoverflow.com/a/30086809/4757521>
@@ -267,16 +280,23 @@ import sys
 print(sys.executable)
 ```
 
-转码
-----
+### 3.7 breakpoint 断点
 
 ``` py
-# 字母转ascii
-ord('c')
-# 十进制转十六进制
-hex(number)
-# 字符串转换为字符列表
-list('string')
-# 二进制书写
-chr(0b01110111)
+breakpoint()
+# equal
+import pdb; pdb.set_trace()
+
+# disable
+PYTHONBREAKPOINT=0 python3.7 foo.py
+
+# use pudb
+PYTHONBREAKPOINT=pudb.set_trace python3.7 foo.py
+# equal
+import pudb; pudb.set_trace()
+
+# web debug(when use WSGI)
+pip install web-pdb
+export PYTHONBREAKPOINT='web_pdb.set_trace'
+# localhost:5555
 ```

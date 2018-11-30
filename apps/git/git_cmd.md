@@ -55,6 +55,9 @@ git rm --cached <FILENAME>                          # untrack file
 
 git describe --tags `git rev-list --tags --max-count=1` | sed 's/.*-v//'
                                                     # 获取最新tag
+
+git blame <file>                                    # 文件每行改动
+          -L 5,10                                   # Look, 看5,10行内容
 ```
 
 [#1](https://stackoverflow.com/a/2364223/4757521)

@@ -23,6 +23,7 @@ sudo systemctl status kubelet.service
 kubectl run httpd-app --image=httpd --replicas=2
 kubectl get deployments
 kubectl get pod -o wide
+# 查看deployments过程
 kubectl describe deployments.apps nginx-deployment
 kubectl get replicasets
 kubectl describe replicasets.apps nginx-deployment-d4597f7d4
@@ -63,13 +64,28 @@ nslookup httpd-svc.default
 nslookup httpd-svc
 # 查看所有命名空间
 kubectl get namespaces
-```
 
-- k8s的系统组件在`kubu-system`namespace中
-- kubulet是唯一不在容器中的组件, Ubuntu中通过systemd运行
+# 以下三层递进底层, 命名可以看出关系
+# 查看deployment
+kubectl get deployments.apps <name> -o wide
+# 查看replicaset
+kubectl get replicasets.apps -o wide
+# 查看pod
+kubectl get pods -o wide
+
+# 加入版本记录
+kubectl apply -f httpd.v2.yml --record
+# 查询滚动升级历史记录
+kubectl rollout history deployment httpd
+# 回滚历史版本到v1
+kubectl rollout undo deployment httpd --to-revision=1
+```
 
 YAML
 ----
+
+- k8s的系统组件在`kubu-system`namespace中
+- kubulet是唯一不在容器中的组件, Ubuntu中通过systemd运行
 
 ``` yaml
 apiVersion: batch/v1

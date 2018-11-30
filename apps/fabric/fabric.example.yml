@@ -22,3 +22,8 @@ connect_kwargs:
 # sudo密码
 sudo:
   password: ''
+envs:
+  'local': &local
+    api:
+  'pt-ali':
+    <<: *local

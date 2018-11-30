@@ -21,7 +21,7 @@ docker run
 docker pull bluethon/foo:bar            # 拉取镜像
 docker start web_dev                    # 启动容器
 docker system df                        # 占用存储大小
-docker info                             # docker系统信息(可查看镜像地址)
+docker info                             # docker系统信息(可查看镜像地址)!
 docker logs <container>                 # 查看容器输出(run -d后台运行时)
     - t                                 # 时间戳
     - f                                 # 持续

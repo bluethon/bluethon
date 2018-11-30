@@ -1,6 +1,9 @@
 错误处理
 =======
 
+Note
+----
+
 ### No module named apt_pkg
 
 > <https://stackoverflow.com/a/36232975/4757521>
@@ -15,6 +18,7 @@ sudo ln -s apt_pkg.cpython-{35m,36m}-x86_64-linux-gnu.so
 ```
 
 ### No module named pkg_resources
+
 > <https://stackoverflow.com/a/10538412/4757521>
 
     pip install -U setuptools
