@@ -79,6 +79,11 @@ kubectl apply -f httpd.v2.yml --record
 kubectl rollout history deployment httpd
 # 回滚历史版本到v1
 kubectl rollout undo deployment httpd --to-revision=1
+
+# 获取secret
+kubectl get secrets mysecret
+# 查看/编辑详细的base64
+kubectl edit secrets mysecret
 ```
 
 YAML

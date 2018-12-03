@@ -97,9 +97,11 @@ read -r -d '\n'                             # 读取, 转义不生效, 读取结
 tee                                         # 支持sudo
 tail -f /var/log/auth.log                   # 刷新查看文件末尾
 tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
+echo -n <str> | base64                      # -n不输出换行
+echo -n <str> | base64 -d                   # base64解码
 
 echo
-        -n                                  # 不换行
+        -n                                  # 不输出换行符
 sed
     -n -e 5p <file>                         # 查看第5行
     -n 5,8p <file>                          # 查看5-8行
