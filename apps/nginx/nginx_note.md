@@ -19,6 +19,7 @@ configuration
     # 可以放在http/server/locaiton任意地方
     # Nginx: 413 Request Entity Too Large Error and Solution
     client_max_body_size 2M;            # 单文件大小上限
+    add_header Your-IP $remote_addr;    # 设置header
 
 docker-compose
 --------------
@@ -45,7 +46,7 @@ web:
     nginx -g 'daemon off;'"
 ```
 
-nginx
+Notes
 -----
 
 ### http配置
