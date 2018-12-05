@@ -29,6 +29,10 @@ EXPOSE $APP_PORT
 # https://blog.newrelic.com/2016/08/24/docker-health-check-instruction/
 HEALTHCHECK CMD curl --fail http://localhost:$APP_PORT || exit 1
 
+# fix permission deny
+# > https://github.com/composer/docker/issues/7#issuecomment-370086150
+ENTRYPOINT ["sh", "/docker-entrypoint.sh"]
+
 # 设置容器启动后默认执行的命令及参数
 # CMD能够被 docker run 后的参数覆盖
 # 必须使用双引号
