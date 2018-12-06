@@ -8,6 +8,8 @@ CMD
     sudo spctl --master-disable         开启允许任何来源软件安装
     osascript -e 'display notification "通知内容" with title "标题" subtitle "子标题"'
                                         发送桌面通知
+    networksetup -setairportnetwork $INTERFACE $SSID $PASSWORD
+                                        WiFi连接(网卡名称 WiFi 密码)
 
 Shortcuts
 ---------
