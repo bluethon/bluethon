@@ -136,12 +136,10 @@ Flask-Bootstrap基模板中定义的块
 
 重定义scripts块
 
-``` html
-{% block scripts %}
-    {{ super() }}
-    <script src="my-script.js"></script>
-{% endblock%}
-```
+    {% block scripts %}
+        {{ super() }}
+        <script src="my-script.js"></script>
+    {% endblock%}
 
 ### Flask-Moment
 
