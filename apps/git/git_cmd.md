@@ -6,6 +6,7 @@ Git Common Use Command
 git checkout <branch> -- <file>                     # 从其他分支提取文件
 
 ### git branch
+git push --delete <remote> <branch>                 # 删除远程分支(remote branch)
 git branch -d <branch>                              # 删除分支
 git branch -D <branch>                              # 强制删除未合并分支
 git branch -u origin/<branch> <local-branch>        # 设定默认拉取分支

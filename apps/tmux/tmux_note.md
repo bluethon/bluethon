@@ -4,10 +4,12 @@ Tmux Notes
 CMD
 ---
 
-    ctrl+b "                                horizon
-    ctrl+b %                                vertical
-    ctrl+b d                                detach
-    ctrl+b arrow                            move to pane
+    ctrl-b "                                horizon
+    ctrl-b %                                vertical
+    ctrl-b d                                detach
+    ctrl-b arrow                            move to pane
+    ctrl-b space                            next-layout(循环切换窗口布局)
+    ctrl-b M-1 to M-5                       5种布局(OSX: Meta is Esc, iTerm2: Option)
     tmux ls                                 ls
     tmux attch-session -t <session-id>      go session
     tmux a #                                go last session

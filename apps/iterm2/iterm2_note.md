@@ -4,7 +4,8 @@ iTerm2 Note
 Shortcuts
 ---------
 
-    Cmd-[ / Cmd-]       split panes changes
+    Cmd-[ or Cmd-]      split panes changes
+    Cmd up              scroll up
     C-q                 删除所有
     C-w                 删除一个单词
     C-e                 末尾
@@ -17,6 +18,10 @@ Shortcuts
     A-b                 后退一个单词(Esc+)
     A-a                 Home(Esc+OH)
     A-e                 Home(Esc+OF)
+
+### 合并窗口
+
+`command + shift + option`, then drag the pane body(not header)
 
 ### 开启word forward
 

@@ -1,9 +1,10 @@
 Flask学习笔记
 ============
 
-## 《Flask Web开发》读书笔记
+《Flask Web开发》读书笔记
+-----------------------
 
-#### 重点目录(页码使用pdf分页)
+### 重点目录(页码使用pdf分页)
 
     P052    基模板引入moment.js
     P091    blueprint('name', __name__), 第一个为蓝本命名空间名称
@@ -51,7 +52,8 @@ session     |请求上下文 |用户会话, 用户存储请求之间需要"记�
 
 ---
 
-## Flask扩展
+Flask扩展
+---------
 
 专为Flask开发的扩展都在flask.ext命名空间下
 
@@ -61,16 +63,16 @@ session     |请求上下文 |用户会话, 用户存储请求之间需要"记�
     Markdown        使用Py实现的服务端Markdown到HTML转换工具
     Bleach          使用Python实现的HTML清理器
 
-#### flask-script
+### flask-script
 
 为Flask程序添加命令行解释器
 > Flask默认的启动设置选项只能在脚本中作为参数传递给app.run()
 
-**安装**
+#### 安装
 
     pip install flask-script
 
-**使用**
+#### 使用
 
 ``` python
 from flask.ext.script import Manager, Server
@@ -82,7 +84,7 @@ if __name__ == '__main__':
     manager.run()
 ```
 
-**参数**
+#### 参数
 
 ``` bash
 # 两种调试模式
@@ -98,15 +100,15 @@ python3 hello.py runserver --host 0.0.0.0
 python3 hello.py runserver --threaded
 ```
 
-#### Bootstrap
+### Bootstrap
 
 Twitter开发的一个开源框架, 提供用户界面组件, 且兼容所有现代Web浏览器
 
-**安装**
+- 安装
 
     pip install flask-bootstrap
 
-**使用**
+- 使用
 
 ``` python
 from flask.ext.bootstrap import Bootstrap
@@ -114,7 +116,7 @@ from flask.ext.bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
 ```
 
-**Flask-Bootstrap基模板中定义的块**
+Flask-Bootstrap基模板中定义的块
 
     doc             整个HTML文档
     html_attribs    <html>标签的属性
@@ -129,10 +131,10 @@ bootstrap = Bootstrap(app)
     content         用户定义的页面内容
     scripts         文档底部的JavaScript声明
 
-上表很多块都是Flask-Bootstrap自用的, 直接重定义会有问题  
-需要使用Jinja2提供的`super()`函数  
+上表很多块都是Flask-Bootstrap自用的, 直接重定义会有问题
+需要使用Jinja2提供的`super()`函数
 
-**重定义scripts块**
+重定义scripts块
 
 ``` html
 {% block scripts %}
@@ -141,16 +143,16 @@ bootstrap = Bootstrap(app)
 {% endblock%}
 ```
 
-#### Flask-Moment
+### Flask-Moment
 
-依赖`moment.js`, `jquery.js`  
+依赖`moment.js`, `jquery.js`
 [全部方法文档](http://momentjs.com/docs/#/displaying/)
 
-**安装**
+安装
 
     pip install flask-moment
 
-**使用**
+使用
 
 ``` python
 from flask.ext.moment import Moment
@@ -173,15 +175,15 @@ current_time = datetime.utcnow()
 {% endblock scripts %}
 ```
 
-#### Flask-WTF
+### Flask-WTF
 
 Web表单
 
-**安装**
+安装
 
     pip install flask-wtf
 
-**使用**
+使用
 
 ``` python
 from flask.ext.wtf import Form
@@ -197,7 +199,7 @@ class NameForm(Form):
     submit = SubmitField('Submit')
 ```
 
-**WTForms支持的HTML标准字段**
+WTForms支持的HTML标准字段
 
     StringField         文本字段
     TextAreaField       多行文本字段
@@ -217,7 +219,7 @@ class NameForm(Form):
     FormField           把表单作为字段嵌入另一个表单
     FieldList           一组指定类型的字段
 
-**WTForms验证函数**
+WTForms验证函数
 
     Email       验证电子邮件地址
     EqualTo     比较两个字段的值;常用于要求输入两次密码进行确认的情况
@@ -231,15 +233,15 @@ class NameForm(Form):
     AnyOf       确保输入值在可选值列表中
     NoneOf      确保输入值不在可选值列表中
 
-#### Flask-Migrate
+### Flask-Migrate
 
-数据库迁移
+> 数据库迁移
 
-**安装**
+安装
 
     pip install flask-migrate
 
-**使用**
+使用
 
 ``` python
 from flask.ext.migrate import Migrate, MigrateCommand
@@ -248,6 +250,7 @@ from flask.ext.migrate import Migrate, MigrateCommand
 migrate = Migrate(app=app, db=db, directory='migrations')
 manager.add_command('db', MigrateCommand)
 ```
+
 ``` bash
 # 使用init子命令创建迁移仓库, 生成migrations文件夹
 python3 hello.py db init
@@ -257,15 +260,15 @@ python3 hello.py db migrate -m 'initial migration'
 python3 hello.py db upgrade
 ```
 
-#### Flask-Mail
+### Flask-Mail
 
 数据库迁移
 
-**安装**
+安装
 
     pip install flask-mail
 
-**使用**
+使用
 
 ``` python
 from threading import Thread
@@ -313,7 +316,7 @@ set MAIL_USERNAME=<you@example.com>
 export FLASKY_ADMIN=<admin@example.com>
 ```
 
-**SMTP服务器配置**
+SMTP服务器配置
 
     配置             默认值      说  明
     MAIL_SERVER     localhost   电子邮件服务器的主机名或 IP 地址
@@ -323,10 +326,9 @@ export FLASKY_ADMIN=<admin@example.com>
     MAIL_USERNAME   None        邮件账户的用户名
     MAIL_PASSWORD   None        邮件账户的密码
 
+### Flask-Login
 
-#### Flask-Login
-
-**使用**
+使用
 
 ``` python
 # 设置登陆页面的端点
@@ -334,13 +336,13 @@ login_manager.login_view = 'auth.login'
 
 ```
 
-**LoginManager.session_protection属性**
+LoginManager.session_protection属性
 
     None
     basic
     strong      记录客户端IP和浏览器的用户代理信息, 发现异常则登出
 
-**Usermixin类实现的默认方法**
+Usermixin类实现的默认方法
 
     方法                  说  明
     is_authenticated()  如果用户已经登录,必须返回 True ,否则返回 False
@@ -349,17 +351,18 @@ login_manager.login_view = 'auth.login'
     is_anonymous()      对普通用户必须返回 False
     get_id()            必须返回用户的唯一标识符,使用 Unicode 编码字符串
 
-#### forgerypy
+### forgerypy
 
-自动化创建虚拟信息
+> 自动化创建虚拟信息
 
 ---
 
-## 模板
+模板
+----
 
-#### 过滤器
+### 过滤器
 
-**Jinja2变量过滤器**
+Jinja2变量过滤器
 
     safe        渲染值时不转义
     capitalize  把值的首字母转换成大写, 其他字母转换成小写
@@ -387,7 +390,7 @@ login_manager.login_view = 'auth.login'
 
 ``` html
 <!-- 使用视图函数做参数, 返回对应路由, 即 / -->
-url_for('index') 
+url_for('index')
 
 <!-- 返回绝对地址, 即http://localhost:5000/ -->
 <!-- 用户生成外链 -->
@@ -405,7 +408,8 @@ url_for('index', page=2)
 #### 静态文件
 
 调用`url_for('static', filename='css/style.css', _external=True)`
-生成(http://localhost:5000/static/css/style.css)
+
+生成<http://localhost:5000/static/css/style.css>
 
 ``` html
 {% block head %}
@@ -420,9 +424,10 @@ url_for('index', page=2)
 
 ---
 
-## 数据库(Flask-SQLAlchemy)
+数据库(Flask-SQLAlchemy)
+------------------------
 
-#### 数据库URL
+### 数据库URL
 
     数据库引擎       URL
     MySQL           mysql://username:password@hostname/database
@@ -430,12 +435,12 @@ url_for('index', page=2)
     SQLite(Unix)    sqlite:///absolute/path/to/database
     SQLite(Win)     sqlite:///c:/absolute/path/to/database
 
-#### 键
+### 键
 
     SQLALCHEMY_DATABASE_URI         数据库URL
     SQLALCHEMY_COMMIT_ON_TEARDOWN   请求结束后自动提交数据库中的变动
 
-#### 常用列类型
+### 常用列类型
 
     类型名           Python类型              说明
     Integer         int                     普通整数,一般是 32 位
@@ -456,7 +461,7 @@ url_for('index', page=2)
     PickleType      任何Python对象            自动使用 Pickle 序列化
     LargeBinary     str                     二进制文件
 
-#### 常用列选项
+### 常用列选项
 
     选项名           说明
     primary_key     如果设为 True ,这列就是表的主键
@@ -465,7 +470,7 @@ url_for('index', page=2)
     nullable        如果设为 True ,这列允许使用空值;如果设为 False ,这列不允许使用空值
     default         为这列定义默认值
 
-#### 常用的SQLAlchemy关系选项
+### 常用的SQLAlchemy关系选项
 
     backref                     在关系的另一个模型中添加反向引用
     primaryjoin                 明确指定两个模型之间使用的联结条件。只在模棱两可的关系中需要指定
@@ -475,7 +480,7 @@ url_for('index', page=2)
     secondary                   指定 多对多 关系中关系表的名字
     secondaryjoin SQLAlchemy    无法自行决定时,指定多对多关系中的二级联结条件
 
-> lazy可选值 
+> lazy可选值
 - select (首次访问时按需加载)
 - immediate (源对象加载后就加载)
 - joined (加载记录,但使用联结)
@@ -483,7 +488,7 @@ url_for('index', page=2)
 - noload (永不加载)
 - dynamic (不加载记录,但提供加载记录的查询)
 
-#### 操作
+### 操作
 
 ``` python
 db.create_all()                         # 新建数据库
@@ -502,7 +507,7 @@ User.query.filter_by(role=user_role).all()  # 过滤器
 str(User.query.filter_by(role=user_role).all()) # 查看生成的原生SQL, 即转为string
 ```
 
-#### 常用SQLAlchemy查询过滤器
+### 常用SQLAlchemy查询过滤器
 
 [完整的列表参见 SQLAlchemy 文档](http://docs.sqlalchemy.org)
 
@@ -513,8 +518,7 @@ str(User.query.filter_by(role=user_role).all()) # 查看生成的原生SQL, 即�
     order_by()      根据指定条件对原查询结果进行排序,返回一个新查询
     group_by()      根据指定条件对原查询结果进行分组,返回一个新查询
 
-#### 常用SQLAlchemy查询执行函数
-
+### 常用SQLAlchemy查询执行函数
 
     all()           以列表形式返回查询的所有结果
     first()         返回查询的第一个结果,如果没有结果,则返回 None
@@ -523,8 +527,8 @@ str(User.query.filter_by(role=user_role).all()) # 查看生成的原生SQL, 即�
     get_or_404()    返回指定主键对应的行,如果没找到指定的主键,则终止请求,返回 404 错误响应
     count()         返回查询结果的数量
     paginate()      返回一个 Paginate 对象,它包含指定范围内的结果
-    
-##### paginate()分页对象属性和方法
+
+#### paginate()分页对象属性和方法
 
     items       当前页面中的记录
     query       分页的源查询

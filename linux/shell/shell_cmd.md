@@ -12,6 +12,10 @@ export $(grep -v '^#' .env | xargs -d '\n') # 导入文件变量(推荐)
 RUN make; exit 0                            # 指定exit code (0=success)
 exit 1                                      # fail
 
+### special variables
+$USER                                       # 当前用户
+$_                                          # last argument of previous command
+
 ### system
 chsh -s `which zsh` <user>                  # change shell
 du                                          # 文件夹大小
@@ -27,7 +31,6 @@ fc-match <font>                             # 按tab可以查看系统有哪些�
 getent group | cut -d: -f1                  # 显示所有组(仅组名)
 groups                                      # 查看用户组
 groups $USER                                # 查看某用户的用户组
-$USER                                       # 当前用户
 setxkbmap -query | grep model               # 显示键盘布局
 uname -a                                    # kernal version
 lsb_release -a                              # 发行版信息
@@ -218,6 +221,7 @@ nmap -sP 192.168.1.0/24                     # ping扫描, 列出响应主机(sud
 wget -nv http://foo/ -O -                   # 访问, 输出到stdout
 find / -name .DS_Store -print0 | xargs -0 rm
                                             # 删除特定目录下指定文件
+sudo mount <ip>:/volume1/foo /path/to/bar   # 挂载网络硬盘
 ```
 
 Usage

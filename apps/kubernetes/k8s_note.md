@@ -84,6 +84,9 @@ kubectl rollout undo deployment httpd --to-revision=1
 kubectl get secrets mysecret
 # 查看/编辑详细的base64
 kubectl edit secrets mysecret
+
+# 显示cli连接秘钥
+kubectl config view --flatten
 ```
 
 YAML
@@ -164,38 +167,53 @@ sudo vim /etc/fstab
 Upgrade
 -------
 
+> <https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/>
+
 ### Upgrade the control plane
 
 ``` sh
-sudo apt update
-# 必须指定名称, 因为上面设定了hold
-sudo apt upgrade -y kubelet kubeadm kubectl
+# 1 On master node, upgrade kubeadm
+sudo apt-mark unhold kubelet kubeadm && \
+sudo apt update && sudo apt upgrade -y kubelet kubeadm && \
+sudo apt-mark hold kubelet kubeadm
+
+# 2 Verify
 kubeadm version
 
-# 显示将要升级的内容
+# 3 显示将要升级的内容
 sudo kubeadm upgrade plan
-# 列出当前版本需要的image tag
+# kubeadm upgrade apply 如果出现多次要依次升级(如果升级失败, 执行此处)
+
+# 4 列出当前版本需要的image tag
 kubeadm config images list
-# 修改, 拉取并打官方tag
+# 指定查看版本对应images(可选, 失败尝试)
+kubeadm config images list --kubernetes-version=v1.xx.x
+
+# 5 修改, 拉取并打官方tag
 04_pull_image.sh
 
-# 升级
+# 6 升级
 sudo kubeadm upgrade apply vx.xx.x
 ```
 
 ### Upgrade master and node packages
 
 ``` sh
+
+### on master
 # 1. 剔除node
 # in master, $NODE is node name pt-4
+# master节点必须加 --ignore-daemonsets
+# master上依次剔除所有节点
 kubectl drain $NODE --ignore-daemonsets
 # or
 kubectl drain ip-172-31-85-18 --ignore-daemonsets
 
+### on each node
 # 2. 安装package
-sudo apt update
-# 必须指定名称, 因为上面设定了hold
-sudo apt upgrade -y kubelet kubeadm kubectl
+sudo apt-mark unhold kubelet kubeadm && \
+sudo apt update && sudo apt upgrade -y kubelet kubeadm && \
+sudo apt-mark hold kubelet kubeadm
 kubeadm version
 
 # 3. 手动下载image
