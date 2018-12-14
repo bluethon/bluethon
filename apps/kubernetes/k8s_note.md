@@ -8,6 +8,15 @@ URL
 [kubenetes-tools 一些工具](https://github.com/openthings/kubernetes-tools)
 [kubenetes一键脚本](https://github.com/cookcodeblog/k8s-deploy)
 
+CMD
+---
+
+``` shell
+# 列出依赖包版本
+# https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#running-kubeadm-without-an-internet-connection
+kubeadm config images list
+```
+
 TODO
 ----
 
@@ -87,6 +96,36 @@ kubectl edit secrets mysecret
 
 # 显示cli连接秘钥
 kubectl config view --flatten
+
+# install helm
+brew install kubernetes-helm
+# install Tiller
+helm init --upgrade -i registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.11.0 --stable-repo-url https://kubernetes-charts.proxy.ustclug.org
+# 查看所有charts
+helm search
+# 仓库链接
+helm repo list
+# 增加/更改仓库
+helm repo add <name> <url>
+# 删除仓库
+helm repo remove <name>
+
+# Error: no available release name found
+# 增加权限
+kubectl create serviceaccount --namespace kube-system tiller
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+
+# 安装
+helm install <name>/<chart>
+# -n release名字
+# --namespace <namespace>(默认`default`)
+# `ReleaseName-ChartName`
+helm list
+helm delete <release>
+helm upgrade <release> stable/mysql -f 166_myvalues_upgrade.yml
+helm history <release>
+helm rollback <release> <version>
 ```
 
 YAML
@@ -129,17 +168,13 @@ spec:
       targetPort: 80
 ```
 
-CMD
----
-
-``` shell
-# 列出依赖包版本
-# https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#running-kubeadm-without-an-internet-connection
-kubeadm config images list
-```
-
 Note
 ----
+
+### PersistentVolume
+
+- nfs创建后, 如果挂载是在`/nfsdata`, 则使用时`<ip>/`即为前面根目录, 不加`/nfsdata`
+- 使用时需要提前创建`nfs`下的目录, 否则Pod无法启动
 
 ### init config
 

@@ -14,8 +14,9 @@ CMD
 Shortcuts
 ---------
 
-    ctrl+cmd+f          全屏/最大化
-    ctrl+cmd+q          lock screen
+    Ctrl-cmd-f          全屏/最大化
+    Ctrl-cmd-q          lock screen
+    Ctrl-Cmd-d          查词(同Forcetouch)
 
 Packages
 --------

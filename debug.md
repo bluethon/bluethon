@@ -1,6 +1,27 @@
 错误笔记
 =======
 
+YouCompleteMe
+-------------
+
+### ERROR: found static Python library
+
+``` sh
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
+pyenv install <version>
+./install.py
+```
+
+pyenv(Mac)
+----------
+
+### zipimport.ZipImportError: can't decompress data; zlib not available
+
+> <https://stackoverflow.com/a/52600628/4757521>
+
+    # 注意版本
+    sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+
 Makefile
 --------
 
@@ -8,7 +29,7 @@ Makefile
 
 Makefile只能用tab, 不能使用4个space
 
-> https://stackoverflow.com/a/16945143/4757521
+> <https://stackoverflow.com/a/16945143/4757521>
 
     cat -e -t -v  makefile_name
 
@@ -37,13 +58,12 @@ ssh
     eval `ssh-agent -s`
     ssh-add
 
-
 ubuntu
 ------
 
 ### Failed to connect to bus: No such file or directory
 
-> https://askubuntu.com/a/999123/537695
+> <https://askubuntu.com/a/999123/537695>
 
     sudo apt install --reinstall dbus
 
@@ -60,7 +80,8 @@ ubuntu
 ### sudo: unable to resolve host abc
 
     sudo vim /etc/hosts
-```
+
+``` txt
 127.0.0.1       localhost
 127.0.0.1       abc
 ```

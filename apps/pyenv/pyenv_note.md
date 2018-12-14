@@ -1,6 +1,14 @@
 pyenv notes
 ===========
 
+CMD
+---
+
+``` sh
+pyenv install -l                        # 可安装版本
+pyenv global 3.6.7                      # 设定默认版本
+```
+
 Installation
 ------------
 
@@ -28,7 +36,7 @@ Installation
 
 or
 
-    $ pyenv update
+    pyenv update
 
 ### Remove
 
