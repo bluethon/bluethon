@@ -68,8 +68,10 @@ docker inspect -f \
                                         # 打印环境变量(空格)
 docker inspect -f \
     '{{range $index, $value := .Config.Env}}{{println $value}}{{end}}' \
-    container_name
+    <name>
                                         # 打印环境变量(多行)
+docker inspect -f "{{ .HostConfig.RestartPolicy }}" <name>
+                                        # 重启策略(restart policy)
 
 docker volume create <vol>              # 创建数据卷
 docker volume inspect <vol>             # 查看数据卷信息

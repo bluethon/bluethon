@@ -126,6 +126,33 @@ helm delete <release>
 helm upgrade <release> stable/mysql -f 166_myvalues_upgrade.yml
 helm history <release>
 helm rollback <release> <version>
+
+# 创建空模板
+helm create <name>
+# 校验
+helm lint <name>
+# 预览安装yamlf
+helm install --dry-run --debug <name>
+
+helm install ./foo.tgz
+helm install <dir>
+# 打包自己的chart
+helm package <chart-dir>
+# cd charts dir
+helm repo index myrepo --url <url>
+# 生成index.yaml
+# cp charts dir to serve
+# helm add repo <my-charts>
+
+# reset(on each node)
+sudo kubeadm reset
+# clean iptable manually
+sudo iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sudo iptables -X
+
+# migrate from old init yaml
+sudo kubeadm config migrate --old-config k8s-adm.yml
+# show default init config(master)
+sudo kubeadm config print init-defaults
 ```
 
 YAML
@@ -176,10 +203,6 @@ Note
 - nfs创建后, 如果挂载是在`/nfsdata`, 则使用时`<ip>/`即为前面根目录, 不加`/nfsdata`
 - 使用时需要提前创建`nfs`下的目录, 否则Pod无法启动
 
-### init config
-
-> <https://godoc.org/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1alpha3>
-
 Install
 -------
 
@@ -197,6 +220,16 @@ cat /proc/swaps
 sudo swapoff -a
 sudo vim /etc/fstab
 # comment swap line
+```
+
+Initialization
+--------------
+
+> <https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/>
+> <https://godoc.org/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1alpha3>
+
+``` bash
+# use config.yml
 ```
 
 Upgrade
