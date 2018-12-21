@@ -8,6 +8,9 @@ URL
 [kubenetes-tools 一些工具](https://github.com/openthings/kubernetes-tools)
 [kubenetes一键脚本](https://github.com/cookcodeblog/k8s-deploy)
 
+    # k8s.gcr.io
+    gcr.mirrors.ustc.edu.cn/google-containers
+
 CMD
 ---
 
@@ -198,6 +201,11 @@ spec:
 Note
 ----
 
+### Network Policy(172)
+
+当设置`replicas`, 如果`ingress`CIDR仅设置`Node`级别, 则使用`<nodeIP>:<port>`
+方式访问到其他`Node`上的`Pod`, 会访问不到, 需要同时设置`Pod`级别的`ingress`
+
 ### PersistentVolume
 
 - nfs创建后, 如果挂载是在`/nfsdata`, 则使用时`<ip>/`即为前面根目录, 不加`/nfsdata`
@@ -226,10 +234,37 @@ Initialization
 --------------
 
 > <https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/>
-> <https://godoc.org/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1alpha3>
+> <https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#config-file>
 
 ``` bash
-# use config.yml
+### on master
+# refer to change init.yml
+# ! podSubnet need choose a network first !
+sudo kubeadm config print init-defaults
+sudo kubeadm init -f init.yml
+# copy kubeadm join xxx
+
+# make kubectl work for your non-root user
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+### on join node
+# paste
+sudo kubeadm join xxx
+
+# Installing a pod network add-on
+# https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
+# choose one(below for flannel)
+kubectl apply -f xxxx/kube-flannel.yml
+
+### on master
+kubectl get nodes
+
+### on local
+mkdir $HOME/.kube
+ssh <server> "kubectl config view --flatten" > config
+kubectl get nodes
 ```
 
 Upgrade

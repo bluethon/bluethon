@@ -21,18 +21,19 @@ Shortcuts
 Packages
 --------
 
-    SizeUp              调整窗口(license, 可自定义快捷键, notes)
-    VEEER               调整窗口(free, 不能自定义快捷键)
-    CheatSheet          自动抓取快捷键(hold cmd)
-    XtraFinder          文件管理器增强(较复杂)
-    Karabiner-Elements  键盘映射
-    Alfred              全局搜索
-    MacPass             Keepass Mac开源版本
-    iStat Menus         系统资源监控(license, notes)
-    iTerm2              终端
-    Smooze              外接鼠标滚轮速度/方向调节(license)
-    Hopper Disassembler 反汇编工具(hack, license, notes)
-    Key Codes           键盘码(Hex)<https://manytricks.com/keycodes/>
+    SizeUp                  调整窗口(license, 可自定义快捷键, notes)
+    VEEER                   调整窗口(free, 不能自定义快捷键)
+    CheatSheet              自动抓取快捷键(hold cmd)
+    XtraFinder              文件管理器增强(较复杂)
+    Karabiner-Elements      键盘映射
+    Alfred                  全局搜索
+    MacPass                 Keepass Mac开源版本
+    iStat Menus             系统资源监控(license, notes)
+    iTerm2                  终端
+    Smooze                  外接鼠标滚轮速度/方向调节(license)
+    Hopper Disassembler     反汇编工具(hack, license, notes)
+    Key Codes               键盘码(Hex)<https://manytricks.com/keycodes/>
+    Free Download Manager   下载
 
 Website
 -------

@@ -15,6 +15,9 @@ exit 1                                      # fail
 ### special variables
 $USER                                       # 当前用户
 $_                                          # last argument of previous command
+$0                                          # 当前shell
+$SHELL                                      # 默认shell
+$RANDOM                                     # 生成随机数(0-32767)
 
 ### system
 chsh -s `which zsh` <user>                  # change shell
@@ -44,12 +47,11 @@ chvt <num>                                  # change tty
 sar                                         # 记录各类系统情况, 可生成日报告
 systemctl start sysstat.service             # sar后端进程
 id -Gn                                      # 当前用户 groups
-echo $0                                     # 当前shell
-echo $SHELL                                 # 默认shell
 exec $SHELL                                 # 刷新Shell
 hash -r                                     # 清除shell缓存
-echo $XDG_SESSION_TYPE                      # 查看桌面 显示服务器 类型
 sudo iptables-save                          # 查看防火墙(firewall)规则
+type -a <cmd>                               # 显示程序的所有位置
+which -a <cmd>                              # 显示程序的所有位置
 
 systemd-analyze
                 critical-chain              # 系统启动树
@@ -68,6 +70,8 @@ ulimit
 strace
         -r                                  # 打印相对时间戳(print relative timestamp)
         -o <file>                           # 输出到文件
+df
+    -T                                      # 文件系统类型
 
 
 ### time
@@ -131,6 +135,15 @@ cut
 grep
     -v                                      # 匹配文本中包含`-`
     --                                      # 同上
+tree
+    -N                                      # output UTF-8
+find
+    !                                       # 取反(配合其他条件使用)
+    -newermt yyyy-mm-dd                     # 比此时间更新的
+    -type d                                 # 类似是文件夹
+    -delete                                 # 删除
+find . ! -newermt 2013-11-22 ! -type d -delete
+                                            # 删除当前文件夹内老于特定时间的非文件夹文件
 
 
 ### zip
@@ -164,6 +177,7 @@ set -x                                      # 显示参数和命令
 #!/bin/bash -xv                             # (同上)
 
 ### network
+ping -c <num> <IP>                          # ping <num> times
 /etc/NetworkManager/system-connections      # 网络连接confX
 sudo lsof -Pni :8118                        # 查看端口占用
 sudo netstat -ano | grep 8118               # 查看端口
@@ -205,7 +219,6 @@ localectl set-locale LANG=en_US.utf8        # 设置区域 语言参数
 dmesg                                       # 启动日志
 
 ### other
-echo $RANDOM                                # 生成随机数(0-32767)
 echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list
 stat foo.txt                                # 查看文件详细信息

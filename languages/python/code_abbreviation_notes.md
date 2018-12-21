@@ -4,7 +4,11 @@
 abbreviation
 ------------
 
-### linux
+### Network
+
+    CIDR        Classless Inter-Domain Routing          无类别域间路由
+
+### Linux
 
     eval        evaluate                                重新运算求出参数的内容
     sar         System Activity Report                  系统活动报告
@@ -13,7 +17,7 @@ abbreviation
     IFS         Internal Field Separator                内部字段分隔符
     IPC         Inter-Process Communication             进程间通信
 
-### html
+### HTML
 
     CSRF        Cross-Site Request Forgery              跨站请求伪造
     URI         Uniform Resource Identifier             统一资源标识符
@@ -27,7 +31,7 @@ abbreviation
     &nbsp;      Non-Breaking Space                      不间断空格
     xhr         XMLHttpRequest
 
-### other
+### Other
 
     argv        argument variable                       参数变量
     repr        representation                          给解释器的显示类型
