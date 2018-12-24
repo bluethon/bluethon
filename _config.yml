@@ -1,1 +1,5 @@
 theme: jekyll-theme-cayman
+exclude:
+  - flask-book_note.md
+  - lightweight-django.md
+  - django_note.md
