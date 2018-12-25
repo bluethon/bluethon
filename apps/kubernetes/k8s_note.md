@@ -147,6 +147,9 @@ helm repo index myrepo --url <url>
 # cp charts dir to serve
 # helm add repo <my-charts>
 
+# download
+helm fetch <chart>
+
 # reset(on each node)
 sudo kubeadm reset
 # clean iptable manually
@@ -156,6 +159,12 @@ sudo iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sud
 sudo kubeadm config migrate --old-config k8s-adm.yml
 # show default init config(master)
 sudo kubeadm config print init-defaults
+
+# get user `admin` token for dashboard
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin | awk '{print $1}')
+
+# monitor(NodePort)
+kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl version | base64 | tr -d '\n')&k8s-service-type=NodePort"
 ```
 
 YAML

@@ -5,6 +5,8 @@ localAPIEndpoint:
 ---
 apiVersion: kubeadm.k8s.io/v1beta1
 kind: ClusterConfiguration
+apiServerExtraArgs:
+  service-node-port-range: 80-65535
 networking:
   podSubnet: 10.244.0.0/16
 imageRepository: gcr.mirrors.ustc.edu.cn/google-containers

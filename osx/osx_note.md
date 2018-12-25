@@ -10,6 +10,7 @@ CMD
                                         发送桌面通知
     networksetup -setairportnetwork $INTERFACE $SSID $PASSWORD
                                         WiFi连接(网卡名称 WiFi 密码)
+    diskutil unmount /Volumes/USB       移除设备
 
 Shortcuts
 ---------

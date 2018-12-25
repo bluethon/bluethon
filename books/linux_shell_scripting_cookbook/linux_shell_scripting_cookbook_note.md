@@ -1,6 +1,13 @@
 Linux Shell读书笔记
 ==================
 
+Code
+----
+
+``` sh
+let count++     # 自加
+```
+
 Chapter 1
 ---------
 

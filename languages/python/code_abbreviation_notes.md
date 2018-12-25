@@ -58,3 +58,4 @@ explaination
     schedule        调度
     traffic         流量
     deprecated      弃用
+    manifest        清单

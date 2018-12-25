@@ -165,6 +165,7 @@ tar -zcvf des.tgz source1 source2           # 多文件
 if [ ! -z "$var1" ]                         # variable not empty
 if [[ ! -z $var1 ]]
 if [ <var> = 'test' ]                       # <var> equal 'test'
+[ $foo -eq 0 ] && echo $foo                 # 等于0, 输出
 
 # kill
 pidof fcitx | xargs kill                    # 结束程序
