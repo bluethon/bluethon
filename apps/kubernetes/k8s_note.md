@@ -298,7 +298,7 @@ sudo kubeadm upgrade plan
 
 # 4 列出当前版本需要的image tag
 kubeadm config images list
-# 指定查看版本对应images(可选, 失败尝试)
+# 指定查看版本对应images(指定则不检查最新版本)
 kubeadm config images list --kubernetes-version=v1.xx.x
 
 # 5 修改, 拉取并打官方tag
