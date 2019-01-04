@@ -25,6 +25,14 @@ f'{foo:<8}'                                         # 制表, 左对齐, 8宽度
 Usage
 -----
 
+### str2bool
+
+    string.lower() in ('true', 'false')
+
+### 单词首字母大写
+
+    string.title()
+
 ### 转码
 
 ``` py

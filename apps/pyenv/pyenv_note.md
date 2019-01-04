@@ -61,15 +61,19 @@ Usage
 
 virtualenvwrapper 已不需要, virtualenv已可以自动激活
 
-    # 创建3.6.1的虚拟环境venv
-    pyenv virtualenv 3.6.1 foo-venv
-    # 将当前目录 设定为某个名称的虚拟环境
-    pyenv local foo-venv
+``` sh
+# 创建3.6.1的虚拟环境venv
+pyenv virtualenv 3.6.1 foo-venv
+# 创建当前文件夹名称的环境
+pyenv virtualenv 3.6.7 ${PWD##*/}-3.6.7
+# 将当前目录 设定为某个名称的虚拟环境
+pyenv local foo-venv
 
-    # 查看所有虚拟环境
-    pyenv virtualenvs
-    # 显示当前python版本
-    pyenv version
+# 查看所有虚拟环境
+pyenv virtualenvs
+# 显示当前python版本
+pyenv version
+```
 
 ### remove
 

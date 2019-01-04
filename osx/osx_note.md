@@ -11,6 +11,7 @@ CMD
     networksetup -setairportnetwork $INTERFACE $SSID $PASSWORD
                                         WiFi连接(网卡名称 WiFi 密码)
     diskutil unmount /Volumes/USB       移除设备
+    ipconfig getifaddr en0              无线IP
 
 Shortcuts
 ---------

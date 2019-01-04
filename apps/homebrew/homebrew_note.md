@@ -1,6 +1,11 @@
 Homebrew Note
 =============
 
+Linux
+-----
+
+> <https://linuxbrew.sh/>
+
 源
 ---
 

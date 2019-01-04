@@ -201,6 +201,10 @@ netstat
     -n                                      # no DNS
     -a                                      # show all connect port
 netstat -tuplen                             # 查看端口
+curl
+    -O                                      # 输出文件
+    -J                                      # 使用远程文件名
+    -L                                      # 下载
 
 ### locale
 agi `check-language-support -l zh-hans`     # 安装简中

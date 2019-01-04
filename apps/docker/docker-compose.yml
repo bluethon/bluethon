@@ -46,7 +46,7 @@ services:
       - '27018:27017'
     environment:
       - MONGO_DATA_DIR=/data/db
-     # - MONGO_LOG_DIR=/
+    # - MONGO_LOG_DIR=/
   redis:
     container_name: 'redis'
     image: redis

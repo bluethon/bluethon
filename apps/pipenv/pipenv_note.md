@@ -4,11 +4,16 @@ Pipenv Note
 CMD
 ---
 
+    pipenv
+        --rm                    # 移除虚拟环境
+
 ``` sh
-# install
+# install(recommended)
+brew install pipenv
+# or
 pip3 install --user pipenv
 
-# add to .zshrc
+# add to .zshrc(command not found)
 BASE=`python3 -m site --user-base`
 echo export PATH="$BASE/bin:$PATH" >> ~/.zshrc
 
