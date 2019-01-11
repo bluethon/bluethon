@@ -17,20 +17,24 @@ git clean -n                                        # 预览要清除的文件
 git clean -f                                        # 清理合并产生的额外文件
 
 ### git diff
-git diff --ours                                     # 对比改动和当前分支差异
-         --base                                     # 和共同祖先对比
-         -b                                         # 忽略空格造成的差异
+git diff
+    --ours                                          # 对比改动和当前分支差异
+    --base                                          # 和共同祖先对比
+    -b                                              # 忽略空格造成的差异
+    --cached/--staged                               # stage
+    --name-only                                     # 仅文件名
 git diff dev v1.2 -- foo/bar.txt                    # 对比两个commit的特定文件
+git diff --name-only --cached                       # 已add的文件名
 
 git reset                                           # 重置HEAD指针到某次提交
-          HEAD^                                     # 上个版本
-          HEAD~5                                    # 5个版本前
-          322455                                    # 到特定commit
-          'HEAD@{1}'                                # 撤销刚才操作的reset(具体看reflog)
-          --soft [HEAD]                             # 仅HEAD指针
-          [--mixed] [HEAD]                          # HEAD指针和INDEX
-          --hard [HEAD]                             # 全部, HEAD指针 index work
-          --hard origin/dev                         # 重置当前分支头到指定分支头
+    HEAD^                                           # 上个版本
+    HEAD~5                                          # 5个版本前
+    322455                                          # 到特定commit
+    'HEAD@{1}'                                      # 撤销刚才操作的reset(具体看reflog)
+    --soft [HEAD]                                   # 仅HEAD指针
+    [--mixed] [HEAD]                                # HEAD指针和INDEX
+    --hard [HEAD]                                   # 全部, HEAD指针 index work
+    --hard origin/dev                               # 重置当前分支头到指定分支头
 
 git log --graph --oneline --decorate                # decorate 显示branch HEAD
         --tags                                      # 显示Tag

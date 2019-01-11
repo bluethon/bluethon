@@ -1,6 +1,15 @@
 错误笔记
 =======
 
+Docker
+------
+
+### Error unauthorized: incorrect username or password
+
+> <https://github.com/docker/hub-feedback/issues/1098#issuecomment-316309768>
+
+    docker logout
+
 YouCompleteMe
 -------------
 
