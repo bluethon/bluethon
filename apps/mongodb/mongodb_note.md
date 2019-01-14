@@ -19,9 +19,9 @@ cmd
 ``` js
 db.system.users.find().pretty();                // 查看所有用户
 
-db.createUser({ 
-    user: 'admin', 
-    pwd: '123', 
+db.createUser({
+    user: 'admin',
+    pwd: '123',
     roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });
 
 db.createUser({user:"admin",pwd:"123",roles:[{role:"userAdminAnyDatabase",db:"admin"}]});
@@ -59,3 +59,8 @@ docker run
 
     # mongo是启动命令行的shell命令
     docker exec -it <name> mongo
+
+backup
+------
+
+> <https://github.com/tutumcloud/mongodb-backup/tree/master>
