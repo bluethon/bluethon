@@ -54,8 +54,8 @@ sudo apt-get update
 sudo apt-get install docker-ce
 ```
 
-docker hub镜像
---------------
+docker hub mirror
+-----------------
 
 ### official
 
@@ -67,8 +67,7 @@ echo -e "{\n  \"registry-mirrors\": [\"https://registry.docker-cn.com\"]\n}" | s
 
 ``` sh
 # https://lug.ustc.edu.cn/wiki/mirrors/help/docker
-echo "{\n  \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"]\n}" | sudo tee /etc/docker/daemon.json
-sudo service docker restart
+echo "{\n  \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"]\n}" | sudo tee /etc/docker/daemon.json && sudo systemctl restart docker.service
 ```
 
 docker machine(批量操作工具)
