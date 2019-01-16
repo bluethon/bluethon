@@ -37,6 +37,7 @@ Packages
     Key Codes               键盘码(Hex)<https://manytricks.com/keycodes/>
     Free Download Manager   下载
     TablePlus               数据库GUI(Mysql, redis)
+    Calibre                 阅读器(mobi, epub, pdf)
 
 Website
 -------

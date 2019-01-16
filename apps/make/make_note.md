@@ -20,6 +20,14 @@ Note
 
 > <https://seisman.github.io/how-to-write-makefile/overview.html>
 
+### 调用子make方式(使子make的cd生效)
+
+    $(MAKE) -C <DIR> foo
+
+### 捕获子make错误
+
+    make || exit "$$?"
+
 ### MakeFile中变量以`$`开头, Shell变量`$$`开头
 
 ### 每行一个进程, 所以不同行变量不传递, 多行需要写在一行, `; \`
