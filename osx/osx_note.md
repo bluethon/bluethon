@@ -47,6 +47,10 @@ Website
 Note
 ----
 
+### wechat no sound
+
+    reboot
+
 ### Dock icon disable
 
 > <https://www.jianshu.com/p/75bc85cebd8e>

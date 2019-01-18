@@ -103,7 +103,7 @@ ubuntu
 postgres
 --------
 
-### Postgresql: password authentication failed for user “<user>”
+### PostgreSQL: password authentication failed for user “<user>”
 
     sudo -u postgres psql
     ALTER USER <user> PASSWORD 'newPassword';

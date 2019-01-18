@@ -7,6 +7,7 @@ CMD
 ``` shell
 make -n all                     # -n 预览要执行的命令
 make -k all                     # 忽略错误继续
+    --no-print-directory        # 不输出文件夹路径
 ```
 
 自动变量(Automatic Variables)

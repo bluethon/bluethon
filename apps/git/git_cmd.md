@@ -5,6 +5,11 @@ Git Common Use Command
 ### git checkout
 git checkout <branch> -- <file>                     # 从其他分支提取文件
 
+### git tag
+git tag
+    -l                                              # list
+    --sort=-v:refname                                # 名称逆序(-)排列
+
 ### git branch
 git push --delete <remote> <branch>                 # 删除远程分支(remote branch)
 git branch -d <branch>                              # 删除分支
