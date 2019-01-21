@@ -41,8 +41,9 @@ abbreviation
     codec       coder & decoder                         编解码器
     PIN         Personal Identification Number
     rv          Return Value
+    SLA         Service Level Agreement                 服务协议水平(即正常访问99.5%这种)
 
-explaination
+explanations
 ------------
 
     dangling        虚悬镜像(docker)
@@ -60,3 +61,4 @@ explaination
     deprecated      不建议
     decrepit        陈旧的
     manifest        清单
+    double-dash     双横线(减号)

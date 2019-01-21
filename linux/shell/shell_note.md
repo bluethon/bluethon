@@ -32,6 +32,12 @@ DEBUG
 Note
 ----
 
+### -- (double-dash) mean
+
+> <https://unix.stackexchange.com/a/11382/181922>
+
+mean the end of options(分隔参数和内容, 比如`--`后面的`-v`是regex内容而不是参数)
+
 ### stop while
 
 > <https://unix.stackexchange.com/a/121391/181922>

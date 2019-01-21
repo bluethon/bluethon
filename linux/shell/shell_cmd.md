@@ -118,7 +118,8 @@ sed
     -n -- 's/foo/bar/p' <fiel>              # 只显示更改的内容
                                             # -n 阻止输出所有行
                                             # /p 后缀p为只显示替换匹配到的
-          's/\(foo\)/\1bar'                 # group match, =foobar
+        's/\(foo\)/\1bar'                   # group match, =foobar
+        's/foo/&bar'                        # add(追加模式), =foobar
 less
      -n 1000                                # 末尾1000行
      -N                                     # 显示行号
