@@ -75,11 +75,14 @@ with futures.ProcessPoolExecutor() as executor:
     do_something
 ```
 
-### 随机选择
+### 随机
 
 ``` py
 import random
+# 随机选择
 random.choice(FOO_LIST)
+# 区间随机生成
+random.randint(0, 9)
 ```
 
 ### copy file

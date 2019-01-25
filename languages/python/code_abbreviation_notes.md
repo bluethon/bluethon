@@ -42,10 +42,14 @@ abbreviation
     PIN         Personal Identification Number
     rv          Return Value
     SLA         Service Level Agreement                 服务协议水平(即正常访问99.5%这种)
+    BNF         Backus-Naur Form                        巴科斯-诺尔范式
 
 explanations
 ------------
 
+    parentheses     圆括号(round)
+    brackets        方括号(square)
+    curly braces    花括号
     dangling        虚悬镜像(docker)
     metaclass       元类
     thumbnail       缩略图

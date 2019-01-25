@@ -47,6 +47,12 @@ DEBUG
 Usage
 -----
 
+### -R listen 0.0.0.0
+
+    sudo vim /etc/ssh/sshd.config
+    # modify blow to yes
+    GatewayPorts yes
+
 ### 1. 生成ssh key时指定文件名
 
 `-t` 指定加密类型 默认rsa

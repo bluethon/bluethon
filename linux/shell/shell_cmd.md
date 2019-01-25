@@ -9,6 +9,8 @@ man hier                                    # 介绍Linux文档结构
 tzselect                                    # 时区选择工具
 set -a && . ./<file> && set +a              # 导入文件变量
 export $(grep -v '^#' .env | xargs -d '\n') # 导入文件变量(推荐)
+while read -r line; do export $line; done < .env
+                                            # 导入文件变量
 RUN make; exit 0                            # 指定exit code (0=success)
 exit 1                                      # fail
 
