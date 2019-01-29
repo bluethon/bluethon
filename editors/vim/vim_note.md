@@ -6,6 +6,11 @@ doc site
 
 <http://vim.wikia.com/wiki/Vim_Tips_Wiki>
 
+cheatsheet
+----------
+
+[进阶版](http://michael.peopleofhonoronly.com/vim/)
+
 DEBUG
 -----
 

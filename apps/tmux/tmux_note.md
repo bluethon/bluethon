@@ -1,6 +1,12 @@
 Tmux Notes
 ==========
 
+REFERENCE
+---------
+
+> <https://tylercipriani.com/blog/2013/09/12/important-lines-in-my-tmux/>
+> <https://github.com/thcipriani/dotfiles/blob/master/tmux.conf>
+
 CMD
 ---
 
