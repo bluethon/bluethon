@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    image: neilpang/acme.sh
+    container_name: acme
+    restart: always
+    network_mode: 'host'
+    volumes:
+      - acme-out:/acme.sh
+
+volumes:
+  acme-out:

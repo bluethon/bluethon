@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: 'gitlab'
+    restart: always
+    hostname: 'dev.phantomtiger.com'
+    environment:
+      TZ: 'PRC'
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://dev.phantomtiger.com:9080'
+        gitlab_rails['gitlab_shell_ssh_port'] = 9022
+        gitlab_rails['time_zone'] = 'PRC'
+    ports:
+      - '9080:9080'
+      - '9022:22'
+    volumes:
+      - '/var/gitlab/config:/etc/gitlab'
+      - '/var/gitlab/logs:/var/log/gitlab'
+      - '/var/gitlab/data:/var/opt/gitlab'

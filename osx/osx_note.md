@@ -19,6 +19,8 @@ Shortcuts
     Ctrl-cmd-f          全屏/最大化
     Ctrl-cmd-q          lock screen
     Ctrl-Cmd-d          查词(同Forcetouch)
+    Cmd-Shift-.(dot)    show hidden file
+    Cmd-Shift-G         Go to
 
 Packages
 --------
