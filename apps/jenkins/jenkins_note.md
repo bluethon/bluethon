@@ -14,3 +14,9 @@ Jenkins.instance.pluginManager.plugins.each{
     println ("${plugin.getShortName()}:${plugin.getVersion()}")
 }
 ```
+
+### Gitlab API token(https)
+
+> <https://github.com/jenkinsci/gitlab-plugin/wiki/Setup-Example>
+
+    Ignore SSL Certificate Errors=true

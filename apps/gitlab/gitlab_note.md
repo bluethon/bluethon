@@ -1,39 +1,32 @@
 GitLab
 ======
 
-TODO
+DEBUG
 -----
 
-<https://docs.gitlab.com/omnibus/docker/>
+### Problem accessing /project/Jenkins_Project_name/. Reason: 404
 
-<https://docs.gitlab.com/omnibus/docker/#after-starting-a-container>
+> <https://github.com/jenkinsci/gitlab-plugin/issues/533#issuecomment-302443098>
 
-articles
----------
+Jenkins和Gitlab不能使用相同域名(仅端口不一样不行), 否则需要使用IP
 
-[安装+持续集成](http://www.jianshu.com/p/7a0d6917e009)
+Config
+------
+
+### allow same server(localhost) webhook
+
+> /admin/application_settings/network
+
+    Outbound requests / Allow requests to the local network from hooks and services
 
 安装
 ----
 
-### 中文版
+### Dockerfile
 
-> <https://hub.docker.com/r/twang2218/gitlab-ce-zh/>
+邮箱部分可参考
 
-``` sh
-# 安装docker
-# 创建环境
-pyvenv venv
-# 安装docker-compose
-source venv/bin/activate
-pip docker-compose
-# 创建配置文件
-vim docker-compose.yml
-```
-
-Dockerfile
-
-``` yaml
+``` Dockerfile
 version: '3'
 services:
   gitlab:
@@ -68,19 +61,4 @@ volumes:
     config:
     data:
     logs:
-```
-
-启动
-
-    docker-compose up -d
-
-停止
-
-    docker-compose down
-
-### docker
-
-``` sh
-docker pull gitlab/gitlab-ce
-
 ```

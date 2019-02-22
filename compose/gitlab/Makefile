@@ -5,15 +5,6 @@
 SHELL=/bin/bash
 .DEFAULT_GOAL := start
 
-### common
-
-clean-image:
-	docker-compose down --rmi local
-prune:
-	docker image prune -f --filter until=240h
-
-### deploy
-
 clean-volume:
 	docker-compose down -v
 
@@ -22,16 +13,16 @@ CMD=-h
 test:
 	docker-compose ${CMD}
 
-stop:
+down:
 	docker-compose down
 
-build: clean-image
+build:
 	docker-compose build
 
 up:
 	docker-compose up -d
 
-start: stop build up
+start: down build up
 
 up-%:
 	echo $${COMPOSE_FILE}

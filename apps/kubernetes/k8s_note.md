@@ -5,8 +5,8 @@ URL
 ---
 
 [GCR 同步仓库](https://github.com/mritd/gcr)
-[kubenetes-tools 一些工具](https://github.com/openthings/kubernetes-tools)
-[kubenetes一键脚本](https://github.com/cookcodeblog/k8s-deploy)
+[kubernetes-tools 一些工具](https://github.com/openthings/kubernetes-tools)
+[kubernetes一键脚本](https://github.com/cookcodeblog/k8s-deploy)
 
     # k8s.gcr.io
     gcr.mirrors.ustc.edu.cn/google-containers
@@ -152,7 +152,7 @@ helm fetch <chart>
 
 # reset(on each node)
 sudo kubeadm reset
-# clean iptable manually
+clean iptable manually
 sudo iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sudo iptables -X
 
 # migrate from old init yaml
@@ -170,8 +170,8 @@ kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl
 YAML
 ----
 
-- k8s的系统组件在`kubu-system`namespace中
-- kubulet是唯一不在容器中的组件, Ubuntu中通过systemd运行
+- k8s的系统组件在`kube-system`namespace中
+- kubelet是唯一不在容器中的组件, Ubuntu中通过systemd运行
 
 ``` yaml
 apiVersion: batch/v1
@@ -340,7 +340,7 @@ kubeadm config images list
 sudo kubeadm upgrade node config --kubelet-version $(kubelet --version | cut -d ' ' -f 2)
 sudo systemctl restart kubelet.service
 sudo systemctl status kubelet.service
-# on maseter
+# on master
 kubectl uncordon $NODE
 # check
 kubectl get nodes

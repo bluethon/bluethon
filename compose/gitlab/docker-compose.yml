@@ -4,14 +4,19 @@ services:
   web:
     image: 'gitlab/gitlab-ce:latest'
     container_name: 'gitlab'
-    restart: always
-    hostname: 'dev.phantomtiger.com'
+    #    restart: on-failure:3
+    hostname: 'www.example.com'
     environment:
       TZ: 'PRC'
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://dev.phantomtiger.com:9080'
+        external_url 'https://www.example.com:9080'
         gitlab_rails['gitlab_shell_ssh_port'] = 9022
         gitlab_rails['time_zone'] = 'PRC'
+        nginx['custom_gitlab_server_config'] = 'error_page 497 https://$$host:9080$$request_uri;'
+    #        letsencrypt['enable'] = true
+    #        nginx['redirect_http_to_https'] = true
+    #        nginx['redirect_http_to_https'] = 80
+
     ports:
       - '9080:9080'
       - '9022:22'
