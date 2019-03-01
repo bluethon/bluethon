@@ -4,7 +4,7 @@ Nginx Note
 cmd
 ---
 
-    nginx -t                                # 验证配置
+    nginx -t                                # 验证配置(仅检查语法)
           -T                                # 验证并输出
           -c nginx.conf -t                  # 指定文件验证
           -s reload                         # 重新加载配置

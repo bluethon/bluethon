@@ -32,6 +32,17 @@ DEBUG
 Note
 ----
 
+### 文件夹循环
+
+> <https://stackoverflow.com/a/2437466/4757521>
+
+``` sh
+for entry in "$search_dir"/*
+do
+    echo "$entry"
+done
+```
+
 ### -- (double-dash) mean
 
 > <https://unix.stackexchange.com/a/11382/181922>
