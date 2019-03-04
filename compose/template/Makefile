@@ -1,4 +1,4 @@
-.PHONY: .ONESHELL
+.PHONY: .ONESHELL build test up down start
 
 .ONESHELL:
 
@@ -7,37 +7,19 @@ SHELL=/bin/bash
 
 %: export COMPOSE_PROJECT_NAME =
 
-### common
+pull down build ps:
+	docker-compose $@
 
-clean-image:
-	docker-compose down --rmi local
-prune:
-	docker image prune -f --filter until=240h
-
-### deploy
-
+CMD=-h
+test:
+	docker-compose ${CMD}
 clean-volume:
 	docker-compose down -v
 
-CMD=-h
-
-test:
-	docker-compose ${CMD}
-
-pull:
-	docker-compose pull
-
-down:
-	docker-compose down
-
-build:
-	docker-compose build
-
 up:
 	docker-compose up -d
-
 up-%:
 	echo $${COMPOSE_FILE}
 	docker-compose up -d --no-dep $*
 
-start: down build up
+start: build down up
