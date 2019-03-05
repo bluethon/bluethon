@@ -5,6 +5,9 @@ CMD
 ---
 
 ``` shell
+### change directory
+git -C /path/to/dir                                 # 指定git文件夹
+
 ### git checkout
 git checkout <branch> -- <file>                     # 从其他分支提取文件
 
