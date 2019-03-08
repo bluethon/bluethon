@@ -138,6 +138,12 @@ cut
 grep
     -v                                      # 匹配文本中包含`-`
     --                                      # 同上
+    -E                                      # 使用正则表达式
+grep -E 'http (output filter|script (set|value))' foo.log
+                                            # 正则过滤, 允许如下
+                                            # http output filter
+                                            # http script set
+                                            # http script value
 tree
     -N                                      # output UTF-8
 find
