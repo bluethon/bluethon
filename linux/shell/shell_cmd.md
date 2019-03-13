@@ -185,6 +185,7 @@ set -x                                      # 显示参数和命令
     -v                                      # 显示输入
     +x                                      # 关闭调试
 #!/bin/bash -xv                             # (同上)
+man 2 connect                               # 查看Linux内核connect()方法的帮助
 
 ### network
 ping -c <num> <IP>                          # ping <num> times

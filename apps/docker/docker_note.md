@@ -4,6 +4,10 @@ Docker Note
 Note
 ----
 
+### Registry Garbage Collection
+
+    registry garbage-collect /etc/docker/registry/config.yml
+
 ### zsh下不能补全exec
 
 > <https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58>
