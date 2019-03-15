@@ -31,6 +31,13 @@ ssh -S /tmp/a.sock -O exit <server>         # 停止端口转发, 避免使用ki
 DEBUG
 -----
 
+### Pseudo-terminal will not be allocated because stdin is not a terminal
+
+> <https://stackoverflow.com/a/7122115/4757521>
+
+    # in Makefile
+    ssh -T
+
 ### publickey auth fail
 
 出现过`/home/user/.ssh`目录权限不是755的情况

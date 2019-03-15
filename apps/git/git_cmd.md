@@ -14,10 +14,10 @@ git checkout <branch> -- <file>                     # 从其他分支提取文�
 ### git tag
 git tag
     -l                                              # list
-    --sort=-v:refname                                # 名称逆序(-)排列
+    --sort=-v:refname                               # 名称逆序(-)排列
 
 ### git branch
-git push --delete <remote> <branch>                 # 删除远程分支(remote branch)
+git push -d <remote> <branch>                       # 删除远程分支(remote branch)
 git branch -d <branch>                              # 删除分支
 git branch -D <branch>                              # 强制删除未合并分支
 git branch -u origin/<branch> <local-branch>        # 设定默认拉取分支
