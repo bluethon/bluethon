@@ -1,8 +1,8 @@
 Python常用代码片段
 ================
 
-CMD
----
+Code
+----
 
 ``` py
 # coding=utf-8
@@ -11,7 +11,6 @@ CMD
 # https://stackoverflow.com/a/1747827/4757521
 d = {key: value for (key, value) in interable}      # 生成字典
 bin(0x7f)                                           # 16hex to 2 bin
-datetime.date.today()                               # 今天    > datetime
 del lst[:]                                          # 清除列表, 且不成为空列表
 a = a or None                                       # 过滤''和None 为 None
 os.path.basename('path')                            # 获取文件(夹)名称
@@ -21,6 +20,20 @@ list.index(value)                                   # 通过值获取下标
 list1 + list2                                       # 数据拼接(list concatenate)
 f'{foo:<8}'                                         # 制表, 左对齐, 8宽度
 fr'{foo\n}'                                         # Raw f-strings
+```
+
+DateTime
+--------
+
+``` py
+from datetime import date, datetime, time
+
+# date to datetime
+datetime.combine(date(2019, 3, 4), time.min)
+# today
+datetime.date.today()
+# format to str
+datetime.strftime('%Y年%m月%d日 %H:%M')
 ```
 
 Usage
@@ -71,7 +84,7 @@ except (IDontLikeYouException, YouAreBeingMeanException) as e:
 from concurrent.futures import ProcessPoolExecutor
 
 with futures.ProcessPoolExecutor() as executor:
-    # defalut max_workers=os.cpu_count()
+    # default max_workers=os.cpu_count()
     do_something
 ```
 
@@ -154,10 +167,6 @@ print len([name for name in os.listdir('.') if os.path.isfile(name)])
 DIR = '/tmp'
 print len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
 ```
-
-### datetime
-
-> <http://www.wklken.me/posts/2015/03/03/py-base-datetime.html>
 
 ### 某路径加入环境变量
 
@@ -249,11 +258,6 @@ List
 
     return next(iter(user or []), None)
 
-### py2 字典循环 dict for
-
-    for key, value in d.iteritems():
-        pass
-
 Dict
 ----
 
@@ -267,15 +271,9 @@ Dict
     bool(dct)       # False
     not dct         # True
 
-### dcit add(字典 增加)
+### dict add(字典 增加)
 
     dict.update({})
-
-### datetime时间格式化
-
-``` py
-datetime.strftime('%Y年%m月%d日 %H:%M')
-```
 
 ### 获取上一个对象
 

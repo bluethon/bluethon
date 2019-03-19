@@ -49,6 +49,8 @@ hotkey
     dib     删除圆括号内
     diB     删除花括号内
     :[start_line_no],[end_line_no]d
+    d66G    从当前位置删除到66行
+    :22,33d 22行删到33行
 
     :e!     重新加载(!从local disk)
     :sp     文件名水平分割窗口
