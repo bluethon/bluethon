@@ -240,6 +240,13 @@ data = Payload(j)
 List
 ----
 
+### list按内部元素特定规则排序
+
+    # 按元素的第三子元素项排序
+    unsorted_list.sort(key=lambda x: x[3])
+    # 有返回值
+    sorted(unsorted_list, key = lambda x: int(x[3]))
+
 ### list拼接
 
     a = [1, 2]
