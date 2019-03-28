@@ -39,6 +39,13 @@ datetime.strftime('%Y年%m月%d日 %H:%M')
 Usage
 -----
 
+### print traceback
+
+``` py
+import traceback
+traceback.print_exc()
+```
+
 ### str2bool
 
     string.lower() in ('true', 'false')

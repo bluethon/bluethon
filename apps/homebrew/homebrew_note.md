@@ -1,6 +1,13 @@
 Homebrew Note
 =============
 
+Note
+----
+
+### proxy(socks5)
+
+    ALL_PROXY=socks5://<ip>:<port> brew cask install <pkg>
+
 Linux
 -----
 
