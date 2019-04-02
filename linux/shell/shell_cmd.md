@@ -74,6 +74,14 @@ strace
         -o <file>                           # 输出到文件
 df
     -T                                      # 文件系统类型
+usermod
+    -a                                      # append(不加则覆盖原有group)
+    -G <group>                              # 加入用户组
+    -s $(which <shell>)                     # 更改shell
+getent
+    passwd [user]                           # 查看所有[指定]用户设置
+    group [group]                           # 查看所有[指定]用户组成员
+
 
 
 ### time

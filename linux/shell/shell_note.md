@@ -130,9 +130,21 @@ zsh如果执行不成功, 需要引号引起关键字部分
 
 ### 增加用户(sudo)
 
-    adduser <username>
-    usermod -aG sudo <username>
-    su - <username>
+``` sh
+# recommend
+# install zsh
+apt install zsh
+# 指定shell
+adduser --shell $(which <shell>) <user>
+adduser <user>
+adduser <user> sudo
+
+# old
+adduser <user>
+usermod -aG sudo <user>
+su - <username>
+```
+
 
 ### 修改ssh端口(port)
 
