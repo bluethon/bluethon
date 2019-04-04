@@ -105,6 +105,7 @@ for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 ### text
 b=${a:12:5}                                 # string slice
 cp -rp foo bar                              # 复制 保留权限
+cp ./.??* foo                               # 仅复制隐藏文件(zsh可用)
 cat -n                                      # 行号
 echo 'foo' | tee bar.txt                    # 写入
 echo 'foo' | tee -a bar.txt                 # 追加
