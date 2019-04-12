@@ -189,7 +189,7 @@ su - <username>
 
 ### [更改默认shel](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)
 
-    chsh -s $(which <zsh>)
+    chsh -s $(which zsh)
 
 ### 显示当前用户
 
