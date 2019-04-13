@@ -4,6 +4,30 @@ Windows Command
 cmd
 ---
 
+    slmgr.vbs -upk              卸载激活
+    slmgr.vbs -xpr              激活(是否)
+    slmgr.vbs -dli              激活(系统版本、部分产品密钥、许可证状态)
+    slmgr.vbs -dlv              激活(最详细)
+    wmic os get caption         windows版本
+    slmgr.vbs /skms <server>:<port>
+                                可以指定端口
+
+---
+
+### 添加自启动服务
+
+    # 创建
+    sc create <name> binPath= C:\path\to\exe.exe start= auto
+    # 修改设置
+    sc config KMSserver displayName= KMS-Mi-Server
+
+### vlmcsd(active)
+
+    docker run -d -p 1688:1688 --restart=always --name vlmcsd mikolatero/vlmcsd
+
+- [official](http://wind4.github.io/vlmcsd/)
+- [KMS Client Setup Keys](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11))
+
 ### 打开启动文件夹
 
     shell:Common Startup
