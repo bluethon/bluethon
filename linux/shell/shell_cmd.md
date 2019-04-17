@@ -131,6 +131,8 @@ sed
                                             # /p 后缀p为只显示替换匹配到的
         's/\(foo\)/\1bar'                   # group match, =foobar
         's/foo/&bar'                        # add(追加模式), =foobar
+        '/[[:alpha:]]*/'                    # regex=\w*
+                                            # > https://www.tutorialspoint.com/unix/unix-regular-expressions.htm
 less
      -n 1000                                # 末尾1000行
      -N                                     # 显示行号
@@ -162,6 +164,8 @@ find
     -delete                                 # 删除
 find . ! -newermt 2013-11-22 ! -type d -delete
                                             # 删除当前文件夹内老于特定时间的非文件夹文件
+awk
+    '{print $1}' ORS=' '                    # ORS, 输出分隔符, kong
 
 
 ### zip
@@ -241,6 +245,9 @@ localectl set-locale LANG=en_US.utf8        # 设置区域 语言参数
 
 ### log
 dmesg                                       # 启动日志
+
+### keymap
+alt+.                                       # insert last paramter
 
 ### other
 echo -ne "n\0m\0k" | od -c                  # od -c 显示各种转义字符

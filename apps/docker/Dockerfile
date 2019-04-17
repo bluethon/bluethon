@@ -8,6 +8,11 @@ ENV FLASK_APP=manage.py \
     APP_PORT=9000 \
     PROJECT_DIR=/app
 
+RUN sed -i 's/[[:alpha:]]*.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends cron \
+    && rm -rf /var/lib/apt/lists/*
+
 # 执行命令并构建新的镜像层
 RUN pip install -r /tmp/requirements.txt -i https://pypi.douban.com/simple
 
@@ -16,6 +21,9 @@ WORKDIR $PROJECT_DIR
 
 # 复制文件(当前磁盘目录 to 容器内目录)
 COPY . .
+
+# cron
+RUN echo '0  2  *  *  *    flask daily' | crontab -
 
 EXPOSE $APP_PORT
 

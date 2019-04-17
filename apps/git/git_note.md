@@ -4,14 +4,20 @@ Git学习笔记
 Error
 -----
 
-### clean commit
+### clean commit(history, big file)
 
 ``` shell
 
 # 查看大文件
-git rev-list --objects --all | grep -E `git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -20 | awk '{print$1}' | sed ':a;N;$!ba;s/\n/|/g'`
+# https://stackoverflow.com/a/42544963/4757521
+git rev-list --objects --all \
+| git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+| sed -n 's/^blob //p' \
+| sort --numeric-sort --key=2 \
+| cut -c 1-12,41- \
+| $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
 
-# method 1
+### method 1
 # 匹配包含foo的
 git filter-branch --force --index-filter \
 'git rm --cached --ignore-unmatch $(find ./ -type d -name "*foo*)' \
@@ -20,7 +26,7 @@ git filter-branch --force --index-filter \
 git filter-branch --force --index-filter \
 'git rm --cached --ignore-unmatch /path/to/foo' \
 --prune-empty --tag-name-filter cat -- --all
-# method 2(默认不删除HEAD, 需要加 ----no-blob-protection)
+### method 2(默认不删除HEAD, 需要加 ----no-blob-protection)
 java -jar ~/programs/bfg-1.13.0.jar --delete-files foo.py <repo>
 # 删除文件夹, 但不能指定路径(!!!重名会存在问题)
 java -jar ~/programs/bfg-1.13.0.jar --delete-folders foo <repo>

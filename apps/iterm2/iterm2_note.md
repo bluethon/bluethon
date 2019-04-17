@@ -19,7 +19,7 @@ Shortcuts
     A-a                 Home(Esc+OH)
     A-e                 Home(Esc+OF)
 
-### 合并窗口
+### 合并窗口(window)
 
 `command + shift + option`, then drag the pane body(not header)
 

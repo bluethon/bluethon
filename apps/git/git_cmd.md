@@ -14,7 +14,9 @@ git checkout <branch> -- <file>                     # 从其他分支提取文�
 ### git tag
 git tag
     -l                                              # list
-    --sort=-v:refname                               # 名称逆序(-)排列
+    --sort=-v:refname                               # 名称逆序(-)排列, .10 > .1
+                                                    # https://stackoverflow.com/a/22634649/4757521
+git tag -l --sort=-v:refname                        # tag sort by order v.x.y.z
 
 ### git branch
 git push -d <remote> <branch>                       # 删除远程分支(remote branch)

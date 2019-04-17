@@ -6,9 +6,12 @@ RUN apk add --no-cache tzdata
 ENV TZ Asia/Shanghai
 
 RUN set -x \
-   && apk --update --no-cache add make \
-   && apk --update --no-cache --virtual .build-dep add \
-       build-base libffi-dev openssl-dev \
-   && apk del .build-dep
+    && apk --update --no-cache add make \
+    && apk --update --no-cache --virtual .build-dep add \
+    build-base libffi-dev openssl-dev \
+    && apk del .build-dep
 
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h  # for pandas
+
+# cron
+RUN echo '0  2  *  *  *    flask daily' > /etc/crontabs/root

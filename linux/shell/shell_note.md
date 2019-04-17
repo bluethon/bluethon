@@ -29,6 +29,10 @@ DEBUG
 
 ---
 
+## Variables
+
+    !$                  last parameter
+
 Note
 ----
 

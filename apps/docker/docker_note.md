@@ -4,6 +4,18 @@ Docker Note
 Note
 ----
 
+### edit file in docker
+
+> <https://stackoverflow.com/a/40471749/4757521>
+
+``` sh
+cat > file
+# 1. type in your content
+# 2. leave a newline at end of file
+# 3. ctrl-c
+cat file
+```
+
 ### Registry Garbage Collection
 
     registry garbage-collect /etc/docker/registry/config.yml

@@ -1,13 +1,27 @@
-Zsh Note
-========
+# Zsh Note
 
-.zshrc
-------
+## autojump
 
 ``` sh
+# install
+brew install autojump
+# add to .zshrc(maybe different)
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# use
+j -s        # status
+```
+
+## .zshrc
+
+``` sh
+# 直接打开后缀文件
+alias -s zip='unzip'
+
 # bindkey
 bindkey ^F forward-word
 bindkey ^B backward-word
+
 # docker
 alias de='docker exec -i -t'
 alias dl='docker logs -tf'

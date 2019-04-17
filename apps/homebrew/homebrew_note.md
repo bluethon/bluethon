@@ -1,8 +1,11 @@
 Homebrew Note
 =============
 
-Note
-----
+## Package
+
+    autojump                智能跳转
+
+## Note
 
 ### proxy(socks5)
 

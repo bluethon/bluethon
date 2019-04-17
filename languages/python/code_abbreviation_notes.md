@@ -16,6 +16,7 @@ abbreviation
     lsof        list open files                         列出(进程)打开的文件
     IFS         Internal Field Separator                内部字段分隔符
     IPC         Inter-Process Communication             进程间通信
+    ORS         Output Record separator                 输出分隔符
 
 ### HTML
 
