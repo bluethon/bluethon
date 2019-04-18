@@ -4,6 +4,11 @@ Ansible Note
 CMD
 ---
 
+``` sh
+ansible-galaxy init /path/to/role       # 初始化一个role
+                                        # https://galaxy.ansible.com/docs/contributing/creating_role.html
+```
+
 PlayBook
 --------
 

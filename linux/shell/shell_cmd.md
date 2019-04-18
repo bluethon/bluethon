@@ -228,6 +228,12 @@ curl
     -O                                      # 输出文件
     -J                                      # 使用远程文件名
     -L                                      # 下载
+ss
+    -t                                      # TCP
+    -l                                      # Listen
+    -n                                      # not resolve port 22 to `ssh`
+    -p                                      # process, SUDO(id, etc)
+ss -ltnp
 
 ### locale
 agi `check-language-support -l zh-hans`     # 安装简中
