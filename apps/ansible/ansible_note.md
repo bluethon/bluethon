@@ -20,6 +20,24 @@ ansible-playbook
     --verbose                           # see details
 ```
 
+### local execute
+
+> <http://willthames.github.io/2018/07/01/connection-local-vs-delegate_to-localhost.html>
+
+``` yml
+# 1, 切换连接, 最合适
+# https://docs.ansible.com/ansible/latest/plugins/connection/local.html
+# 在task中指定
+connection: local
+# 在var中指定
+ansible_connection: local
+# 2, 切换指定执行的server, localhost是特例
+delegate_to: localhost
+# 3, 不推荐
+local_action: <shell>
+
+```
+
 ### command/shell
 
 - 返回值需要为0

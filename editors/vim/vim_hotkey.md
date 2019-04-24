@@ -1,12 +1,17 @@
 Vim Hotkey Note
 ===============
 
-hotkey
-------
+## 启动参数
+
+    # 可同时打开多个文件
+    -o          horizontal split
+    -O          vertical split
+
+## hotkey
 
     # 特殊操作
     :w !sudo tee %                          保存只读文件<http://www.geekyboy.com/archives/629>
-    git config --gloabal core.editor vim    使用vim编辑文件
+    git config --global core.editor vim    使用vim编辑文件
     :h key-notation                         键盘字符说明<Up>
 
     # vim surround

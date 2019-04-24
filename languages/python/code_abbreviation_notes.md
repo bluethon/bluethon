@@ -7,6 +7,7 @@ abbreviation
 ### Network
 
     CIDR        Classless Inter-Domain Routing          无类别域间路由
+    SMTP        Simple Mail Transfer Protocol           简单邮件传输协议
 
 ### Linux
 
@@ -32,16 +33,27 @@ abbreviation
     &nbsp;      Non-Breaking Space                      不间断空格
     xhr         XMLHttpRequest
 
-### Other
+### TEXT
 
     argv        argument variable                       参数变量
-    repr        representation                          给解释器的显示类型
-    pprint      pretty printer                          打印整洁数据(module)
-    SMTP        Simple Mail Transfer Protocol           简单邮件传输协议
-    regex       Regular Expressions                     正则表达式
     codec       coder & decoder                         编解码器
-    PIN         Personal Identification Number
+    repr        representation                          给解释器的显示类型
+    regex       Regular Expressions                     正则表达式
     rv          Return Value
+    pprint      pretty printer                          打印整洁数据(module)
+
+### SSL
+
+    CA          Certificate Authority                   数字证书认证机构
+    CSR         Certificate Signing Request             证书签名请求
+    CRT         Certificate
+    DVSSL       Domain Validation SSL Certificate       域名型SSL
+    OVSSL       Organization Validation SSL Certificate 企业型SSL
+    EVSSL       Extended Validation SSL Certificate     增强型SSL
+
+### Other
+
+    PIN         Personal Identification Number
     SLA         Service Level Agreement                 服务协议水平(即正常访问99.5%这种)
     BNF         Backus-Naur Form                        巴科斯-诺尔范式
 

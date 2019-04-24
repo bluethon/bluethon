@@ -694,7 +694,7 @@ ls && echo yes || echo no  # 示例 正确执行显示yes, 错误时不执行ech
 
 ### 其他特殊符号 quote
 
-> 2018-08-10 update
+> 2019-04-24 update
 
 ``` bash
 ''  # 单引号, 其中的特殊字符无效
@@ -712,6 +712,7 @@ echo '$name'
 echo "$name"  # == $name
 echo `date`
 echo $(date)  # == `date`
+curl -header 'Content-Type: application/"'"$json"'"'    #单引号(quote)中使用变量
 ```
 
 ### 显示当前设置的ls颜色(ls color)

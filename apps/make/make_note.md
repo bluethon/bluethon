@@ -1,6 +1,15 @@
 Make Command
 ============
 
+## TODO
+
+``` makefile
+objects = $(wildcard *.in)
+outputs := $(objects:.in=.txt)
+
+all: $(outputs
+```
+
 CMD
 ---
 
@@ -13,7 +22,7 @@ make -k all                     # 忽略错误继续
 自动变量(Automatic Variables)
 -------
 
-    $@          指代目标, 即make foo中的foo
+    $@          指代目标, 即`make foo`中的 foo
     $*          指代%匹配的部分
 
 Note
@@ -21,7 +30,13 @@ Note
 
 > <https://seisman.github.io/how-to-write-makefile/overview.html>
 
-### 调用子make方式(使子make的cd生效)
+
+### 忽略错误
+
+    # 命令前加- 可以忽略失败继续执行, 另外可以make -k
+    -echo 123
+
+### 调用子make方式(使子 make 的 cd 生效)
 
     $(MAKE) -C <DIR> foo
 
@@ -34,7 +49,7 @@ Note
 ### 每行一个进程, 所以不同行变量不传递, 多行需要写在一行, `; \`
 
 ``` Makefile
-DD = fwefrgg
+DD = fw
 
 all:
     @CC=arm-linux-gcc; \
