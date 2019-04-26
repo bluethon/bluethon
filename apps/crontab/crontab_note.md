@@ -1,8 +1,15 @@
-Crontab Notes
-=============
+# Crontab Notes
 
-Usage
------
+## Note
+
+### Docker Debian cron not work
+
+> <https://stackoverflow.com/a/38850273/4757521>
+
+`Docker debian`镜像存在bug(overlays), 需要重新生成新的文件才行
+
+    # 重新生成文件
+    echo ff > /etc/crontab
 
 ### 查看
 

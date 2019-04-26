@@ -20,6 +20,29 @@ ansible-playbook
     --verbose                           # see details
 ```
 
+### include_role, tags 不执行
+
+> <https://github.com/ansible/ansible/issues/30882#issuecomment-479214591>
+
+``` yml
+# 1
+- include_tasks:
+    file: whatever.yml
+    apply:
+      tags:
+        - tag_for_included_tasks
+  tags:
+    - tag_for_include
+# 2
+- include_tasks:
+    file: whatever.yml
+    apply:
+      tags:
+        - tag_for_included_tasks
+  tags:
+    - always
+```
+
 ### local execute
 
 > <http://willthames.github.io/2018/07/01/connection-local-vs-delegate_to-localhost.html>
