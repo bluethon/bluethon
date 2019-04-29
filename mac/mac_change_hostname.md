@@ -1,4 +1,4 @@
-OSX Change HostName
+Mac Change HostName
 ===================
 
 > <https://apple.stackexchange.com/a/287775>

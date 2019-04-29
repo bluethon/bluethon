@@ -1,16 +1,17 @@
-Ansible Note
-============
+# Ansible Note
 
-CMD
----
+## URL
+
+- [Playbook Keywords](https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#term-104)
+
+## CMD
 
 ``` sh
 ansible-galaxy init /path/to/role       # 初始化一个role
                                         # https://galaxy.ansible.com/docs/contributing/creating_role.html
 ```
 
-PlayBook
---------
+## PlayBook
 
 ``` sh
 ansible-playbook
@@ -19,6 +20,8 @@ ansible-playbook
     playbook.yml --list-hosts           # 预检查影响哪些host
     --verbose                           # see details
 ```
+
+## Note
 
 ### include_role, tags 不执行
 
@@ -89,3 +92,7 @@ local_action: <shell>
     - '{{ role_path }}/templates/*.j2'
     - '{{ role_path }}/templates/.*.j2'
 ```
+
+### 使用文件作为参数
+
+    "{{ lookup('template', 'foo.json.j2') }}"

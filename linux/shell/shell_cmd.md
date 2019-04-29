@@ -117,6 +117,7 @@ tail -f /var/log/auth.log                   # 刷新查看文件末尾
 tail -f /proc/<pid>/fd/1                    # 看进程输出(1=stdout, 2=err)
 echo -n <str> | base64                      # -n不输出换行
 echo -n <str> | base64 -d                   # base64解码
+sort                                        # 排序
 
 echo
         -n                                  # 不输出换行符

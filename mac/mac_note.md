@@ -16,17 +16,19 @@ CMD
 Shortcuts
 ---------
 
-    Ctrl-cmd-f          全屏/最大化
-    Ctrl-cmd-q          lock screen
+    Ctrl-Cmd-f          全屏/最大化
+    Ctrl-Cmd-q          lock screen
     Ctrl-Cmd-d          查词(同Forcetouch)
     Cmd-Shift-.(dot)    show hidden file
     Cmd-Shift-G         Go to
+    Cmd-l               chrome address bar
 
 Packages
 --------
 
     SizeUp                  调整窗口(license, 可自定义快捷键, notes)
     VEEER                   调整窗口(free, 不能自定义快捷键)
+    Moom                    调整窗口(license)
     CheatSheet              自动抓取快捷键(hold cmd)
     XtraFinder              文件管理器增强(较复杂)
     Karabiner-Elements      键盘映射
@@ -40,6 +42,7 @@ Packages
     Free Download Manager   下载
     TablePlus               数据库GUI(Mysql, redis)
     Calibre                 阅读器(mobi, epub, pdf)
+    Paste                   剪贴板增强(license)
 
 Website
 -------
