@@ -43,6 +43,7 @@ Packages
     TablePlus               数据库GUI(Mysql, redis)
     Calibre                 阅读器(mobi, epub, pdf)
     Paste                   剪贴板增强(license)
+    Etcher                  ISO刻录
 
 Website
 -------
@@ -51,6 +52,10 @@ Website
 
 Note
 ----
+
+### Mac Ubuntu ISO
+
+> <https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos#0>
 
 ### wechat no sound
 
@@ -116,3 +121,9 @@ CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.6.6
 pyenv local 3.6.6
 pipenv install
 ```
+
+###  is damaged and can't be opened. You should move it to the Trash
+
+    sudo spctl --master-disable
+    # System Preferences / Security & privacy / General
+    # Allow apps downloads from: Anywhere
