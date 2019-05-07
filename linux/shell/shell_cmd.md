@@ -5,6 +5,8 @@ QuickList
 ---------
 
 ``` shell
+run-help <cmd>                              # 查看帮助
+type <cmd>                                  # 命令是否是shell内置
 man hier                                    # 介绍Linux文档结构
 tzselect                                    # 时区选择工具
 set -a && . ./<file> && set +a              # 导入文件变量

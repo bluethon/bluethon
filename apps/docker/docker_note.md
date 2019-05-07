@@ -4,6 +4,12 @@ Docker Note
 Note
 ----
 
+### remote TCP
+
+    # /etc/systemd/system/multi-user.target.wants/docker.service
+    [Service]
+    ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0
+
 ### edit file in docker
 
 > <https://stackoverflow.com/a/40471749/4757521>
@@ -20,14 +26,13 @@ cat file
 
     registry garbage-collect /etc/docker/registry/config.yml
 
-### zsh下不能补全exec
+### zsh 下不能补全 exec
 
 > <https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58>
 
 不能使用`-it`, 需要使用`-i -t`
 
-安装docker(国内版)
-----------------
+## 安装docker(国内版)
 
 ### 阿里云
 
@@ -70,8 +75,7 @@ sudo apt-get update
 sudo apt-get install docker-ce
 ```
 
-docker hub mirror
------------------
+## docker hub mirror
 
 ### official
 
@@ -84,15 +88,4 @@ echo -e "{\n  \"registry-mirrors\": [\"https://registry.docker-cn.com\"]\n}" | s
 ``` sh
 # https://lug.ustc.edu.cn/wiki/mirrors/help/docker
 echo "{\n  \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"]\n}" | sudo tee /etc/docker/daemon.json && sudo systemctl restart docker.service
-```
-
-docker machine(批量操作工具)
---------------
-
-> <https://github.com/docker/machine/releases>
-
-``` sh
-curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
-    chmod +x /tmp/docker-machine &&
-    sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
 ```
