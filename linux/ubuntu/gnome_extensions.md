@@ -5,6 +5,7 @@ Tweak
 -----
 
     sudo apt install gnome-tweaks
+    sudo apt install gnome-tweak-tool
 
 DEBUG
 -----
@@ -62,3 +63,7 @@ Extensions
 ### OCS-Store主题
 
 <https://www.sspanda.com/an-zhuang-ubuntu-17-10-bi-zuo-de-shi-qing/>
+
+### 桌面图标(desktop icon)
+
+<https://extensions.gnome.org/extension/1465/desktop-icons/>

@@ -56,6 +56,8 @@ hash -r                                     # 清除shell缓存
 sudo iptables-save                          # 查看防火墙(firewall)规则
 type -a <cmd>                               # 显示程序的所有位置
 which -a <cmd>                              # 显示程序的所有位置
+realpath                                    # 绝对路径(absolute path)
+readlink -f                                 # 绝对路径(absolute ~~path~~)
 
 systemd-analyze
                 critical-chain              # 系统启动树

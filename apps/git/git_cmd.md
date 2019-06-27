@@ -60,6 +60,7 @@ git log --oneline --left-right --merge -p           # 显示冲突内容
 git stash save -u 'message'                         # 以message标记保存, 包含untracked file
 git stash list                                      # 查看序号
 git stash pop/apply stash@{n}                       # 弹出/应用 n序号的stash
+git stash clear                                     # 清空
 
 git ls-files -u                                     # show unmerged files(显示未合并文件)
 

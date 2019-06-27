@@ -1,8 +1,6 @@
-缩写 映射 笔记
-=============
+# 缩写 映射 笔记
 
-abbreviation
-------------
+## abbreviation
 
 ### Network
 
@@ -56,9 +54,9 @@ abbreviation
     PIN         Personal Identification Number
     SLA         Service Level Agreement                 服务协议水平(即正常访问99.5%这种)
     BNF         Backus-Naur Form                        巴科斯-诺尔范式
+    CAS         Compare and Swap                        比较和替换(CPU原子操作)
 
-explanations
-------------
+## explanations
 
     parentheses     圆括号(round)
     brackets        方括号(square)

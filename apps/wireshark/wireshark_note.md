@@ -11,4 +11,5 @@ sudo apt install wireshark
 # for non-root
 # /usr/bin/dumpcap no permission
 sudo usermod -aG wireshark <user>
+# relogin
 ```
