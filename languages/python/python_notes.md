@@ -1,5 +1,22 @@
-Python学习笔记
-=============
+# Python学习笔记
+
+## Debug(易错)
+
+``` py
+# set添加, add, 不是append
+a = set()
+a.add('123')
+```
+
+## Note
+
+### 函数可变参数(定义时初始化, 而不是每次调用)
+
+> <https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments>
+
+### 展开map为list
+
+    [*map(LIST, SET)]
 
 ### 文件是否存在
 

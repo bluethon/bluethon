@@ -187,3 +187,199 @@ UNIX域套接字可以认为在五层
 - `501 Not Implemented`, 客户端请求的功能还不支持, 即将完成
 - `502 Bad Gateway`, 网关或代理返回的错误, 表示代理正常, 后端错误
 - `503 Service Unavailable`, 服务器忙, 暂时无法响应, 是临时状态, 通常伴随`Retry-After`字段, 指明多久后客户端可以再次尝试
+
+## 13 HTTP协议特点
+
+1. 灵活可扩展, 可以任意添加头字段实现任意功能
+2. 可靠传输, 基于TCP/IP协议'尽量'保证数据抵达
+3. 应用层协议, 但是比FTP等更通用, 功能更多, 能够传输任意数据
+4. 请求-应答模式, 客户端发起请求, 服务器被动回复
+5. 无状态, 请求间互相独立, 协议不要求C/S任一方记录请求信息
+
+## 14 HTTP优缺点
+
+1. 最大的优点是简单、灵活和易于扩展
+2. 拥有成熟的软硬件环境, 应用的非常广泛, 是互联网的基础设施
+3. 无状态, 可以轻松实现集群化, 扩展性能, 但有时也需要用Cookie技术实现'有状态'
+4. 明文传输, 数据肉眼可见, 方便研究分析, 但容易被窃听
+5. 不安全, 无法验证通信双方的身份, 也不能判断报文是否被篡改
+6. 性能不算差, 但不完全适应现在的互联网(TCP需要稳定的连接质量, 移动互联网无法保证), 还有很大的提示空间(请求应答, 队头阻塞)
+
+## 15 HTTP实体数据(body)
+
+### 数据类型及编码
+
+    MIME    Multipurpose Internet Mail Extensions   多用途互联网邮件扩展
+
+- MIME, 分类为8大类, 和若干子类, 形式`type/subtype`
+  - text/html text/plain
+  - image/gif image/png
+  - audio/mpeg video/mp4
+  - application/json application/pdf application/octet-stream(八位字节流)
+- 编码, 目的是为了节省带宽, 压缩数据, 需要'Encoding Type'指明编码格式, 帮助对方解码
+  - gzip, 最常用
+  - deflate, zlib压缩格式, 流行度次之
+  - br, 专为HTTP优化, 较新
+
+### 数据类型及编码使用的头字段
+
+> []起来表示未使用可省略
+
+    Accept              请求头      客户端可理解的'MIME type'
+    Content-Type        实体头      实体数据类型, 及body内容, 请求响应均可
+    Accept-Encoding     [请求头]    客户端支持的压缩格式
+    Content-Encoding    [实体头]    实体使用的压缩格式
+
+``` http
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp
+Content-Type: text/html
+Content-Type: image/png
+Accept-Encoding: gzip, deflate, br
+Content-Encoding: gzip
+```
+
+### 语言类型及编码
+
+- 语言及方言, 格式`type-subtype`
+  - en-US
+  - en-GB
+  - zh-CN
+- 字符编码方案, 即字符集
+  - ASCII
+  - GBK
+  - UTF-8
+
+### 语言类型的头字段
+
+    Accept-Language     请求头      客户端可理解的自然语言(可`,`分割)
+    Content-Language    实体头      内容语言, 实际不使用, 因为可由响应字符集推断得出
+    Accept-Charset      请求头      客户端使用的字符集, 实际不使用(浏览器基本都支持了)
+                                    响应包含在Content-Type中, charset部分
+
+``` http
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+Content-Type: text/html; charset=utf-8
+```
+
+### 内容协商质量值
+
+上述内容协商时可指定优先级, `q`(quality)表示权重, 格式`xxxx;q=0.8`
+
+> `;`在HTTP中断句小于`,`
+
+    1       max
+    0.01    min
+    1       default
+    0       deny
+
+``` http
+# 简中权重1, 中文0.9, 英文0.8
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+```
+
+### 内容协商结果
+
+响应头`Vary`字段, 记录服务器协商是参考的请求头字段(可不给), 缓存也会用到此字段
+
+    # 表示参考了以下字段决定了响应内容
+    Vary: Accept-Encoding,User-Agent
+
+![header-map](./http/http-header-1.png)
+
+## 16 HTTP传输大文件
+
+### 数据压缩
+
+主要适用于文本文件
+
+### 分块传输
+
+响应头`Transfer-Encoding: chunked`, 报文中body部分是分块(chunk)逐个发送, 与`Content-Length`互斥, 即或长度已知, 或长度为止
+
+- 大文件传输
+- 流式数据
+
+格式
+
+1. 每个分块包含2部分, 长度头和数据块
+2. 长度头CRLF(回车换行, 即\r\n)结尾, 16进制表示
+3. 数据块在长度块后, \r\n结尾
+4. 最后`0\r\n`结尾
+
+![分块传输](./http/http-chunk.png)
+
+### 范围请求(range requests)
+
+> 范围请求是根据原文件大小, 不是传输过程压缩后的大小
+
+看视频跳进度/多线程下载/断点续传, 客户端'化整为零'
+
+- 服务器支持: `Accept-Ranges: bytes`
+- 服务器不支持: `Accept-Ranges: none`或不发
+
+请求头, `Ranges: bytes=x-y`, x~y是偏移量(0开始), 单位`字节`, x~y可省略, 以下下设为100字节
+
+- `0-`, 0-99, 即整个文件
+- `10-`, 10-99
+- `-1`, 98-99
+- `-10`, 90-99
+
+服务器处理
+
+- 是否合法, 越界返回`416`
+- 合法返回`216 Partial Content`, 表示body只是部分
+- 服务器添加响应头`Content-Range`, 格式`bytes x-y/length`, 与请求头区别在无`=`
+
+### 多段数据
+
+可以一次请求多个片段, 需要特殊MIME类型`multipart/byteranges`表示body由多段字节序列组成, 使用参数`boundary=xxx`给出分隔标记
+
+![http多段数据](./http/http-multipart.png)
+
+- 每段`--boundary`开始
+- `Content-Type`, `Content-Range`标记类型和范围
+- 换行结束头
+- 分段数据
+- 最后`--boundary--`表示分段结束
+
+## 17 HTTP连接管理
+
+- 短连接开销大
+  - 长连接: 一个连接上收发多个请求, 提高传输效率
+  - 表示开启长连接: header中`Connection: keep-alive`
+  - 表示即将关闭: `Connection: close`
+- 请求应答模式导致的队头阻塞问题, 性能优化(数量解决质量)
+  - 并发连接: 同时对一个域名发起多个长连接，用数量来解决质量的问题
+  - 域名分片: shard1.xx.com, shard2.xx.com
+
+## 18 HTTP跳转和重定向
+
+- 301永久
+- 302临时
+- `Location`表示跳转地址, 可相对可绝对
+- 注意性能损耗(请求2次)和循环跳转
+- 重定向响应可增加`Refresh`头字段设定延时跳转, 但好像不是所有都支持
+- `Referer`(拼写错误,历史原因), 跳转来源
+- `Referrer-Policy`,策略, 影响上面一个是否存在或者条件
+
+## 19 HTTP Cookie
+
+- 响应头`Set-Cookie`, 可添加多个
+- 请求头`Cookie`, 多个用`;`隔开(由于Cookie非HTTP标准, 所以没有用HTTP标准分隔符`,`)
+- Key-Value
+-
+- 词源于计算机术语`Magic Cookie(不透明的数据)`, 并非小甜饼
+- 总大小不能超过`4K`
+- 属性
+  - 生存周期, 可以同时出现, 优先`Max-Age`, 如果都不设定即为会话Cookie(Session Cookie)
+    - `Expires`, 过期时间, 绝对时间点
+    - `Max-Age`, 相对时间, 单位秒, 为0立即失效
+  - 作用域
+    - `Domain`, 域名
+    - `Paht`, 路径, 通常为`/`或省略, 即域名下任意路径都允许
+  - 安全性
+    - `HttpOnly`, 仅用于http传输, 禁止js等非http方式访问(针对XSS跨站脚本)
+    - `SameSite`
+      - `SameSite=Strict`, 严格限定Cookie不能随跳转链接发送(针对XSRF跨站请求伪造)
+      - `SameSite=Lax`, 相对宽松, 允许GET/HEAD等安全方法, 禁止POST
+    - `Secure`, 仅用于HTTPS, 禁止HTTP

@@ -1,8 +1,6 @@
-Python常用代码片段
-================
+# Python常用代码片段
 
-Code
-----
+## Code
 
 ``` py
 # coding=utf-8
@@ -20,10 +18,18 @@ list.index(value)                                   # 通过值获取下标
 list1 + list2                                       # 数据拼接(list concatenate)
 f'{foo:<8}'                                         # 制表, 左对齐, 8宽度
 fr'{foo\n}'                                         # Raw f-strings
+for _ in range(n)                                   # loop n
+a, b = 1, 2                                         # 等式右边求值后一次性赋值, 左边从左向右依次接收
+                                                    # 链表逆序写作, 先写node, 再写node.next
+float('-inf')                                       # 表示最小值
+float('inf')                                        # 表示最大值
+x % 2                                               # 取余, True为奇数
+x & 1                                               # 与操作, True为奇数
+x //= 2                                             # 地板除(天花板5, 地板4, 4.5在中间, //就是4), 向下取整
+x >>= 1                                             # 右移操作, 结果类似向下取整
 ```
 
-DateTime
---------
+## DateTime
 
 ``` py
 from datetime import date, datetime, time
@@ -36,8 +42,15 @@ datetime.date.today()
 datetime.strftime('%Y年%m月%d日 %H:%M')
 ```
 
-Usage
------
+## Usage
+
+### 计数(字符串)
+
+``` py
+from collections import Counter
+a = Counter('manager')
+# Counter({'m': 1, 'a': 2, 'n': 1, 'g': 1, 'e': 1, 'r': 1})
+```
 
 ### print traceback
 
@@ -244,8 +257,18 @@ class Payload():
 data = Payload(j)
 ```
 
-List
-----
+## List
+
+### list和字符串操作
+
+``` py
+a = []
+b = 'abc'
+a.append(b)     # ['abc',]
+a += b          # ['a', 'b', 'c']
+a += b,         # ['abc',], 注意逗号
+a += [b]        # ['abc',], 等价上面
+```
 
 ### list按内部元素特定规则排序
 
@@ -272,8 +295,7 @@ List
 
     return next(iter(user or []), None)
 
-Dict
-----
+## Dict
 
 ### 判断dict为空
 

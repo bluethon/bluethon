@@ -55,6 +55,8 @@
     SLA         Service Level Agreement                 服务协议水平(即正常访问99.5%这种)
     BNF         Backus-Naur Form                        巴科斯-诺尔范式
     CAS         Compare and Swap                        比较和替换(CPU原子操作)
+    CAP         Consistency/Availability/Partition Tolerance
+                                                        CAP定理: 一致性/可用性/分布性不能同时满足
 
 ## explanations
 
@@ -77,3 +79,4 @@
     decrepit        陈旧的
     manifest        清单
     double-dash     双横线(减号)
+    pow(er)         指数

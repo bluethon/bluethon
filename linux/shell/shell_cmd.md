@@ -110,6 +110,7 @@ for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 b=${a:12:5}                                 # string slice
 cp -rp foo bar                              # 复制 保留权限
 cp ./.??* foo                               # 仅复制隐藏文件(zsh可用)
+cp -v ./{a,b} <dst>                         # 同时复制多个文件(-v显式模式)
 cat -n                                      # 行号
 echo 'foo' | tee bar.txt                    # 写入
 echo 'foo' | tee -a bar.txt                 # 追加
