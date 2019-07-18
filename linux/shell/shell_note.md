@@ -1,8 +1,6 @@
-Shell Note
-==========
+# Shell Note
 
-DEBUG
-------
+## DEBUG
 
 ### 脚本中写入mysql 密码的问题
 
@@ -33,8 +31,11 @@ DEBUG
 
     !$                  last parameter
 
-Note
-----
+## Note
+
+### trap 信号捕捉(?)
+
+可以在脚本中捕捉Ctrl-C等
 
 ### 文件夹循环
 

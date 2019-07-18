@@ -383,3 +383,27 @@ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
       - `SameSite=Strict`, 严格限定Cookie不能随跳转链接发送(针对XSRF跨站请求伪造)
       - `SameSite=Lax`, 相对宽松, 允许GET/HEAD等安全方法, 禁止POST
     - `Secure`, 仅用于HTTPS, 禁止HTTP
+
+## 20 HTTP缓存控制
+
+- 服务器缓存控制
+  - 资源有效期, `Cache-Control:`
+    - `max-age=xx`, xx秒后过期, 是生存时间, 从响应报文(`Date`字段)创建开始
+    - `no_store`, 不允许缓存, 用于频繁变化, 如秒杀页面
+    - `no_cache`, 允许缓存!!, 但是使用前需要向服务器验证是否过期(等价`max-age=0,must-revalidate`)
+    - `must-revalidate`, 不过期可用, 过期需要验证
+- 客户端缓存控制(F5功能)
+  - 资源有效期, `Cache-Control:`
+    - `max-age=0`, 要最新数据(F5)
+    - `no_cache`, 基本等价(Ctrl+F5)
+    - `must-revalidate`, 不过期可用, 过期需要验证
+- 条件请求
+  - 如果资源没变, 返回`304 Not Modified`
+  - 需要第一次响应报文预先提供以下字段
+    - `Last-Modified`, 文件最后修改时间
+    - `ETag`, 实体标签(Entity Tag), 资源唯一标识, 解决用修改时间无法区分文件变化(如1s内多次修改)
+      - 强ETag, 字节级别相符
+      - 弱ETag, 值前有'W/'标记, 在语义上没有变化, 内部可能有变化(如多了空格)
+  - `If-Modified-Since`, 内容为之前服务器返回的`Last-Modified`
+  - `If-None-Match`, 是否匹配强弱ETag
+  - 如果请求中不携带条件请求, 缓存就无法生效
