@@ -11,6 +11,7 @@
 """
 
 import numpy
+from typing import List
 
 a = [3, 31, 41, 59, 26, 41, 58]
 # 自动生成0-9随机排列列表
@@ -23,14 +24,18 @@ print(a)
 # 插入排序
 
 
-def insertion_sort(seq):
-    for x in range(1, len(seq)):
-        key = seq[x]
-        index = x
-        while index > 0 and seq[index - 1] > key:
-            seq[index] = seq[index - 1]
-            index -= 1
-        seq[index] = key
-    return seq
+def insertion_sort(a: List[int]):
+    length = len(a)
+    if length <= 1:
+        return a
+
+    for i in range(1, length):
+        value = a[i]
+        j = i
+        while j > 0 and a[j - 1] > value:
+            a[j] = a[j - 1]
+            j -= 1
+        a[j] = value
+    return a
 
 print(insertion_sort(a))

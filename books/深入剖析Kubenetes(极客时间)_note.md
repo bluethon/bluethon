@@ -119,3 +119,41 @@ ls -l /proc/<pid>/ns
 ### '全景图'
 
 ![all-view](./k8s/docker-top-view.png)
+
+## 09 Kubernetes的本质
+
+### 全局架构
+
+![global](./k8s/k8s-architecture.png)
+
+- Master(控制节点)
+  - `kube-apiserver`, API服务
+  - `kube-scheduler`, 调度
+  - `kube-controller-manager`, 容器编排
+  - `Etcd`, 集群的持久化数据, 由`kube-apiserver`处理后存入
+- Node(计算节点)
+  - `kubelet`, 负责同容器运行时(如Docker)交互
+    - 依赖`CRI`远程调用接口, (Container Runtime Interface), 接口定义了容器运行的核心操作
+    - 容器运行时(Docker)通过`OCI`与Linux交互
+    - 通过`gRPC`协议与`Device Plugin`插件交互, 管理GPU等宿主机物理设备
+    - `CNI`(Container Networking Interface), 网络插件, 配置容器网络
+    - `CSI`(Container Storage Interface), 存储插件, 持久化存储
+
+### 核心功能全景图
+
+![全景图](./k8s/k8s-func-panorama.png)
+
+- 最主要的设计思想是, 从更宏观的角度, 以统一的方式来定义任务之间的各种关系, 并且为将来支持更多种类的关系留有余地
+- 编排, 按照用户的意愿和整个系统的规则, 完全自动化地处理容器间的各种关系
+- 容器间关系
+  - `Pod`, 之中的容器共享一个Network Namespace, 同一组数据卷
+  - `Service`, 作为Pod的代理入口(Portal), 代替Pod对外暴露一个固定的网络地址
+  - `Deployment`, 多实例管理器, 一次启动多个应用实例
+  - `Secret`对象, 保存在Etcd中的键值对数据, 容器启动时, 以Volume方式挂载到容器内
+- 应用运行形态
+  - `Job`, 一次性任务
+  - `DaemonSet`, 每个宿主机上只运行一个副本的守护进程服务
+  - `CronJob`, 定时任务
+- 使用方式:　声明式API，对应的以下对象为API对象
+  - 通过一个'编排对象', 比如Pod Job CronJob等, 描述管理的应用
+  - 在为它定义一些'服务对象', 比如Service Secret Horizontal-Pod-Autoscaler等, 负责具体的平台级功能
