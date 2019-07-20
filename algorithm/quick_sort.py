@@ -1,6 +1,11 @@
 from typing import List
 
 
+# > https://stackoverflow.com/questions/18262306/quicksort-with-python
+# [two-way-partition(优化)](https://github.com/wangzheng0822/algo/blob/master/python/12_sorts/quicksort_twoway.py)
+
+
+# 原地排序(in place)版
 def quick_sort(a: List[int]):
     """
     取随意值(此处使用数组第一个元素), 进行分区操作
@@ -35,3 +40,27 @@ def quick_sort(a: List[int]):
         return a
     # 传入下标, 注意右边界
     return _qsort(a, 0, len(a)-1)
+
+
+# 普通递归版
+def qsort(array):
+    """Sort the array by using quicksort."""
+
+    less = []
+    equal = []
+    greater = []
+
+    if len(array) > 1:
+        pivot = array[0]
+        for x in array:
+            if x < pivot:
+                less.append(x)
+            elif x == pivot:
+                equal.append(x)
+            elif x > pivot:
+                greater.append(x)
+        # Don't forget to return something!
+        return qsort(less) + equal + qsort(greater)  # Just use the + operator to join lists
+    # Note that you want equal ^^^^^ not pivot
+    else:  # You need to handle the part at the end of the recursion - when you only have one element in your array, just return the array.
+        return array
