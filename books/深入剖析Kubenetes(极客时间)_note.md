@@ -157,3 +157,97 @@ ls -l /proc/<pid>/ns
 - 使用方式:　声明式API，对应的以下对象为API对象
   - 通过一个'编排对象', 比如Pod Job CronJob等, 描述管理的应用
   - 在为它定义一些'服务对象', 比如Service Secret Horizontal-Pod-Autoscaler等, 负责具体的平台级功能
+
+## 10 kubeadm
+
+- kubeadm init
+  - 检查是否可以部署(Preflight Checks)
+  - 生成Kubernetes对外提供服务所需的各种证书和对应的目录
+    - 除非专门开启'不安全模式', 默认都需要HTTPS
+    - 证书位置, Master下`/etc/kubernetes/pki`
+    - 项目证书ca.crt和私钥ca.key
+    - kubelet进行streaming操作, 需要通过访问kube-apiserver, 使用的证书`apiserver-kubelet-client.crt`和`xx.key`
+    - 可以拷贝现有证书到该目录下, 使kubeadm跳过生成步骤
+  - 生成其他组件访问kube-apiserver所需的配置文件
+    - `/etc/kubernetes/xxx.conf`
+      - admin.conf
+      - controller-manager.conf
+      - kubelet.conf
+      - scheduler.conf
+    - 记录Master节点服务器地址, 监听端口, 证书目录等
+  - 为Master组件生成Pod配置文件(Static Pod), kubelet启动后会自动检查, 加载所有的Pod YAML, 运行
+    - `/etc/kubernetes/manifests`
+    - kube-apiserver
+    - kube-controller-manager
+    - kube-scheduler
+  - 生成Etcd的Pod YAML
+  - Master容器启动后, kubeadm检查localhost:6443/healthz检查, 等待完全加载
+  - 生成`bootstrap token`
+  - 将ca.crt等Master节点信息, 通过ConfigMap方式(cluster-info)保存在Etcd中, 工后续部署Node使用
+  - 安装默认插件
+    - kube-proxy[必装], 提供集群的服务发现
+    - DNS[必装], DNS解析
+- kubeadm join
+  - 使用token, 获取证书(CA文件), 用来和apiserver交互, 获取cluster-info内的信息
+- 配置kubeadm的部署参数
+  - `kubeadm init --config kubeadm.yml`
+  - 修改配置文件
+
+## 11 从0搭建k8s集群
+
+- 默认情况下, Master节点不允许运行用户的Pod
+- 通过Taint(污点)/Toleration机制
+- 原理, 某节点打上Taint, 所有Pod都不能在该节点上运行, Pod有'洁癖'
+- 除非个别Pod声明自己能'容忍'该'污点', 即声明了Toleration, 才能在该节点运行
+- 加污点, `kubectl taint nodes node1 foo=bar:NoSchedule`
+- Taint只对之后调度的Pod生效, 不影响之前的
+- 删除键为xx的污点, `kubectl taint nodes --all node-role.kubernetes.io/master-`, 末尾加`-`
+- 云原生, 即Kubernetes原生
+
+## 12 部署一个应用
+
+``` yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.8
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: nginx-vol
+      volumes:
+      - name: nginx-vol
+        emptyDir: {}
+```
+
+- YAML文件, 在k8s中, 即为一个API Object(API对象)
+- `Deployment`, 是一个定义多副本应用的对象
+- Pod模板(spec.template)
+- Pod就是k8s世界里的应用, 而一个应用, 可以由多个容器组成
+- 控制器模式(controller pattern), 使用API对象(Deployment)管理另一种API对象(Pod)的方法
+- `Metadata`字段, API对象的'标识', 即元数据, 也是k8s中找到这个对象的主要依据
+  - 最主要是`Labels`字段, 一组kv格式的标签(如`app: nginx`)
+  - 使用Labels字段过滤被控制对象
+  - 过滤规则定义`spec.selector.matchLabels`, 即`Label Selector`
+  - `Annotations`, 与Labels格式/层级完全相同, 用来携带内部信息(k8s自身使用), 大部分是自动添加
+- API对象定义, 2部分
+  - Metadata, 存放对象的元数据, 所有API对象, 基本一致
+  - Spec, 属于该对象独有的定义, 用来描述其要表达的功能
+- 过滤命令, `kubectl get pods -l app=nginx`, 命令行中, 标签使用`=`, 而不是`:`
+- describe的`Events(事件)`中包含详细信息, debug时有用
+- 全程推荐使用`kubectl apply -f x.yml`, k8s根据YAML内容自动具体处理
+- 如果实例只有一个, 推荐`replicas=1`的Deployment, 而不是单独的Pod, 因为前者在Node挂掉后仍可调度到其他Node
