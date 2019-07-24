@@ -142,7 +142,7 @@
     桶          O(n)            O       X
     基数        O(dn)d是维度     O       X
 
-## 15 二分查找
+## 15 二分查找1
 
 - 有序集合
 - 速度O(logn)
@@ -156,3 +156,57 @@
   - 必须数组, 依赖顺序表结构
   - 需要有序
   - 太大不合适(需要连续的地址空间)
+- 适用于近似查找问题(第一个小于等于, 最后一个大于这类)
+
+## 16 二分查找2
+
+> [完全总结和分析](https://github.com/yuzhoujr/leetcode/issues/8)
+
+查找第一个等于给定值的元素
+
+- 步骤
+  - low, high初始化
+  - 循环
+    - mid初始化
+    - if >
+    - elif <
+    - 是否=0(左边界) or mid-1 !=
+      - 是 ok
+      - 否 右侧左移
+  - 没找到 -1
+
+``` py
+# 第一个等于给定值的元素n
+def first_one(a: List[int], n):
+    low = 0
+    high = len(a) - 1
+    while low <= high:
+        mid = low + ((high-low) >> 1)
+        if a[mid] < n:
+            low = mid + 1
+        elif a[mid] > n:
+            high = mid - 1
+        else:
+            if mid == 0 or a[mid-1] < n:
+                return mid
+            else:
+                high = mid - 1
+    return -1
+```
+
+## 17 跳表
+
+- 有序序列建立多级索引
+- 插入/删除/查找均为O(logn)
+
+## 18 散列表1(Hash Table)
+
+- 是数组的一种扩展
+- 通过键(key)经过散列函数计算得出散列值
+- 解决散列冲突
+  - 开放寻址法(open addressing), 重新探测一个空闲空间
+    - 线性探测(Linear Probing), 依次向后查找, 删除时插入`delete`标识, 否则破坏查询规则
+    - 二次探测(Quadratic probing), 类似线性探测, 但步长变为每次n**2
+    - 双重散列(Double hashing), 用两个hash函数, 第一个冲突使用第二个, 以此类推
+    - 装载因子(load factor), = 填入元素/总长度, 因子越大, 空闲位置越少, 散列表性能下降
+  - 链表法(chaining), hash值为散列槽位, 将元素插入较为对应的链表中, 理想时间复杂度O(n/m), n总数, m槽位数

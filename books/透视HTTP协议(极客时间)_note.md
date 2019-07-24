@@ -1,4 +1,4 @@
-# HTTP 面试记录
+# 透视HTTP 笔记
 
 ## HTTP 版本区别
 
@@ -165,6 +165,7 @@ UNIX域套接字可以认为在五层
 
 - `301 Moved Permanently`, 永久重定向, 资源不存在, 使用新URI访问, 字段`Location`指明, 如http升级https
 - `302 Found`, 临时重定向, 资源存在, 临时访问新URI, 字段`Location`指明, 如临时维护, 指定静态通知页面, 涉及缓存优化
+- `303 See Other`, 类似302, 但是要求重定向后使用`GET`, 避免`POST`等重复操作
 - `304 Not Modified`, 资源未修改, 缓存控制
 
 ### 4XX
@@ -427,3 +428,26 @@ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
 - 代理协议
   - 解决需要解析HTTP头(成本)/要修改原始报文(HTTPS不允许)的问题
   - `v1`版本直接在HTTP头上方加一行代理的内容
+
+## 22 HTTP缓存代理
+
+![服务端流程](./http/http-cache-server.png)
+![客户端流程](./http/http-cache-client.png)
+
+- 以下均是`Cache-Control`的属性值
+- 源服务器的缓存控制
+  - 区分客户端缓存和代理缓存
+    - `private`, 只能客户端, 如Cookie
+    - `public`, 都可以
+  - 缓存失效后的重新验证
+    - `must-revalidate`, 过期必须回源服务器验证
+    - `proxy-revalidate`, 只要求代理缓存过期后必须验证, 客户端不必回源, 验证到代理就可以了
+  - 缓存生存周期
+    - `s-maxage`(s=share, maxage没有`-`), 只限定代理能够缓存多久
+    - `max-age`, 普通版本
+  - 是否允许变换(仅代理), 如把图片生存png等
+    - `no-transform`, 不允许变换
+- 客户端的缓存控制
+  - 缓存生存时间
+    - `max-stale`, 可接受过期x时间内的缓存
+    - `min-fresh`, 缓存必须x时间后仍有效

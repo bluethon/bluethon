@@ -251,3 +251,46 @@ spec:
 - describe的`Events(事件)`中包含详细信息, debug时有用
 - 全程推荐使用`kubectl apply -f x.yml`, k8s根据YAML内容自动具体处理
 - 如果实例只有一个, 推荐`replicas=1`的Deployment, 而不是单独的Pod, 因为前者在Node挂掉后仍可调度到其他Node
+
+## 13 为什么需要Pod
+
+- Pod是k8s项目的原子调度单位
+- 实现原理
+  - 只是逻辑概念
+  - 内部所有容器, 共享一个Network Namespace, 并且可以声明共享一个Volume
+  - 首先创建Infra容器, 其他通过Join Network Namespace加入
+    - 特殊容器
+    - 汇编编写
+    - 永远处于暂停状态
+    - `k8s.gcr.io/pause`
+- 产生的效果
+  - 内容容器可以直接localhost通信
+  - 一个Pod只有一个IP, 即Network Namespace的
+  - Pod的生命周期只跟Infra容器一致, 与真实绑定的内部容器无关
+- 同理, Volume定义设计在Pod层级, 这样内部容器都可以挂载, 共享内容
+- 实例(Sidecar模式)
+  - webpack打包内容和Nginx, 即可一个Pod两个容器
+  - 打包容器定义为`Init Container`
+  - 在Pod中, 所有`Init Container`定义的容器, 都会比`spec.containers`定义的用户容器先启动
+  - `Init Container`容器会按顺序逐一启动
+- Sidecar指在一个Pod中, 启动一个辅助容器, 完成一些独立于主进程之外的工作
+- 理解Pod的本质: Pod实际扮演的是传统基础设施的'虚拟机', 容器则是虚拟机内的用户程序
+
+## 14 深入解析Pod对象1
+
+- 凡是调度/网络/存储, 以及安全相关的属性, 都是Pod级别的
+- 部分重要字段
+  - `NodeSelector`, 供用户将Pod和Node进行绑定的字段
+  - `NodeName`, 有值, 表示被调度过了, 一般由调度器负责设置, 但可自行设置用于debug等
+  - `HostAliases`, 定义`/etc/hosts`内容
+- 跟容器Linux Namespace相关的属性, 也是Pod级别
+- Pod中容器要共享宿主机的Namespace, 也是Pod级别, 如共享主机网卡等
+- Containers相关字段
+  - `ImagePullPolicy`, 拉取镜像策略
+  - `Lifecycle`, 定义容器生命周期相关的Hook
+- Pod生命周期(.Status)
+  - `Pending`, 已提交k8s, 保存etcd, 但没有成功创建, 如调度有问题
+  - `Running`, 成功调度, 至少有一个在运行
+  - `Succeeded`, 运行完毕退出, 常见于一次性任务
+  - `Failed`, 至少一个容器不正常(非0)退出, 需要debug, 如Pod的Events和日志
+  - `Unknown`, 异常状态, Pod的状态不能持续被kubelet汇报给kube-apiserver, 怀疑主从通信问题
