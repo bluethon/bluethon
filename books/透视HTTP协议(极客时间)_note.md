@@ -451,3 +451,24 @@ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
   - 缓存生存时间
     - `max-stale`, 可接受过期x时间内的缓存
     - `min-fresh`, 缓存必须x时间后仍有效
+
+## 23 HTTPS SSL/TLS
+
+- 安全性
+  - 机密性(Secrecy/Confidentiality), 指对数据的保密(不相干的人看不到)
+  - 完整性(Integrity, or一致性), 没有篡改
+  - 身份认证(Authentication), 确认双方的真实身份
+  - 不可否认(Non-repudiation/Undeniable), 也叫不可抵赖, 不能否认已经发生过的行为
+- HTTPS
+  - 协议名, https
+  - 默认端口, 443
+  - 下层传输协议由TCP/IP(HTTP over TCP/IP)换位SSL/TLS(HTTP over SSL/TLS), 但是TLS下层仍是TCP/IP
+- SSL/TLS
+  - SSL(Secure Sockets Layer), 安全套接字, OSI 5层(会话层)
+  - TLS(Transport Layer Security), 传输层安全, IETF标准化SSL后更名为此
+  - 使用加密套件(cipher suite)
+    - 格式, 秘钥交换算法 + 签名算法 + 对称加密算法 + 摘要算法
+    - `ECDHE-RSA-AES256-GCM-SHA384`
+    - “握手时使用 ECDHE 算法进行密钥交换，用 RSA 签名和身份认证，握手后的通信使用 AES 对称算法，密钥长度256 位，分组模式是 GCM，摘要算法 SHA384 用于消息认证和产生随机数。”
+- OpenSSL
+  - 由SSLeay发展而来, 由于当时TLS未正式确立, 最终使用了SSL命名

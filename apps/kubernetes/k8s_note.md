@@ -250,7 +250,7 @@ Initialization
 # refer to change init.yml
 # ! podSubnet need choose a network first !
 sudo kubeadm config print init-defaults
-sudo kubeadm init -f init.yml
+sudo kubeadm init --config init.yml
 # copy kubeadm join xxx
 
 # make kubectl work for your non-root user
