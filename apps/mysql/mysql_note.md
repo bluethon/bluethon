@@ -1,8 +1,10 @@
-MySQL笔记
-=========
+# MySQL笔记
 
-NOTE
-----
+## NOTE
+
+### 生产使用的MySQL备份和恢复工具
+
+    XtraBackup
 
 ### increase max_allowed_packet size in mysql docker
 

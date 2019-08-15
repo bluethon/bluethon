@@ -472,3 +472,49 @@ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
     - “握手时使用 ECDHE 算法进行密钥交换，用 RSA 签名和身份认证，握手后的通信使用 AES 对称算法，密钥长度256 位，分组模式是 GCM，摘要算法 SHA384 用于消息认证和产生随机数。”
 - OpenSSL
   - 由SSLeay发展而来, 由于当时TLS未正式确立, 最终使用了SSL命名
+
+## 24 对称加密与非对称加密
+
+> (x)表示不安全
+
+- 对称加密算法
+  - 块加密(block cipher)
+    - DES(x)
+    - AES(秘钥长度可变)
+      - AES128
+      - AES256
+  - 流加密(stream cipher)
+    - RC4(x)
+    - ChaCha20
+  - 加密分组模式, 算法用固定长度的秘钥加密任意长度的明文
+    - ECB(x)
+    - CBC(x)
+    - CFB(x)
+    - OFB(x)
+    - AEAD(Authenticated Encryption with Associated Data), 加密+认证
+      - GCM
+      - CCM
+      - Poly1305
+  - 组合形成对称加密算法
+    - AES128-GCM, 秘钥长度128位的AES算法, 分组模式GCM
+    - ChaCha20-Poly1305, ChaCha20算法, 分组模式Poly1305
+- 非对称加密
+  - 解决对称加密秘钥交换问题
+    - 公钥加密(客户端用公钥加密token后传递给私钥)
+    - 私钥解密
+  - 种类
+    - DH
+    - DSA
+    - RSA, 安全性基于整数分解数学难题, 目前认为安全至少2048位
+    - ECC(Elliptic Curve Cryptography), 椭圆曲线离散对数数学难题
+      - ECDHE, 秘钥交换
+      - ECDSA, 数字签名
+      - 曲线
+        - P-256(x)
+        - x25519, 名字来源曲线方程参数'2^255-19'
+      - 安全强度和性能较RSA都有明显优势
+- 混合加密
+  - 非对称慢, 对称需要安全传递秘钥
+  - 方案, 又好又快
+    - 开始通信使用非对称加密, 传递会话密钥
+    - 后续通信使用会话秘钥进行对称加密

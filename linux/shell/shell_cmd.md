@@ -4,7 +4,7 @@ Shell Commands
 QuickList
 ---------
 
-``` shell
+``` sh
 run-help <cmd>                              # 查看帮助
 type <cmd>                                  # 命令是否是shell内置
 man hier                                    # 介绍Linux文档结构
@@ -194,6 +194,8 @@ if [ ! -z "$var1" ]                         # variable not empty
 if [[ ! -z $var1 ]]
 if [ <var> = 'test' ]                       # <var> equal 'test'
 [ $foo -eq 0 ] && echo $foo                 # 等于0, 输出
+[[ $foo =~ ([0-9]+)$ ]]                     # 正则
+${BASH_REMATCH[1]}                          # 返回之前正则匹配括号内的文本(1为第一个括号内的), 可以赋值给变量
 
 # kill
 pidof fcitx | xargs kill                    # 结束程序

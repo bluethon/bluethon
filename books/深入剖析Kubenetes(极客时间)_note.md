@@ -294,3 +294,107 @@ spec:
   - `Succeeded`, 运行完毕退出, 常见于一次性任务
   - `Failed`, 至少一个容器不正常(非0)退出, 需要debug, 如Pod的Events和日志
   - `Unknown`, 异常状态, Pod的状态不能持续被kubelet汇报给kube-apiserver, 怀疑主从通信问题
+
+## 15 深入解析Pod对象2
+
+- `Projected Volume`, 特殊Volume, 投射数据卷
+  - 为容器提供预先定义好的数据, 从容器角度看, Volume内的信息是被k8s'投射'(Project)进入容器的
+- 种类
+  - Secret
+    - 作用, 把Pod想要访问的加密数据, 存放到Etcd中, 使用时挂载
+    - 数据必须是base64转码(echo -n 'xxx' | base64)
+    - Etcd更新, Pod内也会更新(kubelet定时维护, 有时延), 注意重试和超时逻辑
+  - ConfigMap
+    - 保存不加密的配置信息
+    - `kubectl get configmaps xxx -o yaml`导出
+  - Downward API
+    - 让Pod里的容器直接获取到Pod API对象本身的信息
+    - 只能获取Pod里容器启动前确定下来的(比如PID不能获取)
+  - ServiceAccountToken
+    - ServiceAccount, k8s内置的`服务账户`, 允许权限分配, 授权信息和文件, 保存在其绑定的特殊Secret对象(即父级别的SAToken)内
+    - 默认'服务账户'(default Service Account), 默认挂载, 可以describe查看
+    - `InClusterConfig`, 把k8s客户端以容器运行在集群内, 使用默认服务账户自动授权的方式
+    - 可以关闭, 默认不挂载
+- 健康检查与恢复
+  - `Probe`(探针), 在Pod里定义, kubelet根据其返回值决定容器状态
+    - `livenessProbe`, 检查容器是否正常
+      - HTTP
+      - TCP
+      - exec
+    - `readnessProbe`, 检查是否可以被Service服务访问, 不影响生命周期
+  - 恢复机制(restartPolicy)
+    - `Always`, 任何情况下, 只要容器不在运行态, 就自动重启(删除创建), 默认
+    - `OnFailure`, 异常退出才重启
+    - `Never`, 从不重启
+  - 恢复策略和Pod状态
+    - 只要Pod的restartPolicy指定的策略允许重启异常的容器(如Always), Pod就保持Running, 并进行重启, 否则Failed
+    - 对于包含多容器的Pod, 只有里面所有容器都异常退出, Pod才进入Failed, `READY`字段显示正常的个数
+- Pod字段自动填充(PodPreset)
+  - 只会在Pod API对象被创建前追加到对象上, 不会影响Pod的控制器(即Deployment不受影响)
+  - 如果有多个PodPreset, 合并修改, 冲突字段不修改
+
+## 16 编排, 控制器模式
+
+- Pod API对象是对容器进一步抽象和封装
+- 控制器组件
+  - `kube-controller-manager`
+  - 集合目录, <https://github.com/kubernetes/kubernetes/tree/master/pkg/controller>
+- 遵循统一的编排模式: 控制循环(control loop)
+  - 实际状态A(k8s集群)
+  - 期望状态B(用户YAML)
+  - if A==B()
+  - skip
+  - else
+  - 执行操作, 调整为B
+- 对比状态的操作: 调谐(Reconcile), 过程: 调谐循环(Reconcile Loop) or 同步循环(Sync Loop)
+- 用一种对象(控制器)管理另一种对象(Pod)
+- 被控对象定义: PodTemplate(Pod模板)
+- 组成, 上半部分的控制器定义和下半部分的被控制对象的模板, [图片](./k8s/pod-template.png)
+- 当前API对象的`Metadata`中`ownerReference`保存着拥有者(Owner)信息
+
+## 17 水平扩展和收缩
+
+### Deployment
+
+- Deployment
+  - 两层控制器
+  - 实际控制的是ReplicaSet对象(保存各版本对象), ReplicaSet对象控制Pod对象
+  - 通过RS个数描述应用版本
+  - 通过RS属性(如replicas)保证Pod副本数量
+- 水平扩展/收缩(horizon scaling out/in)
+  - D控制修改RS的Pod个数
+- 滚动更新
+  - D控制多个RS, 调节其Pod个数, 交替逐一升级
+  - 只有处于AVAILABLE的Pod才是最终状态
+  - 查看状态, `kubectl rollout status deployment/<name>`
+  - 更新策略由`RollingUpdateStrategy`指定
+  - `kubectl set image`可以更新镜像
+  - 控制RS历史版本数量, `spec.revisionHistoryLimit`, 为0不能回滚
+
+## 18 StatefulSet: 拓扑状态
+
+- 有状态应用(Stateful Application)
+- 无状态应用(Stateless Application)
+- 应用状态抽象
+  - 拓扑状态, 多实例间不对等, 依次启动, 网络标识一致
+  - 存储状态, 多实例分别绑定不同存储数据
+- 核心功能, 通过记录应用状态, 在Pod重新创建时, 为新Pod恢复状态
+- Service访问方式
+  - VIP(Virtual IP), 分配虚拟IP
+  - DNS, 分配特定DNS
+    - Normal Service, DNS解析结果为VIP, 后续流程如VIP流程
+    - Headless Service, DNS解析结果直接为Pod的IP
+      - 绑定DNS记录格式`<pod-name>.<svc-name>.<namespace>.svc.cluster.local`
+- `spec.serviceName`增加表示此功能
+- 内部Pod被删除后, 重新创建网络身份完全相同的Pod(DNS解析对应关系一致), 保证Pod网络标识的稳定性
+- 固定了Pod的拓扑状态(如节点启动顺序), 按照Pod的`名称+编号`方式
+
+## 19 StatefulSet: 存储状态
+
+- StatefulSet的控制器直接管理Pod
+- 通过Headless Service, 为Pod 编号, 在DNS服务器生成同编号DNS记录
+- 为每个Pod分配并创建同编号PVC
+- StatefulSet是特殊的Deployment(为每个Pod编号), 使每个Pod集群唯一
+- 使用PV和PVC实现
+- `volumeClaimTemplates`为每个Pod声明PVC
+- Pod删除重建都会挂载对应的同一个PVC(Bound状态)
