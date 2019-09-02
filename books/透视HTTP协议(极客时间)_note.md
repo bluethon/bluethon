@@ -103,6 +103,9 @@ UNIX域套接字可以认为在五层
 
     Method/SP/URI/SP/Version/CRLF
 
+    GET /09-1 HTTP/1.1
+    Host: www.example.com
+
 1. 请求方法: 动词, GET/POST, 表示对资源的操作
 2. 请求目标: URI, 标记请求方法要操作的资源
 3. 版本号: HTTP协议版本
@@ -114,6 +117,10 @@ UNIX域套接字可以认为在五层
 > SP -> space, CRLF -> /r/n
 
     Version/SP/Status Code/SP/Reason/CRLF
+
+    HTTP/1.1 400 Bad Request
+    Server: nginx/1.1
+    Connection: close
 
 1. 版本号: HTTP协议版本
 2. 状态码: 三位数, 表示处理结果
