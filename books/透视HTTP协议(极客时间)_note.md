@@ -165,6 +165,7 @@ UNIX域套接字可以认为在五层
 ### 2XX
 
 - `200 OK`
+- `201 Created`, 已创建资源, 通常是POST请求的返回响应
 - `204 No Content`, 响应头后没有body
 - `206 Partial Content`, 分块下载或断点续传的基础, 伴随头字段`Content-Range`, `Content-Range: byte 0-99/2000`, 总计2000, 目前0-99块
 
@@ -191,10 +192,11 @@ UNIX域套接字可以认为在五层
 
 ### 5XX
 
-- `500 Internal Server Error`, 通用的错误码
+- `500 Internal Server Error`, 服务器遇到了不知道如何处理的错误, 崩了(代码写的烂)
 - `501 Not Implemented`, 客户端请求的功能还不支持, 即将完成
 - `502 Bad Gateway`, 网关或代理返回的错误, 表示代理正常, 后端错误
 - `503 Service Unavailable`, 服务器忙, 暂时无法响应, 是临时状态, 通常伴随`Retry-After`字段, 指明多久后客户端可以再次尝试
+- `504 Gateway Timeout`, 网关返回的错误, 表示后端未及时给出响应
 
 ## 13 HTTP协议特点
 

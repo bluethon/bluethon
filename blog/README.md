@@ -1,91 +1,11 @@
-问题解决方法记录
-================
+# 大佬们的博客
 
-记录一些学习过程遇到的问题的解决方法
+- [Go, k8s!, 10年+博客历史](https://tonybai.com/)
 
----
+## 过去的遗留
 
-Python
-------
-
-1.  [函数的带星号形参和带双星号形参](http://www.math.pku.edu.cn/teachers/qiuzy/computing/basics/pb_file210.htm)
--   [解压可迭代对象赋值给多个变量](http://python3-cookbook.readthedocs.org/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html)
--   [使用pyinstaller将python程序打包为exe](../languages/python/pyinstaller.md)
--   [@staticmethod与@classmethod辨析](../languages/python/diff_staticmethod_&_classmethod.md)
--   [Python常用函数清单](../languages/python/python_method_list.md)
--   [Python格式化输出dict等集合对象](../languages/python/python_print_format_dict.md)
--   [Python Requests Post to Json](http://stackoverflow.com/questions/9733638/post-json-using-python-requests)
--   [Python标准库代码示例](../languages/python/python_library_examples.md)
-
----
-
-Shell
------
-
-1.  [批量修改文件夹名字](../linux/shell/rename_folder.md)
--   [永久设置环境变量](../linux/shell/permanently_export_variables.md)
--   [SSH免密码登陆](../linux/shell/ssh-keygen_login_no_password.md)
--   [更改Caps Lock为Esc](../linux/shell/change_caps-lock_to_esc.md)
--   [多ssh-key管理](../linux/shell/multi_ssh-key.md)
--   [Linux Shell读书笔记](../linux/shell/linux_shell_scripting_cookbook_note.md)
-
----
-
-Sublime
--------
-
-1.  [sublime开启scope_name显示](../editors/sublime/show_scope_name.md)
--   [emmet停止tab某些情况下起作用](../editors/sublime/disable_emmet_tab.md)
--   [emmet强制html中<br>为<br />](../editors/sublime/force_change_br_to_br_with_slash.md)
--   [project设置相对路径参考](../editors/sublime/project_path.md)
--   [Package Control设置shadowsocks代理](../editors/sublime/package_control_proxy.md)
-
----
-
-Ubuntu
-------
-
-1.  [终端默认启动位置及大小自定义](../linux/ubuntu/gnome_terminal.md)
--   [卸载ibus导致只有桌面壁纸](../linux/ubuntu/uninstall_ibus_bug.md)
--   [手动编译Vim](../linux/ubuntu/build_vim.md)
--   [手动安装python](../linux/ubuntu/build_python.md)
--   [PPA源](../linux/ubuntu/add_ppa.md)
--   [自定义系统时间格式](../linux/ubuntu/custom_date_format.md)
--   [导入导出dconf的自定义设置(时间 custom keybindings)](../linux/ubuntu/dconf_import_export.md)
--   [Ubuntu快捷键](../linux/ubuntu/ubuntu_hotkey.md)
--   [Ubuntu多屏卡顿解决方法](../linux/ubuntu/ubuntu_dual_monitor_slow.md)
--   [Ubuntu字体美化](../linux/ubuntu/ubuntu_fonts_render.md)
--   [安卓模拟器genymotion](../linux/ubuntu/genymotion.md)
-
----
-
-Git
----
-
-1.  [从历史commit恢复文件并不再跟踪](../apps/git/git_update-index.md)
-
----
-
-HTTP
-----
-
-1.  [URI vs URL](http://www.cnblogs.com/hust-ghtao/p/4724885.html#commentform)
-
----
-
-搭博客
------
-
-1.  [Hexo+Ubuntu+GithubPages搭建个人博客](http://yanceywang.com/2015/07/30/Ubuntu+Hexo+GithubPages搭建静态博客/)
-
-> another todo
-- <http://www.jianshu.com/p/465830080ea9>
-- <http://wuchong.me/archives/>
-
----
-
-梯子ss
------
-
-1.  <http://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html>
--   <http://wuchong.me/blog/2015/02/02/shadowsocks-install-and-optimize/>
+- [函数的带星号形参和带双星号形参](http://www.math.pku.edu.cn/teachers/qiuzy/computing/basics/pb_file210.htm)
+- [解压可迭代对象赋值给多个变量](http://python3-cookbook.readthedocs.org/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html)
+- [Python Requests Post to Json](http://stackoverflow.com/questions/9733638/post-json-using-python-requests)
+- [URI vs URL](http://www.cnblogs.com/hust-ghtao/p/4724885.html#commentform)
+- [Hexo+Ubuntu+GithubPages搭建个人博客](http://yanceywang.com/2015/07/30/Ubuntu+Hexo+GithubPages搭建静态博客/)
