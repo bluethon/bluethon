@@ -170,6 +170,7 @@ find
     -delete                                 # 删除
 find . ! -newermt 2013-11-22 ! -type d -delete
                                             # 删除当前文件夹内老于特定时间的非文件夹文件
+find ./my_dir -mtime +10 -type f -delete    # 删除最后修改日期十天前的文件
 awk
     '{print $1}' ORS=' '                    # ORS, 输出分隔符, kong
 

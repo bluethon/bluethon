@@ -1,14 +1,11 @@
-Gnome Extension
-===============
+# Gnome Extension
 
-Tweak
------
+## Tweak
 
     sudo apt install gnome-tweaks
     sudo apt install gnome-tweak-tool
 
-DEBUG
------
+## DEBUG
 
 ### log
 
@@ -26,9 +23,7 @@ DEBUG
 - terminal
   - `gnome-shell --replace`
 
-
-Extensions
-----------
+## Extensions
 
 ### 锁屏常亮
 

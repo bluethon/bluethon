@@ -1,30 +1,25 @@
-Node.js Note
-============
+# Node.js Note
 
-Install
--------
+## Install
+
+> <https://github.com/nodesource/distributions/blob/master/README.md>
 
 ``` shell
-# 安装npm node包管理
-sudo apt install npm
-# node version管理
-sudo npm install -g n
-# 安装node稳定版
-sudo n stable
-# 安装最新的npm
-sudo npm install -g npm
+# Using Ubuntu
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
-更新源
------
+## 更新源
 
     npm config edit
     # add
     registry = https://registry.npm.taobao.org
     registry = https://npmreg.proxy.ustclug.org
+    # or
+    npm config set registry https://npmreg.proxy.ustclug.org
 
-包
----
+## 包
 
 ### nvm node版本管理
 
