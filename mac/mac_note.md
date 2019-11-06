@@ -1,8 +1,6 @@
-OS X Note
-=========
+# Mac Note
 
-CMD
----
+## CMD
 
     open -a TextEdit filename           用写字板打开文件
     sudo spctl --master-disable         开启允许任何来源软件安装
@@ -13,8 +11,7 @@ CMD
     diskutil unmount /Volumes/USB       移除设备
     ipconfig getifaddr en0              无线IP
 
-Shortcuts
----------
+## Shortcuts
 
     Ctrl-Cmd-f          全屏/最大化
     Ctrl-Cmd-q          lock screen
@@ -23,8 +20,7 @@ Shortcuts
     Cmd-Shift-G         Go to
     Cmd-l               chrome address bar
 
-Packages
---------
+## Packages
 
     SizeUp                  调整窗口(license, 可自定义快捷键, notes)
     VEEER                   调整窗口(free, 不能自定义快捷键)
@@ -45,13 +41,11 @@ Packages
     Paste                   剪贴板增强(license)
     Etcher                  ISO刻录
 
-Website
--------
+## Website
 
 [Mac soft crack](https://www.macsoftdownload.com/)
 
-Note
-----
+## Note
 
 ### Mac Ubuntu ISO
 
@@ -122,7 +116,7 @@ pyenv local 3.6.6
 pipenv install
 ```
 
-###  is damaged and can't be opened. You should move it to the Trash
+### is damaged and can't be opened. You should move it to the Trash
 
     sudo spctl --master-disable
     # System Preferences / Security & privacy / General
