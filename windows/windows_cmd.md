@@ -1,8 +1,13 @@
-Windows Command
-===============
+# Windows Command
 
-cmd
----
+## run(Win+R)
+
+    %appdata%                   appdata/roaming
+    %userprofile%               user home
+    shell:Startup               开机启动(当前用户)
+    shell:Common Startup        开机启动(所有用户)
+
+## cmd
 
     slmgr.vbs -upk              卸载激活
     slmgr.vbs -xpr              激活(是否)
@@ -27,7 +32,3 @@ cmd
 
 - [official](http://wind4.github.io/vlmcsd/)
 - [KMS Client Setup Keys](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11))
-
-### 打开启动文件夹
-
-    shell:Common Startup
