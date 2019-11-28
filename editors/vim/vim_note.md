@@ -1,26 +1,25 @@
-VIM学习笔记
-==========
+# VIM学习笔记
 
-doc site
---------
+## CMD
+
+    :bo[tright] vs filename         右侧打开新文件
+
+## doc site
 
 <http://vim.wikia.com/wiki/Vim_Tips_Wiki>
 
-cheatsheet
-----------
+## cheatsheet
 
 [进阶版](http://michael.peopleofhonoronly.com/vim/)
 
-DEBUG
------
+## DEBUG
 
 ### PyUnicode_Check(obj)
 
     # 删掉git repo, 重新下载
     rm -rf YouCompleteMe
 
-Tips
-----
+## Tips
 
 ### 官方教程
 

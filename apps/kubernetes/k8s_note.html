@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>列出依赖包版本</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+
+</style>
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body class="vscode-light">
+        <h1 id="kubernetes-note">Kubernetes Note</h1>
+<h2 id="url">URL</h2>
+<p><a href="https://github.com/mritd/gcr">GCR 同步仓库</a>
+<a href="https://github.com/openthings/kubernetes-tools">kubernetes-tools 一些工具</a>
+<a href="https://github.com/cookcodeblog/k8s-deploy">kubernetes一键脚本</a></p>
+<pre><code># k8s.gcr.io
+gcr.mirrors.ustc.edu.cn/google-containers
+</code></pre>
+<h2 id="cmd">CMD</h2>
+<pre><code class="language-shell"><div><span class="hljs-meta">#</span><span class="bash"> 列出依赖包版本</span>
+<span class="hljs-meta">#</span><span class="bash"> https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/<span class="hljs-comment">#running-kubeadm-without-an-internet-connection</span></span>
+kubeadm config images list
+</div></code></pre>
+<h2 id="todo">TODO</h2>
+<pre><code class="language-sh"><div>kubeadm token list
+kubeadm token generate --<span class="hljs-built_in">print</span>-join-command
+kubectl get nodes
+kubectl get pod --all-namespaces
+<span class="hljs-comment"># 带ip</span>
+kubectl get pod --all-namespaces -o wide
+kubectl describe pod kube-flannel-ds-v0p3x --namespace=kube-system
+sudo systemctl status kubelet.service
+kubectl run httpd-app --image=httpd --replicas=2
+kubectl get deployments
+kubectl get pod -o wide
+<span class="hljs-comment"># 查看deployments过程</span>
+kubectl describe deployments.apps nginx-deployment
+kubectl get replicasets
+kubectl describe replicasets.apps nginx-deployment-d4597f7d4
+kubectl describe pods
+kubectl delete deployments.apps nginx-deployment
+kubectl delete -f nginx.yml
+<span class="hljs-comment"># 使master也可当做Node使用</span>
+kubectl taint node k8s-master node-role.kubernetes.io/master-
+<span class="hljs-comment"># 恢复</span>
+kubectl taint node k8s-master node-role.kubernetes.io/master=<span class="hljs-string">""</span>:NoSchedule
+kubectl get nodes --show-labels
+<span class="hljs-comment"># 编辑/查看DaemonSet</span>
+kubectl edit daemonsets.extensions --namespace kube-system kube-proxy
+kubectl get jobs.batch
+kubectl logs &lt;job&gt;
+
+<span class="hljs-comment"># job(restartPolicy: Never)失败会一直创建新的Pod, (restartPolicy: OnFailure)则会重启同一Pod</span>
+<span class="hljs-comment"># job的completions和parallelism默认为1</span>
+
+<span class="hljs-comment"># show all api versions</span>
+kubectl api-versions
+
+<span class="hljs-comment"># 获取cron job</span>
+kubectl get cronjobs.batch
+<span class="hljs-comment"># 获取实际的每次jobs</span>
+kubectl get jobs.batch
+
+kubectl get services
+kubectl describe services httpd-svc
+
+<span class="hljs-comment"># look dns</span>
+kubectl get deployments.apps --namespace kube-system
+
+kubectl run --generator=run-pod/v1 alpine --rm -it --image alpine /bin/sh
+<span class="hljs-comment"># 查看域名</span>
+nslookup httpd-svc.default
+<span class="hljs-comment"># 同namespace可以省略</span>
+nslookup httpd-svc
+<span class="hljs-comment"># 查看所有命名空间</span>
+kubectl get namespaces
+
+<span class="hljs-comment"># 以下三层递进底层, 命名可以看出关系</span>
+<span class="hljs-comment"># 查看deployment</span>
+kubectl get deployments.apps &lt;name&gt; -o wide
+<span class="hljs-comment"># 查看replicaset</span>
+kubectl get replicasets.apps -o wide
+<span class="hljs-comment"># 查看pod</span>
+kubectl get pods -o wide
+
+<span class="hljs-comment"># 加入版本记录</span>
+kubectl apply -f httpd.v2.yml --record
+<span class="hljs-comment"># 查询滚动升级历史记录</span>
+kubectl rollout <span class="hljs-built_in">history</span> deployment httpd
+<span class="hljs-comment"># 回滚历史版本到v1</span>
+kubectl rollout undo deployment httpd --to-revision=1
+
+<span class="hljs-comment"># 获取secret</span>
+kubectl get secrets mysecret
+<span class="hljs-comment"># 查看/编辑详细的base64</span>
+kubectl edit secrets mysecret
+
+<span class="hljs-comment"># 显示cli连接秘钥</span>
+kubectl config view --flatten
+
+<span class="hljs-comment"># install helm</span>
+brew install kubernetes-helm
+<span class="hljs-comment"># install Tiller</span>
+helm init --upgrade -i registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.11.0 --stable-repo-url https://kubernetes-charts.proxy.ustclug.org
+<span class="hljs-comment"># 查看所有charts</span>
+helm search
+<span class="hljs-comment"># 仓库链接</span>
+helm repo list
+<span class="hljs-comment"># 增加/更改仓库</span>
+helm repo add &lt;name&gt; &lt;url&gt;
+<span class="hljs-comment"># 删除仓库</span>
+helm repo remove &lt;name&gt;
+
+<span class="hljs-comment"># Error: no available release name found</span>
+<span class="hljs-comment"># 增加权限</span>
+kubectl create serviceaccount --namespace kube-system tiller
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+kubectl patch deploy --namespace kube-system tiller-deploy -p <span class="hljs-string">'{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'</span>
+
+<span class="hljs-comment"># 安装</span>
+helm install &lt;name&gt;/&lt;chart&gt;
+<span class="hljs-comment"># -n release名字</span>
+<span class="hljs-comment"># --namespace &lt;namespace&gt;(默认`default`)</span>
+<span class="hljs-comment"># `ReleaseName-ChartName`</span>
+helm list
+helm delete &lt;release&gt;
+helm upgrade &lt;release&gt; stable/mysql -f 166_myvalues_upgrade.yml
+helm <span class="hljs-built_in">history</span> &lt;release&gt;
+helm rollback &lt;release&gt; &lt;version&gt;
+
+<span class="hljs-comment"># 创建空模板</span>
+helm create &lt;name&gt;
+<span class="hljs-comment"># 校验</span>
+helm lint &lt;name&gt;
+<span class="hljs-comment"># 预览安装yamlf</span>
+helm install --dry-run --debug &lt;name&gt;
+
+helm install ./foo.tgz
+helm install &lt;dir&gt;
+<span class="hljs-comment"># 打包自己的chart</span>
+helm package &lt;chart-dir&gt;
+<span class="hljs-comment"># cd charts dir</span>
+helm repo index myrepo --url &lt;url&gt;
+<span class="hljs-comment"># 生成index.yaml</span>
+<span class="hljs-comment"># cp charts dir to serve</span>
+<span class="hljs-comment"># helm add repo &lt;my-charts&gt;</span>
+
+<span class="hljs-comment"># download</span>
+helm fetch &lt;chart&gt;
+
+<span class="hljs-comment"># reset(on each node)</span>
+sudo kubeadm reset
+clean iptable manually
+sudo iptables -F &amp;&amp; sudo iptables -t nat -F &amp;&amp; sudo iptables -t mangle -F &amp;&amp; sudo iptables -X
+
+<span class="hljs-comment"># migrate from old init yaml</span>
+sudo kubeadm config migrate --old-config k8s-adm.yml
+<span class="hljs-comment"># show default init config(master)</span>
+sudo kubeadm config <span class="hljs-built_in">print</span> init-defaults
+
+<span class="hljs-comment"># get user `admin` token for dashboard</span>
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin | awk <span class="hljs-string">'{print $1}'</span>)
+
+<span class="hljs-comment"># monitor(NodePort)</span>
+kubectl apply -f <span class="hljs-string">"https://cloud.weave.works/k8s/scope.yaml?k8s-version=<span class="hljs-variable">$(kubectl version | base64 | tr -d '\n')</span>&amp;k8s-service-type=NodePort"</span>
+</div></code></pre>
+<h2 id="yaml">YAML</h2>
+<ul>
+<li>k8s的系统组件在<code>kube-system</code>namespace中</li>
+<li>kubelet是唯一不在容器中的组件, Ubuntu中通过systemd运行</li>
+</ul>
+<pre><code class="language-yaml"><div><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">batch/v1</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">batch/v1beta1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Job</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">CronJob</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-comment"># 并发</span>
+<span class="hljs-attr">  parallelism:</span> <span class="hljs-number">2</span>
+  <span class="hljs-comment"># 总数</span>
+<span class="hljs-attr">  completions:</span> <span class="hljs-number">6</span>
+<span class="hljs-attr">  schedule:</span> <span class="hljs-string">"* * * * *"</span>
+<span class="hljs-attr">restartPolicy:</span> <span class="hljs-string">Never</span>
+<span class="hljs-attr">restartPolicy:</span> <span class="hljs-string">OnFailure</span>
+
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Service</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">httpd-svc</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-comment"># 开启节点端口</span>
+<span class="hljs-attr">  type:</span> <span class="hljs-string">NodePort</span>
+<span class="hljs-attr">  selector:</span>
+<span class="hljs-attr">    run:</span> <span class="hljs-string">httpd</span>
+<span class="hljs-attr">  ports:</span>
+<span class="hljs-attr">    - protocol:</span> <span class="hljs-string">TCP</span>
+      <span class="hljs-comment"># 节点</span>
+<span class="hljs-attr">      nodePort:</span> <span class="hljs-number">30000</span>
+      <span class="hljs-comment"># ClusterIP</span>
+<span class="hljs-attr">      port:</span> <span class="hljs-number">8080</span>
+      <span class="hljs-comment"># Pod</span>
+<span class="hljs-attr">      targetPort:</span> <span class="hljs-number">80</span>
+</div></code></pre>
+<h2 id="note">Note</h2>
+<h3 id="network-policy172">Network Policy(172)</h3>
+<p>当设置<code>replicas</code>, 如果<code>ingress</code>CIDR仅设置<code>Node</code>级别, 则使用<code>&lt;nodeIP&gt;:&lt;port&gt;</code>
+方式访问到其他<code>Node</code>上的<code>Pod</code>, 会访问不到, 需要同时设置<code>Pod</code>级别的<code>ingress</code></p>
+<h3 id="persistentvolume">PersistentVolume</h3>
+<ul>
+<li>nfs创建后, 如果挂载是在<code>/nfsdata</code>, 则使用时<code>&lt;ip&gt;/</code>即为前面根目录, 不加<code>/nfsdata</code></li>
+<li>使用时需要提前创建<code>nfs</code>下的目录, 否则Pod无法启动</li>
+</ul>
+<h2 id="install">Install</h2>
+<pre><code class="language-sh"><div>curl -fsSL https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add -
+cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb [arch=amd64] https://mirrors.ustc.edu.cn/kubernetes/apt kubernetes-xenial main
+EOF
+sudo apt update
+sudo apt install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+<span class="hljs-comment"># https://serverfault.com/a/684792/380738</span>
+cat /proc/swaps
+sudo swapoff -a
+sudo vim /etc/fstab
+<span class="hljs-comment"># comment swap line</span>
+</div></code></pre>
+<h2 id="initialization">Initialization</h2>
+<blockquote>
+<p><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/</a>
+<a href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#config-file">https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#config-file</a></p>
+</blockquote>
+<pre><code class="language-bash"><div><span class="hljs-comment">### on master</span>
+<span class="hljs-comment"># refer to change init.yml</span>
+<span class="hljs-comment"># ! podSubnet need choose a network first !</span>
+sudo kubeadm config <span class="hljs-built_in">print</span> init-defaults
+sudo kubeadm init --config init.yml
+<span class="hljs-comment"># copy kubeadm join xxx</span>
+
+<span class="hljs-comment"># make kubectl work for your non-root user</span>
+mkdir -p <span class="hljs-variable">$HOME</span>/.kube
+sudo cp -i /etc/kubernetes/admin.conf <span class="hljs-variable">$HOME</span>/.kube/config
+sudo chown $(id -u):$(id -g) <span class="hljs-variable">$HOME</span>/.kube/config
+
+<span class="hljs-comment">### on join node</span>
+<span class="hljs-comment"># paste</span>
+sudo kubeadm join xxx
+
+<span class="hljs-comment"># Installing a pod network add-on</span>
+<span class="hljs-comment"># https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network</span>
+<span class="hljs-comment"># choose one(below for flannel)</span>
+kubectl apply -f xxxx/kube-flannel.yml
+
+<span class="hljs-comment">### on master</span>
+kubectl get nodes
+
+<span class="hljs-comment">### on local</span>
+mkdir <span class="hljs-variable">$HOME</span>/.kube
+ssh &lt;server&gt; <span class="hljs-string">"kubectl config view --flatten"</span> &gt; config
+kubectl get nodes
+</div></code></pre>
+<h2 id="upgrade">Upgrade</h2>
+<blockquote>
+<p><a href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/">https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/</a></p>
+</blockquote>
+<h3 id="upgrade-the-control-plane">Upgrade the control plane</h3>
+<pre><code class="language-sh"><div><span class="hljs-comment"># 1 On master node, upgrade kubeadm</span>
+sudo apt-mark unhold kubelet kubeadm &amp;&amp; \
+sudo apt update &amp;&amp; sudo apt upgrade -y kubelet kubeadm &amp;&amp; \
+sudo apt-mark hold kubelet kubeadm
+
+<span class="hljs-comment"># 2 Verify</span>
+kubeadm version
+
+<span class="hljs-comment"># 3 显示将要升级的内容</span>
+sudo kubeadm upgrade plan
+<span class="hljs-comment"># kubeadm upgrade apply 如果出现多次要依次升级(如果升级失败, 执行此处)</span>
+
+<span class="hljs-comment"># 4 列出当前版本需要的image tag</span>
+kubeadm config images list
+<span class="hljs-comment"># 指定查看版本对应images(指定则不检查最新版本)</span>
+kubeadm config images list --kubernetes-version=v1.xx.x
+
+<span class="hljs-comment"># 5 修改, 拉取并打官方tag</span>
+04_pull_image.sh
+
+<span class="hljs-comment"># 6 升级</span>
+sudo kubeadm upgrade apply vx.xx.x
+</div></code></pre>
+<h3 id="upgrade-master-and-node-packages">Upgrade master and node packages</h3>
+<pre><code class="language-sh"><div>
+<span class="hljs-comment">### on master</span>
+<span class="hljs-comment"># 1. 剔除node</span>
+<span class="hljs-comment"># in master, $NODE is node name pt-4</span>
+<span class="hljs-comment"># master节点必须加 --ignore-daemonsets</span>
+<span class="hljs-comment"># master上依次剔除所有节点</span>
+kubectl drain <span class="hljs-variable">$NODE</span> --ignore-daemonsets
+<span class="hljs-comment"># or</span>
+kubectl drain ip-172-31-85-18 --ignore-daemonsets
+
+<span class="hljs-comment">### on each node</span>
+<span class="hljs-comment"># 2. 安装package</span>
+sudo apt-mark unhold kubelet kubeadm &amp;&amp; \
+sudo apt update &amp;&amp; sudo apt upgrade -y kubelet kubeadm &amp;&amp; \
+sudo apt-mark hold kubelet kubeadm
+kubeadm version
+
+<span class="hljs-comment"># 3. 手动下载image</span>
+<span class="hljs-comment"># 显示将要升级的内容</span>
+sudo kubeadm upgrade plan
+<span class="hljs-comment"># 列出当前版本需要的image tag</span>
+kubeadm config images list
+<span class="hljs-comment"># 修改, 拉取并打官方tag</span>
+04_pull_image.sh
+
+<span class="hljs-comment"># 4. upgrade kubelet on each node</span>
+sudo kubeadm upgrade node config --kubelet-version $(kubelet --version | cut -d <span class="hljs-string">' '</span> -f 2)
+sudo systemctl restart kubelet.service
+sudo systemctl status kubelet.service
+<span class="hljs-comment"># on master</span>
+kubectl uncordon <span class="hljs-variable">$NODE</span>
+<span class="hljs-comment"># check</span>
+kubectl get nodes
+</div></code></pre>
+
+    </body>
+    </html>

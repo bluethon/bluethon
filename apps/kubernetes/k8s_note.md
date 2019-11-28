@@ -207,8 +207,7 @@ spec:
       targetPort: 80
 ```
 
-Note
-----
+## Note
 
 ### Network Policy(172)
 
@@ -220,8 +219,7 @@ Note
 - nfs创建后, 如果挂载是在`/nfsdata`, 则使用时`<ip>/`即为前面根目录, 不加`/nfsdata`
 - 使用时需要提前创建`nfs`下的目录, 否则Pod无法启动
 
-Install
--------
+## Install
 
 ``` sh
 curl -fsSL https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add -
