@@ -90,6 +90,7 @@ sudo lvremove /dev/vg1/var_ext
 # 如果是全用, 按G输入会报错, 因为实际差若干M
 # 可以先分99%, 剩下扩展
 # -r resizefs, 调整lv大小后调整文件系统, 有数据时必加!!!
+# -r必加, 已经又错误一次(2020-01-26)
 sudo lvextend -r -L [+]1020M /dev/vg1/var_ext
 # 减少
 sudo lvreduce -r -L -4G /dev/vg1/var_ext   # 减少4G

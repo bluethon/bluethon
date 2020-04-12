@@ -19,6 +19,9 @@ sudo vgdisplay
 sudo vgextend vg-name /dev/sdb
 
 # re-size non swap partition
+# # -r resize lv
+sudo lvresize -r -L -8G /dev/mapper/lv-xxx
+# or
 sudo resize2fs /dev/mapper/xxxx-home
 
 ### Resize Swap Partition
