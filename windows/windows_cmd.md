@@ -16,6 +16,8 @@
     wmic os get caption         windows版本
     slmgr.vbs /skms <server>:<port>
                                 可以指定端口
+    
+    taskkill /f /im notepad.exe 批量结束进程
 
 ---
 

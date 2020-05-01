@@ -113,6 +113,7 @@ git config --global user.email "j5088794@gmail.com"
 git config --global core.editor vim
 # 只push当前分支
 git config --global push.default current
+git config --global alias.acp '!f() { git add -A && git commit -m "$@" && git push; }; f'
 ```
 
 ### 误提交或者不再跟踪
@@ -197,15 +198,3 @@ url末尾加`/compare`
 ### 提交[branch1]为远程的[branch2]
 
 `git push origin branch1:branch2`
-
-## Git Note
-
-别名 当前仓库.git/config中
-
-有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次git status都会显示“Untracked files ...”，有强迫症的童鞋心里肯定不爽。
-
-好在Git考虑到了大家的感受，这个问题解决起来也很简单，在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
-
-不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：<https://github.com/github/gitignore>
-
-使用Windows的童鞋注意了，如果你在资源管理器里新建一个.gitignore文件，它会非常弱智地提示你必须输入文件名，但是在文本编辑器里“保存”或者“另存为”就可以把文件保存为.gitignore了
