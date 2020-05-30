@@ -21,6 +21,15 @@
 
 ---
 
+### 定时休眠(Admin)
+
+    # 开启休眠
+    powercfg -h on
+    # 添加计划任务
+    # 名称为<my-standby>
+    # 计划执行时间为20:30
+    schtasks /create /tn <my-standby> /tr "rundll32.exe powrprof.dll,SetSuspendState" /sc once /st 20:30
+
 ### 添加自启动服务
 
     # 创建
