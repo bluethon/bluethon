@@ -29,3 +29,12 @@
 > https://superuser.com/a/15801/603441
 
 管理员执行`powercfg -lastwake`, 找出设备名称, `计算机-管理-设备属性-电源管理`, 关闭允许唤醒
+
+### 设置等默认开机输入法
+
+> https://github.com/microsoft/terminal/issues/1304#issuecomment-706784166
+
+- 系统语言设置中文/简体删除美式键盘
+- 添加英语/美国
+- 切换热键修改
+  - 输入 / 高级键盘设置 /语言栏选项 / 高级键设置 / 在输入语音之间 / Ctrl+Shift
