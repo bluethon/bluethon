@@ -23,3 +23,11 @@ code --list-extensions | xargs -L 1 echo code --install-extension
 - 配置vscodevim
   - 注意路径用双反斜线
   - 语言默认1033(英文)
+
+### Git Bash 历史记录不生效
+
+> <https://code.visualstudio.com/docs/editor/integrated-terminal#_git-bash-isnt-saving-history-when-i-close-the-terminal>
+
+在windows下的`~/.bashrc`中增加
+
+    export PROMPT_COMMAND='history -a'
