@@ -208,6 +208,12 @@ set -x                                      # 显示参数和命令
     +x                                      # 关闭调试
 #!/bin/bash -xv                             # (同上)
 man 2 connect                               # 查看Linux内核connect()方法的帮助
+journalctl                                  # 查看日志
+    -f                                      # 只显示最新的日志项， 并且不断显示新生成的日志项
+    -u                                      # 仅显示特定Unit|Pattern内容
+                                            # `ps -e -o pid,unit,cmd`, 使用此命令查看Unit列表
+                                            # <http://www.jinbuguo.com/systemd/journalctl.html>
+journalctl -f -u docker                     # 查看
 
 ### network
 ping -c <num> <IP>                          # ping <num> times
